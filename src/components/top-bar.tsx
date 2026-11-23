@@ -3,7 +3,15 @@ import { Search } from "lucide-react";
 const chromeButton =
   "min-h-11 rounded-md border border-chrome-line px-3.5 text-label font-normal text-surface transition-colors duration-150 ease-out hover:bg-chrome-raised";
 
-export function TopBar({ pickCount }: { pickCount: number }) {
+export function TopBar({
+  pickCount,
+  onBuildSheet,
+  onStartOver,
+}: {
+  pickCount: number;
+  onBuildSheet: () => void;
+  onStartOver: () => void;
+}) {
   return (
     <header data-chrome className="flex flex-wrap items-center gap-4 bg-chrome px-5 py-3.5 text-surface">
       <div className="flex items-center gap-2.5 font-display text-logo font-bold tracking-[-0.02em]">
@@ -24,10 +32,10 @@ export function TopBar({ pickCount }: { pickCount: number }) {
         </span>
       </label>
 
-      <button type="button" className={chromeButton}>
+      <button type="button" className={chromeButton} onClick={onBuildSheet}>
         Build sheet · {pickCount} picks
       </button>
-      <button type="button" className={chromeButton}>
+      <button type="button" className={chromeButton} onClick={onStartOver}>
         Start over
       </button>
     </header>

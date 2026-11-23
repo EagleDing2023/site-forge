@@ -9,7 +9,15 @@ export type RailStep = {
   done: boolean;
 };
 
-export function Rail({ steps, activeIndex }: { steps: RailStep[]; activeIndex: number }) {
+export function Rail({
+  steps,
+  activeIndex,
+  onSelect,
+}: {
+  steps: RailStep[];
+  activeIndex: number;
+  onSelect: (index: number) => void;
+}) {
   return (
     <nav
       aria-label="Design layers"
@@ -24,6 +32,7 @@ export function Rail({ steps, activeIndex }: { steps: RailStep[]; activeIndex: n
             <button
               type="button"
               aria-current={active ? "step" : undefined}
+              onClick={() => onSelect(i)}
               className={cn(
                 "flex min-h-11 w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-left transition-colors duration-150 ease-out",
                 active ? "bg-ink text-surface" : "hover:bg-surface-hover",

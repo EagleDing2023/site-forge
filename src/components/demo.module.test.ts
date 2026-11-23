@@ -27,6 +27,12 @@ describe("demo.module.css", () => {
   it("never reads app tokens", () => {
     expect(css).not.toMatch(/--color-|--font-(display|sans|mono)|--radius/);
   });
+
+  it("type, radius and density previews use only user tokens (they follow Mood)", () => {
+    const rules = css.split("\n").filter((l) => /^\.(typ|rad|den)[\s{]/.test(l));
+    expect(rules).toHaveLength(7);
+    for (const r of rules) expect(r, r).not.toMatch(/#[0-9a-fA-F]{3,8}\b|rgba?\(/);
+  });
 });
 
 const KEYWORDS = new Set([

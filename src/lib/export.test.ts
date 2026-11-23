@@ -1,0 +1,111 @@
+import { readFileSync } from "node:fs";
+import { describe, expect, it } from "vitest";
+import { FX, MOODS, STEPS, type Picks } from "@/data/catalog";
+import { buildExport, type ExportFiles } from "./export";
+import { userTokens } from "./tokens";
+
+// Golden reference: the prototype's own <script> block, run unchanged. Only
+// its DCLogic base class (the canvas runtime) is stubbed.
+const html = readFileSync(new URL("../../site-forge-handoff/refs/prototype.dc.html", import.meta.url), "utf8");
+const script = html.match(/<script type="text\/x-dc"[^>]*>([\s\S]*?)<\/script>/)![1];
+type Proto = { state: { picks: Picks }; tokens(): unknown; buildExport(t: unknown): ExportFiles };
+const Component = new Function(
+  "DCLogic",
+  `${script}\nreturn Component;`,
+)(class { constructor(public props: unknown) {} }) as new (props: unknown) => Proto;
+
+function reference(picks: Picks): ExportFiles {
+  const c = new Component({});
+  c.state.picks = picks;
+  const { md, prompt, css } = c.buildExport(c.tokens());
+  return { md, prompt, css };
+}
+
+const ours = (picks: Picks) => buildExport(picks, userTokens(picks));
+
+// Small seeded PRNG so failures reproduce.
+function rng(seed: number) {
+  return () => {
+    seed = (seed + 0x6d2b79f5) | 0;
+    let x = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    x = (x + Math.imul(x ^ (x >>> 7), 61 | x)) ^ x;
+    return ((x ^ (x >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function randomPicks(r: () => number): Picks {
+  const picks: Picks = {};
+  for (const s of STEPS) {
+    if (s.kind === "single" && r() < 0.75) picks[s.id] = s.items[Math.floor(r() * s.items.length)].id;
+    if (s.kind === "multi" && r() < 0.75) {
+      // Random subset in random order: pick order changes the output.
+      const ids = s.items.map((i) => i.id).sort(() => r() - 0.5);
+      picks[s.id] = ids.slice(0, Math.floor(r() * (ids.length + 1)));
+    }
+  }
+  return picks;
+}
+
+describe("buildExport matches the prototype byte for byte", () => {
+  it("with nothing picked", () => {
+    expect(ours({})).toEqual(reference({}));
+  });
+
+  it("with each option picked on its own", () => {
+    for (const s of STEPS)
+      for (const it of s.items) {
+        const picks: Picks = { [s.id]: s.kind === "multi" ? [it.id] : it.id };
+        expect(ours(picks), `${s.id}/${it.id}`).toEqual(reference(picks));
+      }
+  });
+
+  it("with Mono accent on every mood (the dark-mood flip)", () => {
+    for (const m of MOODS) {
+      const picks: Picks = { mood: m.id, palette: "mono" };
+      expect(ours(picks), m.id).toEqual(reference(picks));
+    }
+  });
+
+  it("with every option in every layer picked", () => {
+    const picks: Picks = {};
+    for (const s of STEPS) {
+      if (s.kind === "single") picks[s.id] = s.items[s.items.length - 1].id;
+      if (s.kind === "multi") picks[s.id] = s.items.map((i) => i.id);
+    }
+    expect(ours(picks)).toEqual(reference(picks));
+  });
+
+  it("over 1000 random pick sets", () => {
+    const r = rng(20261123);
+    for (let n = 0; n < 1000; n++) {
+      const picks = randomPicks(r);
+      expect(ours(picks), JSON.stringify(picks)).toEqual(reference(picks));
+    }
+  });
+});
+
+describe("DESIGN.md content (spec 'Done means')", () => {
+  const picks: Picks = {
+    purpose: "dash", skeleton: "shell", mood: MOODS[3].id,
+    buttons: "solid", fx: ["aurora", "para"], data: ["stat"],
+  };
+  const { md } = ours(picks);
+  const t = userTokens(picks);
+
+  it("names the purpose and skeleton", () => {
+    expect(md).toContain("## 1. Purpose\nDashboard / analytics.");
+    expect(md).toContain("## 2. Layout skeleton\nSidebar app shell.");
+  });
+
+  it("lists every token value", () => {
+    for (const v of [t.mood.bg, t.mood.surf, t.mood.ink, t.mood.muted, t.mood.line, t.acc, t.accInk, t.type.hn, t.type.bn, `${t.r}px`, t.mood.sh])
+      expect(md).toContain(v);
+  });
+
+  it("includes picked prompt lines, libraries, rules and forbidden list", () => {
+    for (const id of ["aurora", "para"]) expect(md).toContain(FX.find((f) => f.id === id)!.prompt);
+    expect(md).toContain("## 8. Libraries");
+    expect(md).toContain("## 9. Rules");
+    expect(md).toContain("## 10. Forbidden");
+  });
+});

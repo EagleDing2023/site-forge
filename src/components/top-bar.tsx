@@ -4,10 +4,14 @@ const chromeButton =
   "min-h-11 rounded-md border border-chrome-line px-3.5 text-label font-normal text-surface transition-colors duration-150 ease-out hover:bg-chrome-raised";
 
 export function TopBar({
+  query,
+  onQuery,
   pickCount,
   onBuildSheet,
   onStartOver,
 }: {
+  query: string;
+  onQuery: (q: string) => void;
   pickCount: number;
   onBuildSheet: () => void;
   onStartOver: () => void;
@@ -25,6 +29,8 @@ export function TopBar({
           type="text"
           aria-label="Search every option"
           placeholder="Search everything: dashboard, glass, drawer, serif, scroll…"
+          value={query}
+          onChange={(e) => onQuery(e.target.value)}
           className="min-h-[42px] min-w-0 flex-1 bg-transparent text-body text-surface outline-none placeholder:text-chrome-text"
         />
         <span className="rounded-[5px] border border-chrome-line px-1.5 py-0.5 font-mono text-eyebrow text-chrome-text">

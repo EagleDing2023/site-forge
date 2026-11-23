@@ -10,12 +10,15 @@ export function OptionCard({
   selected,
   fits,
   onPick,
+  showLayer = false,
 }: {
   step: Step;
   item: Item;
   selected: boolean;
   fits: boolean;
   onPick: () => void;
+  /** Search results name the layer each option comes from. */
+  showLayer?: boolean;
 }) {
   return (
     <button
@@ -29,6 +32,7 @@ export function OptionCard({
           : "border-line p-2.5 hover:-translate-y-px hover:border-line-strong hover:shadow-hover",
       )}
     >
+      {showLayer && <span className="eyebrow text-muted-2">{step.name}</span>}
       <OptionPreview step={step} item={item} />
       <span className="flex items-center justify-between gap-1.5 text-label font-semibold">
         {item.name}

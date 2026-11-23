@@ -1,0 +1,905 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Site Forge — website character creator</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Space+Grotesk:wght@500;600;700&amp;family=Geist:wght@400;600&amp;family=Geist+Mono:wght@400;600&amp;family=Instrument+Serif&amp;family=Fraunces:opsz,wght@9..144,600&amp;family=DM+Sans:wght@400;600&amp;family=Playfair+Display:wght@600&amp;family=Manrope:wght@400;700&amp;family=IBM+Plex+Mono:wght@400;600&amp;family=IBM+Plex+Sans:wght@400;600&amp;family=Bricolage+Grotesque:wght@600&amp;family=Sora:wght@400;600&amp;family=Outfit:wght@400;600&amp;family=JetBrains+Mono:wght@400;600&amp;family=Silkscreen&amp;family=Space+Mono&amp;display=swap">
+<style>
+body{margin:0;background:#F2F3F5}
+a{color:#C2410C}a:hover{color:#9A3412}
+*{box-sizing:border-box}
+.app{font-family:Inter,system-ui,sans-serif;color:#0F1115;background:#F2F3F5;min-height:100vh}
+.top{display:flex;flex-wrap:wrap;align-items:center;gap:16px;padding:14px 20px;background:#0F1115;color:#fff}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:-.02em;display:flex;align-items:center;gap:10px}
+.logo i{display:block;width:22px;height:22px;border-radius:6px;background:#FF5A1F;box-shadow:6px 6px 0 #fff2}
+.tag{font-size:13px;color:#A8AEBB}
+.search{flex:1 1 320px;display:flex;align-items:center;gap:8px;background:#1C1F26;border:1px solid #2C313B;border-radius:10px;padding:0 12px;min-height:44px}
+.search input{flex:1;background:transparent;border:0;color:#fff;font:inherit;font-size:15px;outline:none;min-height:42px}
+.search input::placeholder{color:#8A91A0}
+.kbd{font-family:'JetBrains Mono',monospace;font-size:11px;color:#A8AEBB;border:1px solid #3A404C;border-radius:5px;padding:2px 6px}
+.tbtn{background:transparent;color:#E6E8EC;border:1px solid #3A404C;border-radius:10px;padding:0 14px;min-height:44px;font:inherit;font-size:14px;cursor:pointer}
+.tbtn:hover{background:#1C1F26}
+.body{display:flex;flex-wrap:wrap;gap:16px;padding:16px;align-items:flex-start}
+.rail{flex:0 1 250px;min-width:220px;background:#fff;border:1px solid #E3E5EA;border-radius:14px;padding:10px}
+.layer{font-family:'JetBrains Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#6A7180;padding:12px 10px 4px}
+.step{width:100%;display:flex;gap:10px;align-items:center;text-align:left;background:transparent;border:0;border-radius:10px;padding:8px 10px;min-height:44px;cursor:pointer;font:inherit;color:inherit}
+.step:hover{background:#F4F5F7}
+.step.on{background:#0F1115;color:#fff}
+.sn{flex:none;width:24px;height:24px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600;background:#EEF0F3;color:#3B4150}
+.step.done .sn{background:#FF5A1F;color:#fff}
+.step.on .sn{background:#fff;color:#0F1115}
+.st{display:flex;flex-direction:column;min-width:0}
+.st b{font-weight:600;font-size:14px}
+.st small{font-size:12px;color:#6A7180;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:170px}
+.step.on .st small{color:#B9BEC8}
+.main{flex:999 1 520px;min-width:0;background:#fff;border:1px solid #E3E5EA;border-radius:14px;padding:22px}
+.eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#C2410C}
+.h1{font-family:'Space Grotesk',sans-serif;font-size:30px;line-height:1.1;letter-spacing:-.02em;margin:6px 0 6px;font-weight:700}
+.hint{color:#4B5260;font-size:15px;margin:0 0 4px;max-width:720px}
+.analogy{color:#6A7180;font-size:13px;margin:0 0 18px}
+.sec{font-size:13px;font-weight:600;color:#3B4150;margin:18px 0 10px;display:flex;align-items:center;gap:8px}
+.sec em{font-style:normal;font-family:'JetBrains Mono',monospace;font-size:11px;color:#6A7180;font-weight:400}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.opt{position:relative;text-align:left;background:#fff;border:1px solid #E3E5EA;border-radius:12px;padding:10px;cursor:pointer;font:inherit;color:inherit;display:flex;flex-direction:column;gap:8px;transition:border-color .15s,box-shadow .15s,transform .15s}
+.opt:hover{border-color:#B9BEC8;box-shadow:0 6px 18px rgba(15,17,21,.07);transform:translateY(-1px)}
+.opt.sel{border:2px solid #FF5A1F;padding:9px;box-shadow:0 0 0 4px #FF5A1F1f}
+.opt .nm{font-weight:600;font-size:14px;display:flex;justify-content:space-between;gap:6px;align-items:center}
+.opt .ds{font-size:12.5px;color:#5B6270;line-height:1.4}
+.chk{flex:none;width:20px;height:20px;border-radius:999px;background:#FF5A1F;color:#fff;display:flex;align-items:center;justify-content:center}
+.badges{display:flex;flex-wrap:wrap;gap:4px}
+.bdg{font-size:10.5px;font-weight:600;padding:2px 7px;border-radius:999px;background:#F1F2F4;color:#4B5260}
+.bdg.fit{background:#E7F6EE;color:#0B6B3A}
+.bdg.sig{background:#FFEDE5;color:#B23C0B}
+.bdg.lib{background:#EEF1FF;color:#2B3FB0}
+.res-step{font-family:'JetBrains Mono',monospace;font-size:10.5px;color:#6A7180;text-transform:uppercase;letter-spacing:.06em}
+.warn{margin:14px 0 0;padding:12px 14px;border-radius:10px;background:#FFF4E5;border:1px solid #FFD9A8;color:#7A3E00;font-size:13.5px}
+.navrow{display:flex;justify-content:space-between;gap:10px;margin-top:22px;flex-wrap:wrap}
+.btn{min-height:44px;padding:0 18px;border-radius:10px;font:inherit;font-weight:600;font-size:14px;cursor:pointer;border:1px solid #D5D8DE;background:#fff;color:#0F1115}
+.btn:hover{background:#F4F5F7}
+.btn.pri{background:#0F1115;color:#fff;border-color:#0F1115}
+.btn.pri:hover{background:#262A33}
+.side{flex:1 1 380px;max-width:520px;min-width:0;display:flex;flex-direction:column;gap:16px}
+.card{background:#fff;border:1px solid #E3E5EA;border-radius:14px;padding:14px}
+.ch{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+.ch b{font-family:'Space Grotesk',sans-serif;font-size:16px}
+.sq{min-height:36px;padding:0 12px;border-radius:999px;border:1px solid #D5D8DE;background:#fff;font:inherit;font-size:12.5px;cursor:pointer;display:flex;align-items:center;gap:6px}
+.sq.on{background:#0F1115;color:#fff;border-color:#0F1115}
+.cap{font-size:12px;color:#6A7180;margin-top:8px}
+.sheet{display:flex;flex-direction:column;gap:2px}
+.srow{display:flex;gap:10px;text-align:left;background:transparent;border:0;border-radius:8px;padding:7px 8px;cursor:pointer;font:inherit;color:inherit;min-height:40px;align-items:baseline}
+.srow:hover{background:#F4F5F7}
+.srow span{flex:none;width:96px;font-size:12px;color:#6A7180}
+.srow b{font-weight:500;font-size:13px}
+.empty{font-size:13px;color:#6A7180;padding:6px 8px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;margin:6px 0 12px}
+.tab{min-height:40px;padding:0 14px;border-radius:999px;border:1px solid #D5D8DE;background:#fff;font:inherit;font-size:13.5px;font-weight:600;cursor:pointer}
+.tab.on{background:#0F1115;color:#fff;border-color:#0F1115}
+.out{width:100%;min-height:420px;font-family:'JetBrains Mono',monospace;font-size:12.5px;line-height:1.55;border:1px solid #E3E5EA;border-radius:10px;padding:14px;background:#FAFAFB;color:#1B1F27;resize:vertical}
+.miss{font-size:13px;color:#4B5260;margin:0 0 12px}
+
+/* ---------- live mannequin ---------- */
+.mq{position:relative;width:100%;aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:var(--bg);border:1px solid #E3E5EA;transition:filter .3s,background .3s}
+.mq.squint{filter:blur(6px)}
+.rg{position:absolute;box-sizing:border-box;padding:calc(5px*var(--d));border-radius:var(--rc);background:var(--surf);border:1px solid var(--line);box-shadow:var(--sh);overflow:hidden;font-family:var(--bf);color:var(--ink);transition:all .35s ease}
+.rl{position:relative;z-index:1;font-size:clamp(7px,0.8vw,11px);font-weight:600;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.lines{position:absolute;left:10%;right:10%;top:42%;bottom:12%;background:repeating-linear-gradient(to bottom,var(--line) 0 3px,transparent 3px 10px)}
+.k-side{background:color-mix(in srgb,var(--surf) 65%,var(--bg))}
+.k-nav .lines,.k-hero .lines,.k-cta .lines,.k-input .lines,.k-chat .lines,.k-media .lines{display:none}
+.k-hero{background:transparent;border-color:transparent;box-shadow:none}
+.k-hero .rl{font-family:var(--hf);font-size:clamp(11px,1.9vw,26px);font-weight:600;color:var(--ink);white-space:normal;line-height:1.05}
+.k-cta{background:var(--acc);border-color:transparent;display:flex;align-items:center;justify-content:center}
+.k-cta .rl{color:var(--accInk)}
+.k-media{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--acc) 22%,var(--surf)) 0 7px,var(--surf) 7px 14px)}
+.k-chat{background:color-mix(in srgb,var(--acc) 22%,var(--surf))}
+.k-table .lines{top:30%;left:6%;right:6%;background:repeating-linear-gradient(to bottom,var(--line) 0 1px,transparent 1px 9px)}
+.m-brutal .rg:not(.k-hero){border:2px solid var(--ink)}
+.m-glass,.fx-glass{background:radial-gradient(circle at 18% 28%,color-mix(in srgb,var(--acc) 45%,transparent) 0,transparent 42%),radial-gradient(circle at 82% 72%,#FFB8D9 0,transparent 40%),var(--bg)}
+.m-glass .rg:not(.k-hero):not(.k-cta),.fx-glass .rg:not(.k-hero):not(.k-cta),.c-glass .k-card{background:color-mix(in srgb,var(--surf) 55%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.m-pixel .rg{image-rendering:pixelated}
+.c-border .k-card{box-shadow:none}
+.c-shadow .k-card{border-color:transparent;box-shadow:0 8px 22px rgba(0,0,0,.13)}
+.c-bento .k-card,.c-bento .k-media{border-radius:calc(var(--rc) + 6px)}
+.c-spotlight .k-card{background:radial-gradient(circle at 30% 20%,color-mix(in srgb,var(--acc) 30%,transparent),var(--surf) 62%)}
+.c-tilt .k-card{transform:perspective(500px) rotateY(-7deg)}
+.c-brutal .k-card,.c-brutal .k-media{border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.c-media .k-card{background:linear-gradient(color-mix(in srgb,var(--acc) 25%,var(--surf)) 0 42%,var(--surf) 42%)}
+.c-beam .k-card{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc),0 0 14px color-mix(in srgb,var(--acc) 40%,transparent)}
+.b-tonal .k-cta{background:color-mix(in srgb,var(--acc) 18%,var(--surf))}.b-tonal .k-cta .rl{color:var(--acc)}
+.b-outline .k-cta{background:transparent;border:2px solid var(--acc)}.b-outline .k-cta .rl{color:var(--acc)}
+.b-ghost .k-cta{background:transparent;box-shadow:none}.b-ghost .k-cta .rl{color:var(--acc);text-decoration:underline}
+.b-pill .k-cta{border-radius:999px}
+.b-glass .k-cta{background:color-mix(in srgb,var(--surf) 40%,transparent);border:1px solid color-mix(in srgb,#fff 60%,transparent);backdrop-filter:blur(8px)}.b-glass .k-cta .rl{color:var(--ink)}
+.b-brutal .k-cta{border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.b-lift .k-cta{box-shadow:0 8px 18px color-mix(in srgb,var(--acc) 45%,transparent);transform:translateY(-2px)}
+.b-shimmer .k-cta::after,.b-magnetic .k-cta::after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);background-size:250% 100%;animation:sweep 2.2s infinite}
+.n-float .k-nav{left:22%!important;width:56%!important;top:2.5%!important;height:7%!important;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.14)}
+.n-tabbar .k-nav{border-radius:0}
+.fx-dots{background-image:radial-gradient(var(--line) 1px,transparent 1.2px);background-size:14px 14px}
+.fx-aurora{background:radial-gradient(circle at 25% 15%,color-mix(in srgb,var(--acc) 40%,transparent),transparent 45%),radial-gradient(circle at 75% 85%,color-mix(in srgb,var(--acc) 25%,transparent),transparent 45%),var(--bg)}
+.fx-lift .k-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,.15)}
+.fx-reveal .rg{animation:fadeUp .6s both;animation-delay:calc(var(--i) * 70ms)}
+.fx-grain::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.18;background-image:repeating-radial-gradient(circle at 17% 32%,#000 0 .5px,transparent .6px 2px),repeating-radial-gradient(circle at 71% 61%,#000 0 .5px,transparent .6px 3px)}
+
+/* mini skeletons on option cards */
+.mini{position:relative;width:100%;aspect-ratio:16/10;border-radius:8px;background:var(--bg);border:1px solid var(--line);overflow:hidden}
+.mrg{position:absolute;border-radius:calc(var(--rc) * .4);background:var(--surf);border:1px solid var(--line)}
+.mrg.k-hero{background:var(--ink);opacity:.8;border:0;height:auto!important;max-height:12%;border-radius:2px}
+.mrg.k-cta{background:var(--acc);border:0}
+.mrg.k-media{background:color-mix(in srgb,var(--acc) 25%,var(--surf))}
+.mrg.k-side{background:color-mix(in srgb,var(--surf) 60%,var(--bg))}
+.mrg.k-chat{background:color-mix(in srgb,var(--acc) 35%,var(--surf))}
+.sws{display:flex;height:56px;border-radius:8px;overflow:hidden;border:1px solid #E3E5EA}
+.sws span{flex:1}
+.aa{font-size:26px;line-height:1;margin-top:-2px}
+.swatch{height:56px;border-radius:8px;border:1px solid #0000001a}
+.typ{height:88px;border-radius:8px;background:#F7F7F8;padding:10px 12px;display:flex;flex-direction:column;justify-content:center;gap:4px;overflow:hidden}
+.typ .th{font-size:24px;line-height:1.05;color:#0F1115}
+.typ .tb{font-size:12px;color:#4B5260}
+.rad{height:88px;display:flex;align-items:center;justify-content:center;background:#F7F7F8;border-radius:8px}
+.rad i{display:block;width:96px;height:52px;background:var(--acc);opacity:.9}
+.den{height:88px;display:flex;flex-direction:column;justify-content:center;padding:0 16px;background:#F7F7F8;border-radius:8px}
+.den i{display:block;height:7px;border-radius:3px;background:#C9CDD4}
+
+/* ---------- live demos (every one moves or reacts) ---------- */
+.demo{position:relative;height:88px;border-radius:8px;background:var(--bg);border:1px solid var(--line);overflow:hidden;display:flex;align-items:center;justify-content:center;gap:8px;font-family:var(--bf);color:var(--ink);font-size:12px}
+.demo span{display:none;box-sizing:border-box}
+.demo .d1{display:block}
+.opt:active .demo .d1{transform:scale(.97)}
+/* buttons */
+.b-solid .d1,.b-pill .d1,.b-lift .d1,.b-shimmer .d1,.b-magnetic .d1,.b-brutal .d1{background:var(--acc);color:var(--accInk);padding:10px 18px;border-radius:var(--rc);font-weight:600;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s}
+.b-solid .d1:hover{filter:brightness(1.08)}
+.b-pill .d1{border-radius:999px}
+.b-tonal .d1{background:color-mix(in srgb,var(--acc) 16%,var(--surf));color:var(--acc);padding:10px 18px;border-radius:var(--rc);font-weight:600;transition:background .2s}
+.b-tonal .d1:hover{background:color-mix(in srgb,var(--acc) 26%,var(--surf))}
+.b-outline .d1{border:1.5px solid var(--acc);color:var(--acc);padding:9px 17px;border-radius:var(--rc);font-weight:600;transition:background .2s}
+.b-outline .d1:hover{background:color-mix(in srgb,var(--acc) 10%,transparent)}
+.b-ghost .d1{color:var(--acc);padding:10px 14px;border-radius:var(--rc);font-weight:600;transition:background .2s}
+.b-ghost .d1:hover{background:color-mix(in srgb,var(--acc) 10%,transparent)}
+.demo.b-glass{background:radial-gradient(circle at 25% 40%,var(--acc) 0,transparent 45%),radial-gradient(circle at 80% 60%,#FF9EC7 0,transparent 45%),var(--bg)}
+.b-glass .d1{background:rgba(255,255,255,.28);border:1px solid rgba(255,255,255,.6);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);padding:10px 18px;border-radius:999px;font-weight:600;color:var(--ink)}
+.b-brutal .d1{border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink);border-radius:0;animation:press 1.8s infinite}
+.b-lift .d1{animation:lift 2s ease-in-out infinite}
+.b-shimmer .d1::after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.6) 50%,transparent 70%);background-size:250% 100%;animation:sweep 2s infinite}
+.b-magnetic .d1{animation:magnet 3s ease-in-out infinite}
+/* cards */
+.c-border .d1,.c-shadow .d1,.c-glass .d1,.c-spotlight .d1,.c-tilt .d1,.c-brutal .d1,.c-media .d1,.c-beam .d1{width:62%;height:62%;border-radius:var(--rc);background:var(--surf);position:relative;transition:transform .25s,box-shadow .25s}
+.c-border .d1{border:1px solid var(--line)}
+.c-border .d1:hover,.c-shadow .d1:hover{transform:translateY(-3px)}
+.c-shadow .d1{box-shadow:0 10px 26px rgba(0,0,0,.16)}
+.demo.c-glass{background:radial-gradient(circle at 30% 30%,var(--acc) 0,transparent 40%),radial-gradient(circle at 75% 70%,#7FD1FF 0,transparent 40%),var(--bg)}
+.c-glass .d1{background:rgba(255,255,255,.3);border:1px solid rgba(255,255,255,.65);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.demo.c-bento{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:5px;padding:8px}
+.c-bento span{display:block!important;border-radius:calc(var(--rc) + 2px);background:var(--surf);border:1px solid var(--line);transition:transform .25s}
+.c-bento .d1{grid-row:span 2;background:color-mix(in srgb,var(--acc) 22%,var(--surf))}
+.c-bento .d3{grid-column:span 1}
+.c-bento span:hover{transform:scale(1.04)}
+.demo.c-spotlight{background:#0E0F13}
+.c-spotlight .d1{background:#16181F;border:1px solid #2A2D36;overflow:hidden}
+.c-spotlight .d1::before{content:'';position:absolute;width:90px;height:90px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--acc) 70%,transparent),transparent 70%);animation:spot 3.5s ease-in-out infinite}
+.c-tilt .d1{border:1px solid var(--line);box-shadow:0 10px 24px rgba(0,0,0,.12);animation:tilt 3.5s ease-in-out infinite}
+.c-brutal .d1{border:2px solid var(--ink);box-shadow:5px 5px 0 var(--ink);border-radius:0}
+.c-brutal .d1:hover{transform:translate(-2px,-2px);box-shadow:7px 7px 0 var(--ink)}
+.c-media .d1{border:1px solid var(--line);background:linear-gradient(color-mix(in srgb,var(--acc) 30%,var(--surf)) 0 50%,var(--surf) 50%)}
+.c-media .d1:hover{transform:translateY(-3px)}
+.c-beam .d1{border:1px solid var(--line);overflow:hidden}
+.c-beam .d1::before{content:'';position:absolute;inset:-2px;background:conic-gradient(from 0deg,transparent 0 75%,var(--acc) 90%,transparent 100%);animation:spin 2.6s linear infinite}
+.c-beam .d1::after{content:'';position:absolute;inset:2px;border-radius:calc(var(--rc) - 2px);background:var(--surf)}
+/* navigation */
+.n-top .d1{position:absolute;top:0;left:0;right:0;height:22px;background:var(--surf);border-bottom:1px solid var(--line)}
+.n-top .d2{display:block;position:absolute;top:7px;right:12px;width:36px;height:8px;border-radius:4px;background:var(--acc);animation:pulse 2s infinite}
+.n-float .d1{position:absolute;top:10px;left:22%;right:22%;height:24px;border-radius:999px;background:var(--surf);box-shadow:0 6px 16px rgba(0,0,0,.14);border:1px solid var(--line);animation:floaty 3s ease-in-out infinite}
+.n-sidebar .d1{position:absolute;top:0;bottom:0;left:0;background:var(--surf);border-right:1px solid var(--line);animation:collapse 3s ease-in-out infinite}
+.n-rail .d1{position:absolute;top:0;bottom:0;left:0;width:26px;background:var(--surf);border-right:1px solid var(--line);background-image:radial-gradient(circle,var(--muted) 3px,transparent 3.5px);background-size:26px 22px;background-position:0 6px}
+.n-rail .d2{display:block;position:absolute;left:3px;width:20px;height:20px;border-radius:6px;background:color-mix(in srgb,var(--acc) 30%,transparent);animation:railmove 3s steps(1) infinite}
+.n-tabbar .d1{position:absolute;bottom:0;left:0;right:0;height:26px;background:var(--surf);border-top:1px solid var(--line);background-image:radial-gradient(circle,var(--muted) 3px,transparent 3.5px);background-size:25% 26px;background-position:center}
+.n-tabbar .d2{display:block;position:absolute;bottom:9px;width:8px;height:8px;border-radius:50%;background:var(--acc);animation:tabmove 3s ease-in-out infinite}
+.n-tabs .d1{font-weight:600;letter-spacing:.02em;word-spacing:18px;color:var(--muted)}
+.n-tabs .d2{display:block;position:absolute;top:56px;height:2px;width:30px;background:var(--acc);border-radius:2px;animation:tabline 3s ease-in-out infinite}
+.n-crumb .d1{color:var(--muted);font-size:12.5px}
+.n-crumb .d1:hover{color:var(--ink)}
+.n-mega .d1{position:absolute;top:0;left:0;right:0;height:20px;background:var(--surf);border-bottom:1px solid var(--line)}
+.n-mega .d2{display:block;position:absolute;top:24px;left:10%;right:10%;height:52px;border-radius:var(--rc);background:var(--surf);border:1px solid var(--line);box-shadow:0 10px 20px rgba(0,0,0,.1);transform-origin:top;animation:drop 3s ease-in-out infinite}
+.n-dock .d1{position:absolute;bottom:8px;left:24%;right:24%;height:26px;border-radius:12px;background:color-mix(in srgb,var(--surf) 70%,transparent);border:1px solid var(--line);background-image:radial-gradient(circle,color-mix(in srgb,var(--acc) 60%,var(--muted)) 6px,transparent 6.5px);background-size:20% 26px;background-position:center}
+.n-dock .d2{display:block;position:absolute;bottom:14px;left:47%;width:16px;height:16px;border-radius:5px;background:var(--acc);animation:dock 2.4s ease-in-out infinite}
+/* inputs */
+.i-outline .d1,.i-filled .d1,.i-underline .d1,.i-float .d1,.i-search .d1{width:72%;height:36px;display:flex!important;align-items:center;padding:0 12px;color:var(--muted);transition:border-color .2s,box-shadow .2s}
+.i-outline .d1{border:1.5px solid var(--line);border-radius:var(--rc);background:var(--surf)}
+.i-outline .d1:hover,.i-filled .d1:hover,.i-search .d1:hover{border-color:var(--acc);box-shadow:0 0 0 3px color-mix(in srgb,var(--acc) 20%,transparent)}
+.i-filled .d1{background:color-mix(in srgb,var(--ink) 7%,var(--surf));border-radius:var(--rc) var(--rc) 0 0;border-bottom:2px solid var(--muted)}
+.i-underline .d1{border-bottom:1.5px solid var(--muted);padding:0 2px;position:relative}
+.i-underline .d1::after{content:'';position:absolute;left:0;bottom:-1.5px;height:2px;background:var(--acc);animation:uline 2.6s ease-in-out infinite}
+.i-float .d1{border:1.5px solid var(--acc);border-radius:var(--rc);background:var(--surf);color:var(--ink)}
+.i-float .d2{display:block;position:absolute;left:calc(14% + 10px);font-size:10px;color:var(--acc);background:var(--bg);padding:0 4px;animation:floatlbl 2.8s ease-in-out infinite}
+.i-search .d1{border:1.5px solid var(--line);border-radius:999px;background:var(--surf)}
+.i-search .d2{display:block;position:absolute;right:calc(14% + 10px);font-family:'JetBrains Mono',monospace;font-size:10px;border:1px solid var(--line);border-radius:4px;padding:1px 5px;color:var(--muted)}
+.i-seg .d1{width:76%;height:32px;border-radius:var(--rc);background:color-mix(in srgb,var(--ink) 8%,var(--surf));color:var(--muted);font-weight:600;display:flex!important;align-items:center;justify-content:space-around;position:relative;z-index:1}
+.i-seg .d2{display:block;position:absolute;left:12%;width:25%;height:26px;border-radius:calc(var(--rc) - 2px);background:var(--surf);box-shadow:0 1px 3px rgba(0,0,0,.15);animation:seg 3.6s ease-in-out infinite}
+.i-toggle .d1{width:52px;height:30px;border-radius:999px;background:var(--line);position:relative;animation:trackc 2.4s steps(1) infinite}
+.i-toggle .d2{display:block;position:absolute;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);left:calc(50% - 23px);animation:knob 2.4s ease-in-out infinite}
+.i-otp span{display:block!important;width:30px;height:38px;border-radius:var(--rc);border:1.5px solid var(--line);background:var(--surf);font-size:16px;font-weight:600;text-align:center;line-height:35px}
+.i-otp .d3{border-color:var(--acc);animation:blinkb 1s steps(1) infinite}
+/* data display */
+.dd-table .d1{width:80%;height:64px;border:1px solid var(--line);border-radius:6px;background:linear-gradient(color-mix(in srgb,var(--ink) 8%,var(--surf)) 0 14px,transparent 14px),repeating-linear-gradient(to bottom,var(--surf) 0 12px,color-mix(in srgb,var(--ink) 4%,var(--surf)) 12px 24px);background-position:0 0,0 14px}
+.dd-table .d1:hover{border-color:var(--acc)}
+.dd-stat .d1{font-family:var(--hf);font-size:22px;font-weight:700;--n:0}
+.dd-stat .d1::after{content:'+12.4%';font-family:var(--bf);font-size:11px;color:var(--acc);margin-left:6px}
+.dd-stat .d2{display:block;width:70px;height:30px;background:var(--acc);opacity:.75;clip-path:polygon(0 80%,15% 60%,30% 70%,45% 35%,60% 45%,75% 20%,100% 5%,100% 100%,0 100%);animation:pulse 2.4s infinite}
+.dd-line .d1{width:82%;height:56px;background:linear-gradient(to top,color-mix(in srgb,var(--acc) 35%,transparent),transparent);clip-path:polygon(0 70%,12% 55%,25% 62%,38% 30%,52% 42%,66% 18%,80% 34%,100% 8%,100% 100%,0 100%);animation:breathe 3s ease-in-out infinite}
+.demo.dd-bar{align-items:flex-end;padding-bottom:12px;gap:10px}
+.dd-bar span{display:block!important;width:22px;background:var(--acc);border-radius:4px 4px 0 0;transform-origin:bottom;animation:bar 2.4s ease-in-out infinite}
+.dd-bar .d1{height:40px}.dd-bar .d2{height:58px;animation-delay:.2s;opacity:.75}.dd-bar .d3{height:28px;animation-delay:.4s;opacity:.55}
+.dd-time .d1{width:70%;height:64px;background:linear-gradient(var(--line),var(--line)) 8px 0/2px 100% no-repeat,radial-gradient(circle,var(--acc) 4px,transparent 4.5px) 3px 6px/12px 22px repeat-y,repeating-linear-gradient(to bottom,transparent 0 6px,var(--line) 6px 10px,transparent 10px 22px) 24px 0/70% 100% no-repeat}
+.dd-time .d2{display:block;position:absolute;left:calc(15% + 3px);width:12px;height:12px;border-radius:50%;border:2px solid var(--acc);animation:ring 1.6s ease-out infinite;top:12px}
+.dd-avatars span{display:block!important;width:34px;height:34px;border-radius:50%;border:2px solid var(--surf);margin-left:-14px;transition:transform .2s}
+.dd-avatars .d1{background:#F4B183;margin-left:0}.dd-avatars .d2{background:#9DC3E6}.dd-avatars .d3{background:#A9D18E}
+.dd-avatars span:hover{transform:translateY(-4px)}
+.dd-badges span{display:block!important;font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px}
+.dd-badges .d1{background:#DDF5E8;color:#0B6B3A}.dd-badges .d2{background:#EEF0F3;color:#4B5260}.dd-badges .d3{background:#FDE2E2;color:#A11A1A;animation:pulse 1.6s infinite}
+.dd-ring .d1{width:56px;height:56px;border-radius:50%;background:conic-gradient(var(--acc) 0 68%,var(--line) 68% 100%);-webkit-mask:radial-gradient(circle,transparent 18px,#000 19px);mask:radial-gradient(circle,transparent 18px,#000 19px);animation:spin 6s linear infinite}
+.dd-heat .d1{width:150px;height:56px;background-image:linear-gradient(90deg,var(--bg) 2px,transparent 2px),linear-gradient(var(--bg) 2px,transparent 2px),linear-gradient(90deg,color-mix(in srgb,var(--acc) 15%,var(--surf)),var(--acc),color-mix(in srgb,var(--acc) 40%,var(--surf)),var(--acc));background-size:12px 12px,12px 12px,100% 100%;animation:breathe 3s infinite}
+/* feedback & overlays */
+.f-toast .d1,.f-toast .d2{position:absolute;right:10px;width:120px;height:28px;border-radius:var(--rc);background:var(--ink);color:var(--bg);font-size:11px;line-height:28px;padding-left:10px}
+.f-toast .d1{bottom:10px;animation:toast 3s ease-in-out infinite}
+.f-toast .d2{display:block;bottom:16px;transform:scale(.92);opacity:.5}
+.f-skel span{display:block!important;position:absolute;left:14%;height:10px;border-radius:5px;background:linear-gradient(90deg,var(--line) 25%,color-mix(in srgb,var(--line) 40%,var(--surf)) 50%,var(--line) 75%);background-size:200% 100%;animation:shimmer 1.4s infinite}
+.f-skel .d1{top:22px;width:40%;height:14px}.f-skel .d2{top:44px;width:72%}.f-skel .d3{top:60px;width:58%}
+.f-progress .d1{width:72%;height:8px;border-radius:4px;background:var(--line);position:relative}
+.f-progress .d2{display:block;position:absolute;left:14%;height:8px;border-radius:4px;background:var(--acc);animation:prog 2.6s ease-in-out infinite}
+.f-empty .d1{width:70%;height:60px;border:1.5px dashed var(--line);border-radius:var(--rc);display:flex!important;align-items:center;justify-content:center;color:var(--muted);font-size:11.5px;transition:border-color .2s}
+.f-empty .d1:hover{border-color:var(--acc)}
+.f-valid .d1{width:72%;height:34px;border:1.5px solid #E5484D;border-radius:var(--rc);background:var(--surf);animation:shake 2.4s infinite}
+.f-valid .d2{display:block;position:absolute;left:14%;bottom:8px;font-size:10.5px;color:#C62828}
+.f-modal .d1{position:absolute;inset:0;background:rgba(0,0,0,.35);animation:fade 3s infinite}
+.f-modal .d2{display:block;position:absolute;width:44%;height:52%;border-radius:var(--rc);background:var(--surf);box-shadow:0 12px 30px rgba(0,0,0,.25);animation:popin 3s infinite}
+.f-sheet .d1{position:absolute;inset:0;background:rgba(0,0,0,.2)}
+.f-sheet .d2{display:block;position:absolute;top:0;bottom:0;right:0;width:40%;background:var(--surf);border-left:1px solid var(--line);animation:sheet 3s ease-in-out infinite}
+.f-drawer .d1{position:absolute;inset:0;background:rgba(0,0,0,.2)}
+.f-drawer .d2{display:block;position:absolute;left:8%;right:8%;bottom:0;height:62%;border-radius:14px 14px 0 0;background:var(--surf);animation:drawer 3s cubic-bezier(.32,.72,0,1) infinite}
+.f-drawer .d3{display:block;position:absolute;left:46%;width:8%;height:4px;border-radius:2px;background:var(--line);bottom:48%;animation:drawer 3s cubic-bezier(.32,.72,0,1) infinite}
+.f-pop .d1{position:absolute;top:14px;left:30%;padding:5px 10px;border-radius:var(--rc);border:1px solid var(--line);background:var(--surf);font-weight:600}
+.f-pop .d2{display:block;position:absolute;top:40px;left:30%;width:110px;height:40px;border-radius:var(--rc);background:var(--surf);border:1px solid var(--line);box-shadow:0 8px 18px rgba(0,0,0,.12);transform-origin:top left;animation:popm 2.6s ease-in-out infinite;background-image:repeating-linear-gradient(to bottom,transparent 0 8px,var(--line) 8px 9px,transparent 9px 13px)}
+.f-tip .d1{padding:6px 12px;border-radius:var(--rc);border:1px solid var(--line);background:var(--surf);font-weight:600;margin-top:22px}
+.f-tip .d2{display:block;position:absolute;top:14px;padding:3px 8px;border-radius:5px;background:var(--ink);color:var(--bg);font-size:10.5px;animation:fade 2.4s infinite}
+.f-cmdk .d1{width:70%;height:66px;border-radius:var(--rc);background:var(--surf);border:1px solid var(--line);box-shadow:0 14px 30px rgba(0,0,0,.18);background-image:linear-gradient(var(--line),var(--line)),linear-gradient(color-mix(in srgb,var(--acc) 18%,transparent),color-mix(in srgb,var(--acc) 18%,transparent)),repeating-linear-gradient(to bottom,transparent 0 7px,var(--line) 7px 9px,transparent 9px 14px);background-size:100% 1px,92% 13px,80% 100%;background-position:0 20px,50% 26px,10px 40px;background-repeat:no-repeat;animation:popin 3s infinite}
+/* effects */
+.e-lift .d1{width:44%;height:52%;border-radius:var(--rc);background:var(--surf);border:1px solid var(--line);animation:liftc 2.4s ease-in-out infinite}
+.e-spring .d1{width:28px;height:28px;border-radius:50%;background:var(--acc);animation:spring 1.8s infinite}
+.e-reveal span,.e-stagger span{display:block!important}
+.e-reveal span{width:22%;height:52%;border-radius:var(--rc);background:var(--surf);border:1px solid var(--line);animation:fadeUpLoop 2.8s ease-out infinite}
+.e-reveal .d2{animation-delay:.15s}.e-reveal .d3{animation-delay:.3s}
+.demo.e-stagger{flex-direction:column;gap:6px}
+.e-stagger span{width:66%;height:12px;border-radius:5px;background:var(--line);animation:slideInL 2.8s ease-out infinite}
+.e-stagger .d2{animation-delay:.12s}.e-stagger .d3{animation-delay:.24s}
+@property --n{syntax:'<integer>';initial-value:0;inherits:false}
+.e-ticker .d1{font-family:var(--hf);font-size:26px;font-weight:700;font-variant-numeric:tabular-nums;animation:count 3s ease-out infinite;counter-reset:n var(--n)}
+.e-ticker .d1::before{content:'$' counter(n)}
+.e-split .d1{font-family:var(--hf);font-size:22px;font-weight:700;animation:reveal 2.8s ease-out infinite}
+.e-marquee .d1{white-space:nowrap;font-family:var(--hf);font-weight:700;letter-spacing:.08em;color:var(--muted);animation:marquee 7s linear infinite}
+.e-pblur .d1{position:absolute;inset:8px 12%;background:repeating-linear-gradient(to bottom,var(--line) 0 6px,transparent 6px 14px);animation:scrolly 4s linear infinite}
+.e-pblur .d2{display:block;position:absolute;left:0;right:0;bottom:0;height:46px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);-webkit-mask:linear-gradient(transparent,#000);mask:linear-gradient(transparent,#000)}
+.demo.e-glass{background:radial-gradient(circle at 25% 35%,var(--acc) 0,transparent 42%),radial-gradient(circle at 78% 70%,#FF9EC7 0,transparent 42%),var(--bg)}
+.e-glass .d1{width:56%;height:56%;border-radius:calc(var(--rc) + 4px);background:rgba(255,255,255,.25);border:1px solid rgba(255,255,255,.6);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);animation:floaty 3s ease-in-out infinite}
+.demo.e-spot{background:#0E0F13}
+.e-spot .d1{position:absolute;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,color-mix(in srgb,var(--acc) 65%,transparent),transparent 65%);animation:spot 4s ease-in-out infinite}
+.e-spot .d2{display:block;position:relative;font-family:var(--hf);font-weight:700;color:#fff;font-size:15px}
+.e-aurora span{display:block!important;position:absolute;width:90px;height:90px;border-radius:50%;filter:blur(22px);opacity:.75}
+.e-aurora .d1{background:var(--acc);animation:blob1 6s ease-in-out infinite}.e-aurora .d2{background:#7FD1FF;animation:blob2 7s ease-in-out infinite}.e-aurora .d3{background:#FF9EC7;animation:blob3 8s ease-in-out infinite}
+.demo.e-dots{background-image:radial-gradient(var(--muted) 1px,transparent 1.3px);background-size:12px 12px;animation:dotpan 6s linear infinite}
+.e-dots .d1{width:46%;height:46%;border-radius:var(--rc);background:var(--surf);border:1px solid var(--line)}
+.e-grain .d1{width:70%;height:64%;border-radius:var(--rc);background:color-mix(in srgb,var(--acc) 35%,var(--surf));position:relative;overflow:hidden}
+.e-grain .d1::after{content:'';position:absolute;inset:-20px;opacity:.35;background-image:repeating-radial-gradient(circle at 17% 32%,#000 0 .5px,transparent .7px 2px),repeating-radial-gradient(circle at 71% 61%,#fff 0 .5px,transparent .7px 3px);animation:grain .5s steps(3) infinite}
+.e-para span{display:block!important;position:absolute;border-radius:var(--rc)}
+.e-para .d1{width:70%;height:20px;bottom:10px;background:var(--line);animation:para1 4s ease-in-out infinite}
+.e-para .d2{width:40%;height:30px;top:18px;left:18%;background:color-mix(in srgb,var(--acc) 30%,var(--surf));animation:para2 4s ease-in-out infinite}
+.e-para .d3{width:26px;height:26px;border-radius:50%;top:20px;right:22%;background:var(--acc);animation:para3 4s ease-in-out infinite}
+.e-sticky .d1{position:absolute;left:12%;top:18px;width:30%;height:52px;border-radius:var(--rc);background:color-mix(in srgb,var(--acc) 30%,var(--surf));border:1px solid var(--line)}
+.e-sticky .d2{display:block;position:absolute;left:50%;width:36%;height:150px;background:repeating-linear-gradient(to bottom,var(--line) 0 6px,transparent 6px 22px);animation:scrolly2 4s linear infinite}
+.demo.e-tilted{perspective:500px}
+.e-tilted .d1{width:62%;height:70%;border-radius:8px;background:linear-gradient(var(--ink) 0 10px,var(--surf) 10px);border:1px solid var(--line);box-shadow:0 18px 30px rgba(0,0,0,.2);transform:rotateX(22deg) rotateZ(-10deg);animation:tilted 5s ease-in-out infinite}
+.demo.e-tilt3d{perspective:500px}
+.e-tilt3d .d1{width:48%;height:58%;border-radius:var(--rc);background:var(--surf);border:1px solid var(--line);box-shadow:0 10px 24px rgba(0,0,0,.14);animation:tilt 3s ease-in-out infinite}
+.e-layout .d1{height:44px;border-radius:var(--rc);background:color-mix(in srgb,var(--acc) 28%,var(--surf));border:1px solid var(--line);animation:layout 3s cubic-bezier(.3,1.3,.5,1) infinite}
+.e-ptrans span{display:block!important;position:absolute;width:56%;height:62%;border-radius:var(--rc);border:1px solid var(--line)}
+.e-ptrans .d1{background:var(--surf);animation:pt1 3s ease-in-out infinite}.e-ptrans .d2{background:color-mix(in srgb,var(--acc) 25%,var(--surf));animation:pt2 3s ease-in-out infinite}
+.e-cursor .d1{width:20px;height:20px;border-radius:50%;border:2px solid var(--acc);position:absolute;animation:cursor 4s ease-in-out infinite}
+.e-cursor .d2{display:block;width:6px;height:6px;border-radius:50%;background:var(--acc);position:absolute;animation:cursor 4s ease-in-out infinite;animation-delay:-.12s}
+.e-shine .d1{width:58%;height:60%;border-radius:var(--rc);background:var(--surf);border:1px solid var(--line);position:relative;overflow:hidden}
+.e-shine .d1::after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,transparent 35%,color-mix(in srgb,var(--acc) 35%,transparent) 50%,transparent 65%);background-size:250% 100%;animation:sweep 2.4s infinite}
+.e-confetti span{display:block!important;position:absolute;width:8px;height:8px;border-radius:2px;bottom:20px;left:48%}
+.e-confetti .d1{background:var(--acc);animation:conf1 1.8s ease-out infinite}.e-confetti .d2{background:#3DB7FF;animation:conf2 1.8s ease-out infinite}.e-confetti .d3{background:#FFC53D;animation:conf3 1.8s ease-out infinite}
+.e-type .d1{font-family:'JetBrains Mono',monospace;font-size:13px;white-space:nowrap;overflow:hidden;border-right:2px solid var(--acc);width:0;animation:typing 3.4s steps(18) infinite,blinkr .8s steps(1) infinite}
+.e-scrollbar .d1{position:absolute;top:0;left:0;height:3px;background:var(--acc);animation:prog 3s linear infinite}
+.e-scrollbar .d2{display:block;width:60%;height:60px;background:repeating-linear-gradient(to bottom,var(--line) 0 5px,transparent 5px 13px);animation:scrolly 3s linear infinite}
+
+@keyframes sweep{0%{background-position:150% 0}100%{background-position:-60% 0}}
+@keyframes press{0%,60%,100%{transform:none;box-shadow:4px 4px 0 var(--ink)}70%,85%{transform:translate(3px,3px);box-shadow:1px 1px 0 var(--ink)}}
+@keyframes lift{0%,100%{transform:none;box-shadow:0 2px 4px rgba(0,0,0,.1)}50%{transform:translateY(-4px);box-shadow:0 12px 20px color-mix(in srgb,var(--acc) 40%,transparent)}}
+@keyframes magnet{0%,100%{transform:translate(0,0)}25%{transform:translate(6px,-3px)}50%{transform:translate(-4px,3px)}75%{transform:translate(3px,4px)}}
+@keyframes spot{0%,100%{left:-20px;top:-20px}50%{left:60%;top:30%}}
+@keyframes tilt{0%,100%{transform:perspective(500px) rotateY(-14deg) rotateX(6deg)}50%{transform:perspective(500px) rotateY(14deg) rotateX(-6deg)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@keyframes collapse{0%,100%{width:30%}50%{width:9%}}
+@keyframes railmove{0%{top:3px}33%{top:25px}66%{top:47px}}
+@keyframes tabmove{0%,100%{left:calc(12.5% - 4px)}33%{left:calc(37.5% - 4px)}66%{left:calc(62.5% - 4px)}}
+@keyframes tabline{0%,100%{left:26%}33%{left:44%}66%{left:62%}}
+@keyframes drop{0%,15%{transform:scaleY(0);opacity:0}30%,80%{transform:scaleY(1);opacity:1}100%{transform:scaleY(0);opacity:0}}
+@keyframes dock{0%,100%{transform:scale(1) translateY(0)}50%{transform:scale(1.6) translateY(-6px)}}
+@keyframes uline{0%,100%{width:0}50%{width:100%}}
+@keyframes floatlbl{0%,20%{top:36px;font-size:12px}45%,85%{top:19px;font-size:10px}100%{top:36px;font-size:12px}}
+@keyframes seg{0%,25%{left:12%}35%,60%{left:37.5%}70%,95%{left:63%}100%{left:12%}}
+@keyframes trackc{0%{background:var(--line)}50%{background:var(--acc)}}
+@keyframes knob{0%,40%{transform:translateX(0)}50%,90%{transform:translateX(22px)}100%{transform:translateX(0)}}
+@keyframes blinkb{50%{border-color:var(--line)}}
+@keyframes breathe{0%,100%{opacity:1}50%{opacity:.6}}
+@keyframes bar{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.55)}}
+@keyframes ring{0%{transform:scale(.8);opacity:1}100%{transform:scale(2);opacity:0}}
+@keyframes toast{0%{transform:translateY(50px);opacity:0}15%,80%{transform:translateY(0);opacity:1}100%{transform:translateY(0);opacity:0}}
+@keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@keyframes prog{0%{width:0}80%,100%{width:72%}}
+@keyframes shake{0%,70%,100%{transform:none}75%{transform:translateX(-4px)}80%{transform:translateX(4px)}85%{transform:translateX(-3px)}90%{transform:translateX(2px)}}
+@keyframes fade{0%,15%{opacity:0}30%,80%{opacity:1}100%{opacity:0}}
+@keyframes popin{0%,10%{transform:scale(.9);opacity:0}25%,80%{transform:scale(1);opacity:1}100%{transform:scale(.96);opacity:0}}
+@keyframes sheet{0%,10%{transform:translateX(100%)}30%,80%{transform:none}100%{transform:translateX(100%)}}
+@keyframes drawer{0%,10%{transform:translateY(100%)}30%,80%{transform:none}100%{transform:translateY(100%)}}
+@keyframes popm{0%,15%{transform:scale(.85);opacity:0}30%,80%{transform:scale(1);opacity:1}100%{transform:scale(.9);opacity:0}}
+@keyframes liftc{0%,100%{transform:none;box-shadow:0 1px 2px rgba(0,0,0,.08)}50%{transform:translateY(-6px);box-shadow:0 14px 24px rgba(0,0,0,.16)}}
+@keyframes spring{0%{transform:translateX(-60px)}35%{transform:translateX(30px)}50%{transform:translateX(14px)}62%{transform:translateX(22px)}72%,100%{transform:translateX(19px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes fadeUpLoop{0%{opacity:0;transform:translateY(14px)}30%,85%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes slideInL{0%{opacity:0;transform:translateX(-20px)}30%,85%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes count{from{--n:0}to{--n:1284}}
+@keyframes reveal{0%{clip-path:inset(0 100% 0 0)}40%,90%{clip-path:inset(0 0 0 0)}100%{clip-path:inset(0 0 0 0);opacity:0}}
+@keyframes marquee{from{transform:translateX(35%)}to{transform:translateX(-35%)}}
+@keyframes scrolly{from{background-position:0 0}to{background-position:0 -56px}}
+@keyframes scrolly2{from{transform:translateY(10px)}to{transform:translateY(-70px)}}
+@keyframes blob1{0%,100%{left:10%;top:-10%}50%{left:40%;top:30%}}
+@keyframes blob2{0%,100%{right:5%;top:20%}50%{right:35%;top:-10%}}
+@keyframes blob3{0%,100%{left:40%;bottom:-30%}50%{left:15%;bottom:0}}
+@keyframes dotpan{to{background-position:24px 24px}}
+@keyframes grain{0%{transform:translate(0,0)}33%{transform:translate(-5px,3px)}66%{transform:translate(4px,-4px)}}
+@keyframes para1{0%,100%{transform:translateX(-4px)}50%{transform:translateX(4px)}}
+@keyframes para2{0%,100%{transform:translateX(-12px)}50%{transform:translateX(12px)}}
+@keyframes para3{0%,100%{transform:translateX(-24px)}50%{transform:translateX(24px)}}
+@keyframes tilted{0%,100%{transform:rotateX(22deg) rotateZ(-10deg)}50%{transform:rotateX(14deg) rotateZ(-4deg) translateY(-4px)}}
+@keyframes layout{0%,20%{width:30%}45%,70%{width:76%}95%,100%{width:30%}}
+@keyframes pt1{0%,30%{transform:none;opacity:1}50%,80%{transform:translateX(-30px);opacity:0}100%{transform:none;opacity:1}}
+@keyframes pt2{0%,30%{transform:translateX(30px);opacity:0}50%,80%{transform:none;opacity:1}100%{transform:translateX(30px);opacity:0}}
+@keyframes cursor{0%,100%{left:20%;top:20%}25%{left:70%;top:30%}50%{left:60%;top:65%}75%{left:28%;top:60%}}
+@keyframes conf1{0%{transform:none;opacity:1}100%{transform:translate(-50px,-60px) rotate(220deg);opacity:0}}
+@keyframes conf2{0%{transform:none;opacity:1}100%{transform:translate(10px,-70px) rotate(-200deg);opacity:0}}
+@keyframes conf3{0%{transform:none;opacity:1}100%{transform:translate(55px,-55px) rotate(260deg);opacity:0}}
+@keyframes typing{0%{width:0}60%,90%{width:18ch}100%{width:0}}
+@keyframes blinkr{50%{border-color:transparent}}
+@media (max-width:760px){.rail{flex:1 1 100%;max-width:none}.side{max-width:none}.h1{font-size:24px}.main{padding:16px}}
+</style>
+</helmet>
+<div class="app" style="{{rootVars}}">
+  <header class="top">
+    <div class="logo"><i></i>Site Forge</div>
+    <span class="tag">Build a website the way you build a character: body first, then outfit, then signature move.</span>
+    <label class="search">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A8AEBB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg>
+      <input type="text" aria-label="Search every option" placeholder="Search everything: dashboard, glass, drawer, serif, scroll…" value="{{q}}" onChange="{{onQuery}}">
+      <span class="kbd">all layers</span>
+    </label>
+    <button type="button" class="tbtn" onClick="{{goExport}}">Build sheet · {{pickCount}} picks</button>
+    <button type="button" class="tbtn" onClick="{{resetAll}}">Start over</button>
+  </header>
+
+  <div class="body">
+    <nav class="rail" aria-label="Design layers">
+      <sc-for list="{{steps}}" as="s" hint-placeholder-count="14">
+        <sc-if value="{{s.showLayer}}" hint-placeholder-val="{{ false }}"><div class="layer">{{s.layer}}</div></sc-if>
+        <button type="button" class="step {{s.cls}}" onClick="{{s.go}}">
+          <span class="sn">{{s.num}}</span>
+          <span class="st"><b>{{s.name}}</b><small>{{s.chosen}}</small></span>
+        </button>
+      </sc-for>
+    </nav>
+
+    <main class="main">
+      <sc-if value="{{searching}}" hint-placeholder-val="{{ false }}">
+        <div class="eyebrow">Search · all layers</div>
+        <h1 class="h1">{{resultCount}} matches for “{{q}}”</h1>
+        <p class="hint">Click any result to pick it. Single-choice layers move you on to the next layer.</p>
+        <div class="grid" style="margin-top:16px">
+          <sc-for list="{{results}}" as="o" hint-placeholder-count="6">
+            <button type="button" class="opt {{o.cls}}" onClick="{{o.pick}}">
+              <span class="res-step">{{o.stepName}}</span>
+              <sc-if value="{{o.isDemo}}" hint-placeholder-val="{{ true }}"><div class="demo {{o.demo}}"><span class="d1">{{o.label}}</span><span class="d2">{{o.label2}}</span><span class="d3">{{o.label3}}</span></div></sc-if>
+              <sc-if value="{{o.isSkel}}" hint-placeholder-val="{{ false }}"><div class="mini"><sc-for list="{{o.regions}}" as="r"><i class="mrg k-{{r.kind}}" style="{{r.css}}"></i></sc-for></div></sc-if>
+              <sc-if value="{{o.isMood}}" hint-placeholder-val="{{ false }}"><div class="sws"><sc-for list="{{o.sw}}" as="w"><span style="{{w.css}}"></span></sc-for></div></sc-if>
+              <sc-if value="{{o.isSwatch}}" hint-placeholder-val="{{ false }}"><div class="swatch" style="{{o.swCss}}"></div></sc-if>
+              <sc-if value="{{o.isType}}" hint-placeholder-val="{{ false }}"><div class="typ"><span class="th" style="{{o.hCss}}">Headline</span><span class="tb" style="{{o.bCss}}">Body text reads like this.</span></div></sc-if>
+              <sc-if value="{{o.isRadius}}" hint-placeholder-val="{{ false }}"><div class="rad"><i style="{{o.rCss}}"></i></div></sc-if>
+              <sc-if value="{{o.isDensity}}" hint-placeholder-val="{{ false }}"><div class="den" style="{{o.gapCss}}"><i></i><i></i><i></i></div></sc-if>
+              <span class="nm">{{o.name}}<sc-if value="{{o.sel}}" hint-placeholder-val="{{ false }}"><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span></sc-if></span>
+              <span class="ds">{{o.desc}}</span>
+            </button>
+          </sc-for>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{showStep}}" hint-placeholder-val="{{ true }}">
+        <div class="eyebrow">Layer {{cur.num}} · {{cur.layer}}</div>
+        <h1 class="h1">{{cur.title}}</h1>
+        <p class="hint">{{cur.hint}}</p>
+        <p class="analogy">{{cur.analogy}}</p>
+
+        <sc-if value="{{needPurpose}}" hint-placeholder-val="{{ false }}"><div class="warn">Pick a Purpose first and this layer will sort itself: the options that fit your site's job rise to the top.</div></sc-if>
+
+        <sc-if value="{{hasFit}}" hint-placeholder-val="{{ false }}">
+          <div class="sec">Fits a {{purposeName}} <em>{{fitCount}} options · recommended</em></div>
+          <div class="grid">
+            <sc-for list="{{fitItems}}" as="o" hint-placeholder-count="4">
+              <button type="button" class="opt {{o.cls}}" onClick="{{o.pick}}">
+                <sc-if value="{{o.isDemo}}" hint-placeholder-val="{{ true }}"><div class="demo {{o.demo}}"><span class="d1">{{o.label}}</span><span class="d2">{{o.label2}}</span><span class="d3">{{o.label3}}</span></div></sc-if>
+                <sc-if value="{{o.isSkel}}" hint-placeholder-val="{{ false }}"><div class="mini"><sc-for list="{{o.regions}}" as="r"><i class="mrg k-{{r.kind}}" style="{{r.css}}"></i></sc-for></div></sc-if>
+                <sc-if value="{{o.isMood}}" hint-placeholder-val="{{ false }}"><div class="sws"><sc-for list="{{o.sw}}" as="w"><span style="{{w.css}}"></span></sc-for></div></sc-if>
+                <span class="nm">{{o.name}}<sc-if value="{{o.sel}}" hint-placeholder-val="{{ false }}"><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span></sc-if></span>
+                <span class="ds">{{o.desc}}</span>
+                <span class="badges"><span class="bdg fit">Fits</span><sc-if value="{{o.heavy}}" hint-placeholder-val="{{ false }}"><span class="bdg sig">Signature</span></sc-if><sc-if value="{{o.lib}}" hint-placeholder-val="{{ false }}"><span class="bdg lib">{{o.lib}}</span></sc-if></span>
+              </button>
+            </sc-for>
+          </div>
+        </sc-if>
+
+        <div class="sec">{{otherLabel}} <em>{{otherCount}} options</em></div>
+        <div class="grid">
+          <sc-for list="{{otherItems}}" as="o" hint-placeholder-count="8">
+            <button type="button" class="opt {{o.cls}}" onClick="{{o.pick}}">
+              <sc-if value="{{o.isPurpose}}" hint-placeholder-val="{{ false }}"><div class="mini"><sc-for list="{{o.regions}}" as="r"><i class="mrg k-{{r.kind}}" style="{{r.css}}"></i></sc-for></div></sc-if>
+              <sc-if value="{{o.isDemo}}" hint-placeholder-val="{{ true }}"><div class="demo {{o.demo}}"><span class="d1">{{o.label}}</span><span class="d2">{{o.label2}}</span><span class="d3">{{o.label3}}</span></div></sc-if>
+              <sc-if value="{{o.isSkel}}" hint-placeholder-val="{{ false }}"><div class="mini"><sc-for list="{{o.regions}}" as="r"><i class="mrg k-{{r.kind}}" style="{{r.css}}"></i></sc-for></div></sc-if>
+              <sc-if value="{{o.isMood}}" hint-placeholder-val="{{ false }}"><div class="sws"><sc-for list="{{o.sw}}" as="w"><span style="{{w.css}}"></span></sc-for></div></sc-if>
+              <sc-if value="{{o.isSwatch}}" hint-placeholder-val="{{ false }}"><div class="swatch" style="{{o.swCss}}"></div></sc-if>
+              <sc-if value="{{o.isType}}" hint-placeholder-val="{{ false }}"><div class="typ"><span class="th" style="{{o.hCss}}">Headline</span><span class="tb" style="{{o.bCss}}">Body text reads like this.</span></div></sc-if>
+              <sc-if value="{{o.isRadius}}" hint-placeholder-val="{{ false }}"><div class="rad"><i style="{{o.rCss}}"></i></div></sc-if>
+              <sc-if value="{{o.isDensity}}" hint-placeholder-val="{{ false }}"><div class="den" style="{{o.gapCss}}"><i></i><i></i><i></i></div></sc-if>
+              <span class="nm">{{o.name}}<sc-if value="{{o.sel}}" hint-placeholder-val="{{ false }}"><span class="chk"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"></path></svg></span></sc-if></span>
+              <span class="ds">{{o.desc}}</span>
+              <span class="badges"><sc-if value="{{o.heavy}}" hint-placeholder-val="{{ false }}"><span class="bdg sig">Signature</span></sc-if><sc-if value="{{o.lib}}" hint-placeholder-val="{{ false }}"><span class="bdg lib">{{o.lib}}</span></sc-if></span>
+            </button>
+          </sc-for>
+        </div>
+
+        <sc-if value="{{tooMany}}" hint-placeholder-val="{{ false }}"><div class="warn"><b>One standout moment per page.</b> You've picked {{heavyCount}} signature effects ({{heavyNames}}). Keep one as the star and drop the rest, or assign each to a different page in the prompt.</div></sc-if>
+
+        <div class="navrow">
+          <button type="button" class="btn" onClick="{{back}}">Back</button>
+          <button type="button" class="btn pri" onClick="{{next}}">{{nextLabel}}</button>
+        </div>
+      </sc-if>
+
+      <sc-if value="{{isExport}}" hint-placeholder-val="{{ false }}">
+        <div class="eyebrow">Layer 15 · Done</div>
+        <h1 class="h1">Your build sheet, ready for Claude Code</h1>
+        <p class="hint">Three files. Put DESIGN.md and tokens.css in your project root, then paste the prompt into Claude Code.</p>
+        <p class="miss">{{missingText}}</p>
+        <div class="tabs">
+          <button type="button" class="tab {{tabMd}}" onClick="{{showMd}}">DESIGN.md</button>
+          <button type="button" class="tab {{tabPrompt}}" onClick="{{showPrompt}}">Prompt for Claude Code</button>
+          <button type="button" class="tab {{tabCss}}" onClick="{{showCss}}">tokens.css</button>
+          <button type="button" class="btn pri" onClick="{{copyOut}}">{{copyLabel}}</button>
+        </div>
+        <textarea class="out" readonly="readonly" aria-label="Export text" value="{{outText}}"></textarea>
+        <div class="navrow"><button type="button" class="btn" onClick="{{back}}">Back to effects</button></div>
+      </sc-if>
+    </main>
+
+    <aside class="side">
+      <section class="card">
+        <div class="ch"><b>Live preview</b>
+          <button type="button" class="sq {{squintCls}}" onClick="{{toggleSquint}}"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>Squint test</button>
+        </div>
+        <div class="mq {{mqCls}}">
+          <sc-for list="{{mqRegions}}" as="r" hint-placeholder-count="5">
+            <div class="rg k-{{r.kind}}" style="{{r.css}}"><span class="rl">{{r.label}}</span><i class="lines"></i></div>
+          </sc-for>
+        </div>
+        <div class="cap">{{caption}}</div>
+      </section>
+      <section class="card">
+        <div class="ch"><b>Build sheet</b><span class="tag" style="color:#6A7180">click a row to change it</span></div>
+        <div class="sheet">
+          <sc-if value="{{sheetEmpty}}" hint-placeholder-val="{{ false }}"><div class="empty">Nothing picked yet. Start with Purpose: what job is this site for?</div></sc-if>
+          <sc-for list="{{sheet}}" as="row" hint-placeholder-count="4">
+            <button type="button" class="srow" onClick="{{row.go}}"><span>{{row.step}}</span><b>{{row.val}}</b></button>
+          </sc-for>
+        </div>
+      </section>
+    </aside>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1440,"height":1000}}'>
+var PURPOSES = [
+ {id:'dash',name:'Dashboard / analytics',desc:'Watch numbers change and spot problems fast.',kw:'metrics charts kpi admin stocks tracker finance monitoring',prompt:'Purpose: a dashboard for watching key numbers. Scanning speed beats decoration; the most important metric is the biggest thing on screen.'},
+ {id:'saas',name:'SaaS workspace / tool',desc:'Get daily work done inside one app.',kw:'productivity app tool crud project manager crm',prompt:'Purpose: a work tool people use every day. Fast, quiet, keyboard-friendly; chrome stays out of the way of the content.'},
+ {id:'landing',name:'Landing / marketing page',desc:'Explain one product and get the sign-up.',kw:'homepage startup launch hero waitlist product page',prompt:'Purpose: a landing page that explains one product and drives one action. One clear headline, one primary CTA, proof below.'},
+ {id:'shop',name:'Online shop',desc:'Browse, compare and buy.',kw:'ecommerce store cart product checkout retail',prompt:'Purpose: an online shop. Product imagery leads, price and Add to cart are always obvious, checkout has no surprises.'},
+ {id:'editorial',name:'Blog / magazine',desc:'Read long-form writing comfortably.',kw:'articles news content newsletter writing reading',prompt:'Purpose: long-form reading. Comfortable measure (60–75 characters), strong type hierarchy, minimal chrome.'},
+ {id:'portfolio',name:'Portfolio / showcase',desc:'Show off work and get hired.',kw:'personal artist resume case study designer creative',prompt:'Purpose: a portfolio that shows work first. Big visuals, little text, one way to get in touch.'},
+ {id:'booking',name:'Booking / step-by-step flow',desc:'Walk anyone through a task one step at a time.',kw:'wizard form onboarding checkout appointment survey quiz',prompt:'Purpose: a guided flow anyone can finish. One question per screen, big tap targets, clear progress and a visible Back.'},
+ {id:'social',name:'Social / community feed',desc:'Post, react and follow people.',kw:'feed forum community posts comments followers',prompt:'Purpose: a social feed. The post is the hero; actions (reply, like, share) are small and consistent.'},
+ {id:'ai',name:'AI chat / agent app',desc:'Talk to a model and review what it does.',kw:'chatbot llm assistant agent copilot gpt claude',prompt:'Purpose: an AI chat or agent app. Conversation in the centre, streaming text, clear states for thinking, tool use and approval.'},
+ {id:'docs',name:'Docs / knowledge base',desc:'Find the answer and copy the code.',kw:'documentation wiki help guide reference api',prompt:'Purpose: documentation. Search first, three-column reading layout, copyable code blocks.'},
+ {id:'playful',name:'Game / playful app',desc:'Have fun and feel rewarded.',kw:'game kids quiz toy interactive fun reward',prompt:'Purpose: a playful app. Big friendly controls, bouncy feedback, rewards you can see.'},
+ {id:'directory',name:'Directory / marketplace',desc:'Search a big catalogue and filter it down.',kw:'listings search filter marketplace map catalogue',prompt:'Purpose: a searchable catalogue. Search and filters are the main tool; results are dense and comparable.'}
+];
+function SK(id,name,desc,fit,regions,prompt){return {id:id,name:name,desc:desc,fit:fit,regions:regions,prompt:prompt,kw:'layout skeleton structure'};}
+var NAV=[0,0,100,9,'nav','Top nav'];
+var SKELS = [
+ SK('shell','Sidebar app shell','Left nav, top bar, panels. The classic work app.',['dash','saas','ai'],[[0,0,17,100,'side','Navigation'],[17,0,83,9,'nav','Top bar · search · account'],[19,12,79,22,'hero','Overview'],[19,37,38,60,'card','Panel'],[59,37,39,60,'table','List']],'Layout: fixed left sidebar (240px) with navigation, top bar with search and account menu, main area with an overview strip above two panels. Sidebar collapses into a drawer below 768px.'),
+ SK('table','Sidebar + data table','Filters on top, one big table.',['dash','saas','directory'],[[0,0,17,100,'side','Navigation'],[17,0,83,9,'nav','Top bar'],[19,12,79,8,'input','Filters · sort · search'],[19,23,79,74,'table','Data table']],'Layout: sidebar navigation, a filter bar (search, filters, sort), and one full-width data table with a sticky header and row actions. The table scrolls inside its own box on mobile.'),
+ SK('hero','Top nav + hero','Headline, one CTA, features below.',['landing','saas','portfolio','playful'],[NAV,[8,16,84,30,'hero','One clear headline that says what it does'],[34,50,32,8,'cta','Get started'],[8,64,26,32,'card','Benefit'],[37,64,26,32,'card','Benefit'],[66,64,26,32,'card','Benefit']],'Layout: top navigation, a hero with one headline, one sentence and one primary CTA, then a section of benefits. Not three identical icon cards: vary their size or use real screenshots.'),
+ SK('bento','Bento grid','Mixed-size tiles, Apple-style.',['landing','portfolio','dash','saas'],[NAV,[4,13,44,45,'media','Big tile'],[50,13,22,21,'card','Tile'],[74,13,22,21,'card','Tile'],[50,37,46,21,'card','Wide tile'],[4,61,30,35,'card','Tile'],[36,61,60,35,'media','Wide visual']],'Layout: a bento grid of mixed-size tiles (one large, several small, one wide), each tile showing one idea with a real visual. Collapses to one column on mobile.'),
+ SK('split','Split screen','Visual on one half, action on the other.',['booking','saas','landing'],[[0,0,50,100,'media','Visual'],[56,25,38,14,'hero','Welcome back'],[56,43,38,7,'input','Email'],[56,53,38,7,'input','Password'],[56,64,38,8,'cta','Continue']],'Layout: 50/50 split screen: a full-height visual on the left, a short focused form on the right. On mobile the visual becomes a short banner above the form.'),
+ SK('gallery','Card grid gallery','Search bar, then an even grid of cards.',['directory','shop','portfolio','playful'],[NAV,[4,12,92,7,'input','Search + filter chips'],[4,23,20,33,'card','Item'],[28,23,20,33,'card','Item'],[52,23,20,33,'card','Item'],[76,23,20,33,'card','Item'],[4,60,20,36,'card','Item'],[28,60,20,36,'card','Item'],[52,60,20,36,'card','Item'],[76,60,20,36,'card','Item']],'Layout: search bar with filter chips, then a responsive card grid (4 columns desktop, 2 tablet, 1 phone). Every card is clickable and shows the same fields in the same places.'),
+ SK('masonry','Masonry','Pinterest-style columns of uneven height.',['portfolio','editorial','social'],[NAV,[4,12,29,40,'media','Image'],[4,55,29,41,'media','Image'],[36,12,29,25,'media','Image'],[36,40,29,56,'media','Image'],[68,12,28,46,'media','Image'],[68,61,28,35,'media','Image']],'Layout: masonry grid of images with uneven heights in 3 columns (2 on tablet, 1 on phone); hover shows title and action.'),
+ SK('feed','Feed + side rails','Centre column of posts, rails either side.',['social','editorial'],[[0,0,22,100,'side','Navigation'],[25,4,50,14,'input','Composer'],[25,21,50,36,'card','Post'],[25,60,50,37,'card','Post'],[78,4,20,40,'card','Trending'],[78,47,20,30,'card','Who to follow']],'Layout: three columns: left navigation, a centre feed (max 600px) with a composer on top, right rail for trends and suggestions. Rails hide on mobile and a bottom tab bar appears.'),
+ SK('chat','Chat workspace','History on the left, conversation in the middle.',['ai'],[[0,0,20,100,'side','Chat history'],[22,3,76,9,'nav','Model · title'],[30,16,50,12,'card','Assistant'],[48,31,42,9,'chat','You'],[30,43,58,24,'card','Assistant'],[26,84,68,11,'input','Message…']],'Layout: chat workspace: collapsible history sidebar, header with model picker, centred conversation (max 760px), message box pinned to the bottom with attach and send.'),
+ SK('wizard','Wizard / stepper','One question per screen with progress.',['booking','saas','playful'],[[0,0,100,9,'nav','Logo · Step 2 of 4'],[25,14,50,5,'nav','Progress'],[25,23,50,10,'hero','What do you need?'],[25,36,50,10,'input','Option A'],[25,49,50,10,'input','Option B'],[25,62,50,10,'input','Option C'],[55,80,20,8,'cta','Next']],'Layout: a stepper flow: progress indicator at top, one question per screen in a centred column (max 560px), large selectable options, Back and Next pinned at the bottom.'),
+ SK('docs','Docs three-column','Section nav, article, on-this-page.',['docs'],[NAV,[0,9,18,91,'side','Sections'],[22,13,54,10,'hero','Page title'],[22,26,54,30,'text','Article'],[22,59,54,24,'media','Code block'],[80,13,18,40,'side','On this page']],'Layout: docs three-column: left section tree, centre article (max 720px), right on-this-page table of contents that tracks scroll. Search in the top nav opens with ⌘K.'),
+ SK('kanban','Kanban board','Columns of cards you drag between.',['saas'],[NAV,[2,12,23,85,'side','To do'],[27,12,23,85,'side','Doing'],[52,12,23,85,'side','Review'],[77,12,21,85,'side','Done'],[4,20,19,16,'card','Card'],[4,39,19,16,'card','Card'],[29,20,19,22,'card','Card'],[54,20,19,16,'card','Card'],[79,20,17,16,'card','Card']],'Layout: kanban board: horizontally scrolling columns of draggable cards, a count on each column header, quick-add at the bottom of each column.'),
+ SK('masterdetail','List + detail','Inbox style: list on the left, item on the right.',['saas','ai','social'],[[0,0,6,100,'side',''],[6,0,30,100,'table','List'],[38,4,58,10,'hero','Selected item'],[38,17,58,79,'text','Detail']],'Layout: master-detail: narrow icon rail, a scrollable list, and a detail pane for the selected item. On mobile the list and detail become two screens.'),
+ SK('map','Map + results','Results list beside a map.',['directory','booking'],[[0,0,100,9,'nav','Search · dates · filters'],[0,9,34,91,'table','Results'],[34,9,66,91,'media','Map']],'Layout: search bar on top, results list on the left, interactive map on the right; hovering a result highlights its pin. On mobile, map and list toggle.'),
+ SK('editor','Canvas editor','Toolbar, layers, canvas, inspector.',['saas','playful'],[[0,0,100,8,'nav','Toolbar'],[0,8,14,92,'side','Layers'],[16,12,64,84,'media','Canvas'],[82,8,18,92,'side','Inspector']],'Layout: editor: top toolbar, left layers panel, central canvas, right inspector for the selected object. Panels collapse to keep the canvas big.'),
+ SK('story','Long-scroll story','Big statement, sticky visual, chapters.',['landing','editorial','portfolio'],[NAV,[10,14,80,26,'hero','A big statement in a few words'],[10,44,38,52,'media','Sticky visual'],[52,44,38,15,'text','Chapter 1'],[52,63,38,15,'text','Chapter 2'],[52,82,38,14,'text','Chapter 3']],'Layout: long-scroll story: a big opening statement, then chapters where a sticky visual on one side changes as the text scrolls past on the other.'),
+ SK('product','Product detail','Gallery on the left, buy box on the right.',['shop'],[NAV,[4,13,50,83,'media','Gallery'],[58,13,38,10,'hero','Name · price'],[58,26,38,14,'text','Options'],[58,43,38,8,'cta','Add to cart'],[58,55,38,41,'text','Details · reviews']],'Layout: product page: image gallery left, sticky buy box right (name, price, options, Add to cart), details and reviews below. On mobile the Add to cart bar sticks to the bottom.'),
+ SK('pricing','Pricing / compare','Three tiers, the middle one highlighted.',['landing','saas','shop'],[NAV,[20,13,60,12,'hero','Simple pricing'],[6,30,28,62,'card','Starter'],[36,28,28,66,'chat','Pro · most popular'],[66,30,28,62,'card','Team'],[40,82,20,7,'cta','Choose Pro']],'Layout: pricing page: three tiers side by side with the recommended one highlighted, a monthly/yearly toggle, and a feature comparison table below.'),
+ SK('command','Command-first minimal','A search box is the whole interface.',['ai','docs','saas'],[[0,0,100,7,'nav',''],[30,28,40,10,'input','Search or ask anything'],[30,41,40,32,'table','Results']],'Layout: minimal command-first screen: a large centred search/command box, results appear beneath it, everything reachable from the keyboard.'),
+ SK('profile','Personal showcase','Big intro, then a few projects.',['portfolio'],[NAV,[4,13,92,34,'hero','Name — what I make, in one line'],[4,51,44,45,'media','Project'],[52,51,44,45,'media','Project']],'Layout: personal showcase: big intro with name and one-line pitch, then large project tiles that open case studies, contact at the bottom.')
+];
+var TYPES = [
+ {id:'geist',name:'Geist + Geist Mono',desc:'Crisp, technical, modern product.',h:"'Geist',sans-serif",b:"'Geist',sans-serif",hn:'Geist',bn:'Geist',mono:'Geist Mono'},
+ {id:'grotesk',name:'Space Grotesk + Inter',desc:'Techy headlines, neutral body.',h:"'Space Grotesk',sans-serif",b:"'Inter',sans-serif",hn:'Space Grotesk',bn:'Inter'},
+ {id:'instrument',name:'Instrument Serif + Inter',desc:'Editorial elegance on a clean body.',h:"'Instrument Serif',serif",b:"'Inter',sans-serif",hn:'Instrument Serif',bn:'Inter'},
+ {id:'fraunces',name:'Fraunces + DM Sans',desc:'Warm, soft serif with friendly body.',h:"'Fraunces',serif",b:"'DM Sans',sans-serif",hn:'Fraunces',bn:'DM Sans'},
+ {id:'playfair',name:'Playfair Display + Manrope',desc:'High-contrast luxury serif.',h:"'Playfair Display',serif",b:"'Manrope',sans-serif",hn:'Playfair Display',bn:'Manrope'},
+ {id:'plex',name:'IBM Plex Mono + Plex Sans',desc:'Engineered, data-heavy, honest.',h:"'IBM Plex Mono',monospace",b:"'IBM Plex Sans',sans-serif",hn:'IBM Plex Mono',bn:'IBM Plex Sans'},
+ {id:'bricolage',name:'Bricolage Grotesque + DM Sans',desc:'Characterful, a little quirky.',h:"'Bricolage Grotesque',sans-serif",b:"'DM Sans',sans-serif",hn:'Bricolage Grotesque',bn:'DM Sans'},
+ {id:'sora',name:'Sora + Inter',desc:'Geometric, futuristic, clean.',h:"'Sora',sans-serif",b:"'Inter',sans-serif",hn:'Sora',bn:'Inter'},
+ {id:'outfit',name:'Outfit',desc:'Round and friendly, one family.',h:"'Outfit',sans-serif",b:"'Outfit',sans-serif",hn:'Outfit',bn:'Outfit'},
+ {id:'jetbrains',name:'JetBrains Mono + Inter',desc:'Developer tool, terminal energy.',h:"'JetBrains Mono',monospace",b:"'Inter',sans-serif",hn:'JetBrains Mono',bn:'Inter'},
+ {id:'pixel',name:'Silkscreen + Space Mono',desc:'Retro pixel game.',h:"'Silkscreen',monospace",b:"'Space Mono',monospace",hn:'Silkscreen',bn:'Space Mono'}
+];
+var MOODS = [
+ {id:'clean',name:'Clean product',desc:'Crisp light UI, hairline borders, calm.',fit:['saas','dash','docs','directory'],bg:'#F7F8FA',surf:'#FFFFFF',ink:'#111827',muted:'#6B7280',line:'#E5E7EB',acc:'#2F6BFF',type:'geist',r:8,sh:'0 1px 2px rgba(17,24,39,.06)'},
+ {id:'glass',name:'Glass / Apple-like',desc:'Frosted panels over soft colour.',fit:['landing','ai','portfolio'],bg:'#DDE6F3',surf:'#FFFFFF',ink:'#0B1220',muted:'#475569',line:'rgba(255,255,255,.75)',acc:'#0A84FF',type:'sora',r:18,sh:'0 8px 30px rgba(15,23,42,.12)'},
+ {id:'editorial',name:'Editorial',desc:'Serif headlines, paper white, thin rules.',fit:['editorial','portfolio','docs'],bg:'#FBFAF7',surf:'#FFFFFF',ink:'#1A1A1A',muted:'#5F5B54',line:'#E4E0D8',acc:'#C2410C',type:'instrument',r:2,sh:'none'},
+ {id:'swiss',name:'Swiss minimal',desc:'Strict grid, black and white, one accent.',fit:['portfolio','landing','directory'],bg:'#FFFFFF',surf:'#FFFFFF',ink:'#000000',muted:'#555555',line:'#111111',acc:'#FF3B00',type:'grotesk',r:0,sh:'none'},
+ {id:'terminal',name:'Dense terminal',desc:'Dark, mono, compact, information-first.',fit:['dash','ai','docs'],bg:'#0B0D0E',surf:'#121517',ink:'#D6F5DD',muted:'#7C8A80',line:'#1F2A24',acc:'#3DDC84',type:'jetbrains',r:4,sh:'none'},
+ {id:'luxe',name:'Dark luxe',desc:'Near-black with a warm metallic accent.',fit:['shop','landing','portfolio'],bg:'#0E0D0C',surf:'#181614',ink:'#F3EEE6',muted:'#A39C91',line:'#2A2622',acc:'#C9A86A',type:'playfair',r:6,sh:'0 10px 30px rgba(0,0,0,.4)'},
+ {id:'brutal',name:'Neo-brutalist',desc:'Thick borders, hard offset shadows, loud.',fit:['playful','landing','directory'],bg:'#FFF7D6',surf:'#FFFFFF',ink:'#000000',muted:'#222222',line:'#000000',acc:'#FF5A1F',type:'grotesk',r:0,sh:'4px 4px 0 #000'},
+ {id:'playful',name:'Soft playful',desc:'Pastels, big radius, bouncy.',fit:['playful','booking','social'],bg:'#FFF1F6',surf:'#FFFFFF',ink:'#2B1B3D',muted:'#6E5A80',line:'#F3D6E4',acc:'#E2408F',type:'outfit',r:22,sh:'0 6px 0 rgba(43,27,61,.08)'},
+ {id:'organic',name:'Warm organic',desc:'Earthy, soft, human.',fit:['shop','booking','editorial'],bg:'#F3EFE7',surf:'#FBF8F2',ink:'#2E2A24',muted:'#6E665A',line:'#DED6C8',acc:'#5F7F4E',type:'fraunces',r:14,sh:'0 2px 10px rgba(46,42,36,.08)'},
+ {id:'pixel',name:'Retro pixel',desc:'Chunky pixels, arcade colours.',fit:['playful'],bg:'#1D1B2E',surf:'#2A2742',ink:'#FFF5D6',muted:'#B8B0D9',line:'#4A4570',acc:'#FFCC33',type:'pixel',r:0,sh:'4px 4px 0 #0E0C1A'},
+ {id:'clay',name:'Clay / soft 3D',desc:'Pillowy, tactile, soft shadows.',fit:['playful','ai','landing'],bg:'#E9EEF6',surf:'#F3F6FB',ink:'#22304A',muted:'#66738C',line:'#DCE3EE',acc:'#5B7CFA',type:'bricolage',r:20,sh:'6px 6px 14px #C9D2E0, -6px -6px 14px #FFFFFF'},
+ {id:'datadark',name:'Data dark',desc:'Deep navy with neon data accents.',fit:['dash','ai','saas'],bg:'#0A0F1E',surf:'#111830',ink:'#E6ECFF',muted:'#8A96B8',line:'#1E2846',acc:'#22D3EE',type:'sora',r:10,sh:'0 0 0 1px #1E2846'}
+];
+var PALETTES = [
+ {id:'blue',name:'Electric blue',hex:'#2F6BFF',desc:'Trustworthy, product-y.'},
+ {id:'orange',name:'Signal orange',hex:'#FF5A1F',desc:'Energetic, gets attention.'},
+ {id:'green',name:'Emerald',hex:'#0E9F6E',desc:'Growth, money, success.'},
+ {id:'red',name:'Crimson',hex:'#E5484D',desc:'Bold, urgent, passionate.'},
+ {id:'violet',name:'Violet',hex:'#7C5CFF',desc:'Creative, a little magic.'},
+ {id:'lime',name:'Acid lime',hex:'#A3E635',desc:'Loud, youthful, techy on dark.'},
+ {id:'amber',name:'Amber',hex:'#F5A524',desc:'Warm, optimistic.'},
+ {id:'teal',name:'Teal',hex:'#0EA5A4',desc:'Calm, clinical, fresh.'},
+ {id:'pink',name:'Hot pink',hex:'#EC4899',desc:'Playful, fashion, pop.'},
+ {id:'gold',name:'Muted gold',hex:'#C9A86A',desc:'Premium, quiet luxury.'},
+ {id:'mono',name:'Ink only',hex:'#111111',desc:'No colour: type and space do the work.'}
+];
+var RADII = [
+ {id:'r0',name:'Sharp · 0px',px:0,desc:'Editorial, Swiss, brutalist.'},
+ {id:'r4',name:'Subtle · 4px',px:4,desc:'Serious tools, dense UIs.'},
+ {id:'r8',name:'Standard · 8px',px:8,desc:'The safe modern default.'},
+ {id:'r14',name:'Soft · 14px',px:14,desc:'Friendly, consumer apps.'},
+ {id:'r22',name:'Round · 22px',px:22,desc:'Playful, Apple-ish cards.'},
+ {id:'rpill',name:'Pill buttons · 20px cards',px:20,pill:true,desc:'Capsule buttons and chips.'}
+];
+var DENS = [
+ {id:'compact',name:'Compact',d:0.7,gap:5,desc:'More on screen. Dashboards, tables, pro tools.'},
+ {id:'comfy',name:'Comfortable',d:1,gap:9,desc:'Balanced default for most apps.'},
+ {id:'airy',name:'Airy',d:1.4,gap:14,desc:'Lots of whitespace. Landing pages, portfolios.'}
+];
+function D(id,name,desc,demo,prompt,o){var x={id:id,name:name,desc:desc,demo:demo,prompt:prompt};o=o||{};for(var k in o)x[k]=o[k];return x;}
+var BUTTONS = [
+ D('solid','Solid','Filled with the accent. The default primary.','b-solid','Primary buttons: solid accent fill, accent-foreground text, token radius, slight brighten on hover, scale 0.97 on press.',{label:'Get started'}),
+ D('tonal','Tonal / soft','Tinted background, accent text.','b-tonal','Secondary buttons: tonal style (accent at ~15% opacity background, accent text), no border.',{label:'Save draft'}),
+ D('outline','Outline','Border only. Good for secondary actions.','b-outline','Secondary buttons: 1.5px accent outline, transparent fill, faint tint on hover.',{label:'Learn more'}),
+ D('ghost','Ghost / text','No box until hover. Toolbars, tertiary.','b-ghost','Tertiary buttons: ghost style, accent text, tinted background only on hover.',{label:'Cancel'}),
+ D('pill','Pill','Fully rounded capsule.','b-pill','Buttons are pill-shaped (fully rounded), solid accent fill.',{label:'Join waitlist',fit:['landing','playful','social']}),
+ D('glass','Glass','Frosted translucent button over colour.','b-glass','Buttons over imagery use a glass style: white at ~28% opacity, 1px white/60% border, backdrop-filter blur(10px), pill shape.',{label:'Watch film',fit:['landing','portfolio','ai']}),
+ D('brutal','Neo-brutal','Thick border and a hard offset shadow.','b-brutal','Buttons are neo-brutalist: 2px ink border, 4px 4px 0 ink shadow, no radius; on press translate(3px,3px) and shrink the shadow.',{label:'Play now',fit:['playful','landing']}),
+ D('lift','Hover lift','Rises with a coloured shadow on hover.','b-lift','Primary buttons lift on hover: translateY(-2px) and an accent-tinted shadow, 200ms ease-out.',{label:'Start free trial'}),
+ D('shimmer','Shimmer / shine','A light sweep runs across it.','b-shimmer','Hero CTA has a shine sweep: a diagonal light gradient animates across it every ~2.5s (respect prefers-reduced-motion).',{label:'Claim offer',lib:'Magic UI',fit:['landing','shop']}),
+ D('magnetic','Magnetic','Leans toward the cursor.','b-magnetic','Hero CTA is magnetic: it drifts up to 8px toward the cursor when it is near, springs back on leave (Motion).',{label:'Say hello',lib:'Motion',fit:['portfolio','landing']})
+];
+var CARDS = [
+ D('border','Bordered flat','1px border, no shadow. Calm and dense.','c-border','Cards: surface background, 1px border token, no shadow, token radius.',{fit:['saas','dash','docs','directory']}),
+ D('shadow','Soft elevated','Floats on a soft shadow.','c-shadow','Cards: no border, soft elevation shadow (0 8px 24px at ~12%), lift 3px on hover.'),
+ D('glass','Glass panel','Frosted, see-through.','c-glass','Cards are glass panels: surface at ~55% opacity, backdrop-filter blur(12px), 1px white/65% border. Only over a colourful background.',{fit:['landing','ai','portfolio']}),
+ D('bento','Bento tiles','Mixed sizes in one grid.','c-bento','Cards are bento tiles: one CSS grid with mixed spans, larger radius than buttons, each tile one idea with a real visual.',{fit:['landing','portfolio','dash']}),
+ D('spotlight','Spotlight','A glow follows the cursor.','c-spotlight','Cards have a spotlight hover: a radial accent glow follows the pointer inside the card on dark backgrounds.',{lib:'Aceternity',fit:['landing','ai']}),
+ D('tilt','3D tilt','Tilts toward the pointer.','c-tilt','Feature cards tilt in 3D toward the pointer (max 8deg), with a subtle glare.',{lib:'Motion',fit:['portfolio','playful','shop']}),
+ D('brutal','Brutal block','Thick border + offset shadow.','c-brutal','Cards: 2px ink border, 5px 5px 0 ink shadow, no radius; hover nudges up-left.',{fit:['playful','directory']}),
+ D('media','Media card','Image on top, text below.','c-media','Cards: image on top (16:9, object-cover), title and meta below, whole card is the link.',{fit:['shop','editorial','directory','portfolio']}),
+ D('beam','Border beam','A light travels round the edge.','c-beam','The one featured card has an animated border beam: a short accent light that travels around its edge.',{lib:'Magic UI',fit:['landing','saas']})
+];
+var NAVS = [
+ D('top','Top bar','Logo left, links, action right. Sticky.','n-top','Navigation: sticky top bar, logo left, 3–5 links centre, primary action right; collapses to a menu button on mobile.',{fit:['landing','shop','editorial','portfolio']}),
+ D('float','Floating pill nav','A capsule floating over the page.','n-float','Navigation: a floating pill-shaped bar centred near the top with blur behind it; it shrinks slightly on scroll.',{fit:['landing','portfolio','ai']}),
+ D('sidebar','Collapsible sidebar','Full labels that fold to icons.','n-sidebar','Navigation: left sidebar (240px) with grouped links that collapses to a 64px icon rail; state remembered.',{fit:['saas','dash','docs']}),
+ D('rail','Icon rail','Narrow strip of icons.','n-rail','Navigation: 56px icon rail with tooltips and an active indicator; Lucide icons.',{fit:['saas','ai']}),
+ D('tabbar','Bottom tab bar','Mobile-first, 4–5 tabs.','n-tabbar','Mobile navigation: bottom tab bar with 4–5 Lucide icons and labels, active tab in accent, safe-area padding.',{fit:['social','playful','booking']}),
+ D('tabs','Sliding tabs','Underline glides to the active tab.','n-tabs','Section tabs with an underline indicator that slides to the active tab (Motion layoutId).',{label:'Overview Activity Settings',fit:['saas','dash']}),
+ D('crumb','Breadcrumbs','Where am I, how do I go up.','n-crumb','Breadcrumbs above the page title for any page deeper than 2 levels.',{label:'Home / Projects / Alpha',fit:['docs','saas','shop']}),
+ D('mega','Mega menu','Big dropdown panel of links.','n-mega','Top nav with a mega menu: hovering a section opens a wide panel of grouped links with short descriptions.',{fit:['shop','landing']}),
+ D('dock','Dock','macOS-style icons that magnify.','n-dock','A bottom dock of app icons that magnify on hover (Motion springs).',{lib:'Magic UI',fit:['portfolio','playful']})
+];
+var INPUTS = [
+ D('outline','Outlined field','Bordered box, accent ring on focus.','i-outline','Text inputs: outlined, 1.5px border, accent focus ring (3px at 20%), label above.',{label:'you@email.com'}),
+ D('filled','Filled field','Tinted fill, underline accent.','i-filled','Text inputs: filled style, tinted background, 2px bottom border that turns accent on focus.',{label:'Full name'}),
+ D('underline','Underline only','Minimal, editorial.','i-underline','Text inputs: underline only; the accent line grows from left on focus.',{label:'Your answer',fit:['editorial','portfolio']}),
+ D('float','Floating label','Label shrinks into the border.','i-float','Text inputs use floating labels that move into the border on focus or when filled.',{label:'Card number',label2:'Email',fit:['booking','shop']}),
+ D('search','Search with ⌘K hint','Search field showing the shortcut.','i-search','Search input with a magnifier icon and a ⌘K hint badge; ⌘K focuses it from anywhere.',{label:'Search…',label2:'⌘K',fit:['docs','saas','directory']}),
+ D('seg','Segmented control','Pick one of 2–4 options.','i-seg','Use a segmented control (sliding thumb) for 2–4 mutually exclusive options instead of a dropdown.',{label:'Day Week Month',fit:['dash','booking']}),
+ D('toggle','Switch','On/off with a sliding knob.','i-toggle','Boolean settings use switches with a spring knob, never checkboxes for instant settings.'),
+ D('otp','OTP code input','Separate boxes for a code.','i-otp','One-time codes use a segmented OTP input (input-otp) with auto-advance and paste support.',{label:'4',label2:'2',label3:'',lib:'input-otp',fit:['booking','saas']})
+];
+var DATA = [
+ D('table','Data table','Sticky header, zebra rows, sort.','dd-table','Data tables: sticky header, sortable columns, zebra rows, row hover, right-aligned numbers with tabular figures (TanStack Table).',{lib:'TanStack Table',fit:['dash','saas','directory']}),
+ D('stat','Stat tile + sparkline','A big number with its trend.','dd-stat','Key metrics: one large number, change % in accent, and a sparkline. Do not repeat the same stat elsewhere.',{label:'12,480',fit:['dash','saas']}),
+ D('line','Area chart','Trend over time.','dd-line','Trends: area chart with a soft accent fill, one series highlighted, tooltips on hover (Recharts).',{lib:'Recharts',fit:['dash']}),
+ D('bar','Bar chart','Compare a few categories.','dd-bar','Comparisons: bar chart, bars in accent, others muted, values labelled at the bar ends.',{lib:'Recharts',fit:['dash']}),
+ D('time','Timeline / activity','What happened, in order.','dd-time','Activity: vertical timeline with dot markers, newest first, relative times ("2h ago").',{fit:['saas','social','dash']}),
+ D('avatars','Avatar stack','Who is here or involved.','dd-avatars','People: overlapping avatar stack with a +N count; hover shows names.',{fit:['saas','social']}),
+ D('badges','Status pills','Live, draft, error at a glance.','dd-badges','Statuses use small pill badges with distinct lightness, not colour alone (Live / Draft / Error).',{label:'Live',label2:'Draft',label3:'Error'}),
+ D('ring','Progress ring','Percent complete in a circle.','dd-ring','Completion: progress ring with the percentage in the centre.',{fit:['playful','booking','dash']}),
+ D('heat','Heatmap / calendar','Activity across days.','dd-heat','Activity over time: GitHub-style calendar heatmap with an accent ramp.',{fit:['dash','social','playful']})
+];
+var FEED = [
+ D('toast','Toasts','Stacking notifications that slide in.','f-toast','Notifications: Sonner toasts, bottom-right, stacked and expandable on hover, auto-dismiss after 4s.',{label:'Saved',label2:'Copied',lib:'Sonner'}),
+ D('skel','Skeleton loading','Grey shapes shimmer while loading.','f-skel','Loading states: skeletons shaped like the real content with a shimmer, never a lone spinner.'),
+ D('progress','Progress bar','Shows how far along.','f-progress','Long tasks show a determinate progress bar; uploads show percent.'),
+ D('empty','Empty state','What to do when there is nothing yet.','f-empty','Every list has an empty state: a short line saying what goes here plus one action button.',{label:'Nothing here yet'}),
+ D('valid','Inline validation','Errors right under the field.','f-valid','Forms validate inline on blur: red border, short message under the field, gentle shake on submit error.',{label2:'Required'}),
+ D('modal','Modal dialog','Focused popup with a dimmed page.','f-modal','Confirmations use a modal dialog (Radix Dialog): dimmed backdrop, scale-in, focus trapped, Esc closes.',{lib:'Radix'}),
+ D('sheet','Side sheet','Panel slides in from the right.','f-sheet','Details and edit forms open in a side sheet from the right (shadcn Sheet).',{lib:'shadcn',fit:['saas','dash','directory']}),
+ D('drawer','Bottom drawer','Drag up from the bottom on mobile.','f-drawer','On mobile, menus and filters open in a draggable bottom drawer (Vaul) with a handle; flick down to close.',{lib:'Vaul',fit:['shop','social','booking','playful']}),
+ D('pop','Popover menu','Small menu next to a button.','f-pop','Row and card actions live in a "⋯" popover menu instead of a row of buttons.',{label:'Actions'}),
+ D('tip','Tooltip','Short hint on hover.','f-tip','Icon-only buttons get tooltips after a 300ms delay.',{label:'Share',label2:'Copy link'}),
+ D('cmdk','⌘K command palette','Search and run any action.','f-cmdk','Add a ⌘K command palette (cmdk): search pages and actions, keyboard navigation, recent items.',{lib:'cmdk',fit:['saas','docs','ai','dash']})
+];
+var FX = [
+ D('lift','Hover lift','Cards rise on hover.','e-lift','Interactive cards lift 4–6px with a deeper shadow on hover, 200ms ease-out.'),
+ D('spring','Spring press','Bouncy, physical motion.','e-spring','UI motion uses springs (Motion: stiffness ~400, damping ~30): buttons scale to 0.97 on press and spring back.',{lib:'Motion',fit:['playful','social']}),
+ D('reveal','Scroll reveal','Sections fade up as they enter.','e-reveal','Sections fade up 12px as they enter the viewport, once, 500ms, staggered 80ms (Motion whileInView).',{lib:'Motion',fit:['landing','portfolio','editorial']}),
+ D('stagger','Staggered list','Items arrive one after another.','e-stagger','Lists animate in with a 40ms stagger on first load only.',{lib:'Motion'}),
+ D('ticker','Number ticker','Numbers roll to their value.','e-ticker','Changing numbers animate digit by digit (NumberFlow) with tabular figures.',{lib:'NumberFlow',fit:['dash','shop','landing']}),
+ D('split','Text reveal','Headline wipes or splits in.','e-split','The hero headline reveals word by word (GSAP SplitText or Motion), once on load.',{label:'Build faster',lib:'GSAP',fit:['landing','portfolio']}),
+ D('marquee','Logo marquee','Endless scrolling strip.','e-marquee','A logo/testimonial marquee scrolls slowly and pauses on hover; masks fade the edges.',{label:'NOVA · ORBIT · KITE · LUMEN · ATLAS',lib:'Magic UI',fit:['landing','saas']}),
+ D('pblur','Progressive blur','Content blurs under a header or edge.','e-pblur','Use progressive blur where content scrolls under the sticky header or fades at a list edge (backdrop-filter with a gradient mask).',{fit:['ai','landing','portfolio']}),
+ D('glass','Glassmorphism','Frosted panels over colour.','e-glass','Floating panels use glassmorphism: translucent surface, backdrop blur 12–16px, thin light border; keep text contrast 4.5:1.',{fit:['landing','ai']}),
+ D('spot','Spotlight cursor','A glow follows the pointer.','e-spot','The hero has a cursor-following spotlight glow on a dark background.',{label2:'Spotlight',lib:'Aceternity',heavy:true,fit:['landing','ai']}),
+ D('aurora','Aurora background','Slow blurred colour blobs.','e-aurora','The hero background is a slow aurora: 2–3 blurred accent blobs drifting (CSS only, paused for reduced motion).',{lib:'Aceternity',heavy:true,fit:['landing','ai','portfolio']}),
+ D('dots','Dot grid background','Subtle pattern behind content.','e-dots','Section backgrounds use a faint dot grid pattern that fades out toward the edges.',{lib:'Magic UI',fit:['saas','landing','docs']}),
+ D('grain','Grain texture','Film grain for warmth.','e-grain','Add a subtle grain/noise overlay (~6% opacity) to large colour areas for a tactile feel.',{fit:['editorial','portfolio','shop']}),
+ D('para','Parallax layers','Layers move at different speeds.','e-para','Hero visual uses 3 parallax layers moving at different speeds on scroll (Motion useScroll).',{lib:'Motion',heavy:true,fit:['landing','portfolio']}),
+ D('sticky','Sticky scroll story','Visual pins while text scrolls.','e-sticky','Scrollytelling: a visual pins on one side and changes per chapter as text scrolls (GSAP ScrollTrigger).',{lib:'GSAP',heavy:true,fit:['landing','editorial']}),
+ D('tilted','Tilted 3D screenshot','Your app shown at an angle.','e-tilted','Show the product as a tilted 3D screenshot (rotateX ~20deg) that straightens as you scroll.',{heavy:true,fit:['landing','saas']}),
+ D('tilt3d','3D tilt hover','Cards tilt toward the cursor.','e-tilt3d','Feature cards tilt toward the pointer in 3D (max 8deg) with a glare highlight.',{lib:'Motion',fit:['portfolio','playful','shop']}),
+ D('layout','Shared layout animation','Things morph to their new place.','e-layout','When items reorder, expand or change size, animate the layout (Motion layout / layoutId) instead of jumping.',{lib:'Motion',fit:['saas','dash']}),
+ D('ptrans','Page transitions','Pages cross-fade and slide.','e-ptrans','Route changes use the View Transitions API: a quick 200ms cross-fade with a slight slide.',{fit:['portfolio','shop','editorial']}),
+ D('cursor','Custom cursor','A ring that trails the pointer.','e-cursor','Desktop only: a custom cursor ring that trails the pointer and grows over links.',{heavy:true,fit:['portfolio']}),
+ D('shine','Shine sweep','A light passes over a surface.','e-shine','The featured card has a slow diagonal shine sweep every few seconds.',{lib:'Magic UI',fit:['shop','landing']}),
+ D('confetti','Confetti burst','Celebrate a win.','e-confetti','On success (goal reached, purchase), fire a short confetti burst (canvas-confetti).',{lib:'canvas-confetti',heavy:true,fit:['playful','booking']}),
+ D('type','Typewriter text','Text types itself out.','e-type','The hero subline types itself out once with a blinking caret.',{label:'Ask me anything…',fit:['ai','portfolio']}),
+ D('scrollbar','Scroll progress bar','Thin bar shows reading progress.','e-scrollbar','Long articles show a thin accent reading-progress bar at the top.',{fit:['editorial','docs']})
+];
+var STEPS = [
+ {id:'purpose',name:'Purpose',layer:'Role',title:'What is this site for?',hint:'Pick the job. Every later layer sorts itself around this choice.',analogy:'Character: main hero, support, or comic relief? The role decides the body type.',items:PURPOSES,kind:'single',view:'purpose'},
+ {id:'skeleton',name:'Skeleton',layer:'Body',title:'Pick the skeleton (layout)',hint:'The structure of the main screen. The ones that fit your purpose are shown first.',analogy:'Character: body type and proportions. Silhouette before details.',items:SKELS,kind:'single',view:'skel',fitted:true},
+ {id:'mood',name:'Mood',layer:'Look',title:'Pick the overall mood',hint:'Sets colours, type and shape in one go. You can override each in the next layers.',analogy:'Character: art style. Same body, very different feel.',items:MOODS,kind:'single',view:'mood',fitted:true},
+ {id:'palette',name:'Accent colour',layer:'Look',title:'Pick one accent colour',hint:'One strong colour, used for the primary action and key highlights. Skip to keep the mood default.',analogy:'Character: eye and signature colour.',items:PALETTES,kind:'single',view:'swatch'},
+ {id:'type',name:'Typography',layer:'Look',title:'Pick a font pairing',hint:'Heading font + body font. Skip to keep the mood default.',analogy:'Character: face and hair. Gives the personality.',items:TYPES,kind:'single',view:'type'},
+ {id:'radius',name:'Corner radius',layer:'Look',title:'How round are the corners?',hint:'Radius carries a lot of personality. Sharp feels serious; round feels friendly.',analogy:'Character: sharp or soft features.',items:RADII,kind:'single',view:'radius'},
+ {id:'density',name:'Density',layer:'Look',title:'How tight is the spacing?',hint:'Compact fits more on screen; airy feels premium.',analogy:'Character: stance. Compact and ready, or relaxed.',items:DENS,kind:'single',view:'density'},
+ {id:'buttons',name:'Buttons',layer:'Outfit',title:'Primary button style',hint:'The most-clicked thing on the site. Hover and press them.',analogy:'Character: shoes. Small, but everyone notices.',items:BUTTONS,kind:'single',view:'demo',fitted:true},
+ {id:'cards',name:'Cards',layer:'Outfit',title:'Card style',hint:'How grouped content sits on the page.',analogy:'Character: the main outfit.',items:CARDS,kind:'single',view:'demo',fitted:true},
+ {id:'nav',name:'Navigation',layer:'Outfit',title:'Navigation pattern',hint:'How people move around.',analogy:'Character: belt and straps. Holds everything together.',items:NAVS,kind:'single',view:'demo',fitted:true},
+ {id:'inputs',name:'Inputs',layer:'Outfit',title:'Form controls (pick any)',hint:'Pick every control your app needs. Multi-select.',analogy:'Character: gloves. What you touch the world with.',items:INPUTS,kind:'multi',view:'demo',fitted:true},
+ {id:'data',name:'Data display',layer:'Gear',title:'How data is shown (pick any)',hint:'Tables, numbers, charts. Multi-select.',analogy:'Character: tools and inventory.',items:DATA,kind:'multi',view:'demo',fitted:true},
+ {id:'feedback',name:'Feedback & overlays',layer:'Gear',title:'Feedback and overlays (pick any)',hint:'Toasts, loading, dialogs, drawers. The details that make a product feel finished.',analogy:'Character: reactions and expressions.',items:FEED,kind:'multi',view:'demo',fitted:true},
+ {id:'fx',name:'Motion & effects',layer:'Signature',title:'Signature moves (pick any)',hint:'Effects marked Signature are showstoppers. Use one per page.',analogy:'Character: the signature weapon or move. One that people remember.',items:FX,kind:'multi',view:'demo',fitted:true},
+ {id:'export',name:'Export',layer:'Done',title:'Export',hint:'',analogy:'',items:[],kind:'export',view:'export'}
+];
+function byId(list,id){for(var i=0;i<list.length;i++){if(list[i].id===id)return list[i];}return null;}
+function lum(hex){var h=hex.replace('#','');if(h.length<6)return 0.5;var r=parseInt(h.substr(0,2),16)/255,g=parseInt(h.substr(2,2),16)/255,b=parseInt(h.substr(4,2),16)/255;function f(c){return c<=0.03928?c/12.92:Math.pow((c+0.055)/1.055,2.4);}return 0.2126*f(r)+0.7152*f(g)+0.0722*f(b);}
+function rcss(r,i){return 'left:'+r[0]+'%;top:'+r[1]+'%;width:'+r[2]+'%;height:'+r[3]+'%;--i:'+i;}
+
+class Component extends DCLogic {
+  constructor(props){super(props);this.state={step:0,picks:{},q:'',squint:false,tab:'md',copied:''};}
+  pickItem(si,item){
+    var s=STEPS[si];var picks=Object.assign({},this.state.picks);
+    if(s.kind==='multi'){var arr=(picks[s.id]||[]).slice();var k=arr.indexOf(item.id);if(k>=0)arr.splice(k,1);else arr.push(item.id);picks[s.id]=arr;this.setState({picks:picks,copied:''});}
+    else{picks[s.id]=item.id;var nx=Math.min(si+1,STEPS.length-1);this.setState({picks:picks,step:nx,q:'',copied:''});}
+  }
+  tokens(){
+    var p=this.state.picks;var mood=byId(MOODS,p.mood)||MOODS[0];var pal=byId(PALETTES,p.palette);var type=byId(TYPES,p.type)||byId(TYPES,mood.type);
+    var rad=byId(RADII,p.radius);var den=byId(DENS,p.density)||DENS[1];
+    var acc=pal?pal.hex:mood.acc;if(pal&&pal.id==='mono'&&lum(mood.bg)<0.2)acc='#F5F5F5';
+    var r=rad?rad.px:mood.r;
+    return {mood:mood,pal:pal,type:type,rad:rad,den:den,acc:acc,accInk:lum(acc)>0.45?'#0B0B0B':'#FFFFFF',r:r,pill:rad?!!rad.pill:false};
+  }
+  buildExport(t){
+    var p=this.state.picks;var purpose=byId(PURPOSES,p.purpose);var sk=byId(SKELS,p.skeleton);
+    var name=function(list,id){var x=byId(list,id);return x?x.name:'(not picked)';};
+    var many=function(list,ids){return (ids||[]).map(function(id){return byId(list,id);}).filter(Boolean);};
+    var m=t.mood;var btn=byId(BUTTONS,p.buttons),card=byId(CARDS,p.cards),nav=byId(NAVS,p.nav);
+    var ins=many(INPUTS,p.inputs),dat=many(DATA,p.data),fb=many(FEED,p.feedback),fx=many(FX,p.fx);
+    var heavy=fx.filter(function(f){return f.heavy;});var sig=heavy[0];
+    var libs={};[btn,card,nav].concat(ins,dat,fb,fx).forEach(function(x){if(x&&x.lib)libs[x.lib]=1;});
+    var libList=['shadcn/ui (restyled with these tokens)','Lucide icons'].concat(Object.keys(libs).filter(function(l){return l!=='shadcn';}));
+    var L=[];
+    L.push('# DESIGN.md');L.push('');L.push('Generated with Site Forge. Follow this file strictly. Do not invent colours, fonts, radii or effects that are not listed here; ask first.');L.push('');
+    L.push('## 1. Purpose');L.push(purpose?purpose.name+'. '+purpose.prompt.replace('Purpose: ',''):'(not picked)');L.push('');
+    L.push('## 2. Layout skeleton');L.push(sk?sk.name+'. '+sk.prompt:'(not picked)');L.push('');
+    L.push('## 3. Look');L.push('Mood: '+m.name+' — '+m.desc);L.push('');
+    L.push('### Colour tokens');
+    L.push('- background: '+m.bg);L.push('- surface: '+m.surf);L.push('- foreground (ink): '+m.ink);L.push('- muted text: '+m.muted);L.push('- border: '+m.line);
+    L.push('- accent: '+t.acc+(t.pal?' ('+t.pal.name+')':' (mood default)'));L.push('- on-accent text: '+t.accInk);
+    L.push('- Use the accent only for the primary action and key highlights. One strong colour.');L.push('');
+    L.push('### Typography');L.push('- Headings: '+t.type.hn);L.push('- Body: '+t.type.bn);if(t.type.mono)L.push('- Mono: '+t.type.mono);
+    L.push('- Scale: 48 / 32 / 24 / 18 / 16 / 14 px. Body 16px, line-height 1.5. Tabular figures for numbers.');L.push('');
+    L.push('### Shape and space');L.push('- Radius: '+t.r+'px'+(t.pill?' (buttons and chips fully rounded)':''));
+    L.push('- Density: '+t.den.name+' — base spacing unit '+Math.round(8*t.den.d)+'px; use multiples of it.');
+    L.push('- Shadow: '+m.sh);L.push('');
+    L.push('## 4. Components');
+    if(btn)L.push('- Buttons — '+btn.name+': '+btn.prompt);
+    if(card)L.push('- Cards — '+card.name+': '+card.prompt);
+    if(nav)L.push('- Navigation — '+nav.name+': '+nav.prompt);
+    ins.forEach(function(x){L.push('- Input — '+x.name+': '+x.prompt);});L.push('');
+    if(dat.length){L.push('## 5. Data display');dat.forEach(function(x){L.push('- '+x.name+': '+x.prompt);});L.push('');}
+    if(fb.length){L.push('## 6. Feedback and overlays');fb.forEach(function(x){L.push('- '+x.name+': '+x.prompt);});L.push('');}
+    L.push('## 7. Motion and effects');
+    if(sig)L.push('Signature moment (the ONE standout effect): '+sig.name+' — '+sig.prompt);
+    fx.filter(function(f){return f!==sig;}).forEach(function(x){L.push('- '+(x.heavy?'(second signature: use on a different page) ':'')+x.name+': '+x.prompt);});
+    if(!fx.length)L.push('- Keep motion minimal: 150–250ms ease-out on hover and state changes.');
+    L.push('- Respect prefers-reduced-motion everywhere.');L.push('');
+    L.push('## 8. Libraries');libList.forEach(function(l){L.push('- '+l);});L.push('');
+    L.push('## 9. Rules');
+    L.push('- Icons: Lucide only. No emoji as icons.');
+    L.push('- One standout moment per page.');
+    L.push('- Restyle shadcn: change radius, colours and fonts to these tokens so it does not look like default shadcn.');
+    L.push('- Real content, no lorem ipsum. Every card and button does something.');
+    L.push('- Text contrast at least 4.5:1. Touch targets at least 44px. Works at phone width with no sideways scroll.');
+    L.push('- Squint test: blur the page; you should still see what it is for and what matters most.');L.push('');
+    L.push('## 10. Forbidden');
+    L.push('- Purple-to-blue gradient hero');L.push('- Three identical icon/stat cards in a row');L.push('- The same stat shown more than once');L.push('- Gradient profile circles with initials');L.push('- Emoji icons');L.push('- Cards or buttons that do nothing');
+    var md=L.join('\n');
+    var P=[];
+    P.push('Read DESIGN.md in the project root first and follow it strictly. Use tokens.css for every colour, font, radius and shadow.');P.push('');
+    P.push('Build '+(purpose?'a '+purpose.name.toLowerCase():'the app')+' using the "'+(sk?sk.name:'chosen')+'" layout described in DESIGN.md section 2.');
+    P.push('Stack: Next.js + Tailwind + shadcn/ui. Map tokens.css to the Tailwind theme and shadcn CSS variables before building any page.');
+    var inst=Object.keys(libs).filter(function(l){return ['Sonner','Vaul','cmdk','NumberFlow','Motion','Recharts','TanStack Table','input-otp','canvas-confetti','GSAP'].indexOf(l)>=0;});
+    if(inst.length)P.push('Install and use these instead of hand-building: '+inst.join(', ')+'.');
+    var cat=Object.keys(libs).filter(function(l){return ['Magic UI','Aceternity'].indexOf(l)>=0;});
+    if(cat.length)P.push('Adapt components from '+cat.join(' and ')+' via the shadcn CLI, then restyle them to the tokens.');
+    if(sig)P.push('The single signature moment is: '+sig.name+'. Put it on the main page only.');
+    P.push('');P.push('Order: 1) tokens and theme, 2) layout skeleton with real placeholder content, 3) components, 4) effects last. Show me the page after step 2 before adding effects.');
+    P.push('When done, run the squint test and check every item in DESIGN.md section 9.');
+    var prompt=P.join('\n');
+    var c=[];
+    c.push('/* tokens.css — generated by Site Forge */');
+    var fams=[t.type.hn,t.type.bn].concat(t.type.mono?[t.type.mono]:[]).filter(function(v,i,a){return a.indexOf(v)===i;}).map(function(f){return 'family='+f.replace(/ /g,'+');}).join('&');
+    c.push('@import url("https://fonts.googleapis.com/css2?'+fams+'&display=swap");');
+    c.push(':root {');
+    c.push('  --background: '+m.bg+';');c.push('  --surface: '+m.surf+';');c.push('  --foreground: '+m.ink+';');c.push('  --muted-foreground: '+m.muted+';');c.push('  --border: '+m.line+';');
+    c.push('  --accent: '+t.acc+';');c.push('  --accent-foreground: '+t.accInk+';');
+    c.push("  --font-heading: '"+t.type.hn+"', sans-serif;");c.push("  --font-body: '"+t.type.bn+"', sans-serif;");
+    c.push('  --radius: '+t.r+'px;');c.push('  --radius-button: '+(t.pill?'999px':t.r+'px')+';');
+    c.push('  --space: '+Math.round(8*t.den.d)+'px;');c.push('  --shadow: '+m.sh+';');
+    c.push('  --ease-out: cubic-bezier(.22,1,.36,1);');c.push('  --duration: 200ms;');
+    c.push('}');
+    var css=c.join('\n');
+    return {md:md,prompt:prompt,css:css,heavy:heavy};
+  }
+  decorate(si,item,t,pid){
+    var s=STEPS[si];var self=this;var picks=this.state.picks;
+    var sel=s.kind==='multi'?((picks[s.id]||[]).indexOf(item.id)>=0):picks[s.id]===item.id;
+    var o={id:item.id,name:item.name,desc:item.desc,sel:sel,cls:sel?'sel':'',lib:item.lib||'',heavy:!!item.heavy,stepName:s.name,
+      pick:function(){self.pickItem(si,item);},
+      isDemo:s.view==='demo',isSkel:s.view==='skel',isMood:s.view==='mood',isSwatch:s.view==='swatch',isType:s.view==='type',isRadius:s.view==='radius',isDensity:s.view==='density',isPurpose:s.view==='purpose',
+      demo:item.demo||'',label:item.label||'',label2:item.label2||'',label3:item.label3||'',regions:[]};
+    if(s.view==='skel')o.regions=item.regions.map(function(r,i){return {kind:r[4],css:rcss(r,i)};});
+    if(s.view==='purpose'){var fs=null;for(var i=0;i<SKELS.length;i++){if(SKELS[i].fit.indexOf(item.id)>=0){fs=SKELS[i];break;}}o.regions=fs?fs.regions.map(function(r,i){return {kind:r[4],css:rcss(r,i)};}):[];}
+    if(s.view==='mood'){o.sw=[{css:'background:'+item.bg},{css:'background:'+item.surf},{css:'background:'+item.ink},{css:'background:'+item.acc}];}
+    if(s.view==='swatch')o.swCss='background:'+item.hex;
+    if(s.view==='type'){o.hCss='font-family:'+item.h;o.bCss='font-family:'+item.b;}
+    if(s.view==='radius')o.rCss='border-radius:'+item.px+'px';
+    if(s.view==='density')o.gapCss='gap:'+item.gap+'px';
+    o.fits=!!(pid&&item.fit&&item.fit.indexOf(pid)>=0);
+    return o;
+  }
+  renderVals(){
+    var self=this;var st=this.state;var picks=st.picks;var t=this.tokens();var pid=picks.purpose||null;var purpose=byId(PURPOSES,pid);
+    var q=(st.q||'').trim().toLowerCase();var searching=q.length>0;
+    var cur=STEPS[st.step];var isExport=cur.kind==='export'&&!searching;
+    var lastLayer='';var pickCount=0;
+    var steps=STEPS.map(function(s,i){
+      var ch='—';
+      if(s.kind==='single'){var it=byId(s.items,picks[s.id]);if(it){ch=it.name;pickCount++;}else if(s.id==='palette')ch='mood default';else if(s.id==='type')ch='mood default';}
+      else if(s.kind==='multi'){var n=(picks[s.id]||[]).length;pickCount+=n;ch=n?n+' picked':'—';}
+      else ch='DESIGN.md · prompt · tokens';
+      var show=s.layer!==lastLayer;lastLayer=s.layer;
+      var done=s.kind==='single'?!!picks[s.id]:(s.kind==='multi'?((picks[s.id]||[]).length>0):false);
+      return {num:i+1,name:s.name,layer:s.layer,showLayer:show,chosen:ch,cls:(i===st.step&&!searching?'on ':'')+(done?'done':''),go:function(){self.setState({step:i,q:''});}};
+    });
+    var fitItems=[],otherItems=[];
+    if(!searching&&!isExport){
+      var all=cur.items.map(function(it){return self.decorate(st.step,it,t,pid);});
+      if(cur.fitted&&pid){fitItems=all.filter(function(o){return o.fits;});otherItems=all.filter(function(o){return !o.fits;});}
+      else otherItems=all;
+    }
+    var results=[];
+    if(searching){
+      STEPS.forEach(function(s,si){s.items.forEach(function(it){
+        var hay=(it.name+' '+(it.desc||'')+' '+(it.kw||'')+' '+(it.lib||'')+' '+s.name+' '+s.layer).toLowerCase();
+        if(hay.indexOf(q)>=0)results.push(self.decorate(si,it,t,pid));
+      });});
+    }
+    var sk=byId(SKELS,picks.skeleton)||SKELS[2];
+    var fx=picks.fx||[];var has=function(id){return fx.indexOf(id)>=0;};
+    var mqCls=['m-'+t.mood.id,picks.cards?'c-'+picks.cards:'',picks.buttons?'b-'+picks.buttons:'',(t.pill?'b-pill':''),picks.nav?'n-'+picks.nav:'',has('glass')?'fx-glass':'',has('aurora')?'fx-aurora':'',has('dots')?'fx-dots':'',has('lift')?'fx-lift':'',has('reveal')?'fx-reveal':'',has('grain')?'fx-grain':'',st.squint?'squint':''].join(' ');
+    var mqRegions=sk.regions.map(function(r,i){return {kind:r[4],label:r[5],css:rcss(r,i)};});
+    var ex=this.buildExport(t);
+    var heavyNames=ex.heavy.map(function(h){return h.name;}).join(', ');
+    var sheet=[];
+    STEPS.forEach(function(s,i){
+      if(s.kind==='single'&&picks[s.id]){var it=byId(s.items,picks[s.id]);if(it)sheet.push({step:s.name,val:it.name,go:function(){self.setState({step:i,q:''});}});}
+      if(s.kind==='multi'&&(picks[s.id]||[]).length){sheet.push({step:s.name,val:picks[s.id].map(function(id){var x=byId(s.items,id);return x?x.name:id;}).join(', '),go:function(){self.setState({step:i,q:''});}});}
+    });
+    var missing=STEPS.filter(function(s){return s.kind==='single'&&!picks[s.id];}).map(function(s){return s.name;});
+    var outText=st.tab==='md'?ex.md:(st.tab==='prompt'?ex.prompt:ex.css);
+    var rootVars='--bg:'+t.mood.bg+';--surf:'+t.mood.surf+';--ink:'+t.mood.ink+';--muted:'+t.mood.muted+';--line:'+t.mood.line+';--acc:'+t.acc+';--accInk:'+t.accInk+';--hf:'+t.type.h+';--bf:'+t.type.b+';--rc:'+t.r+'px;--sh:'+t.mood.sh+';--d:'+t.den.d;
+    var isLast=st.step>=STEPS.length-2;
+    return {
+      rootVars:rootVars,q:st.q,searching:searching,showStep:!searching&&!isExport,isExport:isExport,
+      onQuery:function(e){self.setState({q:e.target.value});},
+      steps:steps,pickCount:pickCount,
+      cur:{num:st.step+1,layer:cur.layer,title:cur.title,hint:cur.hint,analogy:cur.analogy},
+      needPurpose:!!cur.fitted&&!pid,
+      hasFit:fitItems.length>0,fitItems:fitItems,fitCount:fitItems.length,purposeName:purpose?purpose.name.toLowerCase():'',
+      otherItems:otherItems,otherCount:otherItems.length,otherLabel:fitItems.length?'Other options':'Options',
+      results:results,resultCount:results.length,
+      tooMany:STEPS[st.step].id==='fx'&&ex.heavy.length>1,heavyCount:ex.heavy.length,heavyNames:heavyNames,
+      back:function(){self.setState({step:Math.max(0,st.step-1),q:''});},
+      next:function(){self.setState({step:Math.min(STEPS.length-1,st.step+1),q:''});},
+      nextLabel:isLast?'Finish → build sheet':(cur.kind==='multi'?'Next layer':'Skip / next'),
+      goExport:function(){self.setState({step:STEPS.length-1,q:''});},
+      resetAll:function(){self.setState({step:0,picks:{},q:'',copied:''});},
+      mqCls:mqCls,mqRegions:mqRegions,squintCls:st.squint?'on':'',toggleSquint:function(){self.setState({squint:!st.squint});},
+      caption:sk.name+' · '+t.mood.name+' · '+t.type.name+' · '+t.r+'px radius'+(picks.skeleton?'':' (sample skeleton until you pick one)'),
+      sheet:sheet,sheetEmpty:sheet.length===0,
+      missingText:missing.length?'Not picked yet (mood defaults used): '+missing.join(', ')+'.':'Every layer picked.',
+      tabMd:st.tab==='md'?'on':'',tabPrompt:st.tab==='prompt'?'on':'',tabCss:st.tab==='css'?'on':'',
+      showMd:function(){self.setState({tab:'md',copied:''});},showPrompt:function(){self.setState({tab:'prompt',copied:''});},showCss:function(){self.setState({tab:'css',copied:''});},
+      outText:outText,
+      copyLabel:st.copied==='ok'?'Copied':(st.copied==='fail'?'Select the text and copy':'Copy'),
+      copyOut:function(){try{navigator.clipboard.writeText(outText).then(function(){self.setState({copied:'ok'});},function(){self.setState({copied:'fail'});});}catch(e){self.setState({copied:'fail'});}}
+    };
+  }
+}
+</script>
+</body>
+</html>

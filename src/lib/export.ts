@@ -1,6 +1,7 @@
 // The three export files, ported line for line from the prototype's
 // buildExport(). export.test.ts runs the prototype's own code against this
-// and requires byte-identical output, so change neither without the other.
+// and requires byte-identical output (bar one deliberate fix, the capitalised
+// purpose line), so change neither without the other.
 import {
   BUTTONS, CARDS, DATA, FEED, FX, INPUTS, NAVS, PURPOSES, SKELS,
   type Item, type Picks,
@@ -21,6 +22,9 @@ function many<T extends Item>(list: T[], picks: Picks, id: string): T[] {
   const ids = Array.isArray(v) ? v : [];
   return ids.map((x) => byId(list, x)).filter((x): x is T => !!x);
 }
+
+// Not in the prototype: it wrote "tool. a work tool". See export.test.ts.
+export const capitalise = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 // Libraries the prompt says to install, and component catalogues to adapt.
 const INSTALL = ["Sonner", "Vaul", "cmdk", "NumberFlow", "Motion", "Recharts", "TanStack Table", "input-otp", "canvas-confetti", "GSAP"];
@@ -49,7 +53,7 @@ export function buildExport(picks: Picks, t: UserTokens): ExportFiles {
 
   const L: string[] = [];
   L.push("# DESIGN.md", "", "Generated with Site Forge. Follow this file strictly. Do not invent colours, fonts, radii or effects that are not listed here; ask first.", "");
-  L.push("## 1. Purpose", purpose ? purpose.name + ". " + purpose.prompt.replace("Purpose: ", "") : "(not picked)", "");
+  L.push("## 1. Purpose", purpose ? purpose.name + ". " + capitalise(purpose.prompt.replace("Purpose: ", "")) : "(not picked)", "");
   L.push("## 2. Layout skeleton", sk ? sk.name + ". " + sk.prompt : "(not picked)", "");
   L.push("## 3. Look", "Mood: " + m.name + " — " + m.desc, "");
   L.push("### Colour tokens");

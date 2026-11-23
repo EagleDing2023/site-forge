@@ -63,7 +63,9 @@ export function SiteForge() {
             <StepPanel stepIndex={step} picks={picks} onPick={(id) => pick(step, id)} onGo={goTo} />
           )}
         </main>
-        <aside className="flex min-w-0 max-w-[520px] flex-[1_1_380px] flex-col gap-4 max-[760px]:max-w-none">
+        {/* 1214px = the three flex bases (250 + 520 + 380) + two 16px gaps + 16px padding each side:
+            below it the side column wraps under main, where sticking would do nothing useful. */}
+        <aside className="flex min-w-0 max-w-[520px] flex-[1_1_380px] flex-col gap-4 max-[760px]:max-w-none min-[1214px]:sticky min-[1214px]:top-4 min-[1214px]:max-h-[calc(100dvh-32px)] min-[1214px]:overflow-y-auto">
           <LivePreview picks={picks} tokens={tokens} />
           <BuildSheet rows={sheetRows(picks)} onGo={goTo} />
         </aside>

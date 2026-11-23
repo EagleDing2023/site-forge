@@ -1,12 +1,13 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { Check, Copy } from "lucide-react";
 import { STEPS, type Picks } from "@/data/catalog";
 import { buildExport, type ExportTab } from "@/lib/export";
 import { missingSteps } from "@/lib/picks";
 import { userTokens } from "@/lib/tokens";
 import { cn } from "@/lib/utils";
-import { buttonPrimary, buttonSecondary } from "./ui-button";
+import { buttonSecondary } from "./ui-button";
 
 const TABS: { id: ExportTab; label: string }[] = [
   { id: "md", label: "DESIGN.md" },
@@ -19,15 +20,22 @@ type CopyState = "" | "ok" | "fail";
 export function ExportPanel({ picks, onBack }: { picks: Picks; onBack: () => void }) {
   const [tab, setTab] = useState<ExportTab>("md");
   const [copied, setCopied] = useState<CopyState>("");
+  const timer = useRef<ReturnType<typeof setTimeout>>(undefined);
+  const showCopied = (state: CopyState) => {
+    clearTimeout(timer.current);
+    setCopied(state);
+    if (state === "ok") timer.current = setTimeout(() => setCopied(""), 2000);
+  };
+  useEffect(() => () => clearTimeout(timer.current), []);
   const missing = missingSteps(picks);
   const text = buildExport(picks, userTokens(picks))[tab];
 
   const copy = () => {
     // clipboard is undefined outside secure contexts (plain http on a LAN IP).
-    if (!navigator.clipboard) return setCopied("fail");
+    if (!navigator.clipboard) return showCopied("fail");
     navigator.clipboard.writeText(text).then(
-      () => setCopied("ok"),
-      () => setCopied("fail"),
+      () => showCopied("ok"),
+      () => showCopied("fail"),
     );
   };
 
@@ -52,7 +60,7 @@ export function ExportPanel({ picks, onBack }: { picks: Picks; onBack: () => voi
             aria-pressed={tab === t.id}
             onClick={() => {
               setTab(t.id);
-              setCopied("");
+              showCopied("");
             }}
             className={cn(
               "min-h-11 rounded-full border px-3.5 text-label font-semibold transition-colors duration-150 ease-out",
@@ -64,7 +72,12 @@ export function ExportPanel({ picks, onBack }: { picks: Picks; onBack: () => voi
             {t.label}
           </button>
         ))}
-        <button type="button" className={buttonPrimary} onClick={copy}>
+        <button type="button" className={cn(buttonSecondary, "ml-auto inline-flex items-center gap-2")} onClick={copy}>
+          {copied === "ok" ? (
+            <Check aria-hidden className="size-4" strokeWidth={2} />
+          ) : (
+            <Copy aria-hidden className="size-4" strokeWidth={2} />
+          )}
           {copied === "ok" ? "Copied" : copied === "fail" ? "Select the text and copy" : "Copy"}
         </button>
       </div>
@@ -76,7 +89,7 @@ export function ExportPanel({ picks, onBack }: { picks: Picks; onBack: () => voi
         className="min-h-[420px] w-full resize-y rounded-md border border-line bg-surface-hover p-3.5 font-mono text-small text-ink"
       />
 
-      <div className="mt-[22px] flex flex-wrap justify-between gap-2.5">
+      <div className="mt-6 flex flex-wrap justify-between gap-2.5">
         <button type="button" className={buttonSecondary} onClick={onBack}>
           Back to effects
         </button>

@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { FX, MOODS, STEPS, type Picks } from "@/data/catalog";
-import { buildExport, type ExportFiles } from "./export";
+import { FX, MOODS, PURPOSES, STEPS, type Picks } from "@/data/catalog";
+import { buildExport, capitalise, type ExportFiles } from "./export";
 import { userTokens } from "./tokens";
 
 // Golden reference: the prototype's own <script> block, run unchanged. Only
@@ -18,7 +18,18 @@ function reference(picks: Picks): ExportFiles {
   const c = new Component({});
   c.state.picks = picks;
   const { md, prompt, css } = c.buildExport(c.tokens());
-  return { md, prompt, css };
+  return { md: fixPurposeLine(md, picks), prompt, css };
+}
+
+// Intentional divergence (Eagle, step 8): the prototype writes the purpose
+// line as "SaaS workspace / tool. a work tool…", a lower-case letter after a
+// full stop. We capitalise it, so the expected output gets the same fix.
+// Everything else must still match the prototype byte for byte.
+function fixPurposeLine(md: string, picks: Picks): string {
+  const p = PURPOSES.find((x) => x.id === picks.purpose);
+  if (!p) return md;
+  const rest = p.prompt.replace("Purpose: ", "");
+  return md.replace(`## 1. Purpose\n${p.name}. ${rest}`, `## 1. Purpose\n${p.name}. ${capitalise(rest)}`);
 }
 
 const ours = (picks: Picks) => buildExport(picks, userTokens(picks));
@@ -91,6 +102,10 @@ describe("DESIGN.md content (spec 'Done means')", () => {
   };
   const { md } = ours(picks);
   const t = userTokens(picks);
+
+  it("capitalises the purpose prompt after the name", () => {
+    expect(ours({ purpose: "saas" }).md).toContain("## 1. Purpose\nSaaS workspace / tool. A work tool people use every day.");
+  });
 
   it("names the purpose and skeleton", () => {
     expect(md).toContain("## 1. Purpose\nDashboard / analytics.");

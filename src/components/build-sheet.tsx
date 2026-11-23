@@ -20,7 +20,7 @@ export function BuildSheet({ rows, onGo }: { rows: SheetRow[]; onGo: (stepIndex:
             key={r.stepIndex}
             type="button"
             onClick={() => onGo(r.stepIndex)}
-            className="flex min-h-11 items-baseline gap-2.5 rounded-md px-2 py-[7px] text-left transition-colors duration-150 ease-out hover:bg-surface-hover"
+            className="flex min-h-11 items-baseline gap-2.5 rounded-md px-2 py-2 text-left transition-colors duration-150 ease-out hover:bg-surface-hover"
           >
             <span className="w-24 shrink-0 text-small text-muted-2">{r.step}</span>
             <b className="text-small font-medium">{r.value}</b>

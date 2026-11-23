@@ -42,7 +42,7 @@ export function StepPanel({ stepIndex, picks, onPick, onGo }: Props) {
       </div>
       <h1 className="mt-1.5 mb-1.5 font-display text-page-title font-bold tracking-[-0.02em]">{step.title}</h1>
       <p className="mb-1 max-w-[720px] text-muted-foreground">{step.hint}</p>
-      <p className="mb-[18px] text-small text-muted-2">{step.analogy}</p>
+      <p className="mb-4 text-small text-muted-2">{step.analogy}</p>
 
       {step.fitted && !purpose && (
         <Warn>
@@ -69,7 +69,7 @@ export function StepPanel({ stepIndex, picks, onPick, onGo }: Props) {
         </Warn>
       )}
 
-      <div className="mt-[22px] flex flex-wrap justify-between gap-2.5">
+      <div className="mt-6 flex flex-wrap justify-between gap-2.5">
         <button type="button" className={buttonSecondary} onClick={() => onGo(stepIndex - 1)}>
           Back
         </button>
@@ -83,7 +83,7 @@ export function StepPanel({ stepIndex, picks, onPick, onGo }: Props) {
 
 function SectionTitle({ label, meta }: { label: string; meta: string }) {
   return (
-    <div className="mt-[18px] mb-2.5 flex items-center gap-2 text-small font-semibold text-ink-soft">
+    <div className="mt-4 mb-2.5 flex items-center gap-2 text-small font-semibold text-ink-soft">
       {label}
       <span className="font-mono text-eyebrow font-normal text-muted-2">{meta}</span>
     </div>

@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef } from "react";
 import { cn } from "@/lib/utils";
 
 export type RailStep = {
@@ -18,29 +21,49 @@ export function Rail({
   activeIndex: number;
   onSelect: (index: number) => void;
 }) {
+  const navRef = useRef<HTMLElement>(null);
+
+  // Phone width: the rail is a one-row strip, so keep the active step centred
+  // in it, also when the window is resized into strip mode. Only touches the
+  // strip's own scroll, never the page's.
+  useEffect(() => {
+    const nav = navRef.current;
+    if (!nav) return;
+    const centre = () => {
+      const btn = nav.querySelector<HTMLElement>('[aria-current="step"]');
+      if (!btn || nav.scrollWidth <= nav.clientWidth) return;
+      nav.scrollLeft = btn.offsetLeft - (nav.clientWidth - btn.offsetWidth) / 2;
+    };
+    centre();
+    const ro = new ResizeObserver(centre);
+    ro.observe(nav);
+    return () => ro.disconnect();
+  }, [activeIndex]);
+
   return (
     <nav
+      ref={navRef}
       aria-label="Design layers"
-      className="min-w-[220px] flex-[0_1_250px] rounded-xl border border-line bg-surface p-2.5 max-[760px]:flex-[1_1_100%]"
+      className="relative min-w-[220px] flex-[0_1_250px] rounded-xl border border-line bg-surface p-2.5 max-[760px]:flex max-[760px]:flex-[1_1_100%] max-[760px]:gap-1 max-[760px]:overflow-x-auto max-[760px]:p-1.5"
     >
       {steps.map((s, i) => {
         const active = i === activeIndex;
         const showLayer = i === 0 || steps[i - 1].layer !== s.layer;
         return (
-          <div key={s.id}>
-            {showLayer && <div className="eyebrow px-2.5 pt-3 pb-1 text-muted-2">{s.layer}</div>}
+          <div key={s.id} className="max-[760px]:shrink-0">
+            {showLayer && <div className="eyebrow px-2.5 pt-3 pb-1 text-muted-2 max-[760px]:hidden">{s.layer}</div>}
             <button
               type="button"
               aria-current={active ? "step" : undefined}
               onClick={() => onSelect(i)}
               className={cn(
-                "flex min-h-11 w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-left transition-colors duration-150 ease-out",
+                "flex min-h-11 w-full items-center gap-2.5 rounded-md px-2.5 py-2 text-left transition-colors duration-150 ease-out max-[760px]:w-auto max-[760px]:max-w-[200px]",
                 active ? "bg-ink text-surface" : "hover:bg-surface-hover",
               )}
             >
               <span
                 className={cn(
-                  "flex size-6 shrink-0 items-center justify-center rounded-sm text-[11px] font-semibold",
+                  "flex size-6 shrink-0 items-center justify-center rounded-sm text-eyebrow font-semibold",
                   active ? "bg-surface text-ink" : s.done ? "bg-brand text-surface" : "bg-line text-ink-soft",
                 )}
               >

@@ -28,7 +28,7 @@ export function OptionCard({
       className={cn(
         "flex flex-col gap-2 rounded-lg border bg-surface text-left transition-[border-color,box-shadow,transform] duration-150 ease-out",
         selected
-          ? "border-2 border-brand p-[9px] shadow-selected"
+          ? "border-[3px] border-brand p-2 shadow-selected"
           : "border-line p-2.5 hover:-translate-y-px hover:border-line-strong hover:shadow-hover",
       )}
     >
@@ -56,6 +56,6 @@ export function OptionCard({
 
 function Badge({ className, children }: { className: string; children: ReactNode }) {
   return (
-    <span className={cn("rounded-full px-[7px] py-0.5 text-badge font-semibold", className)}>{children}</span>
+    <span className={cn("rounded-full px-2 py-0.5 text-badge font-semibold", className)}>{children}</span>
   );
 }

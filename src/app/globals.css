@@ -1,0 +1,131 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+/*
+ * APP TOKENS ONLY (site-forge-handoff/tokens.json + DESIGN.md).
+ * User tokens (--bg --surf --ink --muted --line --acc …) are deliberately NOT
+ * mapped here, so app code can't reach them through Tailwind classes.
+ *
+ * Naming: every tokens.json colour is a utility of the same name (bg-ground,
+ * text-ink, border-line…), except tokens.json "muted" (description text),
+ * which is shadcn's text-muted-foreground, because shadcn already uses
+ * "muted" for a background.
+ */
+@theme inline {
+  /* Fonts (next/font variables from src/app/fonts.ts) */
+  --font-display: var(--ff-space-grotesk), system-ui, sans-serif;
+  --font-sans: var(--ff-inter), system-ui, sans-serif;
+  --font-mono: var(--ff-jetbrains-mono), ui-monospace, monospace;
+  --font-heading: var(--font-display);
+
+  /* App colours */
+  --color-ground: #f2f3f5;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f4f5f7;
+  --color-ink: #0f1115;
+  --color-ink-soft: #3b4150;
+  --color-muted-2: #6a7180;
+  --color-line: #e3e5ea;
+  --color-line-strong: #d5d8de;
+  --color-brand: #ff5a1f;
+  --color-brand-ink: #c2410c;
+  --color-brand-tint: #ffede5;
+  --color-chrome: #0f1115;
+  --color-chrome-raised: #1c1f26;
+  --color-chrome-line: #2c313b;
+  --color-chrome-text: #a8aebb;
+  --color-fit-bg: #e7f6ee;
+  --color-fit-ink: #0b6b3a;
+  --color-lib-bg: #eef1ff;
+  --color-lib-ink: #2b3fb0;
+  --color-sig-ink: #b23c0b;
+  --color-warn-bg: #fff4e5;
+  --color-warn-ink: #7a3e00;
+
+  /* shadcn semantic colours, mapped onto app tokens */
+  --color-background: var(--color-ground);
+  --color-foreground: var(--color-ink);
+  --color-card: var(--color-surface);
+  --color-card-foreground: var(--color-ink);
+  --color-popover: var(--color-surface);
+  --color-popover-foreground: var(--color-ink);
+  --color-primary: var(--color-ink);
+  --color-primary-foreground: var(--color-surface);
+  --color-secondary: var(--color-surface);
+  --color-secondary-foreground: var(--color-ink);
+  --color-muted: var(--color-surface-hover);
+  --color-muted-foreground: #5b6270;
+  --color-accent: var(--color-surface-hover);
+  --color-accent-foreground: var(--color-ink);
+  --color-destructive: var(--color-warn-ink);
+  --color-border: var(--color-line);
+  --color-input: var(--color-line-strong);
+  --color-ring: var(--color-ink);
+
+  /* Radius: sm chips · md controls · lg cards/preview · xl panels */
+  --radius: 12px;
+  --radius-sm: 7px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+
+  /* Shadows: none at rest */
+  --shadow-hover: 0 6px 18px rgba(15, 17, 21, 0.07);
+  --shadow-selected: 0 0 0 4px rgba(255, 90, 31, 0.12);
+
+  /* Type scale */
+  --text-page-title: 30px;
+  --text-page-title--line-height: 33px;
+  --text-logo: 20px;
+  --text-logo--line-height: 24px;
+  --text-panel-title: 16px;
+  --text-panel-title--line-height: 22px;
+  --text-body: 15px;
+  --text-body--line-height: 22px;
+  --text-label: 14px;
+  --text-label--line-height: 20px;
+  --text-small: 12.5px;
+  --text-small--line-height: 18px;
+  --text-eyebrow: 11px;
+  --text-eyebrow--line-height: 14px;
+  --text-badge: 10.5px;
+  --text-badge--line-height: 14px;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    @apply font-sans;
+  }
+  body {
+    @apply bg-ground text-ink text-body;
+  }
+  /* Focus is ink, never orange (orange means "chosen"). */
+  :focus-visible {
+    outline: 2px solid var(--color-ink);
+    outline-offset: 2px;
+  }
+  /* Ink is invisible on the ink top bar, so use surface white there. */
+  [data-chrome] :focus-visible {
+    outline-color: var(--color-surface);
+  }
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-eyebrow);
+  line-height: var(--text-eyebrow--line-height);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-play-state: paused !important;
+  }
+}

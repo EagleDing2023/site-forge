@@ -2,17 +2,25 @@
    Reads user tokens only. The frame border is app chrome and comes from Tailwind in live-preview.tsx. */
 .mq{position:relative;width:100%;aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:var(--bg);transition:filter .3s,background .3s;container-type:inline-size}
 .squint{filter:blur(6px)}
-.rg{position:absolute;box-sizing:border-box;padding:calc(5px*var(--d));border-radius:var(--rc);background:var(--surf);border:1px solid var(--line);box-shadow:var(--sh);overflow:hidden;font-family:var(--bf);color:var(--ink);transition:all .35s ease}
-.rl{position:relative;z-index:1;font-size:clamp(7px,3cqw,11px);font-weight:600;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+/* Every region is a size container so labels can measure it (cqh). The label size is set here, where cqw
+   still resolves against the frame. The top padding lives on .rl as a margin, so a short region's
+   container height isn't eaten by padding. */
+.rg{position:absolute;box-sizing:border-box;padding:0 calc(5px*var(--d));border-radius:var(--rc);background:var(--surf);border:1px solid var(--line);box-shadow:var(--sh);overflow:hidden;font-family:var(--bf);color:var(--ink);transition:all .35s ease;container-type:size;font-size:clamp(7px,3cqw,11px)}
+.rl{position:relative;z-index:1;margin-top:calc(5px*var(--d));font-weight:600;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+/* Short regions: label centred vertically on one line, capped to the region height. */
+.k-nav,.k-input{display:flex;align-items:center}
+.k-nav .rl,.k-input .rl,.k-cta .rl{margin-top:0;min-width:0;font-size:min(1em,80cqh);line-height:1.2}
+/* Any other region under ~32px: a line box as tall as the region centres the single line. */
+@container (max-height:32px){.rg:not(.k-hero) .rl{margin-top:0;font-size:min(1em,80cqh);line-height:100cqh}}
 .lines{position:absolute;left:10%;right:10%;top:42%;bottom:12%;background:repeating-linear-gradient(to bottom,var(--line) 0 3px,transparent 3px 10px)}
 .k-side{background:color-mix(in srgb,var(--surf) 65%,var(--bg))}
 .k-nav .lines,.k-hero .lines,.k-cta .lines,.k-input .lines,.k-chat .lines,.k-media .lines{display:none}
 /* Hero text: its size follows the frame width (cqw on .k-hero resolves against .mq),
    then the region's own box caps it (cq units on .rl resolve against .k-hero), so it always fits.
    Two lines, or one line in short regions; ellipsis after that.
-   Hero regions are invisible boxes, so vertical padding only steals height from short ones. */
-.k-hero{background:transparent;border-color:transparent;box-shadow:none;container-type:size;font-size:min(7cqw,26px);padding-block:0}
-.k-hero .rl{font-family:var(--hf);font-size:min(1em,42cqh);font-weight:600;color:var(--ink);white-space:normal;line-height:1.15;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2}
+   Hero regions are invisible boxes, so they get no top offset. */
+.k-hero{background:transparent;border-color:transparent;box-shadow:none;font-size:min(7cqw,26px)}
+.k-hero .rl{margin-top:0;font-family:var(--hf);font-size:min(1em,42cqh);font-weight:600;color:var(--ink);white-space:normal;line-height:1.15;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2}
 @container (max-height:40px){.k-hero .rl{font-size:min(1em,84cqh);-webkit-line-clamp:1;line-clamp:1}}
 .k-cta{background:var(--acc);border-color:transparent;display:flex;align-items:center;justify-content:center}
 .k-cta .rl{color:var(--accInk)}

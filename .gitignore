@@ -45,3 +45,15 @@ next-env.d.ts
 
 # Impeccable working files
 /.impeccable/
+
+# Private: agent instructions, tooling and planning docs (kept locally, never published)
+/CLAUDE.md
+CLAUDE.local.md
+/AGENTS.md
+/.claude/
+/.mcp.json
+/site-forge-handoff/
+
+# editors
+.vscode/
+.idea/

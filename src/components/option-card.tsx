@@ -1,14 +1,17 @@
 import { Check } from "lucide-react";
 import type { ReactNode } from "react";
-import type { Item } from "@/data/catalog";
+import type { Item, Step } from "@/data/catalog";
 import { cn } from "@/lib/utils";
+import { OptionPreview } from "./option-preview";
 
 export function OptionCard({
+  step,
   item,
   selected,
   fits,
   onPick,
 }: {
+  step: Step;
   item: Item;
   selected: boolean;
   fits: boolean;
@@ -26,7 +29,7 @@ export function OptionCard({
           : "border-line p-2.5 hover:-translate-y-px hover:border-line-strong hover:shadow-hover",
       )}
     >
-      {/* Step 4: the live demo goes here. */}
+      <OptionPreview step={step} item={item} />
       <span className="flex items-center justify-between gap-1.5 text-label font-semibold">
         {item.name}
         {selected && (

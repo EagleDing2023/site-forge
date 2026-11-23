@@ -3,6 +3,7 @@
 import { STEPS } from "@/data/catalog";
 import { useForge } from "@/lib/forge-store";
 import { LAST_STEP, isDone, pickCount, railLabel, sheetRows } from "@/lib/picks";
+import { userTokenVars, userTokens } from "@/lib/tokens";
 import { BuildSheet } from "./build-sheet";
 import { Rail } from "./rail";
 import { StepPanel } from "./step-panel";
@@ -20,7 +21,8 @@ export function SiteForge() {
   }));
 
   return (
-    <div className="min-h-screen">
+    // User tokens live here as plain CSS variables; only demo/preview CSS reads them.
+    <div className="min-h-screen" style={userTokenVars(userTokens(picks))}>
       <TopBar pickCount={pickCount(picks)} onBuildSheet={() => goTo(LAST_STEP)} onStartOver={reset} />
       <div className="flex flex-wrap items-start gap-4 p-4">
         <Rail steps={railSteps} activeIndex={step} onSelect={goTo} />

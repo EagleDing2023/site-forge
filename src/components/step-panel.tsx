@@ -24,6 +24,7 @@ export function StepPanel({ stepIndex, picks, onPick, onGo }: Props) {
       {items.map((it) => (
         <OptionCard
           key={it.id}
+          step={step}
           item={it}
           fits={isFit}
           selected={isPicked(picks, step, it.id)}

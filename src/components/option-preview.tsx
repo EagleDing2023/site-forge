@@ -6,7 +6,7 @@ import s from "./demo.module.css";
 const cx = (...c: (string | false | undefined)[]) => c.filter(Boolean).join(" ");
 
 // The prototype's rcss(): a region's box in % plus its index for staggered animations.
-function regionStyle(r: Region, i: number): CSSProperties {
+export function regionStyle(r: Region, i: number): CSSProperties {
   return { left: `${r[0]}%`, top: `${r[1]}%`, width: `${r[2]}%`, height: `${r[3]}%`, "--i": i } as CSSProperties;
 }
 

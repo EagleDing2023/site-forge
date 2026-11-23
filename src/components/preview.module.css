@@ -1,0 +1,49 @@
+/* Live preview ("mannequin"), ported from the prototype's live-mannequin block.
+   Reads user tokens only. The frame border is app chrome and comes from Tailwind in live-preview.tsx. */
+.mq{position:relative;width:100%;aspect-ratio:16/10;border-radius:12px;overflow:hidden;background:var(--bg);transition:filter .3s,background .3s}
+.squint{filter:blur(6px)}
+.rg{position:absolute;box-sizing:border-box;padding:calc(5px*var(--d));border-radius:var(--rc);background:var(--surf);border:1px solid var(--line);box-shadow:var(--sh);overflow:hidden;font-family:var(--bf);color:var(--ink);transition:all .35s ease}
+.rl{position:relative;z-index:1;font-size:clamp(7px,0.8vw,11px);font-weight:600;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:block}
+.lines{position:absolute;left:10%;right:10%;top:42%;bottom:12%;background:repeating-linear-gradient(to bottom,var(--line) 0 3px,transparent 3px 10px)}
+.k-side{background:color-mix(in srgb,var(--surf) 65%,var(--bg))}
+.k-nav .lines,.k-hero .lines,.k-cta .lines,.k-input .lines,.k-chat .lines,.k-media .lines{display:none}
+.k-hero{background:transparent;border-color:transparent;box-shadow:none}
+.k-hero .rl{font-family:var(--hf);font-size:clamp(11px,1.9vw,26px);font-weight:600;color:var(--ink);white-space:normal;line-height:1.05}
+.k-cta{background:var(--acc);border-color:transparent;display:flex;align-items:center;justify-content:center}
+.k-cta .rl{color:var(--accInk)}
+.k-media{background:repeating-linear-gradient(135deg,color-mix(in srgb,var(--acc) 22%,var(--surf)) 0 7px,var(--surf) 7px 14px)}
+.k-chat{background:color-mix(in srgb,var(--acc) 22%,var(--surf))}
+.k-table .lines{top:30%;left:6%;right:6%;background:repeating-linear-gradient(to bottom,var(--line) 0 1px,transparent 1px 9px)}
+.m-brutal .rg:not(.k-hero){border:2px solid var(--ink)}
+.m-glass,.fx-glass{background:radial-gradient(circle at 18% 28%,color-mix(in srgb,var(--acc) 45%,transparent) 0,transparent 42%),radial-gradient(circle at 82% 72%,#FFB8D9 0,transparent 40%),var(--bg)}
+.m-glass .rg:not(.k-hero):not(.k-cta),.fx-glass .rg:not(.k-hero):not(.k-cta),.c-glass .k-card{background:color-mix(in srgb,var(--surf) 55%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.m-pixel .rg{image-rendering:pixelated}
+.c-border .k-card{box-shadow:none}
+.c-shadow .k-card{border-color:transparent;box-shadow:0 8px 22px rgba(0,0,0,.13)}
+.c-bento .k-card,.c-bento .k-media{border-radius:calc(var(--rc) + 6px)}
+.c-spotlight .k-card{background:radial-gradient(circle at 30% 20%,color-mix(in srgb,var(--acc) 30%,transparent),var(--surf) 62%)}
+.c-tilt .k-card{transform:perspective(500px) rotateY(-7deg)}
+.c-brutal .k-card,.c-brutal .k-media{border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.c-media .k-card{background:linear-gradient(color-mix(in srgb,var(--acc) 25%,var(--surf)) 0 42%,var(--surf) 42%)}
+.c-beam .k-card{border-color:var(--acc);box-shadow:0 0 0 1px var(--acc),0 0 14px color-mix(in srgb,var(--acc) 40%,transparent)}
+.b-tonal .k-cta{background:color-mix(in srgb,var(--acc) 18%,var(--surf))}.b-tonal .k-cta .rl{color:var(--acc)}
+.b-outline .k-cta{background:transparent;border:2px solid var(--acc)}.b-outline .k-cta .rl{color:var(--acc)}
+.b-ghost .k-cta{background:transparent;box-shadow:none}.b-ghost .k-cta .rl{color:var(--acc);text-decoration:underline}
+.b-pill .k-cta{border-radius:999px}
+.b-glass .k-cta{background:color-mix(in srgb,var(--surf) 40%,transparent);border:1px solid color-mix(in srgb,#fff 60%,transparent);backdrop-filter:blur(8px)}.b-glass .k-cta .rl{color:var(--ink)}
+.b-brutal .k-cta{border:2px solid var(--ink);box-shadow:4px 4px 0 var(--ink)}
+.b-lift .k-cta{box-shadow:0 8px 18px color-mix(in srgb,var(--acc) 45%,transparent);transform:translateY(-2px)}
+.b-shimmer .k-cta::after,.b-magnetic .k-cta::after{content:'';position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.55) 50%,transparent 70%);background-size:250% 100%;animation:sweep 2.2s infinite}
+.n-float .k-nav{left:22%!important;width:56%!important;top:2.5%!important;height:7%!important;border-radius:999px;box-shadow:0 6px 18px rgba(0,0,0,.14)}
+.n-tabbar .k-nav{border-radius:0}
+.fx-dots{background-image:radial-gradient(var(--line) 1px,transparent 1.2px);background-size:14px 14px}
+.fx-aurora{background:radial-gradient(circle at 25% 15%,color-mix(in srgb,var(--acc) 40%,transparent),transparent 45%),radial-gradient(circle at 75% 85%,color-mix(in srgb,var(--acc) 25%,transparent),transparent 45%),var(--bg)}
+.fx-lift .k-card:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(0,0,0,.15)}
+.fx-reveal .rg{animation:fadeUp .6s both;animation-delay:calc(var(--i) * 70ms)}
+.fx-grain::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.18;background-image:repeating-radial-gradient(circle at 17% 32%,#000 0 .5px,transparent .6px 2px),repeating-radial-gradient(circle at 71% 61%,#000 0 .5px,transparent .6px 3px)}
+
+@keyframes sweep{0%{background-position:150% 0}100%{background-position:-60% 0}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+/* globals.css pauses animations; a paused fadeUp with fill "both" would hide every region. */
+@media (prefers-reduced-motion: reduce){.fx-reveal .rg{animation:none}}

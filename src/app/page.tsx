@@ -1,9 +1,8 @@
 import { Rail, type RailStep } from "@/components/rail";
 import { TopBar } from "@/components/top-bar";
-// Temporary: step 2 replaces this with the typed src/data/catalog.ts.
-import { STEPS } from "../../site-forge-handoff/data/catalog.js";
+import { STEPS } from "@/data/catalog";
 
-const railSteps: RailStep[] = STEPS.map((s: { id: string; name: string; layer: string; kind: string }) => ({
+const railSteps: RailStep[] = STEPS.map((s) => ({
   id: s.id,
   name: s.name,
   layer: s.layer,

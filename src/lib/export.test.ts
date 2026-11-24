@@ -1,8 +1,8 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
 import * as v1 from "../../site-forge-handoff/data/catalog.js";
-import { FX, MOODS, PURPOSES, type Picks, type Step } from "@/data/catalog";
-import { buildExport, capitalise, type ExportFiles } from "./export";
+import { BACKGROUNDS, CHARTS, DATA, FX, ICONS, INPUTS, MOODS, PURPOSES, SECTIONS, type Item, type Picks, type Step } from "@/data/catalog";
+import { SECTION_ORDER, buildExport, capitalise, orderSections, type ExportFiles } from "./export";
 import { userTokens } from "./tokens";
 
 // Golden reference: the prototype's own <script> block, run unchanged. Only
@@ -127,5 +127,74 @@ describe("DESIGN.md content (spec 'Done means')", () => {
     expect(md).toContain("## 8. Libraries");
     expect(md).toContain("## 9. Rules");
     expect(md).toContain("## 10. Forbidden");
+  });
+});
+
+describe("v2 layers in the export", () => {
+  const sec = (id: string) => SECTIONS.find((s) => s.id === id)!;
+
+  it("orders page sections top to bottom: announcement, hero ... CTA, footer; ties keep pick order", () => {
+    const ids = orderSections(["foot-simple", "faq-accordion", "price-3tier", "hero-center", "announce", "cta-band", "feat-3col", "feat-grid"].map(sec)).map((s) => s.id);
+    expect(ids).toEqual(["announce", "hero-center", "feat-3col", "feat-grid", "price-3tier", "faq-accordion", "cta-band", "foot-simple"]);
+  });
+
+  it("every section category has a place in the order", () => {
+    // A new category would silently fall back to "before the CTA"; make that a decision, not an accident.
+    const missing = SECTIONS.map((s) => s.kw.replace("section block ", "")).filter((k) => !SECTION_ORDER.includes(k));
+    expect(missing).toEqual([]);
+  });
+
+  it("writes Page sections under section 2, numbered, with each prompt line", () => {
+    const { md } = ours({ sections: ["foot-simple", "hero-center"] });
+    expect(md).toContain(`### Page sections (top to bottom)\n1. ${sec("hero-center").name}: ${sec("hero-center").prompt}\n2. ${sec("foot-simple").name}: ${sec("foot-simple").prompt}\n`);
+    expect(md.indexOf("### Page sections")).toBeGreaterThan(md.indexOf("## 2. Layout skeleton"));
+    expect(md.indexOf("### Page sections")).toBeLessThan(md.indexOf("## 3. Look"));
+  });
+
+  it("writes Background and Icons and imagery under Look", () => {
+    const b = BACKGROUNDS[4];
+    const icons = ICONS.filter((i) => ["phosphor", "st-duotone", "img-3d"].includes(i.id));
+    const { md } = ours({ background: b.id, icons: icons.map((i) => i.id) });
+    const look = md.slice(md.indexOf("## 3. Look"), md.indexOf("## 4. Components"));
+    expect(look).toContain(`### Background\n- ${b.name}: ${b.prompt}\n`);
+    for (const i of icons) expect(look).toContain(`- ${i.name}: ${i.prompt}`);
+  });
+
+  it("writes Charts under Data display, creating the section if only charts are picked", () => {
+    const c = CHARTS[0];
+    const { md } = ours({ charts: [c.id] });
+    expect(md).toContain(`## 5. Data display\n### Charts\n- ${c.name}: ${c.prompt}\n`);
+    const withData = ours({ data: ["stat"], charts: [c.id] }).md;
+    expect(withData).toMatch(/## 5\. Data display\n- [^\n]+\n\n### Charts\n/);
+  });
+
+  it("the picked icon set replaces Lucide in Libraries, Rules and the install list", () => {
+    const { md, prompt } = ours({ icons: ["st-thin", "phosphor"] });
+    expect(md).toContain("- Phosphor icons\n");
+    expect(md).not.toContain("Lucide");
+    expect(md).toContain("- Icons: Phosphor only. No emoji as icons.");
+    expect(prompt).toContain("Install and use these instead of hand-building: Phosphor icons.");
+  });
+
+  it("falls back to Lucide when no icon set is picked", () => {
+    const { md, prompt } = ours({ icons: ["st-thin", "img-3d"] });
+    expect(md).toContain("- Lucide icons\n");
+    expect(md).toContain("- Icons: Lucide only.");
+    expect(prompt).not.toContain("Install");
+  });
+
+  it("libraries and the install list include the new libraries", () => {
+    const withLib = (list: Item[], lib: string) => list.find((x) => x.lib === lib)!.id;
+    const picks: Picks = {
+      charts: [withLib(CHARTS, "visx"), withLib(CHARTS, "lightweight-charts")],
+      fx: [withLib(FX, "dnd-kit")],
+      inputs: [withLib(INPUTS, "Tiptap")],
+      data: [withLib(DATA, "Shiki")],
+    };
+    const { md, prompt } = ours(picks);
+    for (const l of ["visx", "lightweight-charts", "dnd-kit", "Tiptap", "Shiki"]) {
+      expect(md).toContain(`- ${l}\n`);
+      expect(prompt).toMatch(new RegExp(`Install and use these instead of hand-building: [^\\n]*${l}`));
+    }
   });
 });

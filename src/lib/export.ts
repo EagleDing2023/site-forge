@@ -1,10 +1,12 @@
 // The three export files, ported line for line from the prototype's
 // buildExport(). export.test.ts runs the prototype's own code against this
-// and requires byte-identical output (bar one deliberate fix, the capitalised
-// purpose line), so change neither without the other.
+// and requires byte-identical output for v1 picks (bar one deliberate fix, the
+// capitalised purpose line), so change neither without the other.
+// v2 layers (sections, background, charts, icons) only add lines when picked,
+// as ### subsections, so the numbered sections and v1 output never shift.
 import {
-  BUTTONS, CARDS, DATA, FEED, FX, INPUTS, NAVS, PURPOSES, SKELS,
-  type Item, type Picks,
+  BACKGROUNDS, BUTTONS, CARDS, CHARTS, DATA, FEED, FX, ICONS, INPUTS, NAVS, PURPOSES, SECTIONS, SKELS,
+  type Item, type Picks, type Section,
 } from "@/data/catalog";
 import { byId } from "./picks";
 import type { UserTokens } from "./tokens";
@@ -27,8 +29,31 @@ function many<T extends Item>(list: T[], picks: Picks, id: string): T[] {
 export const capitalise = (s: string) => s.charAt(0).toUpperCase() + s.slice(1);
 
 // Libraries the prompt says to install, and component catalogues to adapt.
-const INSTALL = ["Sonner", "Vaul", "cmdk", "NumberFlow", "Motion", "Recharts", "TanStack Table", "input-otp", "canvas-confetti", "GSAP"];
+const INSTALL = [
+  "Sonner", "Vaul", "cmdk", "NumberFlow", "Motion", "Recharts", "TanStack Table", "input-otp", "canvas-confetti", "GSAP",
+  "Embla", "dnd-kit", "Tiptap", "Shiki", "visx", "lightweight-charts", "cobe",
+];
 const CATALOGUES = ["Magic UI", "Aceternity"];
+
+// Top-to-bottom order of page sections, by the category in their kw
+// ("section block <category>"). The announcement bar sits above the hero;
+// the footer is always last. Unknown categories go just before the CTA.
+export const SECTION_ORDER = [
+  "announcement bar", "hero", "logos", "security / trust", "stats", "features", "how it works", "get started steps",
+  "integrations", "code snippet section", "gallery", "product grid section", "menu section", "comparison",
+  "case studies grid", "testimonials", "awards / press", "team", "pricing", "roadmap / timeline", "blog",
+  "upcoming events", "locations", "faq", "contact", "newsletter", "download / install", "sign-in", "cta", "footer",
+];
+
+function sectionRank(s: Section): number {
+  const i = SECTION_ORDER.indexOf(s.kw.replace("section block ", ""));
+  return i === -1 ? SECTION_ORDER.indexOf("cta") - 0.5 : i;
+}
+
+/** Picked sections in page order; ties keep pick order (Array.sort is stable). */
+export function orderSections(picked: Section[]): Section[] {
+  return [...picked].sort((a, b) => sectionRank(a) - sectionRank(b));
+}
 
 export function buildExport(picks: Picks, t: UserTokens): ExportFiles {
   const purpose = byId(PURPOSES, one(picks, "purpose"));
@@ -42,19 +67,30 @@ export function buildExport(picks: Picks, t: UserTokens): ExportFiles {
   const fb = many(FEED, picks, "feedback");
   const fx = many(FX, picks, "fx");
   const sig = fx.find((f) => f.heavy);
+  const secs = orderSections(many(SECTIONS, picks, "sections"));
+  const bg = byId(BACKGROUNDS, one(picks, "background"));
+  const charts = many(CHARTS, picks, "charts");
+  const icons = many(ICONS, picks, "icons");
+  // Icon sets are the icon options with a library; the first one picked replaces Lucide.
+  const iconSet = icons.find((x) => x.lib)?.lib ?? "Lucide";
 
   // Insertion order matters: it is the order libraries appear in the output.
   const libs: string[] = [];
-  for (const x of [btn, card, nav, ...ins, ...dat, ...fb, ...fx]) {
+  for (const x of [btn, card, nav, ...ins, ...dat, ...charts, ...fb, ...fx]) {
     if (x?.lib && !libs.includes(x.lib)) libs.push(x.lib);
   }
-  const libList = ["shadcn/ui (restyled with these tokens)", "Lucide icons", ...libs.filter((l) => l !== "shadcn")];
+  const libList = ["shadcn/ui (restyled with these tokens)", iconSet + " icons", ...libs.filter((l) => l !== "shadcn")];
   const space = Math.round(8 * t.den.d);
 
   const L: string[] = [];
   L.push("# DESIGN.md", "", "Generated with Site Forge. Follow this file strictly. Do not invent colours, fonts, radii or effects that are not listed here; ask first.", "");
   L.push("## 1. Purpose", purpose ? purpose.name + ". " + capitalise(purpose.prompt.replace("Purpose: ", "")) : "(not picked)", "");
   L.push("## 2. Layout skeleton", sk ? sk.name + ". " + sk.prompt : "(not picked)", "");
+  if (secs.length) {
+    L.push("### Page sections (top to bottom)");
+    secs.forEach((x, i) => L.push(i + 1 + ". " + x.name + ": " + x.prompt));
+    L.push("");
+  }
   L.push("## 3. Look", "Mood: " + m.name + " — " + m.desc, "");
   L.push("### Colour tokens");
   L.push("- background: " + m.bg, "- surface: " + m.surf, "- foreground (ink): " + m.ink, "- muted text: " + m.muted, "- border: " + m.line);
@@ -66,16 +102,27 @@ export function buildExport(picks: Picks, t: UserTokens): ExportFiles {
   L.push("### Shape and space", "- Radius: " + t.r + "px" + (t.pill ? " (buttons and chips fully rounded)" : ""));
   L.push("- Density: " + t.den.name + " — base spacing unit " + space + "px; use multiples of it.");
   L.push("- Shadow: " + m.sh, "");
+  if (bg) L.push("### Background", "- " + bg.name + ": " + bg.prompt, "");
+  if (icons.length) {
+    L.push("### Icons and imagery");
+    for (const x of icons) L.push("- " + x.name + ": " + x.prompt);
+    L.push("");
+  }
   L.push("## 4. Components");
   if (btn) L.push("- Buttons — " + btn.name + ": " + btn.prompt);
   if (card) L.push("- Cards — " + card.name + ": " + card.prompt);
   if (nav) L.push("- Navigation — " + nav.name + ": " + nav.prompt);
   for (const x of ins) L.push("- Input — " + x.name + ": " + x.prompt);
   L.push("");
-  if (dat.length) {
+  if (dat.length || charts.length) {
     L.push("## 5. Data display");
     for (const x of dat) L.push("- " + x.name + ": " + x.prompt);
-    L.push("");
+    if (dat.length) L.push("");
+    if (charts.length) {
+      L.push("### Charts");
+      for (const x of charts) L.push("- " + x.name + ": " + x.prompt);
+      L.push("");
+    }
   }
   if (fb.length) {
     L.push("## 6. Feedback and overlays");
@@ -94,7 +141,7 @@ export function buildExport(picks: Picks, t: UserTokens): ExportFiles {
   L.push("");
   L.push(
     "## 9. Rules",
-    "- Icons: Lucide only. No emoji as icons.",
+    "- Icons: " + iconSet + " only. No emoji as icons.",
     "- One standout moment per page.",
     "- Restyle shadcn: change radius, colours and fonts to these tokens so it does not look like default shadcn.",
     "- Real content, no lorem ipsum. Every card and button does something.",
@@ -117,6 +164,7 @@ export function buildExport(picks: Picks, t: UserTokens): ExportFiles {
   P.push("Build " + (purpose ? "a " + purpose.name.toLowerCase() : "the app") + ' using the "' + (sk ? sk.name : "chosen") + '" layout described in DESIGN.md section 2.');
   P.push("Stack: Next.js + Tailwind + shadcn/ui. Map tokens.css to the Tailwind theme and shadcn CSS variables before building any page.");
   const inst = libs.filter((l) => INSTALL.includes(l));
+  if (iconSet !== "Lucide") inst.push(iconSet + " icons");
   if (inst.length) P.push("Install and use these instead of hand-building: " + inst.join(", ") + ".");
   const cat = libs.filter((l) => CATALOGUES.includes(l));
   if (cat.length) P.push("Adapt components from " + cat.join(" and ") + " via the shadcn CLI, then restyle them to the tokens.");

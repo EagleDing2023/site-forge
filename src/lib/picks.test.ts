@@ -9,6 +9,7 @@ import {
   pickCount,
   railLabel,
   sheetRows,
+  fitsPurpose,
   splitByFit,
 } from "./picks";
 
@@ -50,6 +51,18 @@ describe("splitByFit", () => {
     expect(names).toEqual(expect.arrayContaining(["Sidebar app shell", "Sidebar + data table", "Bento grid"]));
   });
 
+  it("Fintech (like Dashboard and SaaS) gets the dashboard skeletons", () => {
+    const fits = splitByFit(step("skeleton"), "fintech").fits.map((x) => x.id);
+    const dash = step("skeleton").items.filter((k) => k.fit?.includes("dash")).map((k) => k.id);
+    expect(dash.length).toBeGreaterThan(0);
+    expect(fits).toEqual(expect.arrayContaining(dash));
+  });
+
+  it("every purpose gets a Fits section on the skeleton layer", () => {
+    for (const p of step("purpose").items)
+      expect(splitByFit(step("skeleton"), p.id).fits.length, p.id).toBeGreaterThan(0);
+  });
+
   it("keeps every item exactly once", () => {
     const { fits, others } = splitByFit(step("fx"), "landing");
     expect(fits.length + others.length).toBe(step("fx").items.length);
@@ -58,6 +71,17 @@ describe("splitByFit", () => {
   it("no purpose or unfitted layer: everything in others", () => {
     expect(splitByFit(step("skeleton"), undefined).fits).toEqual([]);
     expect(splitByFit(step("palette"), "dash").fits).toEqual([]);
+  });
+});
+
+describe("fitsPurpose", () => {
+  it("matches the purpose itself or a purpose it is like, nothing else", () => {
+    const item = { id: "x", name: "X", desc: "", fit: ["dash"] };
+    expect(fitsPurpose(item, "dash")).toBe(true);
+    expect(fitsPurpose(item, "fintech")).toBe(true);
+    expect(fitsPurpose(item, "landing")).toBe(false);
+    expect(fitsPurpose(item, undefined)).toBe(false);
+    expect(fitsPurpose({ id: "y", name: "Y", desc: "" }, "dash")).toBe(false);
   });
 });
 

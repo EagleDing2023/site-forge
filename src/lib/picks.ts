@@ -63,6 +63,17 @@ export function purposeOf(picks: Picks): Item | undefined {
 }
 
 /**
+ * An option fits a purpose when its `fit` names the purpose or any purpose in
+ * its `like` list. Most v2 purposes have no options of their own and borrow
+ * their parents' (Fintech is like Dashboard and SaaS).
+ */
+export function fitsPurpose(item: Item, purposeId: string | undefined): boolean {
+  if (!purposeId || !item.fit) return false;
+  const like = byId(PURPOSES, purposeId)?.like ?? [];
+  return item.fit.includes(purposeId) || like.some((id) => item.fit!.includes(id));
+}
+
+/**
  * "Fits a <purpose>" first, then the rest. Only for `fitted` layers with a
  * purpose picked; otherwise everything lands in `others`.
  */
@@ -70,7 +81,7 @@ export function splitByFit(step: Step, purposeId: string | undefined): { fits: I
   if (!step.fitted || !purposeId) return { fits: [], others: step.items };
   const fits: Item[] = [];
   const others: Item[] = [];
-  for (const it of step.items) (it.fit?.includes(purposeId) ? fits : others).push(it);
+  for (const it of step.items) (fitsPurpose(it, purposeId) ? fits : others).push(it);
   return { fits, others };
 }
 

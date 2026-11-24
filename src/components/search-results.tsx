@@ -1,5 +1,5 @@
 import type { Picks } from "@/data/catalog";
-import { isPicked, purposeOf } from "@/lib/picks";
+import { fitsPurpose, isPicked, purposeOf } from "@/lib/picks";
 import { searchOptions } from "@/lib/search";
 import { OptionCard } from "./option-card";
 
@@ -32,7 +32,7 @@ export function SearchResults({
             showLayer
             step={step}
             item={item}
-            fits={!!(step.fitted && purposeId && item.fit?.includes(purposeId))}
+            fits={!!step.fitted && fitsPurpose(item, purposeId)}
             selected={isPicked(picks, step, item.id)}
             onPick={() => onPick(stepIndex, item.id)}
           />

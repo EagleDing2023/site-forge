@@ -1,5 +1,6 @@
 import type { CSSProperties } from "react";
 import { SKELS, type Background, type Item, type Mood, type Palette, type Radius, type Density, type Region, type Skeleton, type Step, type TypePairing } from "@/data/catalog";
+import { fitsPurpose } from "@/lib/picks";
 import s from "./demo.module.css";
 
 // Plain join, not cn(): CSS-module names are hashed and Tailwind merging must not touch them.
@@ -24,8 +25,8 @@ function Mini({ regions }: { regions: Region[] }) {
 export function OptionPreview({ step, item }: { step: Step; item: Item }) {
   switch (step.view) {
     case "purpose": {
-      // A purpose shows the first skeleton that fits it.
-      const sk = SKELS.find((k) => k.fit.includes(item.id));
+      // A purpose shows the first skeleton that fits it (directly or through `like`).
+      const sk = SKELS.find((k) => k.fit.includes(item.id)) ?? SKELS.find((k) => fitsPurpose(k, item.id));
       return <Mini regions={sk ? sk.regions : []} />;
     }
     case "skel":

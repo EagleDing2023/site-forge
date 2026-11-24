@@ -112,6 +112,11 @@ describe("labels and rows", () => {
     ]);
   });
 
+  it("a Signature background counts too, named first; a plain background does not", () => {
+    expect(heavyPicks({ background: "mesh", fx: ["aurora", "glass"] }).map((x) => x.name)).toEqual(["Mesh gradient", "Aurora background"]);
+    expect(heavyPicks({ background: "plain", fx: ["aurora"] }).map((x) => x.name)).toEqual(["Aurora background"]);
+  });
+
   it("missing lists unpicked single layers only", () => {
     const m = missingSteps({ purpose: "dash" });
     expect(m).not.toContain("Purpose");

@@ -97,12 +97,14 @@ export function sheetRows(picks: Picks): SheetRow[] {
   return rows;
 }
 
-/** Picked Signature effects, in pick order. 2+ triggers the warning. */
+/** Picked Signature options: the background (if it is one), then effects in pick order. 2+ triggers the warning. */
 export function heavyPicks(picks: Picks): Item[] {
-  const fx = STEPS.find((s) => s.id === "fx")!;
-  return pickedIds(picks, fx)
-    .map((id) => byId(fx.items, id))
-    .filter((x): x is Item => !!x?.heavy);
+  return ["background", "fx"].flatMap((id) => {
+    const step = STEPS.find((s) => s.id === id)!;
+    return pickedIds(picks, step)
+      .map((x) => byId(step.items, x))
+      .filter((x): x is Item => !!x?.heavy);
+  });
 }
 
 /** Single layers left unpicked (they fall back to the mood's defaults). */

@@ -18,7 +18,8 @@ export function StepPanel({ stepIndex, picks, onPick, onGo }: Props) {
 
   const purpose = purposeOf(picks);
   const { fits, others } = splitByFit(step, purpose?.id);
-  const heavy = step.id === "fx" ? heavyPicks(picks) : [];
+  // Signature backgrounds and effects share the one-standout-moment rule, so both layers warn.
+  const heavy = step.id === "fx" || step.id === "background" ? heavyPicks(picks) : [];
 
   const grid = (items: Item[], isFit: boolean) => (
     <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3">

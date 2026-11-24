@@ -1,5 +1,5 @@
 // Live preview ("mannequin") logic, ported from the prototype's renderVals (mqCls, caption).
-import { SKELS, type Picks, type Skeleton } from "@/data/catalog";
+import { BACKGROUNDS, SKELS, type Picks, type Skeleton } from "@/data/catalog";
 import { byId } from "./picks";
 import type { UserTokens } from "./tokens";
 
@@ -14,6 +14,14 @@ const PREVIEW_FX = ["glass", "aurora", "dots", "lift", "reveal", "grain"];
 /** The chosen skeleton, or the "Top nav + hero" sample until one is picked. */
 export function previewSkeleton(picks: Picks): Skeleton {
   return byId(SKELS, one(picks, "skeleton")) ?? SKELS[2];
+}
+
+/**
+ * The picked Background's CSS value for the preview frame, or undefined for the
+ * plain --bg. Applied inline, so it wins over the Aurora / Dot grid effect styles.
+ */
+export function previewBackground(picks: Picks): string | undefined {
+  return byId(BACKGROUNDS, one(picks, "background"))?.bg;
 }
 
 /** Class names for the preview root, in the prototype's order. Keys of preview.module.css. */

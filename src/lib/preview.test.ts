@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { BUTTONS, CARDS, MOODS, NAVS, SKELS } from "@/data/catalog";
-import { previewCaption, previewClasses, previewSkeleton } from "./preview";
+import { BACKGROUNDS, BUTTONS, CARDS, MOODS, NAVS, SKELS } from "@/data/catalog";
+import { previewBackground, previewCaption, previewClasses, previewSkeleton } from "./preview";
 import { userTokens } from "./tokens";
 
 const css = readFileSync(new URL("../components/preview.module.css", import.meta.url), "utf8");
@@ -12,6 +12,16 @@ describe("previewSkeleton", () => {
   });
   it("follows the picked skeleton", () => {
     expect(previewSkeleton({ skeleton: "bento" }).id).toBe("bento");
+  });
+});
+
+describe("previewBackground", () => {
+  it("is undefined until a background is picked (the frame keeps --bg)", () => {
+    expect(previewBackground({})).toBeUndefined();
+  });
+  it("is the picked background's CSS value", () => {
+    const b = BACKGROUNDS[4];
+    expect(previewBackground({ background: b.id })).toBe(b.bg);
   });
 });
 

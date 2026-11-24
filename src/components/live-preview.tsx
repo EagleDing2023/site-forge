@@ -3,7 +3,7 @@
 import { Eye } from "lucide-react";
 import { useState } from "react";
 import type { Picks } from "@/data/catalog";
-import { previewCaption, previewClasses, previewSkeleton } from "@/lib/preview";
+import { previewBackground, previewCaption, previewClasses, previewSkeleton } from "@/lib/preview";
 import type { UserTokens } from "@/lib/tokens";
 import { cn } from "@/lib/utils";
 import { regionStyle } from "./option-preview";
@@ -41,6 +41,7 @@ export function LivePreview({ picks, tokens }: { picks: Picks; tokens: UserToken
         role="img"
         aria-label={`Preview: ${caption}`}
         className={cx("border border-line", s.mq, ...previewClasses(picks, tokens).map((c) => s[c]), squint && s.squint)}
+        style={{ background: previewBackground(picks) }}
       >
         {sk.regions.map((r, i) => (
           // Index keys on purpose: regions are reused across skeletons so they animate into the new layout.

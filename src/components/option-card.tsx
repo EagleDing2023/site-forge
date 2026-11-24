@@ -14,6 +14,13 @@ export const PREVIEW_HINT = "Click to preview · double-click to choose";
 // with the dblclick event, which touch browsers don't fire reliably on a double-tap.
 const DOUBLE_MS = 500;
 
+// After a confirm opens the next layer, clicks on any card are ignored this long, so the
+// third click of a triple-click can't land on (and preview) a card of the new layer.
+// Module-level because the new layer's cards are new components. Event timestamps
+// share the page's clock, so a keydown and a later click compare fine.
+const SETTLE_MS = 400;
+let lastConfirm = -Infinity;
+
 export function OptionCard({
   step,
   item,
@@ -39,21 +46,26 @@ export function OptionCard({
   const lastClick = useRef(0);
   const single = step.kind === "single";
 
+  const confirm = (timeStamp: number) => {
+    lastConfirm = timeStamp;
+    onConfirm();
+  };
   const handleClick = (e: MouseEvent) => {
+    if (e.timeStamp - lastConfirm < SETTLE_MS) return;
     if (!single) return onPick();
     // detail is the click count: 2 is the browser's own double-click (OS speed setting),
     // 1 is a single click or tap (timed here), 0 is a keyboard press (never a double).
     // The timer resets after a confirm, so a triple-click can't confirm twice.
     const isDouble = e.detail === 2 || (e.detail === 1 && e.timeStamp - lastClick.current < DOUBLE_MS);
     lastClick.current = isDouble || e.detail === 0 ? 0 : e.timeStamp;
-    if (isDouble) onConfirm();
+    if (isDouble) confirm(e.timeStamp);
     else onPick();
   };
   const handleKeyDown = (e: KeyboardEvent) => {
     // Enter would otherwise fire a click (a preview). Space still previews.
     if (single && e.key === "Enter" && !e.repeat) {
       e.preventDefault();
-      onConfirm();
+      confirm(e.timeStamp);
     }
   };
   return (

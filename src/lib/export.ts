@@ -8,7 +8,7 @@ import {
   BACKGROUNDS, BUTTONS, CARDS, CHARTS, DATA, FEED, FX, ICONS, INPUTS, NAVS, PURPOSES, SECTIONS, SKELS,
   type Item, type Picks, type Section,
 } from "@/data/catalog";
-import { byId } from "./picks";
+import { byId, heavyPicks } from "./picks";
 import type { UserTokens } from "./tokens";
 
 export type ExportFiles = { md: string; prompt: string; css: string };
@@ -66,7 +66,9 @@ export function buildExport(picks: Picks, t: UserTokens): ExportFiles {
   const dat = many(DATA, picks, "data");
   const fb = many(FEED, picks, "feedback");
   const fx = many(FX, picks, "fx");
-  const sig = fx.find((f) => f.heavy);
+  // Same rule as the one-standout-moment warning: a Signature background first, then effects
+  // in pick order. With v1 picks (no background) this is the first Signature effect, as before.
+  const sig = heavyPicks(picks)[0];
   const secs = orderSections(many(SECTIONS, picks, "sections"));
   const bg = byId(BACKGROUNDS, one(picks, "background"));
   const charts = many(CHARTS, picks, "charts");

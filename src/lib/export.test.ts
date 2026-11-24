@@ -168,6 +168,32 @@ describe("v2 layers in the export", () => {
     expect(withData).toMatch(/## 5\. Data display\n- [^\n]+\n\n### Charts\n/);
   });
 
+  it("a Signature background is the signature moment; Signature effects become second signatures", () => {
+    const mesh = BACKGROUNDS.find((b) => b.id === "mesh")!;
+    const aurora = FX.find((f) => f.id === "aurora")!;
+    const lift = FX.find((f) => f.id === "lift")!;
+    expect(mesh.heavy && aurora.heavy && !lift.heavy).toBe(true);
+    const { md, prompt } = ours({ background: "mesh", fx: ["aurora", "lift"] });
+    expect(md).toContain(`## 7. Motion and effects\nSignature moment (the ONE standout effect): ${mesh.name} — ${mesh.prompt}\n`);
+    expect(md).toContain(`- (second signature: use on a different page) ${aurora.name}: ${aurora.prompt}`);
+    expect(md).toContain(`- ${lift.name}: ${lift.prompt}`);
+    expect(prompt).toContain(`The single signature moment is: ${mesh.name}. Put it on the main page only.`);
+  });
+
+  it("a plain background leaves the first Signature effect as the signature moment", () => {
+    const aurora = FX.find((f) => f.id === "aurora")!;
+    const { md, prompt } = ours({ background: "plain", fx: ["lift", "aurora", "para"] });
+    expect(md).toContain(`Signature moment (the ONE standout effect): ${aurora.name} — ${aurora.prompt}`);
+    expect(md).toContain("- (second signature: use on a different page) Parallax layers:");
+    expect(prompt).toContain(`The single signature moment is: ${aurora.name}.`);
+  });
+
+  it("a Signature background alone is still the signature moment", () => {
+    const { md } = ours({ background: "mesh" });
+    expect(md).toContain("Signature moment (the ONE standout effect): Mesh gradient — ");
+    expect(md).not.toContain("second signature");
+  });
+
   it("the picked icon set replaces Lucide in Libraries, Rules and the install list", () => {
     const { md, prompt } = ours({ icons: ["st-thin", "phosphor"] });
     expect(md).toContain("- Phosphor icons\n");

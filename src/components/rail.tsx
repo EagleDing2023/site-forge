@@ -23,16 +23,23 @@ export function Rail({
 }) {
   const navRef = useRef<HTMLElement>(null);
 
-  // Phone width: the rail is a one-row strip, so keep the active step centred
-  // in it, also when the window is resized into strip mode. Only touches the
-  // strip's own scroll, never the page's.
+  // Keep the active step visible inside the rail's own scroll, never the page's:
+  // centred in the phone strip, and within view in the sticky desktop column
+  // (so "Next layer" down to Export doesn't leave it hidden). Re-run on resize.
   useEffect(() => {
     const nav = navRef.current;
     if (!nav) return;
     const centre = () => {
       const btn = nav.querySelector<HTMLElement>('[aria-current="step"]');
-      if (!btn || nav.scrollWidth <= nav.clientWidth) return;
-      nav.scrollLeft = btn.offsetLeft - (nav.clientWidth - btn.offsetWidth) / 2;
+      if (!btn) return;
+      if (nav.scrollWidth > nav.clientWidth) {
+        nav.scrollLeft = btn.offsetLeft - (nav.clientWidth - btn.offsetWidth) / 2;
+      } else if (nav.scrollHeight > nav.clientHeight) {
+        const top = btn.offsetTop - 8;
+        const bottom = btn.offsetTop + btn.offsetHeight + 8;
+        if (top < nav.scrollTop) nav.scrollTop = top;
+        else if (bottom > nav.scrollTop + nav.clientHeight) nav.scrollTop = bottom - nav.clientHeight;
+      }
     };
     centre();
     const ro = new ResizeObserver(centre);
@@ -41,10 +48,12 @@ export function Rail({
   }, [activeIndex]);
 
   return (
+    // 818px = rail and main flex bases (250 + 520) + one 16px gap + 16px padding each side:
+    // below it main wraps under the rail, and a sticky rail would slide over it.
     <nav
       ref={navRef}
       aria-label="Design layers"
-      className="relative min-w-[220px] flex-[0_1_250px] rounded-xl border border-line bg-surface p-2.5 max-[760px]:flex max-[760px]:flex-[1_1_100%] max-[760px]:gap-1 max-[760px]:overflow-x-auto max-[760px]:p-1.5"
+      className="relative min-w-[220px] flex-[0_1_250px] rounded-xl border border-line bg-surface p-2.5 max-[760px]:flex max-[760px]:flex-[1_1_100%] max-[760px]:gap-1 max-[760px]:overflow-x-auto max-[760px]:p-1.5 min-[818px]:sticky min-[818px]:top-4 min-[818px]:max-h-[calc(100dvh-32px)] min-[818px]:overflow-y-auto"
     >
       {steps.map((s, i) => {
         const active = i === activeIndex;

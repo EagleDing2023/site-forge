@@ -1,5 +1,5 @@
 import type { CSSProperties } from "react";
-import { SKELS, type Item, type Mood, type Palette, type Radius, type Density, type Region, type Skeleton, type Step, type TypePairing } from "@/data/catalog";
+import { SKELS, type Background, type Item, type Mood, type Palette, type Radius, type Density, type Region, type Skeleton, type Step, type TypePairing } from "@/data/catalog";
 import s from "./demo.module.css";
 
 // Plain join, not cn(): CSS-module names are hashed and Tailwind merging must not touch them.
@@ -69,6 +69,10 @@ export function OptionPreview({ step, item }: { step: Step; item: Item }) {
           <i />
         </div>
       );
+    case "bg": {
+      const b = item as Background;
+      return <div aria-hidden className={cx(s.demo, s[b.demo])} style={{ background: b.bg }} />;
+    }
     case "demo":
       return (
         <div aria-hidden className={cx(s.demo, item.demo && s[item.demo])}>

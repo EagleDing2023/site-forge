@@ -17,17 +17,31 @@ const idx = (id: string) => STEPS.findIndex((s) => s.id === id);
 const step = (id: string) => STEPS[idx(id)];
 
 describe("applyPick", () => {
-  it("single pick sets the value and opens the next layer", () => {
-    const r = applyPick({}, idx("purpose"), "dash");
+  it("single click previews: sets the value but stays on the layer", () => {
+    expect(applyPick({}, idx("purpose"), "dash")).toEqual({ picks: { purpose: "dash" }, step: idx("purpose") });
+  });
+
+  it("a second single click replaces the preview", () => {
+    const a = applyPick({}, idx("purpose"), "dash");
+    expect(applyPick(a.picks, idx("purpose"), "landing").picks).toEqual({ purpose: "landing" });
+  });
+
+  it("confirming a single pick sets the value and opens the next layer", () => {
+    const r = applyPick({}, idx("purpose"), "dash", true);
     expect(r.picks).toEqual({ purpose: "dash" });
     expect(r.step).toBe(idx("skeleton"));
   });
 
-  it("every single pick advances by one layer", () => {
+  it("every confirmed single pick advances by one layer; every preview stays", () => {
     STEPS.forEach((s, i) => {
       if (s.kind !== "single") return;
-      expect(applyPick({}, i, s.items[0].id).step).toBe(i + 1);
+      expect(applyPick({}, i, s.items[0].id, true).step).toBe(i + 1);
+      expect(applyPick({}, i, s.items[0].id).step).toBe(i);
     });
+  });
+
+  it("confirm does not change multi layers: still a toggle that stays", () => {
+    expect(applyPick({}, idx("fx"), "aurora", true)).toEqual({ picks: { fx: ["aurora"] }, step: idx("fx") });
   });
 
   it("multi pick toggles and stays on the layer", () => {
@@ -124,10 +138,17 @@ describe("labels and rows", () => {
     expect(m).not.toContain("Inputs");
   });
 
-  it("next button label", () => {
-    expect(nextLabel(idx("purpose"))).toBe("Skip / next");
-    expect(nextLabel(idx("inputs"))).toBe("Next layer");
-    expect(nextLabel(idx("fx"))).toBe("Finish → build sheet");
+  it("next button: Use <name> when the single layer has a pick, Skip when not", () => {
+    expect(nextLabel({}, idx("purpose"))).toBe("Skip →");
+    expect(nextLabel({ purpose: "dash" }, idx("purpose"))).toBe("Use Dashboard / analytics →");
+    expect(nextLabel({ purpose: "dash" }, idx("skeleton"))).toBe("Skip →");
+  });
+
+  it("next button on multi layers ignores picks", () => {
+    expect(nextLabel({}, idx("inputs"))).toBe("Next layer");
+    expect(nextLabel({ inputs: [step("inputs").items[0].id] }, idx("inputs"))).toBe("Next layer");
+    expect(nextLabel({}, idx("fx"))).toBe("Finish → build sheet");
+    expect(nextLabel({ fx: ["aurora"] }, idx("fx"))).toBe("Finish → build sheet");
   });
 });
 

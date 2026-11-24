@@ -1,7 +1,7 @@
 import type { Picks } from "@/data/catalog";
 import { fitsPurpose, isPicked, purposeOf } from "@/lib/picks";
 import { searchOptions } from "@/lib/search";
-import { OptionCard } from "./option-card";
+import { OptionCard, PREVIEW_HINT } from "./option-card";
 
 export function SearchResults({
   query,
@@ -10,7 +10,7 @@ export function SearchResults({
 }: {
   query: string;
   picks: Picks;
-  onPick: (stepIndex: number, itemId: string) => void;
+  onPick: (stepIndex: number, itemId: string, confirm?: boolean) => void;
 }) {
   const hits = searchOptions(query);
   const purposeId = purposeOf(picks)?.id;
@@ -22,7 +22,7 @@ export function SearchResults({
         {hits.length} {hits.length === 1 ? "match" : "matches"} for “{query.trim()}”
       </h1>
       <p className="mb-4 max-w-[720px] text-muted-foreground">
-        Click any result to pick it. Single-choice layers move you on to the next layer.
+        {PREVIEW_HINT}. Choosing on a single-choice layer moves you on to its next layer; multi-choice results toggle with one click.
       </p>
       <div className="grid grid-cols-[repeat(auto-fill,minmax(200px,1fr))] gap-3">
         {hits.map(({ stepIndex, step, item }) => (
@@ -35,6 +35,7 @@ export function SearchResults({
             fits={!!step.fitted && fitsPurpose(item, purposeId)}
             selected={isPicked(picks, step, item.id)}
             onPick={() => onPick(stepIndex, item.id)}
+            onConfirm={() => onPick(stepIndex, item.id, true)}
           />
         ))}
       </div>

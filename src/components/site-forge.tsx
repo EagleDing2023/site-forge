@@ -20,9 +20,8 @@ export function SiteForge() {
   const [query, setQuery] = useState("");
   const searching = query.trim().length > 0;
 
-  // As in the prototype, any navigation leaves search, and so does a
-  // single-choice pick (it opens the next layer). A multi pick stays so you
-  // can keep toggling results.
+  // Any navigation leaves search, and so does confirming a single-choice pick
+  // (it opens the next layer). A preview or a multi toggle stays in search.
   const goTo = (i: number) => {
     setQuery("");
     forge.goTo(i);
@@ -31,9 +30,9 @@ export function SiteForge() {
     setQuery("");
     forge.reset();
   };
-  const pick = (stepIndex: number, itemId: string) => {
-    if (STEPS[stepIndex].kind === "single") setQuery("");
-    forge.pick(stepIndex, itemId);
+  const pick = (stepIndex: number, itemId: string, confirm = false) => {
+    if (confirm && STEPS[stepIndex].kind === "single") setQuery("");
+    forge.pick(stepIndex, itemId, confirm);
   };
 
   const railSteps = STEPS.map((s) => ({
@@ -60,7 +59,7 @@ export function SiteForge() {
           {searching ? (
             <SearchResults query={query} picks={picks} onPick={pick} />
           ) : (
-            <StepPanel stepIndex={step} picks={picks} onPick={(id) => pick(step, id)} onGo={goTo} />
+            <StepPanel stepIndex={step} picks={picks} onPick={(id, confirm) => pick(step, id, confirm)} onGo={goTo} />
           )}
         </main>
         {/* 1214px = the three flex bases (250 + 520 + 380) + two 16px gaps + 16px padding each side:

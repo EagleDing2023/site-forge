@@ -20,13 +20,15 @@ export function isPicked(picks: Picks, step: Step, itemId: string): boolean {
 }
 
 /**
- * Single layers: set the pick and move on to the next layer.
- * Multi layers: toggle the item and stay.
+ * Single layers: set the pick (a preview). With `confirm` (double-click, Enter)
+ * also move on to the next layer.
+ * Multi layers: toggle the item and stay; `confirm` is ignored.
  */
 export function applyPick(
   picks: Picks,
   stepIndex: number,
   itemId: string,
+  confirm = false,
 ): { picks: Picks; step: number } {
   const s = STEPS[stepIndex];
   if (s.kind === "multi") {
@@ -34,7 +36,7 @@ export function applyPick(
     const next = cur.includes(itemId) ? cur.filter((id) => id !== itemId) : [...cur, itemId];
     return { picks: { ...picks, [s.id]: next }, step: stepIndex };
   }
-  return { picks: { ...picks, [s.id]: itemId }, step: Math.min(stepIndex + 1, LAST_STEP) };
+  return { picks: { ...picks, [s.id]: itemId }, step: confirm ? Math.min(stepIndex + 1, LAST_STEP) : stepIndex };
 }
 
 export function isDone(picks: Picks, step: Step): boolean {
@@ -112,9 +114,13 @@ export function missingSteps(picks: Picks): string[] {
   return STEPS.filter((s) => s.kind === "single" && !picks[s.id]).map((s) => s.name);
 }
 
-export function nextLabel(stepIndex: number): string {
-  if (stepIndex >= STEPS.length - 2) return "Finish → build sheet";
-  return STEPS[stepIndex].kind === "multi" ? "Next layer" : "Skip / next";
+export function nextLabel(picks: Picks, stepIndex: number): string {
+  const s = STEPS[stepIndex];
+  if (s.kind === "single") {
+    const it = byId(s.items, pickedIds(picks, s)[0]);
+    return it ? `Use ${it.name} →` : "Skip →";
+  }
+  return stepIndex >= STEPS.length - 2 ? "Finish → build sheet" : "Next layer";
 }
 
 export type ForgeState = { step: number; picks: Picks };

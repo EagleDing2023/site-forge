@@ -46,7 +46,8 @@ export function useForge() {
   const s = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
   return {
     ...s,
-    pick: (stepIndex: number, itemId: string) => set(applyPick(getSnapshot().picks, stepIndex, itemId)),
+    pick: (stepIndex: number, itemId: string, confirm = false) =>
+      set(applyPick(getSnapshot().picks, stepIndex, itemId, confirm)),
     goTo: (step: number) => set({ ...getSnapshot(), step: Math.max(0, Math.min(LAST_STEP, step)) }),
     reset: () => set(EMPTY_STATE),
   };

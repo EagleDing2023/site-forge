@@ -2,13 +2,13 @@ import type { ReactNode } from "react";
 import { STEPS, type Item, type Picks } from "@/data/catalog";
 import { heavyPicks, isPicked, nextLabel, purposeOf, splitByFit } from "@/lib/picks";
 import { ExportPanel } from "./export-panel";
-import { OptionCard } from "./option-card";
+import { OptionCard, PREVIEW_HINT } from "./option-card";
 import { buttonPrimary, buttonSecondary } from "./ui-button";
 
 type Props = {
   stepIndex: number;
   picks: Picks;
-  onPick: (itemId: string) => void;
+  onPick: (itemId: string, confirm?: boolean) => void;
   onGo: (stepIndex: number) => void;
 };
 
@@ -31,6 +31,7 @@ export function StepPanel({ stepIndex, picks, onPick, onGo }: Props) {
           fits={isFit}
           selected={isPicked(picks, step, it.id)}
           onPick={() => onPick(it.id)}
+          onConfirm={() => onPick(it.id, true)}
         />
       ))}
     </div>
@@ -42,6 +43,7 @@ export function StepPanel({ stepIndex, picks, onPick, onGo }: Props) {
         Layer {stepIndex + 1} · {step.layer}
       </div>
       <h1 className="mt-1.5 mb-1.5 font-display text-page-title font-bold tracking-[-0.02em]">{step.title}</h1>
+      {step.kind === "single" && <p className="mb-1.5 text-small text-muted-2">{PREVIEW_HINT}</p>}
       <p className="mb-1 max-w-[720px] text-muted-foreground">{step.hint}</p>
       <p className="mb-4 text-small text-muted-2">{step.analogy}</p>
 
@@ -75,7 +77,7 @@ export function StepPanel({ stepIndex, picks, onPick, onGo }: Props) {
           Back
         </button>
         <button type="button" className={buttonPrimary} onClick={() => onGo(stepIndex + 1)}>
-          {nextLabel(stepIndex)}
+          {nextLabel(picks, stepIndex)}
         </button>
       </div>
     </>

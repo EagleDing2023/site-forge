@@ -21,8 +21,12 @@ function Mini({ regions }: { regions: Region[] }) {
   );
 }
 
-/** The live preview at the top of an option card, chosen by the layer's `view`. */
-export function OptionPreview({ step, item }: { step: Step; item: Item }) {
+/**
+ * The live preview at the top of an option card, chosen by the layer's `view`.
+ * `loadFonts`: a type card only names its fonts once it has been near the screen,
+ * because naming a font is what makes the browser download it.
+ */
+export function OptionPreview({ step, item, loadFonts = true }: { step: Step; item: Item; loadFonts?: boolean }) {
   switch (step.view) {
     case "purpose": {
       // A purpose shows the first skeleton that fits it (directly or through `like`).
@@ -47,10 +51,10 @@ export function OptionPreview({ step, item }: { step: Step; item: Item }) {
       const t = item as TypePairing;
       return (
         <div aria-hidden className={s.typ}>
-          <span className={s.th} style={{ fontFamily: t.h }}>
+          <span className={s.th} style={{ fontFamily: loadFonts ? t.h : undefined }}>
             Headline
           </span>
-          <span className={s.tb} style={{ fontFamily: t.b }}>
+          <span className={s.tb} style={{ fontFamily: loadFonts ? t.b : undefined }}>
             Body text reads like this.
           </span>
         </div>

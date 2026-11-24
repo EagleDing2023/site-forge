@@ -17,19 +17,25 @@ function shared(): IntersectionObserver {
   return observer;
 }
 
-/** True while the element is on (or near) the screen. Starts true so the first paint animates. */
-export function useOnScreen(ref: RefObject<Element | null>): boolean {
-  const [onScreen, setOnScreen] = useState(true);
+export type Visibility = {
+  /** On or near the screen right now. Starts true so the first paint animates. */
+  onScreen: boolean;
+  /** Has been on or near the screen at least once. Starts false: gates one-time loads such as fonts. */
+  seen: boolean;
+};
+
+export function useOnScreen(ref: RefObject<Element | null>): Visibility {
+  const [v, setV] = useState<Visibility>({ onScreen: true, seen: false });
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const io = shared();
-    listeners.set(el, setOnScreen);
+    listeners.set(el, (onScreen) => setV((prev) => ({ onScreen, seen: prev.seen || onScreen })));
     io.observe(el);
     return () => {
       io.unobserve(el);
       listeners.delete(el);
     };
   }, [ref]);
-  return onScreen;
+  return v;
 }

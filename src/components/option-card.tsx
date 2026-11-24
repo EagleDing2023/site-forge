@@ -25,7 +25,7 @@ export function OptionCard({
   showLayer?: boolean;
 }) {
   const ref = useRef<HTMLButtonElement>(null);
-  const onScreen = useOnScreen(ref);
+  const { onScreen, seen } = useOnScreen(ref);
   return (
     <button
       ref={ref}
@@ -43,7 +43,7 @@ export function OptionCard({
       }
     >
       {showLayer && <span className="eyebrow text-muted-2">{step.name}</span>}
-      <OptionPreview step={step} item={item} />
+      <OptionPreview step={step} item={item} loadFonts={seen} />
       <span className="flex items-center justify-between gap-1.5 text-label font-semibold">
         {item.name}
         {selected && (

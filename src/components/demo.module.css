@@ -563,3 +563,6 @@
 @keyframes v2ringfill{from{--v2p:0%}to{--v2p:100%}}
 @keyframes v2liquid{0%,20%{height:0}60%,90%{height:120%}100%{height:0}}
 @keyframes v2textfill2{0%,20%{background-size:0% 2px}60%,90%{background-size:100% 2px}100%{background-size:0% 2px}}
+
+/* Set on option cards that are off screen (option-card.tsx). !important beats demo rules whose animation shorthand resets play-state. */
+.paused *,.paused *::before,.paused *::after{animation-play-state:paused!important}

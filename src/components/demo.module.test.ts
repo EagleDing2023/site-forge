@@ -24,6 +24,10 @@ describe("demo.module.css", () => {
     expect([...used].filter((n) => !defined.has(n))).toEqual([]);
   });
 
+  it("pauses off-screen demos, pseudo-elements included, over any demo's own animation rule", () => {
+    expect(css).toContain(".paused *,.paused *::before,.paused *::after{animation-play-state:paused!important}");
+  });
+
   it("never reads app tokens", () => {
     expect(css).not.toMatch(/--color-|--font-(display|sans|mono)|--radius/);
   });

@@ -1,7 +1,11 @@
+"use client";
+
 import { Check } from "lucide-react";
-import type { ReactNode } from "react";
+import { useRef, type ReactNode } from "react";
 import type { Item, Step } from "@/data/catalog";
+import { useOnScreen } from "@/lib/use-on-screen";
 import { cn } from "@/lib/utils";
+import demo from "./demo.module.css";
 import { OptionPreview } from "./option-preview";
 
 export function OptionCard({
@@ -20,17 +24,23 @@ export function OptionCard({
   /** Search results name the layer each option comes from. */
   showLayer?: boolean;
 }) {
+  const ref = useRef<HTMLButtonElement>(null);
+  const onScreen = useOnScreen(ref);
   return (
     <button
+      ref={ref}
       type="button"
       aria-pressed={selected}
       onClick={onPick}
-      className={cn(
-        "flex flex-col gap-2 rounded-lg border bg-surface text-left transition-[border-color,box-shadow,transform] duration-150 ease-out",
-        selected
-          ? "border-[3px] border-brand p-2 shadow-selected"
-          : "border-line p-2.5 hover:-translate-y-px hover:border-line-strong hover:shadow-hover",
-      )}
+      className={
+        cn(
+          // Off-screen cards skip layout and paint. 168px = a typical 190px card minus padding and border (the size is for the content box).
+          "flex flex-col gap-2 rounded-lg border bg-surface text-left transition-[border-color,box-shadow,transform] duration-150 ease-out [content-visibility:auto] [contain-intrinsic-size:auto_168px]",
+          selected
+            ? "border-[3px] border-brand p-2 shadow-selected"
+            : "border-line p-2.5 hover:-translate-y-px hover:border-line-strong hover:shadow-hover",
+        ) + (onScreen ? "" : ` ${demo.paused}`) // outside cn(): hashed module names must not be merged
+      }
     >
       {showLayer && <span className="eyebrow text-muted-2">{step.name}</span>}
       <OptionPreview step={step} item={item} />

@@ -52,11 +52,12 @@ CLAUDE.local.md
 /AGENTS.md
 /.claude/
 /.mcp.json
-# Handoff stays private except the two files the tests read.
+# Handoff stays private except the files the tests read.
 /site-forge-handoff/*
 !/site-forge-handoff/data/
 /site-forge-handoff/data/*
 !/site-forge-handoff/data/catalog.js
+!/site-forge-handoff/data/catalog-v2.js
 !/site-forge-handoff/refs/
 /site-forge-handoff/refs/*
 !/site-forge-handoff/refs/prototype.dc.html

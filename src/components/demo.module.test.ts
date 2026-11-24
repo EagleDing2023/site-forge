@@ -7,7 +7,7 @@ const css = readFileSync(new URL("./demo.module.css", import.meta.url), "utf8");
 describe("demo.module.css", () => {
   it("has a rule for every demo class in the catalog", () => {
     const demos = STEPS.flatMap((s) => s.items).flatMap((it) => (it.demo ? [it.demo] : []));
-    expect(demos).toHaveLength(80);
+    expect(demos).toHaveLength(350);
     const missing = demos.filter((d) => !new RegExp(`\\.${d}[\\s.:{,]`).test(css));
     expect(missing).toEqual([]);
   });

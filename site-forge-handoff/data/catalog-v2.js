@@ -1,0 +1,13119 @@
+// Site Forge catalog v2: 703 options across 19 layers. Generated; keep text as written.
+var PURPOSES = [
+{
+"id": "dash",
+"name": "Dashboard / analytics",
+"desc": "Watch numbers change and spot problems fast.",
+"kw": "metrics charts kpi admin stocks tracker finance monitoring",
+"prompt": "Purpose: a dashboard for watching key numbers. Scanning speed beats decoration; the most important metric is the biggest thing on screen.",
+"like": []
+},
+{
+"id": "saas",
+"name": "SaaS workspace / tool",
+"desc": "Get daily work done inside one app.",
+"kw": "productivity app tool crud project manager crm",
+"prompt": "Purpose: a work tool people use every day. Fast, quiet, keyboard-friendly; chrome stays out of the way of the content.",
+"like": []
+},
+{
+"id": "landing",
+"name": "Landing / marketing page",
+"desc": "Explain one product and get the sign-up.",
+"kw": "homepage startup launch hero waitlist product page",
+"prompt": "Purpose: a landing page that explains one product and drives one action. One clear headline, one primary CTA, proof below.",
+"like": []
+},
+{
+"id": "shop",
+"name": "Online shop",
+"desc": "Browse, compare and buy.",
+"kw": "ecommerce store cart product checkout retail",
+"prompt": "Purpose: an online shop. Product imagery leads, price and Add to cart are always obvious, checkout has no surprises.",
+"like": []
+},
+{
+"id": "editorial",
+"name": "Blog / magazine",
+"desc": "Read long-form writing comfortably.",
+"kw": "articles news content newsletter writing reading",
+"prompt": "Purpose: long-form reading. Comfortable measure (60–75 characters), strong type hierarchy, minimal chrome.",
+"like": []
+},
+{
+"id": "portfolio",
+"name": "Portfolio / showcase",
+"desc": "Show off work and get hired.",
+"kw": "personal artist resume case study designer creative",
+"prompt": "Purpose: a portfolio that shows work first. Big visuals, little text, one way to get in touch.",
+"like": []
+},
+{
+"id": "booking",
+"name": "Booking / step-by-step flow",
+"desc": "Walk anyone through a task one step at a time.",
+"kw": "wizard form onboarding checkout appointment survey quiz",
+"prompt": "Purpose: a guided flow anyone can finish. One question per screen, big tap targets, clear progress and a visible Back.",
+"like": []
+},
+{
+"id": "social",
+"name": "Social / community feed",
+"desc": "Post, react and follow people.",
+"kw": "feed forum community posts comments followers",
+"prompt": "Purpose: a social feed. The post is the hero; actions (reply, like, share) are small and consistent.",
+"like": []
+},
+{
+"id": "ai",
+"name": "AI chat / agent app",
+"desc": "Talk to a model and review what it does.",
+"kw": "chatbot llm assistant agent copilot gpt claude",
+"prompt": "Purpose: an AI chat or agent app. Conversation in the centre, streaming text, clear states for thinking, tool use and approval.",
+"like": []
+},
+{
+"id": "docs",
+"name": "Docs / knowledge base",
+"desc": "Find the answer and copy the code.",
+"kw": "documentation wiki help guide reference api",
+"prompt": "Purpose: documentation. Search first, three-column reading layout, copyable code blocks.",
+"like": []
+},
+{
+"id": "playful",
+"name": "Game / playful app",
+"desc": "Have fun and feel rewarded.",
+"kw": "game kids quiz toy interactive fun reward",
+"prompt": "Purpose: a playful app. Big friendly controls, bouncy feedback, rewards you can see.",
+"like": []
+},
+{
+"id": "directory",
+"name": "Directory / marketplace",
+"desc": "Search a big catalogue and filter it down.",
+"kw": "listings search filter marketplace map catalogue",
+"prompt": "Purpose: a searchable catalogue. Search and filters are the main tool; results are dense and comparable.",
+"like": []
+},
+{
+"id": "fintech",
+"name": "Fintech / banking app",
+"desc": "Check balances, move money, trust every number.",
+"kw": "bank money payments wallet finance budget",
+"like": [
+"dash",
+"saas"
+],
+"prompt": "Purpose: a fintech app. Numbers must feel precise and trustworthy; balances and the primary money action are always visible."
+},
+{
+"id": "crypto",
+"name": "Crypto / trading terminal",
+"desc": "Watch markets and place orders fast.",
+"kw": "trading stocks exchange charts orders",
+"like": [
+"dash"
+],
+"prompt": "Purpose: a trading terminal. Dense, real-time, dark-friendly; price movement is colour-coded with more than hue alone."
+},
+{
+"id": "crm",
+"name": "CRM / sales pipeline",
+"desc": "Track contacts, deals and follow-ups.",
+"kw": "sales leads contacts deals pipeline",
+"like": [
+"saas",
+"dash"
+],
+"prompt": "Purpose: a CRM. Lists of people and deals with fast filtering; every record shows its next action."
+},
+{
+"id": "pm",
+"name": "Project management",
+"desc": "Plan tasks, owners and deadlines.",
+"kw": "tasks kanban gantt roadmap team",
+"like": [
+"saas"
+],
+"prompt": "Purpose: project management. Tasks, owners, status and dates are scannable at a glance and editable inline."
+},
+{
+"id": "devtool",
+"name": "Developer tool / API product",
+"desc": "Help developers integrate and debug.",
+"kw": "api sdk cli developer code logs",
+"like": [
+"saas",
+"docs"
+],
+"prompt": "Purpose: a developer tool. Code is first-class: monospace, copyable, with keyboard-first navigation."
+},
+{
+"id": "admin",
+"name": "Admin panel / back office",
+"desc": "Manage users, content and settings.",
+"kw": "admin internal tool cms moderation",
+"like": [
+"dash",
+"saas"
+],
+"prompt": "Purpose: an internal admin panel. Utility over beauty: dense tables, bulk actions, clear destructive states."
+},
+{
+"id": "health",
+"name": "Health / fitness tracker",
+"desc": "Log habits and see progress.",
+"kw": "fitness workout habit wellness tracker",
+"like": [
+"booking",
+"saas"
+],
+"prompt": "Purpose: a health and fitness tracker. Encouraging, glanceable progress; one big daily metric."
+},
+{
+"id": "edu",
+"name": "Online course / learning platform",
+"desc": "Learn lessons and track progress.",
+"kw": "course lessons lms education school",
+"like": [
+"saas",
+"booking"
+],
+"prompt": "Purpose: a learning platform. Lessons are easy to resume; progress is always visible."
+},
+{
+"id": "tutor",
+"name": "AI tutor / study app",
+"desc": "Ask questions and practise with feedback.",
+"kw": "study quiz flashcards homework tutor",
+"like": [
+"ai",
+"booking"
+],
+"prompt": "Purpose: an AI study tutor. Calm, focused, one question at a time, with friendly feedback and visible progress."
+},
+{
+"id": "event",
+"name": "Event / conference site",
+"desc": "Show the date, agenda and ticket button.",
+"kw": "conference hackathon meetup tickets agenda",
+"like": [
+"landing",
+"booking"
+],
+"prompt": "Purpose: an event site. Date, place and the ticket action are above the fold; agenda and speakers below."
+},
+{
+"id": "restaurant",
+"name": "Restaurant / café",
+"desc": "Show the menu, hours and booking.",
+"kw": "food menu cafe reservation order",
+"like": [
+"shop",
+"booking"
+],
+"prompt": "Purpose: a restaurant site. Food photography leads; menu, hours, location and booking are one tap away."
+},
+{
+"id": "travel",
+"name": "Travel / hotel booking",
+"desc": "Search stays and book dates.",
+"kw": "hotel flights stays rentals trips",
+"like": [
+"directory",
+"booking"
+],
+"prompt": "Purpose: travel booking. Search by place and dates first; photos and price per night drive the results."
+},
+{
+"id": "realestate",
+"name": "Real estate listings",
+"desc": "Browse homes on a map and compare.",
+"kw": "homes property rent buy map",
+"like": [
+"directory"
+],
+"prompt": "Purpose: real estate listings. Photo-led cards, price and key facts (beds, baths, area) always in the same place."
+},
+{
+"id": "jobs",
+"name": "Job board",
+"desc": "Search roles and apply.",
+"kw": "jobs careers hiring recruiting",
+"like": [
+"directory"
+],
+"prompt": "Purpose: a job board. Search and filters lead; each role shows title, company, location and pay range."
+},
+{
+"id": "news",
+"name": "News site",
+"desc": "Scan headlines and read stories.",
+"kw": "news journalism headlines media",
+"like": [
+"editorial"
+],
+"prompt": "Purpose: a news site. Clear headline hierarchy, timestamps, and a readable article page."
+},
+{
+"id": "newsletter",
+"name": "Newsletter / creator page",
+"desc": "Grow subscribers and publish posts.",
+"kw": "substack creator writer subscribe",
+"like": [
+"editorial",
+"landing"
+],
+"prompt": "Purpose: a creator newsletter. One subscribe field is the main action; posts read like a good blog."
+},
+{
+"id": "podcast",
+"name": "Podcast / media",
+"desc": "Play episodes and browse the archive.",
+"kw": "podcast audio video episodes",
+"like": [
+"editorial",
+"portfolio"
+],
+"prompt": "Purpose: a podcast site. The play button and latest episode lead; the archive is searchable."
+},
+{
+"id": "music",
+"name": "Music / streaming",
+"desc": "Play, discover and make playlists.",
+"kw": "music player playlist artist",
+"like": [
+"playful",
+"portfolio"
+],
+"prompt": "Purpose: a music app. Album art and the player bar dominate; controls are big and tactile."
+},
+{
+"id": "agency",
+"name": "Agency / studio site",
+"desc": "Show work and win clients.",
+"kw": "agency studio design firm clients",
+"like": [
+"portfolio",
+"landing"
+],
+"prompt": "Purpose: an agency site. Big confident type, case studies first, one clear contact action."
+},
+{
+"id": "nonprofit",
+"name": "Nonprofit / cause",
+"desc": "Explain the mission and get donations.",
+"kw": "charity donate cause volunteer",
+"like": [
+"landing"
+],
+"prompt": "Purpose: a nonprofit site. Mission in one line, proof of impact, and a donate action that is always visible."
+},
+{
+"id": "community",
+"name": "Forum / community",
+"desc": "Discuss topics and help each other.",
+"kw": "forum discord reddit discussion",
+"like": [
+"social"
+],
+"prompt": "Purpose: a community forum. Threads are scannable; replies, votes and unread state are clear."
+},
+{
+"id": "messaging",
+"name": "Messaging / chat app",
+"desc": "Talk one-to-one and in groups.",
+"kw": "chat dm messenger slack",
+"like": [
+"social",
+"ai"
+],
+"prompt": "Purpose: a messaging app. Conversation list and thread side by side; typing, read and unread states are clear."
+},
+{
+"id": "calendar",
+"name": "Calendar / scheduling",
+"desc": "Plan time and book meetings.",
+"kw": "calendar schedule meetings booking calendly",
+"like": [
+"saas",
+"booking"
+],
+"prompt": "Purpose: a calendar and scheduling tool. Week view by default, drag to create, conflicts shown clearly."
+},
+{
+"id": "notes",
+"name": "Notes / personal wiki",
+"desc": "Write, link and find notes.",
+"kw": "notes notion obsidian wiki writing",
+"like": [
+"saas",
+"docs"
+],
+"prompt": "Purpose: a notes app. The document is the hero; navigation and formatting stay out of the way until needed."
+},
+{
+"id": "iot",
+"name": "IoT / monitoring",
+"desc": "See live device status and alerts.",
+"kw": "monitoring devices sensors status uptime",
+"like": [
+"dash"
+],
+"prompt": "Purpose: a monitoring dashboard. Live status is readable from across the room; problems stand out instantly."
+},
+{
+"id": "gov",
+"name": "Government / public service",
+"desc": "Help anyone complete a task.",
+"kw": "government public service form accessibility",
+"like": [
+"docs",
+"booking"
+],
+"prompt": "Purpose: a public service. Plain language, high contrast, one thing per page, accessible to everyone."
+},
+{
+"id": "waitlist",
+"name": "Waitlist / coming soon",
+"desc": "Collect early sign-ups.",
+"kw": "launch waitlist coming soon beta",
+"like": [
+"landing"
+],
+"prompt": "Purpose: a waitlist page. One headline, one sentence, one email field."
+},
+{
+"id": "linkinbio",
+"name": "Link in bio",
+"desc": "One page of links for a person.",
+"kw": "links linktree profile creator",
+"like": [
+"portfolio"
+],
+"prompt": "Purpose: a link-in-bio page. Avatar, one-line bio, and a stack of big tappable links."
+},
+{
+"id": "blog",
+"name": "Personal blog",
+"desc": "Write and share posts.",
+"kw": "blog writing personal essays",
+"like": [
+"editorial",
+"portfolio"
+],
+"prompt": "Purpose: a personal blog. Readable posts, a clear index, and an about page."
+},
+{
+"id": "recipes",
+"name": "Recipes / food blog",
+"desc": "Find and cook recipes.",
+"kw": "recipes cooking food meal",
+"like": [
+"editorial",
+"shop"
+],
+"prompt": "Purpose: a recipe site. Ingredients and steps are the hero; jump-to-recipe, scaling and a cooking mode."
+},
+{
+"id": "sports",
+"name": "Sports / team site",
+"desc": "Scores, fixtures, roster.",
+"kw": "sports team scores league",
+"like": [
+"news",
+"dash"
+],
+"prompt": "Purpose: a sports site. Live scores and next fixture lead; roster and table one tap away."
+},
+{
+"id": "gaming",
+"name": "Game studio / gaming",
+"desc": "Show a game and build hype.",
+"kw": "game studio trailer steam",
+"like": [
+"playful",
+"landing"
+],
+"prompt": "Purpose: a game site. The trailer leads; platforms, wishlist button and screenshots follow."
+},
+{
+"id": "school",
+"name": "School / university",
+"desc": "Programs, admissions, news.",
+"kw": "school university college admissions",
+"like": [
+"docs",
+"editorial"
+],
+"prompt": "Purpose: a school site. Clear paths for applicants, students and parents; events and news below."
+},
+{
+"id": "local",
+"name": "Local business",
+"desc": "Hours, location, call.",
+"kw": "local shop salon plumber clinic",
+"like": [
+"restaurant",
+"booking"
+],
+"prompt": "Purpose: a local business. Phone, hours, address and booking are above the fold on mobile."
+},
+{
+"id": "aiagent",
+"name": "AI agent workspace",
+"desc": "Delegate tasks and review results.",
+"kw": "agent automation workflow copilot",
+"like": [
+"ai",
+"saas"
+],
+"prompt": "Purpose: an AI agent workspace. Tasks, live progress, approvals and results are reviewable step by step."
+},
+{
+"id": "hackathon",
+"name": "Hackathon demo",
+"desc": "Explain one idea in 3 minutes.",
+"kw": "hackathon demo prototype pitch",
+"like": [
+"landing",
+"ai"
+],
+"prompt": "Purpose: a hackathon demo. The core flow works end to end and the main screen explains itself in 5 seconds."
+}
+];
+var SKELS = [
+{
+"id": "shell",
+"name": "Sidebar app shell",
+"desc": "Left nav, top bar, panels. The classic work app.",
+"fit": [
+"dash",
+"saas",
+"ai"
+],
+"regions": [
+[
+0,
+0,
+17,
+100,
+"side",
+"Navigation"
+],
+[
+17,
+0,
+83,
+9,
+"nav",
+"Top bar · search · account"
+],
+[
+19,
+12,
+79,
+22,
+"hero",
+"Overview"
+],
+[
+19,
+37,
+38,
+60,
+"card",
+"Panel"
+],
+[
+59,
+37,
+39,
+60,
+"table",
+"List"
+]
+],
+"prompt": "Layout: fixed left sidebar (240px) with navigation, top bar with search and account menu, main area with an overview strip above two panels. Sidebar collapses into a drawer below 768px.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "table",
+"name": "Sidebar + data table",
+"desc": "Filters on top, one big table.",
+"fit": [
+"dash",
+"saas",
+"directory"
+],
+"regions": [
+[
+0,
+0,
+17,
+100,
+"side",
+"Navigation"
+],
+[
+17,
+0,
+83,
+9,
+"nav",
+"Top bar"
+],
+[
+19,
+12,
+79,
+8,
+"input",
+"Filters · sort · search"
+],
+[
+19,
+23,
+79,
+74,
+"table",
+"Data table"
+]
+],
+"prompt": "Layout: sidebar navigation, a filter bar (search, filters, sort), and one full-width data table with a sticky header and row actions. The table scrolls inside its own box on mobile.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "hero",
+"name": "Top nav + hero",
+"desc": "Headline, one CTA, features below.",
+"fit": [
+"landing",
+"saas",
+"portfolio",
+"playful"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+8,
+16,
+84,
+30,
+"hero",
+"One clear headline that says what it does"
+],
+[
+34,
+50,
+32,
+8,
+"cta",
+"Get started"
+],
+[
+8,
+64,
+26,
+32,
+"card",
+"Benefit"
+],
+[
+37,
+64,
+26,
+32,
+"card",
+"Benefit"
+],
+[
+66,
+64,
+26,
+32,
+"card",
+"Benefit"
+]
+],
+"prompt": "Layout: top navigation, a hero with one headline, one sentence and one primary CTA, then a section of benefits. Not three identical icon cards: vary their size or use real screenshots.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "bento",
+"name": "Bento grid",
+"desc": "Mixed-size tiles, Apple-style.",
+"fit": [
+"landing",
+"portfolio",
+"dash",
+"saas"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+4,
+13,
+44,
+45,
+"media",
+"Big tile"
+],
+[
+50,
+13,
+22,
+21,
+"card",
+"Tile"
+],
+[
+74,
+13,
+22,
+21,
+"card",
+"Tile"
+],
+[
+50,
+37,
+46,
+21,
+"card",
+"Wide tile"
+],
+[
+4,
+61,
+30,
+35,
+"card",
+"Tile"
+],
+[
+36,
+61,
+60,
+35,
+"media",
+"Wide visual"
+]
+],
+"prompt": "Layout: a bento grid of mixed-size tiles (one large, several small, one wide), each tile showing one idea with a real visual. Collapses to one column on mobile.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "split",
+"name": "Split screen",
+"desc": "Visual on one half, action on the other.",
+"fit": [
+"booking",
+"saas",
+"landing"
+],
+"regions": [
+[
+0,
+0,
+50,
+100,
+"media",
+"Visual"
+],
+[
+56,
+25,
+38,
+14,
+"hero",
+"Welcome back"
+],
+[
+56,
+43,
+38,
+7,
+"input",
+"Email"
+],
+[
+56,
+53,
+38,
+7,
+"input",
+"Password"
+],
+[
+56,
+64,
+38,
+8,
+"cta",
+"Continue"
+]
+],
+"prompt": "Layout: 50/50 split screen: a full-height visual on the left, a short focused form on the right. On mobile the visual becomes a short banner above the form.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "gallery",
+"name": "Card grid gallery",
+"desc": "Search bar, then an even grid of cards.",
+"fit": [
+"directory",
+"shop",
+"portfolio",
+"playful"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+4,
+12,
+92,
+7,
+"input",
+"Search + filter chips"
+],
+[
+4,
+23,
+20,
+33,
+"card",
+"Item"
+],
+[
+28,
+23,
+20,
+33,
+"card",
+"Item"
+],
+[
+52,
+23,
+20,
+33,
+"card",
+"Item"
+],
+[
+76,
+23,
+20,
+33,
+"card",
+"Item"
+],
+[
+4,
+60,
+20,
+36,
+"card",
+"Item"
+],
+[
+28,
+60,
+20,
+36,
+"card",
+"Item"
+],
+[
+52,
+60,
+20,
+36,
+"card",
+"Item"
+],
+[
+76,
+60,
+20,
+36,
+"card",
+"Item"
+]
+],
+"prompt": "Layout: search bar with filter chips, then a responsive card grid (4 columns desktop, 2 tablet, 1 phone). Every card is clickable and shows the same fields in the same places.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "masonry",
+"name": "Masonry",
+"desc": "Pinterest-style columns of uneven height.",
+"fit": [
+"portfolio",
+"editorial",
+"social"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+4,
+12,
+29,
+40,
+"media",
+"Image"
+],
+[
+4,
+55,
+29,
+41,
+"media",
+"Image"
+],
+[
+36,
+12,
+29,
+25,
+"media",
+"Image"
+],
+[
+36,
+40,
+29,
+56,
+"media",
+"Image"
+],
+[
+68,
+12,
+28,
+46,
+"media",
+"Image"
+],
+[
+68,
+61,
+28,
+35,
+"media",
+"Image"
+]
+],
+"prompt": "Layout: masonry grid of images with uneven heights in 3 columns (2 on tablet, 1 on phone); hover shows title and action.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "feed",
+"name": "Feed + side rails",
+"desc": "Centre column of posts, rails either side.",
+"fit": [
+"social",
+"editorial"
+],
+"regions": [
+[
+0,
+0,
+22,
+100,
+"side",
+"Navigation"
+],
+[
+25,
+4,
+50,
+14,
+"input",
+"Composer"
+],
+[
+25,
+21,
+50,
+36,
+"card",
+"Post"
+],
+[
+25,
+60,
+50,
+37,
+"card",
+"Post"
+],
+[
+78,
+4,
+20,
+40,
+"card",
+"Trending"
+],
+[
+78,
+47,
+20,
+30,
+"card",
+"Who to follow"
+]
+],
+"prompt": "Layout: three columns: left navigation, a centre feed (max 600px) with a composer on top, right rail for trends and suggestions. Rails hide on mobile and a bottom tab bar appears.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "chat",
+"name": "Chat workspace",
+"desc": "History on the left, conversation in the middle.",
+"fit": [
+"ai"
+],
+"regions": [
+[
+0,
+0,
+20,
+100,
+"side",
+"Chat history"
+],
+[
+22,
+3,
+76,
+9,
+"nav",
+"Model · title"
+],
+[
+30,
+16,
+50,
+12,
+"card",
+"Assistant"
+],
+[
+48,
+31,
+42,
+9,
+"chat",
+"You"
+],
+[
+30,
+43,
+58,
+24,
+"card",
+"Assistant"
+],
+[
+26,
+84,
+68,
+11,
+"input",
+"Message…"
+]
+],
+"prompt": "Layout: chat workspace: collapsible history sidebar, header with model picker, centred conversation (max 760px), message box pinned to the bottom with attach and send.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "wizard",
+"name": "Wizard / stepper",
+"desc": "One question per screen with progress.",
+"fit": [
+"booking",
+"saas",
+"playful"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Logo · Step 2 of 4"
+],
+[
+25,
+14,
+50,
+5,
+"nav",
+"Progress"
+],
+[
+25,
+23,
+50,
+10,
+"hero",
+"What do you need?"
+],
+[
+25,
+36,
+50,
+10,
+"input",
+"Option A"
+],
+[
+25,
+49,
+50,
+10,
+"input",
+"Option B"
+],
+[
+25,
+62,
+50,
+10,
+"input",
+"Option C"
+],
+[
+55,
+80,
+20,
+8,
+"cta",
+"Next"
+]
+],
+"prompt": "Layout: a stepper flow: progress indicator at top, one question per screen in a centred column (max 560px), large selectable options, Back and Next pinned at the bottom.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "docs",
+"name": "Docs three-column",
+"desc": "Section nav, article, on-this-page.",
+"fit": [
+"docs"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+0,
+9,
+18,
+91,
+"side",
+"Sections"
+],
+[
+22,
+13,
+54,
+10,
+"hero",
+"Page title"
+],
+[
+22,
+26,
+54,
+30,
+"text",
+"Article"
+],
+[
+22,
+59,
+54,
+24,
+"media",
+"Code block"
+],
+[
+80,
+13,
+18,
+40,
+"side",
+"On this page"
+]
+],
+"prompt": "Layout: docs three-column: left section tree, centre article (max 720px), right on-this-page table of contents that tracks scroll. Search in the top nav opens with ⌘K.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "kanban",
+"name": "Kanban board",
+"desc": "Columns of cards you drag between.",
+"fit": [
+"saas"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+2,
+12,
+23,
+85,
+"side",
+"To do"
+],
+[
+27,
+12,
+23,
+85,
+"side",
+"Doing"
+],
+[
+52,
+12,
+23,
+85,
+"side",
+"Review"
+],
+[
+77,
+12,
+21,
+85,
+"side",
+"Done"
+],
+[
+4,
+20,
+19,
+16,
+"card",
+"Card"
+],
+[
+4,
+39,
+19,
+16,
+"card",
+"Card"
+],
+[
+29,
+20,
+19,
+22,
+"card",
+"Card"
+],
+[
+54,
+20,
+19,
+16,
+"card",
+"Card"
+],
+[
+79,
+20,
+17,
+16,
+"card",
+"Card"
+]
+],
+"prompt": "Layout: kanban board: horizontally scrolling columns of draggable cards, a count on each column header, quick-add at the bottom of each column.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "masterdetail",
+"name": "List + detail",
+"desc": "Inbox style: list on the left, item on the right.",
+"fit": [
+"saas",
+"ai",
+"social"
+],
+"regions": [
+[
+0,
+0,
+6,
+100,
+"side",
+""
+],
+[
+6,
+0,
+30,
+100,
+"table",
+"List"
+],
+[
+38,
+4,
+58,
+10,
+"hero",
+"Selected item"
+],
+[
+38,
+17,
+58,
+79,
+"text",
+"Detail"
+]
+],
+"prompt": "Layout: master-detail: narrow icon rail, a scrollable list, and a detail pane for the selected item. On mobile the list and detail become two screens.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "map",
+"name": "Map + results",
+"desc": "Results list beside a map.",
+"fit": [
+"directory",
+"booking"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Search · dates · filters"
+],
+[
+0,
+9,
+34,
+91,
+"table",
+"Results"
+],
+[
+34,
+9,
+66,
+91,
+"media",
+"Map"
+]
+],
+"prompt": "Layout: search bar on top, results list on the left, interactive map on the right; hovering a result highlights its pin. On mobile, map and list toggle.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "editor",
+"name": "Canvas editor",
+"desc": "Toolbar, layers, canvas, inspector.",
+"fit": [
+"saas",
+"playful"
+],
+"regions": [
+[
+0,
+0,
+100,
+8,
+"nav",
+"Toolbar"
+],
+[
+0,
+8,
+14,
+92,
+"side",
+"Layers"
+],
+[
+16,
+12,
+64,
+84,
+"media",
+"Canvas"
+],
+[
+82,
+8,
+18,
+92,
+"side",
+"Inspector"
+]
+],
+"prompt": "Layout: editor: top toolbar, left layers panel, central canvas, right inspector for the selected object. Panels collapse to keep the canvas big.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "story",
+"name": "Long-scroll story",
+"desc": "Big statement, sticky visual, chapters.",
+"fit": [
+"landing",
+"editorial",
+"portfolio"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+10,
+14,
+80,
+26,
+"hero",
+"A big statement in a few words"
+],
+[
+10,
+44,
+38,
+52,
+"media",
+"Sticky visual"
+],
+[
+52,
+44,
+38,
+15,
+"text",
+"Chapter 1"
+],
+[
+52,
+63,
+38,
+15,
+"text",
+"Chapter 2"
+],
+[
+52,
+82,
+38,
+14,
+"text",
+"Chapter 3"
+]
+],
+"prompt": "Layout: long-scroll story: a big opening statement, then chapters where a sticky visual on one side changes as the text scrolls past on the other.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "product",
+"name": "Product detail",
+"desc": "Gallery on the left, buy box on the right.",
+"fit": [
+"shop"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+4,
+13,
+50,
+83,
+"media",
+"Gallery"
+],
+[
+58,
+13,
+38,
+10,
+"hero",
+"Name · price"
+],
+[
+58,
+26,
+38,
+14,
+"text",
+"Options"
+],
+[
+58,
+43,
+38,
+8,
+"cta",
+"Add to cart"
+],
+[
+58,
+55,
+38,
+41,
+"text",
+"Details · reviews"
+]
+],
+"prompt": "Layout: product page: image gallery left, sticky buy box right (name, price, options, Add to cart), details and reviews below. On mobile the Add to cart bar sticks to the bottom.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "pricing",
+"name": "Pricing / compare",
+"desc": "Three tiers, the middle one highlighted.",
+"fit": [
+"landing",
+"saas",
+"shop"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+20,
+13,
+60,
+12,
+"hero",
+"Simple pricing"
+],
+[
+6,
+30,
+28,
+62,
+"card",
+"Starter"
+],
+[
+36,
+28,
+28,
+66,
+"chat",
+"Pro · most popular"
+],
+[
+66,
+30,
+28,
+62,
+"card",
+"Team"
+],
+[
+40,
+82,
+20,
+7,
+"cta",
+"Choose Pro"
+]
+],
+"prompt": "Layout: pricing page: three tiers side by side with the recommended one highlighted, a monthly/yearly toggle, and a feature comparison table below.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "command",
+"name": "Command-first minimal",
+"desc": "A search box is the whole interface.",
+"fit": [
+"ai",
+"docs",
+"saas"
+],
+"regions": [
+[
+0,
+0,
+100,
+7,
+"nav",
+""
+],
+[
+30,
+28,
+40,
+10,
+"input",
+"Search or ask anything"
+],
+[
+30,
+41,
+40,
+32,
+"table",
+"Results"
+]
+],
+"prompt": "Layout: minimal command-first screen: a large centred search/command box, results appear beneath it, everything reachable from the keyboard.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "profile",
+"name": "Personal showcase",
+"desc": "Big intro, then a few projects.",
+"fit": [
+"portfolio"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+4,
+13,
+92,
+34,
+"hero",
+"Name — what I make, in one line"
+],
+[
+4,
+51,
+44,
+45,
+"media",
+"Project"
+],
+[
+52,
+51,
+44,
+45,
+"media",
+"Project"
+]
+],
+"prompt": "Layout: personal showcase: big intro with name and one-line pitch, then large project tiles that open case studies, contact at the bottom.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "dashgrid",
+"name": "Dashboard widget grid",
+"desc": "Stat tiles above a grid of charts.",
+"fit": [
+"dash",
+"admin",
+"iot",
+"fintech"
+],
+"regions": [
+[
+0,
+0,
+15,
+100,
+"side",
+"Nav"
+],
+[
+15,
+0,
+85,
+9,
+"nav",
+"Top bar · date range"
+],
+[
+17,
+12,
+19,
+16,
+"card",
+"KPI"
+],
+[
+38,
+12,
+19,
+16,
+"card",
+"KPI"
+],
+[
+59,
+12,
+19,
+16,
+"card",
+"KPI"
+],
+[
+80,
+12,
+18,
+16,
+"card",
+"KPI"
+],
+[
+17,
+31,
+52,
+66,
+"media",
+"Main chart"
+],
+[
+71,
+31,
+27,
+66,
+"table",
+"Breakdown"
+]
+],
+"prompt": "Layout: dashboard grid: sidebar, top bar with a date-range picker, a row of 4 KPI tiles (each a different metric), then one large chart and a breakdown list.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "trading",
+"name": "Trading terminal",
+"desc": "Big chart, order book, trade history.",
+"fit": [
+"crypto",
+"fintech"
+],
+"regions": [
+[
+0,
+0,
+100,
+7,
+"nav",
+"Ticker · balance"
+],
+[
+0,
+7,
+70,
+60,
+"media",
+"Price chart"
+],
+[
+70,
+7,
+30,
+60,
+"table",
+"Order book"
+],
+[
+0,
+67,
+70,
+33,
+"table",
+"Open orders"
+],
+[
+70,
+67,
+30,
+33,
+"input",
+"Buy / sell"
+]
+],
+"prompt": "Layout: trading terminal: ticker bar, large price chart, order book on the right, open orders below, and a buy/sell form in the corner. Dense, dark-friendly.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "contacts",
+"name": "Contacts + profile",
+"desc": "Searchable list beside a record.",
+"fit": [
+"crm",
+"admin"
+],
+"regions": [
+[
+0,
+0,
+15,
+100,
+"side",
+"Nav"
+],
+[
+15,
+0,
+32,
+100,
+"table",
+"Contacts"
+],
+[
+49,
+4,
+49,
+14,
+"hero",
+"Contact name"
+],
+[
+49,
+21,
+24,
+75,
+"text",
+"Details"
+],
+[
+75,
+21,
+23,
+75,
+"table",
+"Activity"
+]
+],
+"prompt": "Layout: CRM record view: sidebar, searchable contacts list, and a profile with details and an activity timeline.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "calendar",
+"name": "Calendar month view",
+"desc": "Mini calendar, big month grid.",
+"fit": [
+"calendar",
+"booking",
+"pm",
+"edu"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Month · today · view"
+],
+[
+0,
+9,
+20,
+91,
+"side",
+"Mini calendar · calendars"
+],
+[
+22,
+12,
+76,
+85,
+"table",
+"Month grid"
+]
+],
+"prompt": "Layout: calendar: header with month switcher and view toggle, side panel with a mini calendar and calendar list, big month or week grid.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "gantt",
+"name": "Gantt / timeline",
+"desc": "Task list with bars over time.",
+"fit": [
+"pm"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+0,
+9,
+28,
+91,
+"table",
+"Tasks"
+],
+[
+28,
+9,
+72,
+6,
+"nav",
+"Weeks"
+],
+[
+30,
+18,
+30,
+6,
+"chat",
+"Bar"
+],
+[
+40,
+27,
+40,
+6,
+"chat",
+"Bar"
+],
+[
+55,
+36,
+25,
+6,
+"chat",
+"Bar"
+],
+[
+35,
+45,
+45,
+6,
+"chat",
+"Bar"
+]
+],
+"prompt": "Layout: gantt chart: task list on the left, a time axis across the top, horizontal bars per task with dependencies.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "settings",
+"name": "Settings page",
+"desc": "Section tabs and grouped forms.",
+"fit": [
+"saas",
+"admin",
+"fintech"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+4,
+13,
+20,
+60,
+"side",
+"Sections"
+],
+[
+28,
+13,
+68,
+10,
+"hero",
+"Account"
+],
+[
+28,
+26,
+68,
+22,
+"input",
+"Group"
+],
+[
+28,
+51,
+68,
+22,
+"input",
+"Group"
+],
+[
+78,
+78,
+18,
+8,
+"cta",
+"Save"
+]
+],
+"prompt": "Layout: settings: vertical section tabs on the left, grouped forms on the right with clear labels and one Save action per group.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "authcard",
+"name": "Centred auth card",
+"desc": "A single card in the middle.",
+"fit": [
+"saas",
+"fintech",
+"admin"
+],
+"regions": [
+[
+36,
+12,
+28,
+10,
+"hero",
+"Sign in"
+],
+[
+36,
+26,
+28,
+8,
+"input",
+"Email"
+],
+[
+36,
+37,
+28,
+8,
+"input",
+"Password"
+],
+[
+36,
+48,
+28,
+8,
+"cta",
+"Continue"
+],
+[
+36,
+60,
+28,
+7,
+"text",
+"Or SSO"
+]
+],
+"prompt": "Layout: centred auth card (max 400px): logo, title, email and password, primary button, SSO options, and a link to sign up.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "checklist",
+"name": "Onboarding checklist",
+"desc": "Progress and setup steps.",
+"fit": [
+"saas",
+"edu",
+"devtool"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+8,
+14,
+84,
+10,
+"hero",
+"Get set up"
+],
+[
+8,
+27,
+84,
+4,
+"nav",
+"Progress"
+],
+[
+8,
+35,
+84,
+13,
+"input",
+"Step 1"
+],
+[
+8,
+51,
+84,
+13,
+"input",
+"Step 2"
+],
+[
+8,
+67,
+84,
+13,
+"input",
+"Step 3"
+]
+],
+"prompt": "Layout: onboarding checklist: a short welcome, a progress bar, and 3–5 expandable setup steps that tick off.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "mail",
+"name": "Three-pane mail",
+"desc": "Folders, list, reading pane.",
+"fit": [
+"saas",
+"messaging",
+"crm"
+],
+"regions": [
+[
+0,
+0,
+16,
+100,
+"side",
+"Folders"
+],
+[
+16,
+0,
+32,
+100,
+"table",
+"Messages"
+],
+[
+50,
+4,
+48,
+10,
+"hero",
+"Subject"
+],
+[
+50,
+17,
+48,
+79,
+"text",
+"Message"
+]
+],
+"prompt": "Layout: three-pane mail: folders, message list with unread state, and a reading pane.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "ide",
+"name": "Code editor / IDE",
+"desc": "File tree, editor, terminal.",
+"fit": [
+"devtool"
+],
+"regions": [
+[
+0,
+0,
+100,
+6,
+"nav",
+"Tabs"
+],
+[
+0,
+6,
+16,
+94,
+"side",
+"Files"
+],
+[
+16,
+6,
+60,
+64,
+"text",
+"Editor"
+],
+[
+16,
+70,
+60,
+30,
+"table",
+"Terminal"
+],
+[
+76,
+6,
+24,
+94,
+"side",
+"Assistant"
+]
+],
+"prompt": "Layout: IDE: file tree, tabbed editor, terminal panel below, assistant or inspector panel on the right.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "apiref",
+"name": "API reference",
+"desc": "Prose on the left, code on the right.",
+"fit": [
+"devtool",
+"docs"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+0,
+9,
+18,
+91,
+"side",
+"Endpoints"
+],
+[
+20,
+13,
+38,
+10,
+"hero",
+"Create a charge"
+],
+[
+20,
+26,
+38,
+70,
+"text",
+"Parameters"
+],
+[
+60,
+9,
+40,
+91,
+"media",
+"Code samples"
+]
+],
+"prompt": "Layout: API reference: endpoint nav, description and parameters in the middle, a dark code panel on the right with language tabs.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "notesapp",
+"name": "Notes app",
+"desc": "Tree of pages and a document.",
+"fit": [
+"notes",
+"docs",
+"saas"
+],
+"regions": [
+[
+0,
+0,
+20,
+100,
+"side",
+"Pages"
+],
+[
+24,
+8,
+60,
+10,
+"hero",
+"Untitled"
+],
+[
+24,
+22,
+60,
+74,
+"text",
+"Document"
+]
+],
+"prompt": "Layout: notes app: collapsible page tree, a wide centred document with inline formatting, slash commands for blocks.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "canvas",
+"name": "Infinite canvas",
+"desc": "Floating toolbars over a board.",
+"fit": [
+"saas",
+"playful",
+"pm"
+],
+"regions": [
+[
+0,
+0,
+100,
+100,
+"media",
+"Canvas"
+],
+[
+35,
+3,
+30,
+7,
+"nav",
+"Tools"
+],
+[
+2,
+30,
+6,
+30,
+"side",
+""
+],
+[
+86,
+3,
+12,
+7,
+"cta",
+"Share"
+]
+],
+"prompt": "Layout: infinite canvas: the board fills the screen; floating toolbars for tools, zoom and share sit on top.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "player",
+"name": "Video + playlist",
+"desc": "Player beside an episode list.",
+"fit": [
+"edu",
+"podcast",
+"music"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+3,
+12,
+64,
+56,
+"media",
+"Player"
+],
+[
+3,
+71,
+64,
+26,
+"text",
+"Title · notes"
+],
+[
+69,
+12,
+28,
+85,
+"table",
+"Up next"
+]
+],
+"prompt": "Layout: media page: big player, title and notes under it, an up-next list on the right.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "lesson",
+"name": "Course lesson",
+"desc": "Lesson list, video, notes.",
+"fit": [
+"edu",
+"tutor"
+],
+"regions": [
+[
+0,
+0,
+24,
+100,
+"side",
+"Lessons"
+],
+[
+26,
+4,
+72,
+8,
+"nav",
+"Module 3 · Lesson 2"
+],
+[
+26,
+15,
+72,
+48,
+"media",
+"Lesson video"
+],
+[
+26,
+66,
+52,
+30,
+"text",
+"Notes"
+],
+[
+80,
+66,
+18,
+10,
+"cta",
+"Next lesson"
+]
+],
+"prompt": "Layout: course lesson: lesson list with progress ticks, video, notes or transcript, and a Next lesson button.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "quiz",
+"name": "Quiz card",
+"desc": "Question, four answers, progress.",
+"fit": [
+"tutor",
+"edu",
+"playful"
+],
+"regions": [
+[
+20,
+5,
+60,
+4,
+"nav",
+"Progress"
+],
+[
+20,
+14,
+60,
+18,
+"hero",
+"Which one is a prime number?"
+],
+[
+20,
+38,
+29,
+16,
+"input",
+"A"
+],
+[
+51,
+38,
+29,
+16,
+"input",
+"B"
+],
+[
+20,
+57,
+29,
+16,
+"input",
+"C"
+],
+[
+51,
+57,
+29,
+16,
+"input",
+"D"
+],
+[
+60,
+80,
+20,
+8,
+"cta",
+"Check"
+]
+],
+"prompt": "Layout: quiz: progress at top, one question in big type, four large answer tiles in a 2×2 grid, a Check button, then feedback.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "socialprofile",
+"name": "Social profile",
+"desc": "Cover, avatar, tabs, posts.",
+"fit": [
+"social",
+"community",
+"portfolio"
+],
+"regions": [
+[
+0,
+0,
+100,
+24,
+"media",
+"Cover"
+],
+[
+6,
+18,
+14,
+22,
+"chat",
+""
+],
+[
+24,
+26,
+50,
+8,
+"hero",
+"Name"
+],
+[
+6,
+44,
+88,
+7,
+"nav",
+"Posts · Replies · Media"
+],
+[
+6,
+54,
+88,
+43,
+"card",
+"Post"
+]
+],
+"prompt": "Layout: profile: cover image, overlapping avatar, name and bio, tab row, and the person's posts.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "forum",
+"name": "Forum thread list",
+"desc": "Categories and threads.",
+"fit": [
+"community",
+"social",
+"docs"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+0,
+9,
+22,
+91,
+"side",
+"Categories"
+],
+[
+25,
+12,
+72,
+8,
+"input",
+"Search · New topic"
+],
+[
+25,
+23,
+72,
+74,
+"table",
+"Threads"
+]
+],
+"prompt": "Layout: forum: category list, search with a New topic button, and a thread list showing replies, views and last activity.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "dms",
+"name": "Messaging",
+"desc": "Chats list, thread, info pane.",
+"fit": [
+"messaging",
+"social",
+"community"
+],
+"regions": [
+[
+0,
+0,
+28,
+100,
+"table",
+"Chats"
+],
+[
+28,
+0,
+50,
+9,
+"nav",
+"Name · online"
+],
+[
+34,
+14,
+30,
+9,
+"card",
+""
+],
+[
+46,
+26,
+28,
+9,
+"chat",
+""
+],
+[
+34,
+38,
+36,
+9,
+"card",
+""
+],
+[
+30,
+86,
+46,
+10,
+"input",
+"Message"
+],
+[
+78,
+0,
+22,
+100,
+"side",
+"Info"
+]
+],
+"prompt": "Layout: messaging: chat list with unread counts, the open thread with bubbles, composer at the bottom, and a collapsible info pane.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "storefront",
+"name": "Shop home",
+"desc": "Banner, categories, product grid.",
+"fit": [
+"shop",
+"restaurant"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+3,
+12,
+94,
+30,
+"media",
+"Seasonal banner"
+],
+[
+3,
+45,
+94,
+8,
+"nav",
+"Categories"
+],
+[
+3,
+56,
+22,
+40,
+"card",
+"Product"
+],
+[
+27,
+56,
+22,
+40,
+"card",
+"Product"
+],
+[
+51,
+56,
+22,
+40,
+"card",
+"Product"
+],
+[
+75,
+56,
+22,
+40,
+"card",
+"Product"
+]
+],
+"prompt": "Layout: shop home: hero banner, a category row, and a product grid with price and quick add.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "checkout",
+"name": "Checkout",
+"desc": "Form left, order summary right.",
+"fit": [
+"shop",
+"event",
+"travel"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Logo · secure"
+],
+[
+4,
+14,
+56,
+82,
+"input",
+"Contact · shipping · payment"
+],
+[
+64,
+14,
+32,
+60,
+"card",
+"Order summary"
+],
+[
+64,
+78,
+32,
+9,
+"cta",
+"Pay"
+]
+],
+"prompt": "Layout: checkout: one-column form (contact, shipping, payment) on the left, sticky order summary with total and Pay on the right.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "cartdrawer",
+"name": "Cart drawer",
+"desc": "Page dims, cart slides in.",
+"fit": [
+"shop",
+"restaurant"
+],
+"regions": [
+[
+0,
+0,
+64,
+100,
+"media",
+"Page"
+],
+[
+64,
+0,
+36,
+100,
+"card",
+"Cart"
+],
+[
+67,
+82,
+30,
+9,
+"cta",
+"Checkout"
+]
+],
+"prompt": "Layout: cart drawer: slides in from the right over the page with items, quantities, subtotal and a Checkout button.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "menu",
+"name": "Restaurant menu",
+"desc": "Hero photo, tabs, two-column list.",
+"fit": [
+"restaurant"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+0,
+9,
+100,
+28,
+"media",
+"Food photo"
+],
+[
+10,
+40,
+80,
+7,
+"nav",
+"Starters · Mains · Desserts"
+],
+[
+10,
+50,
+38,
+46,
+"text",
+"Dishes"
+],
+[
+52,
+50,
+38,
+46,
+"text",
+"Dishes"
+]
+],
+"prompt": "Layout: menu: big food photo, category tabs, and dishes in two columns with name, short description and price.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "listing",
+"name": "Listing detail",
+"desc": "Photo mosaic and booking card.",
+"fit": [
+"travel",
+"realestate"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+3,
+12,
+46,
+46,
+"media",
+"Photo"
+],
+[
+50,
+12,
+23,
+22,
+"media",
+""
+],
+[
+74,
+12,
+23,
+22,
+"media",
+""
+],
+[
+50,
+36,
+23,
+22,
+"media",
+""
+],
+[
+74,
+36,
+23,
+22,
+"media",
+""
+],
+[
+3,
+62,
+58,
+35,
+"text",
+"Details · amenities"
+],
+[
+65,
+62,
+32,
+35,
+"card",
+"Price · dates · Reserve"
+]
+],
+"prompt": "Layout: listing page: photo mosaic, details and amenities, and a sticky booking card with price, dates and Reserve.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "results",
+"name": "Search results + filters",
+"desc": "Filters sidebar, sorted results.",
+"fit": [
+"directory",
+"jobs",
+"realestate",
+"travel"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+0,
+9,
+22,
+91,
+"side",
+"Filters"
+],
+[
+25,
+12,
+72,
+7,
+"nav",
+"42 results · Sort"
+],
+[
+25,
+22,
+72,
+23,
+"card",
+"Result"
+],
+[
+25,
+48,
+72,
+23,
+"card",
+"Result"
+],
+[
+25,
+74,
+72,
+23,
+"card",
+"Result"
+]
+],
+"prompt": "Layout: search results: filter sidebar (collapses to a sheet on mobile), result count with sort, and comparable result rows.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "jobdetail",
+"name": "Job detail",
+"desc": "Role, description, apply card.",
+"fit": [
+"jobs"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+4,
+13,
+60,
+14,
+"hero",
+"Senior designer · Acme"
+],
+[
+4,
+31,
+60,
+65,
+"text",
+"About the role"
+],
+[
+68,
+13,
+28,
+30,
+"card",
+"Pay · location"
+],
+[
+68,
+47,
+28,
+8,
+"cta",
+"Apply"
+]
+],
+"prompt": "Layout: job detail: title and company header, role description, and a side card with pay, location, type and Apply.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "article",
+"name": "Article page",
+"desc": "Narrow column for reading.",
+"fit": [
+"editorial",
+"news",
+"newsletter",
+"docs"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+24,
+13,
+52,
+14,
+"hero",
+"The headline of the story"
+],
+[
+24,
+30,
+52,
+5,
+"text",
+"By · date"
+],
+[
+14,
+38,
+72,
+26,
+"media",
+"Lead image"
+],
+[
+24,
+67,
+52,
+30,
+"text",
+"Body"
+]
+],
+"prompt": "Layout: article: centred column (max 680px), headline, byline, lead image wider than the text, comfortable body type.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "frontpage",
+"name": "Magazine front page",
+"desc": "Lead story and side stories.",
+"fit": [
+"news",
+"editorial"
+],
+"regions": [
+[
+0,
+0,
+100,
+12,
+"nav",
+"Masthead"
+],
+[
+3,
+15,
+58,
+50,
+"media",
+"Lead story"
+],
+[
+64,
+15,
+33,
+24,
+"card",
+"Story"
+],
+[
+64,
+41,
+33,
+24,
+"card",
+"Story"
+],
+[
+3,
+68,
+30,
+29,
+"card",
+"Story"
+],
+[
+35,
+68,
+30,
+29,
+"card",
+"Story"
+],
+[
+67,
+68,
+30,
+29,
+"card",
+"Story"
+]
+],
+"prompt": "Layout: front page: masthead, a dominant lead story, secondary stories at the side, and a grid of smaller stories.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "creator",
+"name": "Creator page",
+"desc": "Avatar, bio, subscribe, posts.",
+"fit": [
+"newsletter",
+"linkinbio",
+"podcast"
+],
+"regions": [
+[
+42,
+6,
+16,
+20,
+"chat",
+""
+],
+[
+28,
+30,
+44,
+9,
+"hero",
+"Name"
+],
+[
+28,
+42,
+44,
+8,
+"input",
+"you@email.com"
+],
+[
+28,
+53,
+44,
+8,
+"cta",
+"Subscribe"
+],
+[
+20,
+66,
+60,
+31,
+"table",
+"Recent posts"
+]
+],
+"prompt": "Layout: creator page: avatar, name and one-line pitch, a single subscribe field, and recent posts below.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "linkstack",
+"name": "Link-in-bio stack",
+"desc": "Avatar and a stack of links.",
+"fit": [
+"linkinbio"
+],
+"regions": [
+[
+42,
+5,
+16,
+20,
+"chat",
+""
+],
+[
+30,
+28,
+40,
+7,
+"hero",
+"@name"
+],
+[
+25,
+40,
+50,
+10,
+"card",
+"Link"
+],
+[
+25,
+53,
+50,
+10,
+"card",
+"Link"
+],
+[
+25,
+66,
+50,
+10,
+"card",
+"Link"
+],
+[
+25,
+79,
+50,
+10,
+"card",
+"Link"
+]
+],
+"prompt": "Layout: link in bio: avatar, handle, one-line bio, and a stack of full-width link buttons; mobile-first.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "eventpage",
+"name": "Event page",
+"desc": "Date hero, agenda, speakers.",
+"fit": [
+"event"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+6,
+13,
+88,
+24,
+"hero",
+"Toronto · Nov 28"
+],
+[
+38,
+40,
+24,
+8,
+"cta",
+"Get tickets"
+],
+[
+6,
+53,
+40,
+44,
+"table",
+"Agenda"
+],
+[
+50,
+53,
+21,
+21,
+"media",
+"Speaker"
+],
+[
+73,
+53,
+21,
+21,
+"media",
+"Speaker"
+],
+[
+50,
+76,
+21,
+21,
+"media",
+"Speaker"
+],
+[
+73,
+76,
+21,
+21,
+"media",
+"Speaker"
+]
+],
+"prompt": "Layout: event page: big date and place, ticket CTA, agenda list, speaker grid, venue and FAQ below.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "showreel",
+"name": "Agency showreel",
+"desc": "Huge type, alternating cases.",
+"fit": [
+"agency",
+"portfolio"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+4,
+12,
+92,
+30,
+"hero",
+"We make brands people remember"
+],
+[
+4,
+46,
+55,
+24,
+"media",
+"Case study"
+],
+[
+62,
+46,
+34,
+24,
+"text",
+"Client · result"
+],
+[
+41,
+73,
+55,
+24,
+"media",
+"Case study"
+],
+[
+4,
+73,
+34,
+24,
+"text",
+"Client · result"
+]
+],
+"prompt": "Layout: agency home: huge statement type, then case studies alternating image and text, with a contact CTA at the end.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "casestudy",
+"name": "Case study",
+"desc": "Hero image, stats, story.",
+"fit": [
+"portfolio",
+"agency"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+0,
+9,
+100,
+34,
+"media",
+"Hero image"
+],
+[
+4,
+46,
+28,
+12,
+"card",
+"+40% sign-ups"
+],
+[
+36,
+46,
+28,
+12,
+"card",
+"3 weeks"
+],
+[
+68,
+46,
+28,
+12,
+"card",
+"12 screens"
+],
+[
+4,
+62,
+44,
+35,
+"text",
+"The problem"
+],
+[
+52,
+62,
+44,
+35,
+"media",
+"Process"
+]
+],
+"prompt": "Layout: case study: full-bleed hero image, a row of outcome numbers, then problem, process and result sections.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "cause",
+"name": "Cause page",
+"desc": "Mission, impact, donate.",
+"fit": [
+"nonprofit"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+4,
+13,
+56,
+30,
+"hero",
+"Clean water for every school"
+],
+[
+4,
+47,
+56,
+22,
+"card",
+"Impact numbers"
+],
+[
+4,
+73,
+56,
+24,
+"media",
+"Story"
+],
+[
+64,
+13,
+32,
+46,
+"card",
+"Donate · amounts"
+],
+[
+64,
+62,
+32,
+8,
+"cta",
+"Donate"
+]
+],
+"prompt": "Layout: cause page: mission headline, impact numbers, a real story, and a sticky donate card with preset amounts.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "soon",
+"name": "Coming soon / waitlist",
+"desc": "Headline and one email field.",
+"fit": [
+"waitlist",
+"landing"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+""
+],
+[
+18,
+30,
+64,
+16,
+"hero",
+"Something new is coming"
+],
+[
+26,
+52,
+32,
+8,
+"input",
+"you@email.com"
+],
+[
+60,
+52,
+14,
+8,
+"cta",
+"Join"
+]
+],
+"prompt": "Layout: waitlist: centred headline, one sentence, email field with Join, and nothing else.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "phoneshow",
+"name": "App showcase with phone",
+"desc": "Copy left, phone mockup right.",
+"fit": [
+"landing",
+"health",
+"fintech",
+"music"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+6,
+22,
+44,
+20,
+"hero",
+"Your money, sorted"
+],
+[
+6,
+46,
+22,
+8,
+"cta",
+"Download"
+],
+[
+60,
+12,
+26,
+84,
+"media",
+"Phone"
+]
+],
+"prompt": "Layout: app showcase: headline and store buttons on the left, a phone mockup of the real app on the right.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "compare",
+"name": "Comparison table page",
+"desc": "Headline over a big table.",
+"fit": [
+"landing",
+"saas",
+"shop"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+16,
+13,
+68,
+10,
+"hero",
+"How we compare"
+],
+[
+6,
+27,
+88,
+70,
+"table",
+"Feature table"
+]
+],
+"prompt": "Layout: comparison: short headline and a feature table with sticky first column and header; your column highlighted.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "changelog",
+"name": "Changelog",
+"desc": "Dates beside release entries.",
+"fit": [
+"saas",
+"devtool"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+10,
+13,
+80,
+10,
+"hero",
+"Changelog"
+],
+[
+10,
+27,
+16,
+20,
+"text",
+"Nov 20"
+],
+[
+28,
+27,
+62,
+20,
+"card",
+"Release"
+],
+[
+10,
+51,
+16,
+20,
+"text",
+"Nov 12"
+],
+[
+28,
+51,
+62,
+20,
+"card",
+"Release"
+]
+],
+"prompt": "Layout: changelog: date column beside release entries with a title, short notes and a screenshot; newest first.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "lightbox",
+"name": "Lightbox gallery",
+"desc": "Grid with one photo opened.",
+"fit": [
+"portfolio",
+"realestate",
+"restaurant"
+],
+"regions": [
+[
+0,
+0,
+100,
+100,
+"table",
+"Grid"
+],
+[
+12,
+8,
+76,
+84,
+"media",
+"Open photo"
+]
+],
+"prompt": "Layout: gallery grid; clicking a photo opens a lightbox with arrows, caption and close.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "mobile",
+"name": "Mobile app screen",
+"desc": "Phone frame with tab bar.",
+"fit": [
+"health",
+"social",
+"fintech",
+"music"
+],
+"regions": [
+[
+34,
+2,
+32,
+96,
+"card",
+""
+],
+[
+36,
+6,
+28,
+8,
+"nav",
+"Today"
+],
+[
+36,
+17,
+28,
+30,
+"media",
+"Main metric"
+],
+[
+36,
+50,
+28,
+12,
+"card",
+"Item"
+],
+[
+36,
+64,
+28,
+12,
+"card",
+"Item"
+],
+[
+34,
+88,
+32,
+10,
+"nav",
+"Tabs"
+]
+],
+"prompt": "Layout: mobile app screen: header, one big metric or card, a list, and a bottom tab bar; design mobile-first at 390px.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "statuswall",
+"name": "Monitoring wall",
+"desc": "Big status tiles.",
+"fit": [
+"iot",
+"dash",
+"devtool"
+],
+"regions": [
+[
+0,
+0,
+100,
+8,
+"nav",
+"All systems · 99.98%"
+],
+[
+2,
+11,
+31,
+28,
+"card",
+"API"
+],
+[
+35,
+11,
+31,
+28,
+"card",
+"Database"
+],
+[
+68,
+11,
+30,
+28,
+"chat",
+"Queue · degraded"
+],
+[
+2,
+42,
+31,
+28,
+"card",
+"Auth"
+],
+[
+35,
+42,
+31,
+28,
+"card",
+"Storage"
+],
+[
+68,
+42,
+30,
+28,
+"card",
+"Workers"
+],
+[
+2,
+73,
+96,
+24,
+"media",
+"Latency"
+]
+],
+"prompt": "Layout: status wall: overall status bar, big tiles per system with state colour plus icon and label, and a latency chart.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "servicestart",
+"name": "Service start page",
+"desc": "Title, steps, start button.",
+"fit": [
+"gov",
+"booking",
+"docs"
+],
+"regions": [
+[
+0,
+0,
+100,
+10,
+"nav",
+"Service name"
+],
+[
+10,
+15,
+60,
+12,
+"hero",
+"Apply for a permit"
+],
+[
+10,
+31,
+60,
+40,
+"text",
+"Before you start"
+],
+[
+10,
+76,
+20,
+9,
+"cta",
+"Start now"
+]
+],
+"prompt": "Layout: public service start page: plain title, what you need before you start, how long it takes, and a single Start now button.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "aisplit",
+"name": "AI chat + artifact",
+"desc": "Conversation beside a live result.",
+"fit": [
+"ai",
+"aiagent",
+"tutor",
+"hackathon"
+],
+"regions": [
+[
+0,
+0,
+36,
+100,
+"table",
+"Chat"
+],
+[
+2,
+86,
+32,
+10,
+"input",
+"Ask…"
+],
+[
+37,
+0,
+63,
+8,
+"nav",
+"Preview · Code"
+],
+[
+38,
+10,
+60,
+88,
+"media",
+"Artifact"
+]
+],
+"prompt": "Layout: chat on the left, a live artifact/preview pane on the right with Preview and Code tabs.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "crud",
+"name": "Admin table + edit drawer",
+"desc": "Table with a side form.",
+"fit": [
+"admin",
+"crm",
+"saas"
+],
+"regions": [
+[
+0,
+0,
+15,
+100,
+"side",
+"Nav"
+],
+[
+15,
+0,
+85,
+9,
+"nav",
+"Top bar"
+],
+[
+17,
+12,
+50,
+85,
+"table",
+"Records"
+],
+[
+69,
+9,
+31,
+91,
+"input",
+"Edit record"
+]
+],
+"prompt": "Layout: admin CRUD: records table with bulk actions, and an edit form in a side drawer.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "portfoliogrid",
+"name": "Portfolio grid",
+"desc": "Name, then a grid of work.",
+"fit": [
+"portfolio",
+"agency",
+"blog"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+4,
+12,
+92,
+14,
+"hero",
+"Name — designer"
+],
+[
+4,
+30,
+44,
+32,
+"media",
+""
+],
+[
+52,
+30,
+44,
+32,
+"media",
+""
+],
+[
+4,
+65,
+44,
+32,
+"media",
+""
+],
+[
+52,
+65,
+44,
+32,
+"media",
+""
+]
+],
+"prompt": "Layout: portfolio: short intro then a 2-column grid of large project thumbnails.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "episode",
+"name": "Episode page",
+"desc": "Player, notes, transcript.",
+"fit": [
+"podcast",
+"music"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+4,
+12,
+92,
+14,
+"media",
+"Player"
+],
+[
+4,
+30,
+60,
+66,
+"text",
+"Show notes · transcript"
+],
+[
+68,
+30,
+28,
+66,
+"table",
+"More episodes"
+]
+],
+"prompt": "Layout: episode page: sticky player, show notes and transcript, more episodes on the side.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "docslanding",
+"name": "Docs home",
+"desc": "Search and topic cards.",
+"fit": [
+"docs",
+"devtool",
+"school"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+20,
+14,
+60,
+10,
+"hero",
+"How can we help?"
+],
+[
+20,
+28,
+60,
+9,
+"input",
+"Search docs"
+],
+[
+6,
+44,
+28,
+24,
+"card",
+"Guide"
+],
+[
+36,
+44,
+28,
+24,
+"card",
+"API"
+],
+[
+66,
+44,
+28,
+24,
+"card",
+"Examples"
+],
+[
+6,
+72,
+88,
+24,
+"table",
+"Popular articles"
+]
+],
+"prompt": "Layout: docs home: search first, topic cards, popular articles.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "category",
+"name": "Shop category",
+"desc": "Filters and product grid.",
+"fit": [
+"shop",
+"recipes"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+0,
+9,
+100,
+12,
+"hero",
+"Shoes"
+],
+[
+0,
+21,
+20,
+79,
+"side",
+"Filters"
+],
+[
+22,
+24,
+24,
+34,
+"card",
+""
+],
+[
+48,
+24,
+24,
+34,
+"card",
+""
+],
+[
+74,
+24,
+24,
+34,
+"card",
+""
+],
+[
+22,
+61,
+24,
+34,
+"card",
+""
+],
+[
+48,
+61,
+24,
+34,
+"card",
+""
+],
+[
+74,
+61,
+24,
+34,
+"card",
+""
+]
+],
+"prompt": "Layout: category page: title, filter sidebar, product grid with sort.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "wizardsplit",
+"name": "Wizard with summary",
+"desc": "Steps left, form, live summary.",
+"fit": [
+"booking",
+"fintech",
+"gov",
+"travel"
+],
+"regions": [
+[
+0,
+0,
+22,
+100,
+"side",
+"Steps"
+],
+[
+24,
+8,
+46,
+12,
+"hero",
+"Your details"
+],
+[
+24,
+24,
+46,
+50,
+"input",
+"Form"
+],
+[
+24,
+80,
+20,
+9,
+"cta",
+"Continue"
+],
+[
+73,
+8,
+25,
+60,
+"card",
+"Summary"
+]
+],
+"prompt": "Layout: guided form: steps list on the left, one form section in the middle, a live summary on the right.",
+"kw": "layout skeleton structure"
+},
+{
+"id": "recipe",
+"name": "Recipe page",
+"desc": "Photo, ingredients, steps.",
+"fit": [
+"recipes"
+],
+"regions": [
+[
+0,
+0,
+100,
+9,
+"nav",
+"Top nav"
+],
+[
+4,
+12,
+92,
+30,
+"media",
+"Dish"
+],
+[
+4,
+46,
+30,
+50,
+"table",
+"Ingredients"
+],
+[
+38,
+46,
+58,
+50,
+"text",
+"Steps"
+]
+],
+"prompt": "Layout: recipe page: photo, servings scaler, ingredients list beside numbered steps; jump-to-recipe at top.",
+"kw": "layout skeleton structure"
+}
+];
+var SECTIONS = [
+{
+"id": "hero-center",
+"name": "Hero · Centred",
+"desc": "Headline, sub, two buttons.",
+"fit": [
+"landing",
+"saas",
+"waitlist",
+"devtool"
+],
+"regions": [
+[
+15,
+22,
+70,
+22,
+"hero",
+"Headline in one line"
+],
+[
+25,
+48,
+50,
+6,
+"text",
+"Sub"
+],
+[
+30,
+62,
+18,
+9,
+"cta",
+"Start"
+],
+[
+52,
+62,
+18,
+9,
+"card",
+"Demo"
+]
+],
+"prompt": "Hero section: centred headline, one-sentence sub, primary and secondary buttons.",
+"kw": "section block hero"
+},
+{
+"id": "hero-split",
+"name": "Hero · Split with image",
+"desc": "Copy left, visual right.",
+"fit": [
+"landing",
+"saas",
+"shop",
+"agency"
+],
+"regions": [
+[
+5,
+25,
+42,
+22,
+"hero",
+"Headline"
+],
+[
+5,
+50,
+36,
+6,
+"text",
+"Sub"
+],
+[
+5,
+62,
+16,
+9,
+"cta",
+"Start"
+],
+[
+52,
+10,
+44,
+80,
+"media",
+"Product visual"
+]
+],
+"prompt": "Hero section: copy and CTA on the left, product visual on the right; stacks on mobile.",
+"kw": "section block hero"
+},
+{
+"id": "hero-screenshot",
+"name": "Hero · Big screenshot",
+"desc": "Headline over a large product shot.",
+"fit": [
+"saas",
+"devtool",
+"landing"
+],
+"regions": [
+[
+20,
+6,
+60,
+16,
+"hero",
+"Headline"
+],
+[
+40,
+25,
+20,
+8,
+"cta",
+"Start"
+],
+[
+10,
+40,
+80,
+60,
+"media",
+"App screenshot"
+]
+],
+"prompt": "Hero section: short headline and CTA above a large real product screenshot that bleeds off the bottom.",
+"kw": "section block hero"
+},
+{
+"id": "hero-video",
+"name": "Hero · Full-bleed video",
+"desc": "Video background with overlay text.",
+"fit": [
+"agency",
+"event",
+"restaurant",
+"nonprofit"
+],
+"regions": [
+[
+0,
+0,
+100,
+100,
+"media",
+"Video"
+],
+[
+10,
+40,
+60,
+20,
+"hero",
+"Headline"
+],
+[
+10,
+64,
+18,
+9,
+"cta",
+"Watch"
+]
+],
+"prompt": "Hero section: full-bleed muted video with a dark overlay and short headline; poster image for slow connections.",
+"kw": "section block hero"
+},
+{
+"id": "hero-form",
+"name": "Hero · With sign-up form",
+"desc": "Headline beside an email form.",
+"fit": [
+"waitlist",
+"newsletter",
+"saas"
+],
+"regions": [
+[
+5,
+25,
+48,
+24,
+"hero",
+"Headline"
+],
+[
+58,
+26,
+36,
+9,
+"input",
+"Email"
+],
+[
+58,
+38,
+36,
+9,
+"cta",
+"Get early access"
+],
+[
+58,
+51,
+36,
+5,
+"text",
+"No spam"
+]
+],
+"prompt": "Hero section: headline and sub on the left, inline sign-up form on the right.",
+"kw": "section block hero"
+},
+{
+"id": "hero-search",
+"name": "Hero · Search first",
+"desc": "Big search box is the hero.",
+"fit": [
+"directory",
+"travel",
+"jobs",
+"realestate"
+],
+"regions": [
+[
+0,
+0,
+100,
+100,
+"media",
+"Photo"
+],
+[
+15,
+30,
+70,
+14,
+"hero",
+"Find your next stay"
+],
+[
+15,
+50,
+52,
+10,
+"input",
+"Where · when"
+],
+[
+68,
+50,
+17,
+10,
+"cta",
+"Search"
+]
+],
+"prompt": "Hero section: background photo, short headline, and a large search bar as the main action.",
+"kw": "section block hero"
+},
+{
+"id": "hero-type",
+"name": "Hero · Giant type",
+"desc": "Typographic hero, no image.",
+"fit": [
+"agency",
+"portfolio",
+"event"
+],
+"regions": [
+[
+4,
+10,
+92,
+60,
+"hero",
+"Bold statement"
+],
+[
+4,
+76,
+40,
+6,
+"text",
+"Sub"
+],
+[
+78,
+76,
+18,
+9,
+"cta",
+"Contact"
+]
+],
+"prompt": "Hero section: oversized typographic statement filling the width; no imagery.",
+"kw": "section block hero"
+},
+{
+"id": "hero-bento",
+"name": "Hero · Bento",
+"desc": "Headline plus a bento of tiles.",
+"fit": [
+"landing",
+"saas",
+"portfolio"
+],
+"regions": [
+[
+5,
+8,
+90,
+16,
+"hero",
+"Headline"
+],
+[
+5,
+30,
+44,
+62,
+"media",
+""
+],
+[
+51,
+30,
+22,
+30,
+"card",
+""
+],
+[
+75,
+30,
+20,
+30,
+"card",
+""
+],
+[
+51,
+62,
+44,
+30,
+"card",
+""
+]
+],
+"prompt": "Hero section: headline above a bento grid of 4 tiles, each showing one product capability.",
+"kw": "section block hero"
+},
+{
+"id": "hero-phone",
+"name": "Hero · Phone mockup",
+"desc": "Copy with a phone screen.",
+"fit": [
+"health",
+"fintech",
+"music",
+"social"
+],
+"regions": [
+[
+5,
+25,
+48,
+22,
+"hero",
+"Headline"
+],
+[
+5,
+52,
+17,
+9,
+"cta",
+"App Store"
+],
+[
+24,
+52,
+17,
+9,
+"card",
+"Google Play"
+],
+[
+62,
+6,
+24,
+88,
+"media",
+"Phone"
+]
+],
+"prompt": "Hero section: headline and app-store buttons beside a phone mockup of the real app.",
+"kw": "section block hero"
+},
+{
+"id": "hero-gradient",
+"name": "Hero · Gradient mesh",
+"desc": "Soft mesh behind centred copy.",
+"fit": [
+"ai",
+"landing",
+"waitlist"
+],
+"regions": [
+[
+0,
+0,
+100,
+100,
+"chat",
+""
+],
+[
+15,
+30,
+70,
+18,
+"hero",
+"Headline"
+],
+[
+38,
+56,
+24,
+9,
+"cta",
+"Try it"
+]
+],
+"prompt": "Hero section: centred copy over a soft accent mesh gradient (not purple-to-blue).",
+"kw": "section block hero"
+},
+{
+"id": "hero-product",
+"name": "Hero · Product photo",
+"desc": "Single product on a clean stage.",
+"fit": [
+"shop",
+"restaurant"
+],
+"regions": [
+[
+30,
+8,
+40,
+60,
+"media",
+"Product"
+],
+[
+20,
+72,
+60,
+10,
+"hero",
+"Product name"
+],
+[
+40,
+86,
+20,
+9,
+"cta",
+"Buy"
+]
+],
+"prompt": "Hero section: one product photographed on a clean background with name, price and Buy.",
+"kw": "section block hero"
+},
+{
+"id": "hero-carousel",
+"name": "Hero · Carousel",
+"desc": "Rotating slides with dots.",
+"fit": [
+"shop",
+"news",
+"restaurant"
+],
+"regions": [
+[
+0,
+0,
+100,
+100,
+"media",
+"Slide"
+],
+[
+8,
+58,
+50,
+14,
+"hero",
+"Headline"
+],
+[
+8,
+76,
+16,
+8,
+"cta",
+"Shop"
+],
+[
+44,
+92,
+12,
+3,
+"nav",
+""
+]
+],
+"prompt": "Hero section: auto-advancing carousel (pauses on hover) with dots and arrows; max 4 slides.",
+"kw": "section block hero"
+},
+{
+"id": "logos-row",
+"name": "Logos · Row",
+"desc": "Trusted-by logo strip.",
+"fit": [
+"landing",
+"saas",
+"agency"
+],
+"regions": [
+[
+25,
+20,
+50,
+8,
+"text",
+"Trusted by teams at"
+],
+[
+5,
+45,
+16,
+14,
+"card",
+""
+],
+[
+24,
+45,
+16,
+14,
+"card",
+""
+],
+[
+43,
+45,
+16,
+14,
+"card",
+""
+],
+[
+62,
+45,
+16,
+14,
+"card",
+""
+],
+[
+81,
+45,
+14,
+14,
+"card",
+""
+]
+],
+"prompt": "Logos section: \"Trusted by\" line and 5–6 greyscale logos in a row.",
+"kw": "section block logos"
+},
+{
+"id": "logos-marquee",
+"name": "Logos · Marquee",
+"desc": "Logos scroll endlessly.",
+"fit": [
+"landing",
+"saas"
+],
+"regions": [
+[
+0,
+38,
+100,
+24,
+"media",
+"Logo marquee"
+]
+],
+"prompt": "Logos section: an endless slow logo marquee with faded edges, pausing on hover.",
+"kw": "section block logos"
+},
+{
+"id": "logos-grid",
+"name": "Logos · Grid",
+"desc": "Logos in a bordered grid.",
+"fit": [
+"agency",
+"saas",
+"nonprofit"
+],
+"regions": [
+[
+5,
+10,
+29,
+38,
+"card",
+""
+],
+[
+36,
+10,
+29,
+38,
+"card",
+""
+],
+[
+67,
+10,
+28,
+38,
+"card",
+""
+],
+[
+5,
+52,
+29,
+38,
+"card",
+""
+],
+[
+36,
+52,
+29,
+38,
+"card",
+""
+],
+[
+67,
+52,
+28,
+38,
+"card",
+""
+]
+],
+"prompt": "Logos section: a bordered grid of client or partner logos, 3×2.",
+"kw": "section block logos"
+},
+{
+"id": "feat-3col",
+"name": "Features · Three columns",
+"desc": "Icon, title, line × 3.",
+"fit": [
+"landing",
+"saas"
+],
+"regions": [
+[
+20,
+8,
+60,
+12,
+"hero",
+"Why it works"
+],
+[
+5,
+30,
+28,
+60,
+"card",
+"Feature"
+],
+[
+36,
+30,
+28,
+60,
+"card",
+"Feature"
+],
+[
+67,
+30,
+28,
+60,
+"card",
+"Feature"
+]
+],
+"prompt": "Features section: three columns, each with an icon, short title and one line. Make them genuinely different.",
+"kw": "section block features"
+},
+{
+"id": "feat-alt",
+"name": "Features · Alternating rows",
+"desc": "Image and text swap sides.",
+"fit": [
+"landing",
+"saas",
+"edu"
+],
+"regions": [
+[
+5,
+6,
+44,
+40,
+"media",
+""
+],
+[
+54,
+14,
+40,
+24,
+"text",
+"Feature"
+],
+[
+51,
+54,
+44,
+40,
+"media",
+""
+],
+[
+6,
+62,
+40,
+24,
+"text",
+"Feature"
+]
+],
+"prompt": "Features section: alternating rows of screenshot and text, swapping sides each row.",
+"kw": "section block features"
+},
+{
+"id": "feat-bento",
+"name": "Features · Bento",
+"desc": "Mixed tiles with visuals.",
+"fit": [
+"landing",
+"saas",
+"portfolio",
+"ai"
+],
+"regions": [
+[
+5,
+6,
+44,
+56,
+"media",
+"Big"
+],
+[
+51,
+6,
+44,
+26,
+"card",
+""
+],
+[
+51,
+35,
+21,
+27,
+"card",
+""
+],
+[
+74,
+35,
+21,
+27,
+"card",
+""
+],
+[
+5,
+65,
+90,
+29,
+"card",
+"Wide"
+]
+],
+"prompt": "Features section: bento grid of mixed-size tiles, each with a small live visual of the feature.",
+"kw": "section block features"
+},
+{
+"id": "feat-tabs",
+"name": "Features · Tabs",
+"desc": "Tabs switch the screenshot.",
+"fit": [
+"saas",
+"devtool"
+],
+"regions": [
+[
+20,
+6,
+60,
+9,
+"nav",
+"Plan · Build · Ship"
+],
+[
+5,
+22,
+90,
+72,
+"media",
+"Screenshot"
+]
+],
+"prompt": "Features section: tabs above a screenshot; each tab shows a different capability.",
+"kw": "section block features"
+},
+{
+"id": "feat-accordion",
+"name": "Features · Accordion + image",
+"desc": "Expandable list beside a visual.",
+"fit": [
+"saas",
+"ai",
+"edu"
+],
+"regions": [
+[
+5,
+10,
+40,
+16,
+"card",
+"Open item"
+],
+[
+5,
+30,
+40,
+10,
+"card",
+""
+],
+[
+5,
+44,
+40,
+10,
+"card",
+""
+],
+[
+5,
+58,
+40,
+10,
+"card",
+""
+],
+[
+50,
+8,
+45,
+84,
+"media",
+"Visual"
+]
+],
+"prompt": "Features section: expandable list on one side; the visual on the other changes with the open item.",
+"kw": "section block features"
+},
+{
+"id": "feat-grid",
+"name": "Features · Icon grid",
+"desc": "Six small features.",
+"fit": [
+"saas",
+"devtool",
+"docs"
+],
+"regions": [
+[
+5,
+8,
+28,
+38,
+"card",
+""
+],
+[
+36,
+8,
+28,
+38,
+"card",
+""
+],
+[
+67,
+8,
+28,
+38,
+"card",
+""
+],
+[
+5,
+52,
+28,
+38,
+"card",
+""
+],
+[
+36,
+52,
+28,
+38,
+"card",
+""
+],
+[
+67,
+52,
+28,
+38,
+"card",
+""
+]
+],
+"prompt": "Features section: a 3×2 grid of compact features with icons and one line each.",
+"kw": "section block features"
+},
+{
+"id": "feat-sticky",
+"name": "Features · Sticky scroll",
+"desc": "Visual pins, text scrolls.",
+"fit": [
+"landing",
+"saas",
+"agency"
+],
+"regions": [
+[
+5,
+8,
+42,
+84,
+"media",
+"Pinned visual"
+],
+[
+53,
+12,
+42,
+22,
+"text",
+"Step"
+],
+[
+53,
+40,
+42,
+22,
+"text",
+"Step"
+],
+[
+53,
+68,
+42,
+22,
+"text",
+"Step"
+]
+],
+"prompt": "Features section: visual pins on one side while feature descriptions scroll past on the other.",
+"kw": "section block features"
+},
+{
+"id": "feat-big",
+"name": "Features · One big feature",
+"desc": "A single hero feature.",
+"fit": [
+"landing",
+"ai"
+],
+"regions": [
+[
+10,
+8,
+80,
+14,
+"hero",
+"The one thing"
+],
+[
+10,
+28,
+80,
+64,
+"media",
+"Demo"
+]
+],
+"prompt": "Features section: one feature explained with a large interactive demo or video.",
+"kw": "section block features"
+},
+{
+"id": "feat-checklist",
+"name": "Features · Checklist",
+"desc": "Image beside a checklist.",
+"fit": [
+"saas",
+"nonprofit",
+"edu"
+],
+"regions": [
+[
+5,
+10,
+44,
+80,
+"media",
+""
+],
+[
+54,
+14,
+40,
+10,
+"hero",
+"Everything you need"
+],
+[
+54,
+30,
+40,
+60,
+"text",
+"✓ list"
+]
+],
+"prompt": "Features section: image on one side, a short checked list of benefits on the other.",
+"kw": "section block features"
+},
+{
+"id": "feat-cards-hover",
+"name": "Features · Hover cards",
+"desc": "Cards reveal detail on hover.",
+"fit": [
+"agency",
+"portfolio"
+],
+"regions": [
+[
+5,
+15,
+28,
+70,
+"card",
+""
+],
+[
+36,
+15,
+28,
+70,
+"media",
+""
+],
+[
+67,
+15,
+28,
+70,
+"card",
+""
+]
+],
+"prompt": "Features section: cards that expand or reveal detail on hover (and on tap for mobile).",
+"kw": "section block features"
+},
+{
+"id": "stats-row",
+"name": "Stats · Row",
+"desc": "Big numbers in a row.",
+"fit": [
+"landing",
+"nonprofit",
+"saas"
+],
+"regions": [
+[
+5,
+30,
+28,
+40,
+"card",
+"10k users"
+],
+[
+36,
+30,
+28,
+40,
+"card",
+"99.9% uptime"
+],
+[
+67,
+30,
+28,
+40,
+"card",
+"4.9 rating"
+]
+],
+"prompt": "Stats section: 3–4 big numbers with labels; numbers count up once when visible.",
+"kw": "section block stats"
+},
+{
+"id": "stats-split",
+"name": "Stats · With copy",
+"desc": "Copy beside a stats grid.",
+"fit": [
+"nonprofit",
+"agency",
+"fintech"
+],
+"regions": [
+[
+5,
+20,
+40,
+30,
+"hero",
+"Our impact"
+],
+[
+50,
+10,
+22,
+38,
+"card",
+""
+],
+[
+74,
+10,
+22,
+38,
+"card",
+""
+],
+[
+50,
+52,
+22,
+38,
+"card",
+""
+],
+[
+74,
+52,
+22,
+38,
+"card",
+""
+]
+],
+"prompt": "Stats section: short copy on one side, a 2×2 grid of impact numbers on the other.",
+"kw": "section block stats"
+},
+{
+"id": "stats-band",
+"name": "Stats · Accent band",
+"desc": "Numbers on an accent strip.",
+"fit": [
+"landing",
+"event"
+],
+"regions": [
+[
+0,
+30,
+100,
+40,
+"cta",
+"Numbers band"
+]
+],
+"prompt": "Stats section: a full-width accent-coloured band with 3–4 numbers in on-accent text.",
+"kw": "section block stats"
+},
+{
+"id": "test-grid",
+"name": "Testimonials · Grid",
+"desc": "Quote cards in a grid.",
+"fit": [
+"landing",
+"saas",
+"edu"
+],
+"regions": [
+[
+5,
+8,
+28,
+40,
+"card",
+"Quote"
+],
+[
+36,
+8,
+28,
+40,
+"card",
+"Quote"
+],
+[
+67,
+8,
+28,
+40,
+"card",
+"Quote"
+],
+[
+5,
+52,
+28,
+40,
+"card",
+"Quote"
+],
+[
+36,
+52,
+28,
+40,
+"card",
+"Quote"
+],
+[
+67,
+52,
+28,
+40,
+"card",
+"Quote"
+]
+],
+"prompt": "Testimonials section: grid of real quote cards with name, role and avatar.",
+"kw": "section block testimonials"
+},
+{
+"id": "test-single",
+"name": "Testimonials · Single big quote",
+"desc": "One quote, large.",
+"fit": [
+"agency",
+"landing",
+"portfolio"
+],
+"regions": [
+[
+12,
+20,
+76,
+36,
+"hero",
+"\"A big quote.\""
+],
+[
+38,
+64,
+24,
+10,
+"text",
+"Name · role"
+]
+],
+"prompt": "Testimonials section: one large quote with the person's photo, name and role.",
+"kw": "section block testimonials"
+},
+{
+"id": "test-marquee",
+"name": "Testimonials · Moving rows",
+"desc": "Two rows scroll opposite ways.",
+"fit": [
+"landing",
+"saas"
+],
+"regions": [
+[
+0,
+15,
+100,
+32,
+"card",
+"Quotes →"
+],
+[
+0,
+53,
+100,
+32,
+"card",
+"← Quotes"
+]
+],
+"prompt": "Testimonials section: two rows of quote cards scrolling in opposite directions, pausing on hover.",
+"kw": "section block testimonials"
+},
+{
+"id": "test-masonry",
+"name": "Testimonials · Masonry wall",
+"desc": "Wall of love.",
+"fit": [
+"saas",
+"devtool",
+"newsletter"
+],
+"regions": [
+[
+5,
+6,
+28,
+50,
+"card",
+""
+],
+[
+5,
+60,
+28,
+34,
+"card",
+""
+],
+[
+36,
+6,
+28,
+30,
+"card",
+""
+],
+[
+36,
+40,
+28,
+54,
+"card",
+""
+],
+[
+67,
+6,
+28,
+44,
+"card",
+""
+],
+[
+67,
+54,
+28,
+40,
+"card",
+""
+]
+],
+"prompt": "Testimonials section: masonry \"wall of love\" of short posts from real users.",
+"kw": "section block testimonials"
+},
+{
+"id": "test-carousel",
+"name": "Testimonials · Carousel",
+"desc": "One at a time with arrows.",
+"fit": [
+"shop",
+"restaurant",
+"travel"
+],
+"regions": [
+[
+15,
+15,
+70,
+60,
+"card",
+"Quote"
+],
+[
+5,
+40,
+6,
+10,
+"nav",
+""
+],
+[
+89,
+40,
+6,
+10,
+"nav",
+""
+],
+[
+44,
+82,
+12,
+4,
+"nav",
+""
+]
+],
+"prompt": "Testimonials section: carousel showing one quote at a time with arrows and dots.",
+"kw": "section block testimonials"
+},
+{
+"id": "test-video",
+"name": "Testimonials · Video stories",
+"desc": "Customer video tiles.",
+"fit": [
+"saas",
+"edu",
+"nonprofit"
+],
+"regions": [
+[
+5,
+15,
+28,
+70,
+"media",
+"Video"
+],
+[
+36,
+15,
+28,
+70,
+"media",
+"Video"
+],
+[
+67,
+15,
+28,
+70,
+"media",
+"Video"
+]
+],
+"prompt": "Testimonials section: short customer video tiles that play inline.",
+"kw": "section block testimonials"
+},
+{
+"id": "price-3tier",
+"name": "Pricing · Three tiers",
+"desc": "Middle tier highlighted.",
+"fit": [
+"saas",
+"landing",
+"devtool"
+],
+"regions": [
+[
+20,
+4,
+60,
+10,
+"hero",
+"Pricing"
+],
+[
+5,
+20,
+28,
+74,
+"card",
+"Starter"
+],
+[
+36,
+16,
+28,
+80,
+"chat",
+"Pro"
+],
+[
+67,
+20,
+28,
+74,
+"card",
+"Team"
+]
+],
+"prompt": "Pricing section: three tiers with the recommended one highlighted, monthly/yearly toggle.",
+"kw": "section block pricing"
+},
+{
+"id": "price-2tier",
+"name": "Pricing · Free vs paid",
+"desc": "Two plans side by side.",
+"fit": [
+"saas",
+"newsletter",
+"edu"
+],
+"regions": [
+[
+12,
+10,
+36,
+80,
+"card",
+"Free"
+],
+[
+52,
+10,
+36,
+80,
+"chat",
+"Pro"
+]
+],
+"prompt": "Pricing section: two plans side by side, the paid one highlighted with what it adds.",
+"kw": "section block pricing"
+},
+{
+"id": "price-table",
+"name": "Pricing · Comparison table",
+"desc": "Full feature matrix.",
+"fit": [
+"saas",
+"devtool"
+],
+"regions": [
+[
+5,
+6,
+90,
+14,
+"nav",
+"Plans"
+],
+[
+5,
+22,
+90,
+72,
+"table",
+"Feature matrix"
+]
+],
+"prompt": "Pricing section: plan headers above a full feature comparison table with ticks.",
+"kw": "section block pricing"
+},
+{
+"id": "price-slider",
+"name": "Pricing · Usage slider",
+"desc": "Price changes with usage.",
+"fit": [
+"devtool",
+"saas"
+],
+"regions": [
+[
+15,
+15,
+70,
+12,
+"hero",
+"Pay for what you use"
+],
+[
+15,
+38,
+70,
+8,
+"input",
+"Slider"
+],
+[
+30,
+56,
+40,
+24,
+"card",
+"$49 / mo"
+]
+],
+"prompt": "Pricing section: a usage slider (seats, requests) that updates the price live.",
+"kw": "section block pricing"
+},
+{
+"id": "price-single",
+"name": "Pricing · Single plan",
+"desc": "One price, everything included.",
+"fit": [
+"waitlist",
+"edu",
+"landing"
+],
+"regions": [
+[
+28,
+10,
+44,
+80,
+"card",
+"One plan · $9"
+]
+],
+"prompt": "Pricing section: a single plan card listing everything included, with one CTA.",
+"kw": "section block pricing"
+},
+{
+"id": "faq-accordion",
+"name": "FAQ · Accordion",
+"desc": "Questions that expand.",
+"fit": [
+"landing",
+"saas",
+"event",
+"gov"
+],
+"regions": [
+[
+20,
+6,
+60,
+10,
+"hero",
+"FAQ"
+],
+[
+10,
+22,
+80,
+12,
+"card",
+"Question"
+],
+[
+10,
+37,
+80,
+12,
+"card",
+"Question"
+],
+[
+10,
+52,
+80,
+12,
+"card",
+"Question"
+],
+[
+10,
+67,
+80,
+12,
+"card",
+"Question"
+]
+],
+"prompt": "FAQ section: accordion of 5–8 real questions; one open at a time.",
+"kw": "section block faq"
+},
+{
+"id": "faq-2col",
+"name": "FAQ · Two columns",
+"desc": "Questions with answers shown.",
+"fit": [
+"saas",
+"docs"
+],
+"regions": [
+[
+5,
+10,
+43,
+80,
+"text",
+"Q & A"
+],
+[
+52,
+10,
+43,
+80,
+"text",
+"Q & A"
+]
+],
+"prompt": "FAQ section: questions and answers shown openly in two columns.",
+"kw": "section block faq"
+},
+{
+"id": "faq-side",
+"name": "FAQ · With contact card",
+"desc": "FAQ beside a help card.",
+"fit": [
+"saas",
+"fintech",
+"travel"
+],
+"regions": [
+[
+5,
+8,
+58,
+84,
+"text",
+"Questions"
+],
+[
+67,
+8,
+28,
+40,
+"card",
+"Still stuck? Chat"
+]
+],
+"prompt": "FAQ section: questions on the left, a contact or chat card on the right.",
+"kw": "section block faq"
+},
+{
+"id": "cta-band",
+"name": "CTA · Accent band",
+"desc": "Full-width call to action.",
+"fit": [
+"landing",
+"saas",
+"nonprofit"
+],
+"regions": [
+[
+0,
+20,
+100,
+60,
+"cta",
+"Ready to start?"
+]
+],
+"prompt": "CTA section: full-width accent band with one line and one button.",
+"kw": "section block cta"
+},
+{
+"id": "cta-card",
+"name": "CTA · Card",
+"desc": "Contained card with buttons.",
+"fit": [
+"saas",
+"devtool",
+"edu"
+],
+"regions": [
+[
+10,
+15,
+80,
+70,
+"card",
+"Start building today"
+]
+],
+"prompt": "CTA section: a contained card with headline, line and two buttons.",
+"kw": "section block cta"
+},
+{
+"id": "cta-image",
+"name": "CTA · With image",
+"desc": "Copy over a photo.",
+"fit": [
+"restaurant",
+"travel",
+"event"
+],
+"regions": [
+[
+0,
+0,
+100,
+100,
+"media",
+""
+],
+[
+10,
+35,
+50,
+20,
+"hero",
+"Book a table"
+],
+[
+10,
+60,
+18,
+10,
+"cta",
+"Reserve"
+]
+],
+"prompt": "CTA section: background photo with dark overlay, short headline and one button.",
+"kw": "section block cta"
+},
+{
+"id": "cta-newsletter",
+"name": "CTA · Newsletter",
+"desc": "Email field and button.",
+"fit": [
+"newsletter",
+"editorial",
+"waitlist"
+],
+"regions": [
+[
+20,
+20,
+60,
+16,
+"hero",
+"Get the weekly email"
+],
+[
+20,
+46,
+42,
+10,
+"input",
+"you@email.com"
+],
+[
+64,
+46,
+16,
+10,
+"cta",
+"Subscribe"
+]
+],
+"prompt": "CTA section: headline with an inline email field and Subscribe.",
+"kw": "section block cta"
+},
+{
+"id": "cta-app",
+"name": "CTA · App download",
+"desc": "Store buttons and QR.",
+"fit": [
+"health",
+"fintech",
+"music"
+],
+"regions": [
+[
+8,
+25,
+50,
+20,
+"hero",
+"Get the app"
+],
+[
+8,
+52,
+18,
+10,
+"cta",
+"App Store"
+],
+[
+28,
+52,
+18,
+10,
+"card",
+"Google Play"
+],
+[
+70,
+20,
+20,
+60,
+"media",
+"QR"
+]
+],
+"prompt": "CTA section: download prompt with store buttons and a QR code on desktop.",
+"kw": "section block cta"
+},
+{
+"id": "foot-columns",
+"name": "Footer · Link columns",
+"desc": "Logo, columns, legal row.",
+"fit": [
+"landing",
+"saas",
+"shop"
+],
+"regions": [
+[
+5,
+10,
+22,
+30,
+"text",
+"Logo · tagline"
+],
+[
+32,
+10,
+18,
+50,
+"text",
+"Product"
+],
+[
+54,
+10,
+18,
+50,
+"text",
+"Company"
+],
+[
+76,
+10,
+18,
+50,
+"text",
+"Resources"
+],
+[
+5,
+80,
+90,
+10,
+"nav",
+"© · Privacy · Terms"
+]
+],
+"prompt": "Footer: logo and tagline, 3–4 link columns, and a legal row.",
+"kw": "section block footer"
+},
+{
+"id": "foot-simple",
+"name": "Footer · Simple",
+"desc": "One row of links.",
+"fit": [
+"portfolio",
+"waitlist",
+"linkinbio"
+],
+"regions": [
+[
+5,
+40,
+90,
+20,
+"nav",
+"© · links · socials"
+]
+],
+"prompt": "Footer: single row with copyright, a few links and social icons.",
+"kw": "section block footer"
+},
+{
+"id": "foot-cta",
+"name": "Footer · With CTA",
+"desc": "Big sign-off above links.",
+"fit": [
+"agency",
+"landing"
+],
+"regions": [
+[
+5,
+8,
+90,
+40,
+"hero",
+"Let's talk"
+],
+[
+5,
+60,
+90,
+10,
+"nav",
+"Links"
+],
+[
+5,
+82,
+90,
+8,
+"text",
+"Legal"
+]
+],
+"prompt": "Footer: huge sign-off line with a contact CTA, then links and legal.",
+"kw": "section block footer"
+},
+{
+"id": "foot-newsletter",
+"name": "Footer · Newsletter",
+"desc": "Sign-up field plus links.",
+"fit": [
+"editorial",
+"shop",
+"newsletter"
+],
+"regions": [
+[
+5,
+15,
+40,
+40,
+"input",
+"Subscribe"
+],
+[
+50,
+15,
+20,
+50,
+"text",
+"Links"
+],
+[
+74,
+15,
+20,
+50,
+"text",
+"Links"
+],
+[
+5,
+82,
+90,
+8,
+"nav",
+"Legal"
+]
+],
+"prompt": "Footer: newsletter sign-up beside link columns.",
+"kw": "section block footer"
+},
+{
+"id": "foot-mega",
+"name": "Footer · Mega",
+"desc": "Sitemap-sized footer.",
+"fit": [
+"shop",
+"news",
+"gov"
+],
+"regions": [
+[
+5,
+6,
+16,
+70,
+"text",
+""
+],
+[
+23,
+6,
+16,
+70,
+"text",
+""
+],
+[
+41,
+6,
+16,
+70,
+"text",
+""
+],
+[
+59,
+6,
+16,
+70,
+"text",
+""
+],
+[
+77,
+6,
+18,
+70,
+"text",
+""
+],
+[
+5,
+84,
+90,
+8,
+"nav",
+"Legal · language · payment"
+]
+],
+"prompt": "Footer: mega footer with 5+ link columns, language selector, payment badges.",
+"kw": "section block footer"
+},
+{
+"id": "team-grid",
+"name": "Team · Grid",
+"desc": "Photos, names, roles.",
+"fit": [
+"agency",
+"nonprofit",
+"event"
+],
+"regions": [
+[
+5,
+10,
+20,
+80,
+"media",
+"Person"
+],
+[
+28,
+10,
+20,
+80,
+"media",
+"Person"
+],
+[
+51,
+10,
+20,
+80,
+"media",
+"Person"
+],
+[
+74,
+10,
+21,
+80,
+"media",
+"Person"
+]
+],
+"prompt": "Team section: grid of real photos with name and role; links to social on hover.",
+"kw": "section block team"
+},
+{
+"id": "team-list",
+"name": "Team · List",
+"desc": "Compact names and roles.",
+"fit": [
+"saas",
+"devtool"
+],
+"regions": [
+[
+10,
+10,
+80,
+80,
+"table",
+"Name · role"
+]
+],
+"prompt": "Team section: compact list of names, roles and small avatars.",
+"kw": "section block team"
+},
+{
+"id": "blog-grid",
+"name": "Blog · Card grid",
+"desc": "Latest posts as cards.",
+"fit": [
+"editorial",
+"saas",
+"newsletter"
+],
+"regions": [
+[
+5,
+10,
+28,
+80,
+"card",
+"Post"
+],
+[
+36,
+10,
+28,
+80,
+"card",
+"Post"
+],
+[
+67,
+10,
+28,
+80,
+"card",
+"Post"
+]
+],
+"prompt": "Blog section: latest posts as image cards with title, date and reading time.",
+"kw": "section block blog"
+},
+{
+"id": "blog-feature",
+"name": "Blog · Featured + list",
+"desc": "One big post, a list beside.",
+"fit": [
+"editorial",
+"news"
+],
+"regions": [
+[
+5,
+8,
+55,
+84,
+"media",
+"Featured"
+],
+[
+64,
+8,
+31,
+26,
+"card",
+""
+],
+[
+64,
+37,
+31,
+26,
+"card",
+""
+],
+[
+64,
+66,
+31,
+26,
+"card",
+""
+]
+],
+"prompt": "Blog section: one featured post beside a list of recent posts.",
+"kw": "section block blog"
+},
+{
+"id": "blog-list",
+"name": "Blog · Text list",
+"desc": "Titles and dates only.",
+"fit": [
+"newsletter",
+"portfolio",
+"devtool"
+],
+"regions": [
+[
+15,
+10,
+70,
+80,
+"table",
+"Title · date"
+]
+],
+"prompt": "Blog section: plain list of post titles and dates, no images.",
+"kw": "section block blog"
+},
+{
+"id": "contact-form",
+"name": "Contact · Form",
+"desc": "Form beside contact details.",
+"fit": [
+"agency",
+"saas",
+"restaurant"
+],
+"regions": [
+[
+5,
+10,
+40,
+80,
+"text",
+"Email · phone · address"
+],
+[
+50,
+10,
+45,
+70,
+"input",
+"Name · email · message"
+],
+[
+50,
+84,
+20,
+9,
+"cta",
+"Send"
+]
+],
+"prompt": "Contact section: contact details on one side, a short form on the other.",
+"kw": "section block contact"
+},
+{
+"id": "contact-map",
+"name": "Contact · Map",
+"desc": "Map with address card.",
+"fit": [
+"restaurant",
+"realestate",
+"event"
+],
+"regions": [
+[
+0,
+0,
+100,
+100,
+"media",
+"Map"
+],
+[
+6,
+20,
+30,
+50,
+"card",
+"Address · hours"
+]
+],
+"prompt": "Contact section: full-width map with an address and hours card on top.",
+"kw": "section block contact"
+},
+{
+"id": "contact-cards",
+"name": "Contact · Option cards",
+"desc": "Sales, support, press.",
+"fit": [
+"saas",
+"fintech"
+],
+"regions": [
+[
+5,
+20,
+28,
+60,
+"card",
+"Sales"
+],
+[
+36,
+20,
+28,
+60,
+"card",
+"Support"
+],
+[
+67,
+20,
+28,
+60,
+"card",
+"Press"
+]
+],
+"prompt": "Contact section: three cards for different needs, each with one action.",
+"kw": "section block contact"
+},
+{
+"id": "news-inline",
+"name": "Newsletter · Inline",
+"desc": "Short sign-up strip.",
+"fit": [
+"editorial",
+"newsletter",
+"podcast"
+],
+"regions": [
+[
+10,
+30,
+40,
+40,
+"text",
+"Get new posts by email"
+],
+[
+52,
+38,
+28,
+22,
+"input",
+"Email"
+],
+[
+82,
+38,
+12,
+22,
+"cta",
+"Join"
+]
+],
+"prompt": "Newsletter section: one-line pitch with inline email field.",
+"kw": "section block newsletter"
+},
+{
+"id": "news-card",
+"name": "Newsletter · Card",
+"desc": "Card with preview of issues.",
+"fit": [
+"newsletter",
+"editorial"
+],
+"regions": [
+[
+20,
+10,
+60,
+80,
+"card",
+"Subscribe · recent issues"
+]
+],
+"prompt": "Newsletter section: card with pitch, subscriber count, email field and recent issue titles.",
+"kw": "section block newsletter"
+},
+{
+"id": "integ-grid",
+"name": "Integrations · Grid",
+"desc": "Logos of tools you connect.",
+"fit": [
+"saas",
+"devtool",
+"crm"
+],
+"regions": [
+[
+5,
+10,
+20,
+38,
+"card",
+""
+],
+[
+28,
+10,
+20,
+38,
+"card",
+""
+],
+[
+51,
+10,
+20,
+38,
+"card",
+""
+],
+[
+74,
+10,
+21,
+38,
+"card",
+""
+],
+[
+5,
+52,
+20,
+38,
+"card",
+""
+],
+[
+28,
+52,
+20,
+38,
+"card",
+""
+],
+[
+51,
+52,
+20,
+38,
+"card",
+""
+],
+[
+74,
+52,
+21,
+38,
+"card",
+""
+]
+],
+"prompt": "Integrations section: grid of integration logos with names; searchable if long.",
+"kw": "section block integrations"
+},
+{
+"id": "integ-orbit",
+"name": "Integrations · Orbit",
+"desc": "Logos orbit your logo.",
+"fit": [
+"saas",
+"ai"
+],
+"regions": [
+[
+40,
+35,
+20,
+30,
+"cta",
+"You"
+],
+[
+15,
+15,
+12,
+18,
+"card",
+""
+],
+[
+73,
+15,
+12,
+18,
+"card",
+""
+],
+[
+15,
+67,
+12,
+18,
+"card",
+""
+],
+[
+73,
+67,
+12,
+18,
+"card",
+""
+]
+],
+"prompt": "Integrations section: your logo in the centre with integration logos orbiting or linked by animated beams.",
+"kw": "section block integrations"
+},
+{
+"id": "steps-3",
+"name": "How it works · 3 steps",
+"desc": "Numbered steps in a row.",
+"fit": [
+"landing",
+"saas",
+"booking",
+"gov"
+],
+"regions": [
+[
+5,
+20,
+28,
+60,
+"card",
+"1"
+],
+[
+36,
+20,
+28,
+60,
+"card",
+"2"
+],
+[
+67,
+20,
+28,
+60,
+"card",
+"3"
+]
+],
+"prompt": "How-it-works section: three numbered steps, each with a short title, line and small visual.",
+"kw": "section block how it works"
+},
+{
+"id": "steps-vertical",
+"name": "How it works · Vertical timeline",
+"desc": "Steps down a line.",
+"fit": [
+"edu",
+"booking",
+"gov"
+],
+"regions": [
+[
+20,
+5,
+4,
+90,
+"side",
+""
+],
+[
+28,
+8,
+60,
+18,
+"card",
+"Step"
+],
+[
+28,
+40,
+60,
+18,
+"card",
+"Step"
+],
+[
+28,
+72,
+60,
+18,
+"card",
+"Step"
+]
+],
+"prompt": "How-it-works section: steps down a vertical line, connected and numbered.",
+"kw": "section block how it works"
+},
+{
+"id": "steps-demo",
+"name": "How it works · Interactive",
+"desc": "Steps drive a live demo.",
+"fit": [
+"saas",
+"ai",
+"devtool"
+],
+"regions": [
+[
+5,
+10,
+32,
+80,
+"table",
+"Steps"
+],
+[
+42,
+10,
+53,
+80,
+"media",
+"Live demo"
+]
+],
+"prompt": "How-it-works section: clicking each step updates a live demo or screenshot beside it.",
+"kw": "section block how it works"
+},
+{
+"id": "gallery-grid",
+"name": "Gallery · Grid",
+"desc": "Even grid of images.",
+"fit": [
+"portfolio",
+"restaurant",
+"realestate"
+],
+"regions": [
+[
+5,
+8,
+28,
+40,
+"media",
+""
+],
+[
+36,
+8,
+28,
+40,
+"media",
+""
+],
+[
+67,
+8,
+28,
+40,
+"media",
+""
+],
+[
+5,
+52,
+28,
+40,
+"media",
+""
+],
+[
+36,
+52,
+28,
+40,
+"media",
+""
+],
+[
+67,
+52,
+28,
+40,
+"media",
+""
+]
+],
+"prompt": "Gallery section: even image grid that opens a lightbox.",
+"kw": "section block gallery"
+},
+{
+"id": "gallery-scroll",
+"name": "Gallery · Horizontal scroll",
+"desc": "Swipe through images.",
+"fit": [
+"agency",
+"travel",
+"music"
+],
+"regions": [
+[
+0,
+15,
+40,
+70,
+"media",
+""
+],
+[
+42,
+15,
+40,
+70,
+"media",
+""
+],
+[
+84,
+15,
+40,
+70,
+"media",
+""
+]
+],
+"prompt": "Gallery section: horizontally scrolling row of large images with snap.",
+"kw": "section block gallery"
+},
+{
+"id": "compare-us",
+"name": "Comparison · Us vs them",
+"desc": "Two columns of ticks.",
+"fit": [
+"landing",
+"saas"
+],
+"regions": [
+[
+10,
+10,
+38,
+80,
+"card",
+"Others"
+],
+[
+52,
+10,
+38,
+80,
+"chat",
+"Us"
+]
+],
+"prompt": "Comparison section: \"others vs us\" two-column checklist.",
+"kw": "section block comparison"
+},
+{
+"id": "compare-before",
+"name": "Comparison · Before / after",
+"desc": "Drag a slider between two states.",
+"fit": [
+"agency",
+"health",
+"shop"
+],
+"regions": [
+[
+5,
+10,
+90,
+80,
+"media",
+"Before | After"
+]
+],
+"prompt": "Comparison section: before/after image with a draggable divider.",
+"kw": "section block comparison"
+},
+{
+"id": "roadmap",
+"name": "Roadmap / timeline",
+"desc": "Milestones along a line.",
+"fit": [
+"saas",
+"nonprofit",
+"event"
+],
+"regions": [
+[
+5,
+48,
+90,
+4,
+"side",
+""
+],
+[
+8,
+20,
+20,
+24,
+"card",
+"Q1"
+],
+[
+32,
+56,
+20,
+24,
+"card",
+"Q2"
+],
+[
+56,
+20,
+20,
+24,
+"card",
+"Q3"
+],
+[
+78,
+56,
+18,
+24,
+"card",
+"Q4"
+]
+],
+"prompt": "Roadmap section: milestones along a horizontal timeline, past ones ticked.",
+"kw": "section block roadmap / timeline"
+},
+{
+"id": "download",
+"name": "Download / install",
+"desc": "Install command or store badges.",
+"fit": [
+"devtool",
+"music",
+"health"
+],
+"regions": [
+[
+15,
+15,
+70,
+16,
+"hero",
+"Install in seconds"
+],
+[
+15,
+40,
+70,
+14,
+"media",
+"npm install …"
+],
+[
+15,
+62,
+22,
+10,
+"cta",
+"Docs"
+]
+],
+"prompt": "Download section: a copyable install command (or store badges) with platform tabs.",
+"kw": "section block download / install"
+},
+{
+"id": "auth-split",
+"name": "Sign-in · Split",
+"desc": "Form beside a brand panel.",
+"fit": [
+"saas",
+"fintech"
+],
+"regions": [
+[
+0,
+0,
+50,
+100,
+"media",
+"Brand panel"
+],
+[
+58,
+24,
+34,
+10,
+"hero",
+"Sign in"
+],
+[
+58,
+40,
+34,
+9,
+"input",
+"Email"
+],
+[
+58,
+53,
+34,
+9,
+"cta",
+"Continue"
+]
+],
+"prompt": "Auth section: sign-in form on one side, a brand or product panel on the other.",
+"kw": "section block sign-in"
+},
+{
+"id": "announce",
+"name": "Announcement bar",
+"desc": "Thin strip above the nav.",
+"fit": [
+"saas",
+"shop",
+"event"
+],
+"regions": [
+[
+0,
+0,
+100,
+12,
+"cta",
+"New: v2 is out →"
+],
+[
+0,
+12,
+100,
+14,
+"nav",
+"Nav"
+]
+],
+"prompt": "Announcement bar: a thin dismissible strip above the navigation with one link.",
+"kw": "section block announcement bar"
+},
+{
+"id": "feat-video",
+"name": "Features · Video demo",
+"desc": "Play a product walkthrough.",
+"fit": [
+"saas",
+"edu",
+"ai"
+],
+"regions": [
+[
+15,
+6,
+70,
+12,
+"hero",
+"See it in 60 seconds"
+],
+[
+10,
+24,
+80,
+70,
+"media",
+"Video"
+]
+],
+"prompt": "Features section: a short product video with a big play button and captions.",
+"kw": "section block features"
+},
+{
+"id": "cases",
+"name": "Case studies grid",
+"desc": "Customer stories as cards.",
+"fit": [
+"saas",
+"agency"
+],
+"regions": [
+[
+5,
+10,
+43,
+80,
+"media",
+"Story"
+],
+[
+52,
+10,
+43,
+38,
+"card",
+"Story"
+],
+[
+52,
+52,
+43,
+38,
+"card",
+"Story"
+]
+],
+"prompt": "Case studies section: one featured story and two smaller ones, each with a metric.",
+"kw": "section block case studies grid"
+},
+{
+"id": "awards",
+"name": "Awards / press",
+"desc": "Badges and press logos.",
+"fit": [
+"agency",
+"restaurant",
+"gaming"
+],
+"regions": [
+[
+10,
+30,
+15,
+40,
+"card",
+""
+],
+[
+30,
+30,
+15,
+40,
+"card",
+""
+],
+[
+50,
+30,
+15,
+40,
+"card",
+""
+],
+[
+70,
+30,
+15,
+40,
+"card",
+""
+]
+],
+"prompt": "Press section: award badges and \"as seen in\" press logos.",
+"kw": "section block awards / press"
+},
+{
+"id": "trust",
+"name": "Security / trust",
+"desc": "Compliance badges and promises.",
+"fit": [
+"fintech",
+"saas",
+"health"
+],
+"regions": [
+[
+5,
+15,
+40,
+70,
+"text",
+"Your data is safe"
+],
+[
+52,
+20,
+20,
+28,
+"card",
+"SOC 2"
+],
+[
+75,
+20,
+20,
+28,
+"card",
+"GDPR"
+],
+[
+52,
+52,
+20,
+28,
+"card",
+"Encrypted"
+],
+[
+75,
+52,
+20,
+28,
+"card",
+"99.9%"
+]
+],
+"prompt": "Trust section: security promises with compliance badges and uptime.",
+"kw": "section block security / trust"
+},
+{
+"id": "codesnippet",
+"name": "Code snippet section",
+"desc": "Copy-paste example.",
+"fit": [
+"devtool"
+],
+"regions": [
+[
+5,
+15,
+40,
+70,
+"text",
+"Ship in 3 lines"
+],
+[
+50,
+10,
+45,
+80,
+"media",
+"Code"
+]
+],
+"prompt": "Developer section: a short explanation beside a copyable code example with language tabs.",
+"kw": "section block code snippet section"
+},
+{
+"id": "locations",
+"name": "Locations",
+"desc": "Map and branch list.",
+"fit": [
+"local",
+"restaurant",
+"realestate"
+],
+"regions": [
+[
+0,
+0,
+60,
+100,
+"media",
+"Map"
+],
+[
+62,
+6,
+34,
+88,
+"table",
+"Locations"
+]
+],
+"prompt": "Locations section: map beside a list of branches with hours and directions.",
+"kw": "section block locations"
+},
+{
+"id": "eventslist",
+"name": "Upcoming events",
+"desc": "Date-led list.",
+"fit": [
+"event",
+"school",
+"nonprofit"
+],
+"regions": [
+[
+8,
+10,
+84,
+22,
+"card",
+"Nov 28 · Event"
+],
+[
+8,
+38,
+84,
+22,
+"card",
+"Dec 5 · Event"
+],
+[
+8,
+66,
+84,
+22,
+"card",
+"Dec 12 · Event"
+]
+],
+"prompt": "Events section: upcoming events as rows led by a big date, with RSVP.",
+"kw": "section block upcoming events"
+},
+{
+"id": "menusection",
+"name": "Menu section",
+"desc": "Dishes with prices.",
+"fit": [
+"restaurant",
+"local"
+],
+"regions": [
+[
+20,
+6,
+60,
+10,
+"hero",
+"Menu"
+],
+[
+8,
+22,
+40,
+72,
+"text",
+"Dishes"
+],
+[
+52,
+22,
+40,
+72,
+"text",
+"Dishes"
+]
+],
+"prompt": "Menu section: categories with dishes, short descriptions and prices in two columns.",
+"kw": "section block menu section"
+},
+{
+"id": "productgrid",
+"name": "Product grid section",
+"desc": "Featured products.",
+"fit": [
+"shop"
+],
+"regions": [
+[
+5,
+10,
+21,
+80,
+"card",
+""
+],
+[
+28,
+10,
+21,
+80,
+"card",
+""
+],
+[
+51,
+10,
+21,
+80,
+"card",
+""
+],
+[
+74,
+10,
+21,
+80,
+"card",
+""
+]
+],
+"prompt": "Products section: 4 featured product cards with quick add.",
+"kw": "section block product grid section"
+},
+{
+"id": "signup-steps",
+"name": "Get started steps",
+"desc": "Sign up, connect, launch.",
+"fit": [
+"saas",
+"devtool",
+"aiagent"
+],
+"regions": [
+[
+5,
+30,
+25,
+40,
+"card",
+"Sign up"
+],
+[
+37,
+30,
+25,
+40,
+"card",
+"Connect"
+],
+[
+69,
+30,
+26,
+40,
+"cta",
+"Launch"
+]
+],
+"prompt": "Get-started section: three steps to value, last one as the CTA.",
+"kw": "section block get started steps"
+}
+];
+var TYPES = [
+{
+"id": "geist",
+"name": "Geist + Geist Mono",
+"desc": "Crisp, technical, modern product.",
+"h": "'Geist',sans-serif",
+"b": "'Geist',sans-serif",
+"hn": "Geist",
+"bn": "Geist",
+"mono": "Geist Mono"
+},
+{
+"id": "grotesk",
+"name": "Space Grotesk + Inter",
+"desc": "Techy headlines, neutral body.",
+"h": "'Space Grotesk',sans-serif",
+"b": "'Inter',sans-serif",
+"hn": "Space Grotesk",
+"bn": "Inter"
+},
+{
+"id": "instrument",
+"name": "Instrument Serif + Inter",
+"desc": "Editorial elegance on a clean body.",
+"h": "'Instrument Serif',serif",
+"b": "'Inter',sans-serif",
+"hn": "Instrument Serif",
+"bn": "Inter"
+},
+{
+"id": "fraunces",
+"name": "Fraunces + DM Sans",
+"desc": "Warm, soft serif with friendly body.",
+"h": "'Fraunces',serif",
+"b": "'DM Sans',sans-serif",
+"hn": "Fraunces",
+"bn": "DM Sans"
+},
+{
+"id": "playfair",
+"name": "Playfair Display + Manrope",
+"desc": "High-contrast luxury serif.",
+"h": "'Playfair Display',serif",
+"b": "'Manrope',sans-serif",
+"hn": "Playfair Display",
+"bn": "Manrope"
+},
+{
+"id": "plex",
+"name": "IBM Plex Mono + Plex Sans",
+"desc": "Engineered, data-heavy, honest.",
+"h": "'IBM Plex Mono',monospace",
+"b": "'IBM Plex Sans',sans-serif",
+"hn": "IBM Plex Mono",
+"bn": "IBM Plex Sans"
+},
+{
+"id": "bricolage",
+"name": "Bricolage Grotesque + DM Sans",
+"desc": "Characterful, a little quirky.",
+"h": "'Bricolage Grotesque',sans-serif",
+"b": "'DM Sans',sans-serif",
+"hn": "Bricolage Grotesque",
+"bn": "DM Sans"
+},
+{
+"id": "sora",
+"name": "Sora + Inter",
+"desc": "Geometric, futuristic, clean.",
+"h": "'Sora',sans-serif",
+"b": "'Inter',sans-serif",
+"hn": "Sora",
+"bn": "Inter"
+},
+{
+"id": "outfit",
+"name": "Outfit",
+"desc": "Round and friendly, one family.",
+"h": "'Outfit',sans-serif",
+"b": "'Outfit',sans-serif",
+"hn": "Outfit",
+"bn": "Outfit"
+},
+{
+"id": "jetbrains",
+"name": "JetBrains Mono + Inter",
+"desc": "Developer tool, terminal energy.",
+"h": "'JetBrains Mono',monospace",
+"b": "'Inter',sans-serif",
+"hn": "JetBrains Mono",
+"bn": "Inter"
+},
+{
+"id": "pixel",
+"name": "Silkscreen + Space Mono",
+"desc": "Retro pixel game.",
+"h": "'Silkscreen',monospace",
+"b": "'Space Mono',monospace",
+"hn": "Silkscreen",
+"bn": "Space Mono"
+},
+{
+"id": "intertight",
+"name": "Inter Tight + Inter",
+"desc": "Neutral, tight headlines, very readable.",
+"h": "'Inter Tight',sans-serif",
+"b": "'Inter',sans-serif",
+"hn": "Inter Tight",
+"bn": "Inter"
+},
+{
+"id": "manrope",
+"name": "Manrope",
+"desc": "Modern geometric, one family.",
+"h": "'Manrope',sans-serif",
+"b": "'Manrope',sans-serif",
+"hn": "Manrope",
+"bn": "Manrope"
+},
+{
+"id": "jakarta",
+"name": "Plus Jakarta Sans",
+"desc": "Friendly startup sans.",
+"h": "'Plus Jakarta Sans',sans-serif",
+"b": "'Plus Jakarta Sans',sans-serif",
+"hn": "Plus Jakarta Sans",
+"bn": "Plus Jakarta Sans"
+},
+{
+"id": "dmserif",
+"name": "DM Serif Display + DM Sans",
+"desc": "Elegant display serif, clean body.",
+"h": "'DM Serif Display',serif",
+"b": "'DM Sans',sans-serif",
+"hn": "DM Serif Display",
+"bn": "DM Sans"
+},
+{
+"id": "cormorant",
+"name": "Cormorant Garamond + Inter",
+"desc": "Fine luxury serif headlines.",
+"h": "'Cormorant Garamond',serif",
+"b": "'Inter',sans-serif",
+"hn": "Cormorant Garamond",
+"bn": "Inter"
+},
+{
+"id": "baskerville",
+"name": "Libre Baskerville + Source Sans 3",
+"desc": "Classic bookish serif.",
+"h": "'Libre Baskerville',serif",
+"b": "'Source Sans 3',sans-serif",
+"hn": "Libre Baskerville",
+"bn": "Source Sans 3"
+},
+{
+"id": "garamond",
+"name": "EB Garamond",
+"desc": "Literary, old-style, one family.",
+"h": "'EB Garamond',serif",
+"b": "'EB Garamond',serif",
+"hn": "EB Garamond",
+"bn": "EB Garamond"
+},
+{
+"id": "lora",
+"name": "Lora + Nunito Sans",
+"desc": "Warm serif, soft body.",
+"h": "'Lora',serif",
+"b": "'Nunito Sans',sans-serif",
+"hn": "Lora",
+"bn": "Nunito Sans"
+},
+{
+"id": "merriweather",
+"name": "Merriweather + Source Sans 3",
+"desc": "Sturdy reading serif.",
+"h": "'Merriweather',serif",
+"b": "'Source Sans 3',sans-serif",
+"hn": "Merriweather",
+"bn": "Source Sans 3"
+},
+{
+"id": "newsreader",
+"name": "Newsreader + Inter",
+"desc": "Modern news serif.",
+"h": "'Newsreader',serif",
+"b": "'Inter',sans-serif",
+"hn": "Newsreader",
+"bn": "Inter"
+},
+{
+"id": "youngserif",
+"name": "Young Serif + Inter",
+"desc": "Chunky friendly serif.",
+"h": "'Young Serif',serif",
+"b": "'Inter',sans-serif",
+"hn": "Young Serif",
+"bn": "Inter"
+},
+{
+"id": "plexserif",
+"name": "IBM Plex Serif + Plex Sans",
+"desc": "Engineered serif, technical.",
+"h": "'IBM Plex Serif',serif",
+"b": "'IBM Plex Sans',sans-serif",
+"hn": "IBM Plex Serif",
+"bn": "IBM Plex Sans"
+},
+{
+"id": "syne",
+"name": "Syne + Inter",
+"desc": "Wide, artsy, distinctive.",
+"h": "'Syne',sans-serif",
+"b": "'Inter',sans-serif",
+"hn": "Syne",
+"bn": "Inter"
+},
+{
+"id": "archivo",
+"name": "Archivo Black + Archivo",
+"desc": "Heavy, punchy, posters.",
+"h": "'Archivo Black',sans-serif",
+"b": "'Archivo',sans-serif",
+"hn": "Archivo Black",
+"bn": "Archivo"
+},
+{
+"id": "unbounded",
+"name": "Unbounded + Inter",
+"desc": "Rounded wide display, futuristic.",
+"h": "'Unbounded',sans-serif",
+"b": "'Inter',sans-serif",
+"hn": "Unbounded",
+"bn": "Inter"
+},
+{
+"id": "bebas",
+"name": "Bebas Neue + Inter",
+"desc": "Tall condensed poster caps.",
+"h": "'Bebas Neue',sans-serif",
+"b": "'Inter',sans-serif",
+"hn": "Bebas Neue",
+"bn": "Inter"
+},
+{
+"id": "oswald",
+"name": "Oswald + Lato",
+"desc": "Condensed sporty headlines.",
+"h": "'Oswald',sans-serif",
+"b": "'Lato',sans-serif",
+"hn": "Oswald",
+"bn": "Lato"
+},
+{
+"id": "hanken",
+"name": "Hanken Grotesk",
+"desc": "Clean grotesk, one family.",
+"h": "'Hanken Grotesk',sans-serif",
+"b": "'Hanken Grotesk',sans-serif",
+"hn": "Hanken Grotesk",
+"bn": "Hanken Grotesk"
+},
+{
+"id": "urbanist",
+"name": "Urbanist",
+"desc": "Geometric, light and modern.",
+"h": "'Urbanist',sans-serif",
+"b": "'Urbanist',sans-serif",
+"hn": "Urbanist",
+"bn": "Urbanist"
+},
+{
+"id": "figtree",
+"name": "Figtree",
+"desc": "Friendly, highly legible.",
+"h": "'Figtree',sans-serif",
+"b": "'Figtree',sans-serif",
+"hn": "Figtree",
+"bn": "Figtree"
+},
+{
+"id": "redhat",
+"name": "Red Hat Display + Text",
+"desc": "Corporate-friendly pair.",
+"h": "'Red Hat Display',sans-serif",
+"b": "'Red Hat Text',sans-serif",
+"hn": "Red Hat Display",
+"bn": "Red Hat Text"
+},
+{
+"id": "lexend",
+"name": "Lexend",
+"desc": "Designed for reading ease.",
+"h": "'Lexend',sans-serif",
+"b": "'Lexend',sans-serif",
+"hn": "Lexend",
+"bn": "Lexend"
+},
+{
+"id": "atkinson",
+"name": "Atkinson Hyperlegible",
+"desc": "Maximum legibility, accessibility.",
+"h": "'Atkinson Hyperlegible',sans-serif",
+"b": "'Atkinson Hyperlegible',sans-serif",
+"hn": "Atkinson Hyperlegible",
+"bn": "Atkinson Hyperlegible"
+},
+{
+"id": "nunito",
+"name": "Nunito",
+"desc": "Rounded and soft.",
+"h": "'Nunito',sans-serif",
+"b": "'Nunito',sans-serif",
+"hn": "Nunito",
+"bn": "Nunito"
+},
+{
+"id": "quicksand",
+"name": "Quicksand + Nunito",
+"desc": "Light rounded, gentle.",
+"h": "'Quicksand',sans-serif",
+"b": "'Nunito',sans-serif",
+"hn": "Quicksand",
+"bn": "Nunito"
+},
+{
+"id": "baloo",
+"name": "Baloo 2",
+"desc": "Bubbly, great for kids.",
+"h": "'Baloo 2',sans-serif",
+"b": "'Baloo 2',sans-serif",
+"hn": "Baloo 2",
+"bn": "Baloo 2"
+},
+{
+"id": "righteous",
+"name": "Righteous + Poppins",
+"desc": "Retro display, round body.",
+"h": "'Righteous',sans-serif",
+"b": "'Poppins',sans-serif",
+"hn": "Righteous",
+"bn": "Poppins"
+},
+{
+"id": "zilla",
+"name": "Zilla Slab + Inter",
+"desc": "Slab serif with character.",
+"h": "'Zilla Slab',serif",
+"b": "'Inter',sans-serif",
+"hn": "Zilla Slab",
+"bn": "Inter"
+},
+{
+"id": "vt323",
+"name": "VT323 + Space Mono",
+"desc": "Terminal / CRT retro.",
+"h": "'VT323',monospace",
+"b": "'Space Mono',monospace",
+"hn": "VT323",
+"bn": "Space Mono",
+"mono": "Space Mono"
+},
+{
+"id": "poppins",
+"name": "Poppins",
+"desc": "Geometric and friendly, everywhere.",
+"h": "'Poppins',sans-serif",
+"b": "'Poppins',sans-serif",
+"hn": "Poppins",
+"bn": "Poppins"
+},
+{
+"id": "instrumentsans",
+"name": "Instrument Sans",
+"desc": "Crisp modern grotesk.",
+"h": "'Instrument Sans',sans-serif",
+"b": "'Instrument Sans',sans-serif",
+"hn": "Instrument Sans",
+"bn": "Instrument Sans"
+},
+{
+"id": "worksans",
+"name": "Work Sans",
+"desc": "Versatile, slightly wide.",
+"h": "'Work Sans',sans-serif",
+"b": "'Work Sans',sans-serif",
+"hn": "Work Sans",
+"bn": "Work Sans"
+},
+{
+"id": "crimson",
+"name": "Crimson Pro + Work Sans",
+"desc": "Bookish serif with a neutral body.",
+"h": "'Crimson Pro',serif",
+"b": "'Work Sans',sans-serif",
+"hn": "Crimson Pro",
+"bn": "Work Sans"
+},
+{
+"id": "rubik",
+"name": "Rubik",
+"desc": "Soft corners, approachable.",
+"h": "'Rubik',sans-serif",
+"b": "'Rubik',sans-serif",
+"hn": "Rubik",
+"bn": "Rubik"
+},
+{
+"id": "mulish",
+"name": "Mulish",
+"desc": "Minimal, clean sans.",
+"h": "'Mulish',sans-serif",
+"b": "'Mulish',sans-serif",
+"hn": "Mulish",
+"bn": "Mulish"
+}
+];
+var MOODS = [
+{
+"id": "clean",
+"name": "Clean product",
+"desc": "Crisp light UI, hairline borders, calm.",
+"fit": [
+"saas",
+"dash",
+"docs",
+"directory"
+],
+"bg": "#F7F8FA",
+"surf": "#FFFFFF",
+"ink": "#111827",
+"muted": "#6B7280",
+"line": "#E5E7EB",
+"acc": "#2F6BFF",
+"type": "geist",
+"r": 8,
+"sh": "0 1px 2px rgba(17,24,39,.06)"
+},
+{
+"id": "glass",
+"name": "Glass / Apple-like",
+"desc": "Frosted panels over soft colour.",
+"fit": [
+"landing",
+"ai",
+"portfolio"
+],
+"bg": "#DDE6F3",
+"surf": "#FFFFFF",
+"ink": "#0B1220",
+"muted": "#475569",
+"line": "rgba(255,255,255,.75)",
+"acc": "#0A84FF",
+"type": "sora",
+"r": 18,
+"sh": "0 8px 30px rgba(15,23,42,.12)"
+},
+{
+"id": "editorial",
+"name": "Editorial",
+"desc": "Serif headlines, paper white, thin rules.",
+"fit": [
+"editorial",
+"portfolio",
+"docs"
+],
+"bg": "#FBFAF7",
+"surf": "#FFFFFF",
+"ink": "#1A1A1A",
+"muted": "#5F5B54",
+"line": "#E4E0D8",
+"acc": "#C2410C",
+"type": "instrument",
+"r": 2,
+"sh": "none"
+},
+{
+"id": "swiss",
+"name": "Swiss minimal",
+"desc": "Strict grid, black and white, one accent.",
+"fit": [
+"portfolio",
+"landing",
+"directory"
+],
+"bg": "#FFFFFF",
+"surf": "#FFFFFF",
+"ink": "#000000",
+"muted": "#555555",
+"line": "#111111",
+"acc": "#FF3B00",
+"type": "grotesk",
+"r": 0,
+"sh": "none"
+},
+{
+"id": "terminal",
+"name": "Dense terminal",
+"desc": "Dark, mono, compact, information-first.",
+"fit": [
+"dash",
+"ai",
+"docs"
+],
+"bg": "#0B0D0E",
+"surf": "#121517",
+"ink": "#D6F5DD",
+"muted": "#7C8A80",
+"line": "#1F2A24",
+"acc": "#3DDC84",
+"type": "jetbrains",
+"r": 4,
+"sh": "none"
+},
+{
+"id": "luxe",
+"name": "Dark luxe",
+"desc": "Near-black with a warm metallic accent.",
+"fit": [
+"shop",
+"landing",
+"portfolio"
+],
+"bg": "#0E0D0C",
+"surf": "#181614",
+"ink": "#F3EEE6",
+"muted": "#A39C91",
+"line": "#2A2622",
+"acc": "#C9A86A",
+"type": "playfair",
+"r": 6,
+"sh": "0 10px 30px rgba(0,0,0,.4)"
+},
+{
+"id": "brutal",
+"name": "Neo-brutalist",
+"desc": "Thick borders, hard offset shadows, loud.",
+"fit": [
+"playful",
+"landing",
+"directory"
+],
+"bg": "#FFF7D6",
+"surf": "#FFFFFF",
+"ink": "#000000",
+"muted": "#222222",
+"line": "#000000",
+"acc": "#FF5A1F",
+"type": "grotesk",
+"r": 0,
+"sh": "4px 4px 0 #000"
+},
+{
+"id": "playful",
+"name": "Soft playful",
+"desc": "Pastels, big radius, bouncy.",
+"fit": [
+"playful",
+"booking",
+"social"
+],
+"bg": "#FFF1F6",
+"surf": "#FFFFFF",
+"ink": "#2B1B3D",
+"muted": "#6E5A80",
+"line": "#F3D6E4",
+"acc": "#E2408F",
+"type": "outfit",
+"r": 22,
+"sh": "0 6px 0 rgba(43,27,61,.08)"
+},
+{
+"id": "organic",
+"name": "Warm organic",
+"desc": "Earthy, soft, human.",
+"fit": [
+"shop",
+"booking",
+"editorial"
+],
+"bg": "#F3EFE7",
+"surf": "#FBF8F2",
+"ink": "#2E2A24",
+"muted": "#6E665A",
+"line": "#DED6C8",
+"acc": "#5F7F4E",
+"type": "fraunces",
+"r": 14,
+"sh": "0 2px 10px rgba(46,42,36,.08)"
+},
+{
+"id": "pixel",
+"name": "Retro pixel",
+"desc": "Chunky pixels, arcade colours.",
+"fit": [
+"playful"
+],
+"bg": "#1D1B2E",
+"surf": "#2A2742",
+"ink": "#FFF5D6",
+"muted": "#B8B0D9",
+"line": "#4A4570",
+"acc": "#FFCC33",
+"type": "pixel",
+"r": 0,
+"sh": "4px 4px 0 #0E0C1A"
+},
+{
+"id": "clay",
+"name": "Clay / soft 3D",
+"desc": "Pillowy, tactile, soft shadows.",
+"fit": [
+"playful",
+"ai",
+"landing"
+],
+"bg": "#E9EEF6",
+"surf": "#F3F6FB",
+"ink": "#22304A",
+"muted": "#66738C",
+"line": "#DCE3EE",
+"acc": "#5B7CFA",
+"type": "bricolage",
+"r": 20,
+"sh": "6px 6px 14px #C9D2E0, -6px -6px 14px #FFFFFF"
+},
+{
+"id": "datadark",
+"name": "Data dark",
+"desc": "Deep navy with neon data accents.",
+"fit": [
+"dash",
+"ai",
+"saas"
+],
+"bg": "#0A0F1E",
+"surf": "#111830",
+"ink": "#E6ECFF",
+"muted": "#8A96B8",
+"line": "#1E2846",
+"acc": "#22D3EE",
+"type": "sora",
+"r": 10,
+"sh": "0 0 0 1px #1E2846"
+},
+{
+"id": "nord",
+"name": "Nordic frost",
+"desc": "Cool arctic greys and icy blue.",
+"fit": [
+"saas",
+"devtool",
+"docs",
+"notes"
+],
+"bg": "#ECEFF4",
+"surf": "#FFFFFF",
+"ink": "#2E3440",
+"muted": "#5E6779",
+"line": "#D8DEE9",
+"acc": "#5E81AC",
+"type": "intertight",
+"r": 8,
+"sh": "0 1px 3px rgba(46,52,64,.08)"
+},
+{
+"id": "midnight",
+"name": "Midnight editorial",
+"desc": "Deep blue-black with serif type.",
+"fit": [
+"editorial",
+"news",
+"podcast"
+],
+"bg": "#0F1424",
+"surf": "#161C30",
+"ink": "#E8EAF2",
+"muted": "#9AA2BD",
+"line": "#252D47",
+"acc": "#F2B84B",
+"type": "newsreader",
+"r": 4,
+"sh": "none"
+},
+{
+"id": "newsprint",
+"name": "Newsprint",
+"desc": "Off-white paper, black ink, rules.",
+"fit": [
+"news",
+"editorial",
+"newsletter"
+],
+"bg": "#F4F1EA",
+"surf": "#FBF9F4",
+"ink": "#111111",
+"muted": "#555048",
+"line": "#D9D3C7",
+"acc": "#B3261E",
+"type": "baskerville",
+"r": 0,
+"sh": "none"
+},
+{
+"id": "mono",
+"name": "Pure monochrome",
+"desc": "Black, white and greys only.",
+"fit": [
+"portfolio",
+"agency",
+"devtool"
+],
+"bg": "#FFFFFF",
+"surf": "#F6F6F6",
+"ink": "#0A0A0A",
+"muted": "#5C5C5C",
+"line": "#E2E2E2",
+"acc": "#0A0A0A",
+"type": "hanken",
+"r": 6,
+"sh": "none"
+},
+{
+"id": "pastel",
+"name": "Pastel dream",
+"desc": "Soft candy colours, gentle.",
+"fit": [
+"playful",
+"health",
+"social"
+],
+"bg": "#F7F3FF",
+"surf": "#FFFFFF",
+"ink": "#2D2640",
+"muted": "#6F6888",
+"line": "#E6DEFA",
+"acc": "#8B6CF0",
+"type": "quicksand",
+"r": 18,
+"sh": "0 4px 16px rgba(139,108,240,.12)"
+},
+{
+"id": "y2k",
+"name": "Y2K chrome",
+"desc": "Silver, neon, early-2000s.",
+"fit": [
+"music",
+"playful",
+"landing"
+],
+"bg": "#E9ECF2",
+"surf": "#F7F8FB",
+"ink": "#14161C",
+"muted": "#5B6070",
+"line": "#C9CEDA",
+"acc": "#FF2BD6",
+"type": "unbounded",
+"r": 16,
+"sh": "0 6px 18px rgba(20,22,28,.15)"
+},
+{
+"id": "cyberpunk",
+"name": "Cyberpunk neon",
+"desc": "Dark with magenta and cyan glow.",
+"fit": [
+"crypto",
+"playful",
+"music"
+],
+"bg": "#0B0614",
+"surf": "#150C24",
+"ink": "#F3E9FF",
+"muted": "#A792C9",
+"line": "#2C1B47",
+"acc": "#FF2E97",
+"type": "syne",
+"r": 2,
+"sh": "0 0 18px rgba(255,46,151,.25)"
+},
+{
+"id": "material",
+"name": "Material you",
+"desc": "Tonal surfaces, rounded, Android-like.",
+"fit": [
+"saas",
+"health",
+"fintech"
+],
+"bg": "#F6F2FA",
+"surf": "#FFFFFF",
+"ink": "#1D1B20",
+"muted": "#5F5B66",
+"line": "#E6E0EC",
+"acc": "#6750A4",
+"type": "figtree",
+"r": 16,
+"sh": "0 1px 3px rgba(0,0,0,.12)"
+},
+{
+"id": "corporate",
+"name": "Corporate trust",
+"desc": "Navy, white, conservative.",
+"fit": [
+"fintech",
+"crm",
+"admin",
+"gov"
+],
+"bg": "#F5F7FA",
+"surf": "#FFFFFF",
+"ink": "#0B1F3A",
+"muted": "#4A5A70",
+"line": "#DDE3EB",
+"acc": "#0B5CAD",
+"type": "redhat",
+"r": 6,
+"sh": "0 1px 2px rgba(11,31,58,.08)"
+},
+{
+"id": "medical",
+"name": "Clinical calm",
+"desc": "Clean whites and soothing teal.",
+"fit": [
+"health",
+"gov",
+"booking"
+],
+"bg": "#F4F9F9",
+"surf": "#FFFFFF",
+"ink": "#0E2A2D",
+"muted": "#4E6A6D",
+"line": "#D6E8E8",
+"acc": "#0E8C8C",
+"type": "lexend",
+"r": 10,
+"sh": "0 1px 3px rgba(14,42,45,.06)"
+},
+{
+"id": "kids",
+"name": "Primary play",
+"desc": "Bright primaries, chunky shapes.",
+"fit": [
+"playful",
+"edu",
+"tutor"
+],
+"bg": "#FFF9E6",
+"surf": "#FFFFFF",
+"ink": "#1B1B3A",
+"muted": "#55557A",
+"line": "#FFE4A3",
+"acc": "#2D7FF9",
+"type": "baloo",
+"r": 20,
+"sh": "0 5px 0 rgba(27,27,58,.12)"
+},
+{
+"id": "ivory",
+"name": "Ivory luxury",
+"desc": "Cream, gold and fine serif.",
+"fit": [
+"shop",
+"restaurant",
+"agency"
+],
+"bg": "#FAF6EF",
+"surf": "#FFFDF9",
+"ink": "#2A2420",
+"muted": "#7A6E62",
+"line": "#E9DFD1",
+"acc": "#A6833B",
+"type": "cormorant",
+"r": 2,
+"sh": "none"
+},
+{
+"id": "forest",
+"name": "Deep forest",
+"desc": "Dark greens, natural calm.",
+"fit": [
+"nonprofit",
+"travel",
+"health"
+],
+"bg": "#0F1F17",
+"surf": "#16291F",
+"ink": "#E7F0E9",
+"muted": "#9DB5A5",
+"line": "#24392D",
+"acc": "#7BC47F",
+"type": "fraunces",
+"r": 12,
+"sh": "none"
+},
+{
+"id": "ocean",
+"name": "Ocean breeze",
+"desc": "Fresh blues and aqua.",
+"fit": [
+"travel",
+"health",
+"landing"
+],
+"bg": "#F0F8FB",
+"surf": "#FFFFFF",
+"ink": "#0B2B3A",
+"muted": "#4B6A78",
+"line": "#D2E7EF",
+"acc": "#0284C7",
+"type": "jakarta",
+"r": 14,
+"sh": "0 4px 14px rgba(2,132,199,.10)"
+},
+{
+"id": "desert",
+"name": "Desert sand",
+"desc": "Terracotta and warm sand.",
+"fit": [
+"travel",
+"restaurant",
+"shop"
+],
+"bg": "#F6EEE3",
+"surf": "#FBF6EF",
+"ink": "#3A2416",
+"muted": "#7A5D49",
+"line": "#E8D8C4",
+"acc": "#C2552D",
+"type": "youngserif",
+"r": 10,
+"sh": "0 2px 8px rgba(58,36,22,.08)"
+},
+{
+"id": "zen",
+"name": "Zen minimal",
+"desc": "Off-white, ink and a vermillion dot.",
+"fit": [
+"portfolio",
+"notes",
+"editorial"
+],
+"bg": "#FAF9F6",
+"surf": "#FFFFFF",
+"ink": "#1C1C1C",
+"muted": "#6B6863",
+"line": "#E7E4DD",
+"acc": "#D23B2A",
+"type": "garamond",
+"r": 0,
+"sh": "none"
+},
+{
+"id": "scandi",
+"name": "Scandinavian",
+"desc": "Light wood, soft greys, airy.",
+"fit": [
+"shop",
+"realestate",
+"notes"
+],
+"bg": "#F7F5F2",
+"surf": "#FFFFFF",
+"ink": "#26231F",
+"muted": "#6E6860",
+"line": "#E6E1DA",
+"acc": "#8A6A4B",
+"type": "manrope",
+"r": 8,
+"sh": "0 1px 4px rgba(38,35,31,.06)"
+},
+{
+"id": "bauhaus",
+"name": "Bauhaus",
+"desc": "Primary colours, geometry, grid.",
+"fit": [
+"agency",
+"event",
+"portfolio"
+],
+"bg": "#F2EFE8",
+"surf": "#FFFFFF",
+"ink": "#111111",
+"muted": "#444444",
+"line": "#111111",
+"acc": "#E1251B",
+"type": "archivo",
+"r": 0,
+"sh": "none"
+},
+{
+"id": "memphis",
+"name": "Memphis 80s",
+"desc": "Squiggles, pastels, loud shapes.",
+"fit": [
+"playful",
+"event",
+"music"
+],
+"bg": "#FFF4F0",
+"surf": "#FFFFFF",
+"ink": "#1A1A2E",
+"muted": "#4F4F6B",
+"line": "#1A1A2E",
+"acc": "#FF6B6B",
+"type": "righteous",
+"r": 14,
+"sh": "4px 4px 0 #1A1A2E"
+},
+{
+"id": "vapor",
+"name": "Vaporwave",
+"desc": "Pink and teal sunset nostalgia.",
+"fit": [
+"music",
+"playful"
+],
+"bg": "#1A1033",
+"surf": "#251848",
+"ink": "#FCE7FF",
+"muted": "#B9A4D8",
+"line": "#3A2766",
+"acc": "#33E1ED",
+"type": "righteous",
+"r": 6,
+"sh": "0 0 16px rgba(51,225,237,.25)"
+},
+{
+"id": "grunge",
+"name": "Grunge",
+"desc": "Dark, gritty, textured.",
+"fit": [
+"music",
+"agency",
+"event"
+],
+"bg": "#141210",
+"surf": "#1E1B18",
+"ink": "#EDE6DC",
+"muted": "#A39886",
+"line": "#2E2A25",
+"acc": "#E8C547",
+"type": "bebas",
+"r": 0,
+"sh": "none"
+},
+{
+"id": "academia",
+"name": "Dark academia",
+"desc": "Browns, old paper, serif.",
+"fit": [
+"edu",
+"editorial",
+"tutor"
+],
+"bg": "#1E1813",
+"surf": "#2A221B",
+"ink": "#EFE6D8",
+"muted": "#B3A48C",
+"line": "#3A3026",
+"acc": "#C9A063",
+"type": "garamond",
+"r": 4,
+"sh": "none"
+},
+{
+"id": "sport",
+"name": "Sport energy",
+"desc": "High contrast, bold, fast.",
+"fit": [
+"health",
+"event",
+"music"
+],
+"bg": "#0D0D0D",
+"surf": "#181818",
+"ink": "#FFFFFF",
+"muted": "#A3A3A3",
+"line": "#2A2A2A",
+"acc": "#D7FF3A",
+"type": "oswald",
+"r": 4,
+"sh": "none"
+},
+{
+"id": "finpro",
+"name": "Finance pro",
+"desc": "Slate dark with gain-green.",
+"fit": [
+"fintech",
+"crypto",
+"dash"
+],
+"bg": "#0E1217",
+"surf": "#151B22",
+"ink": "#E6EDF3",
+"muted": "#8B98A6",
+"line": "#222B35",
+"acc": "#2BC48A",
+"type": "plexserif",
+"r": 6,
+"sh": "0 0 0 1px #222B35"
+},
+{
+"id": "softdark",
+"name": "Soft dark",
+"desc": "Comfortable dark grey, low glare.",
+"fit": [
+"saas",
+"notes",
+"devtool",
+"ai"
+],
+"bg": "#18191B",
+"surf": "#202124",
+"ink": "#E8E8EA",
+"muted": "#9A9CA2",
+"line": "#2D2E32",
+"acc": "#7AA2F7",
+"type": "hanken",
+"r": 10,
+"sh": "0 1px 2px rgba(0,0,0,.4)"
+},
+{
+"id": "contrast",
+"name": "High contrast",
+"desc": "Maximum legibility (AAA).",
+"fit": [
+"gov",
+"edu",
+"docs"
+],
+"bg": "#FFFFFF",
+"surf": "#FFFFFF",
+"ink": "#000000",
+"muted": "#1F1F1F",
+"line": "#000000",
+"acc": "#0040C1",
+"type": "atkinson",
+"r": 4,
+"sh": "none"
+},
+{
+"id": "espresso",
+"name": "Warm dark",
+"desc": "Espresso browns, cosy.",
+"fit": [
+"restaurant",
+"notes",
+"podcast"
+],
+"bg": "#1B1512",
+"surf": "#251D19",
+"ink": "#F2E8DF",
+"muted": "#B3A193",
+"line": "#3A2D26",
+"acc": "#E0915A",
+"type": "lora",
+"r": 12,
+"sh": "none"
+},
+{
+"id": "crt",
+"name": "Retro terminal",
+"desc": "Green phosphor CRT.",
+"fit": [
+"devtool",
+"playful",
+"crypto"
+],
+"bg": "#050A05",
+"surf": "#0A140A",
+"ink": "#7CFF7C",
+"muted": "#3FA83F",
+"line": "#123312",
+"acc": "#7CFF7C",
+"type": "vt323",
+"r": 0,
+"sh": "0 0 10px rgba(124,255,124,.2)"
+}
+];
+var PALETTES = [
+{
+"id": "blue",
+"name": "Electric blue",
+"hex": "#2F6BFF",
+"desc": "Trustworthy, product-y."
+},
+{
+"id": "orange",
+"name": "Signal orange",
+"hex": "#FF5A1F",
+"desc": "Energetic, gets attention."
+},
+{
+"id": "green",
+"name": "Emerald",
+"hex": "#0E9F6E",
+"desc": "Growth, money, success."
+},
+{
+"id": "red",
+"name": "Crimson",
+"hex": "#E5484D",
+"desc": "Bold, urgent, passionate."
+},
+{
+"id": "violet",
+"name": "Violet",
+"hex": "#7C5CFF",
+"desc": "Creative, a little magic."
+},
+{
+"id": "lime",
+"name": "Acid lime",
+"hex": "#A3E635",
+"desc": "Loud, youthful, techy on dark."
+},
+{
+"id": "amber",
+"name": "Amber",
+"hex": "#F5A524",
+"desc": "Warm, optimistic."
+},
+{
+"id": "teal",
+"name": "Teal",
+"hex": "#0EA5A4",
+"desc": "Calm, clinical, fresh."
+},
+{
+"id": "pink",
+"name": "Hot pink",
+"hex": "#EC4899",
+"desc": "Playful, fashion, pop."
+},
+{
+"id": "gold",
+"name": "Muted gold",
+"hex": "#C9A86A",
+"desc": "Premium, quiet luxury."
+},
+{
+"id": "mono",
+"name": "Ink only",
+"hex": "#111111",
+"desc": "No colour: type and space do the work."
+},
+{
+"id": "indigo",
+"name": "Indigo",
+"hex": "#4F46E5",
+"desc": "Classic modern product."
+},
+{
+"id": "sky",
+"name": "Sky",
+"hex": "#0EA5E9",
+"desc": "Light, airy, friendly."
+},
+{
+"id": "cobalt",
+"name": "Cobalt",
+"hex": "#1D4ED8",
+"desc": "Deep, serious blue."
+},
+{
+"id": "navy",
+"name": "Navy",
+"hex": "#1E3A8A",
+"desc": "Conservative, institutional."
+},
+{
+"id": "cyan",
+"name": "Neon cyan",
+"hex": "#22D3EE",
+"desc": "Techy glow on dark."
+},
+{
+"id": "aqua",
+"name": "Aqua",
+"hex": "#14B8A6",
+"desc": "Fresh and clean."
+},
+{
+"id": "mint",
+"name": "Mint",
+"hex": "#34D399",
+"desc": "Soft growth."
+},
+{
+"id": "forestg",
+"name": "Forest green",
+"hex": "#15803D",
+"desc": "Natural, grounded."
+},
+{
+"id": "olive",
+"name": "Olive",
+"hex": "#6B7F2A",
+"desc": "Earthy, calm."
+},
+{
+"id": "chartreuse",
+"name": "Chartreuse",
+"hex": "#C6F432",
+"desc": "Electric, sporty."
+},
+{
+"id": "yellow",
+"name": "Sunshine",
+"hex": "#FACC15",
+"desc": "Happy, loud."
+},
+{
+"id": "mustard",
+"name": "Mustard",
+"hex": "#D4A017",
+"desc": "Retro warmth."
+},
+{
+"id": "tangerine",
+"name": "Tangerine",
+"hex": "#FB923C",
+"desc": "Playful energy."
+},
+{
+"id": "terracotta",
+"name": "Terracotta",
+"hex": "#C2552D",
+"desc": "Earthy warmth."
+},
+{
+"id": "coral",
+"name": "Coral",
+"hex": "#FF6B6B",
+"desc": "Warm and friendly."
+},
+{
+"id": "rose",
+"name": "Rose",
+"hex": "#F43F5E",
+"desc": "Romantic, bold."
+},
+{
+"id": "magenta",
+"name": "Magenta",
+"hex": "#D946EF",
+"desc": "Creative, loud."
+},
+{
+"id": "fuchsia",
+"name": "Neon pink",
+"hex": "#FF2E97",
+"desc": "Cyber, nightlife."
+},
+{
+"id": "lavender",
+"name": "Lavender",
+"hex": "#A78BFA",
+"desc": "Soft, calm."
+},
+{
+"id": "plum",
+"name": "Plum",
+"hex": "#7E22CE",
+"desc": "Rich, regal."
+},
+{
+"id": "burgundy",
+"name": "Burgundy",
+"hex": "#9F1239",
+"desc": "Wine, luxury."
+},
+{
+"id": "brown",
+"name": "Coffee",
+"hex": "#8A5A3C",
+"desc": "Cosy, artisanal."
+},
+{
+"id": "sand",
+"name": "Sand",
+"hex": "#C8A97E",
+"desc": "Neutral warmth."
+},
+{
+"id": "slate",
+"name": "Slate",
+"hex": "#475569",
+"desc": "Quiet, professional."
+},
+{
+"id": "steel",
+"name": "Steel blue",
+"hex": "#4682B4",
+"desc": "Industrial calm."
+},
+{
+"id": "electric",
+"name": "Electric violet",
+"hex": "#8B5CF6",
+"desc": "Futuristic."
+},
+{
+"id": "vermillion",
+"name": "Vermillion",
+"hex": "#E34234",
+"desc": "Japanese red."
+},
+{
+"id": "jade",
+"name": "Jade",
+"hex": "#00A86B",
+"desc": "Precious green."
+},
+{
+"id": "white",
+"name": "White on dark",
+"hex": "#F5F5F5",
+"desc": "For dark moods: white as the accent."
+},
+{
+"id": "ice",
+"name": "Ice blue",
+"hex": "#7DD3FC",
+"desc": "Cool, crisp."
+},
+{
+"id": "peach",
+"name": "Peach",
+"hex": "#FDBA74",
+"desc": "Soft warmth."
+},
+{
+"id": "blush",
+"name": "Blush",
+"hex": "#F9A8D4",
+"desc": "Gentle pink."
+},
+{
+"id": "sage",
+"name": "Sage",
+"hex": "#84A98C",
+"desc": "Calm green."
+},
+{
+"id": "teal2",
+"name": "Deep teal",
+"hex": "#0F766E",
+"desc": "Serious calm."
+},
+{
+"id": "rust",
+"name": "Rust",
+"hex": "#B7410E",
+"desc": "Industrial warmth."
+},
+{
+"id": "gold2",
+"name": "Bright gold",
+"hex": "#EAB308",
+"desc": "Optimistic."
+},
+{
+"id": "ink2",
+"name": "Navy ink",
+"hex": "#1F2A44",
+"desc": "Quiet authority."
+},
+{
+"id": "lilac",
+"name": "Lilac",
+"hex": "#C4B5FD",
+"desc": "Dreamy."
+},
+{
+"id": "signalgreen",
+"name": "Signal green",
+"hex": "#22C55E",
+"desc": "Go / success."
+}
+];
+var RADII = [
+{
+"id": "r0",
+"name": "Sharp · 0px",
+"px": 0,
+"desc": "Editorial, Swiss, brutalist."
+},
+{
+"id": "r4",
+"name": "Subtle · 4px",
+"px": 4,
+"desc": "Serious tools, dense UIs."
+},
+{
+"id": "r8",
+"name": "Standard · 8px",
+"px": 8,
+"desc": "The safe modern default."
+},
+{
+"id": "r14",
+"name": "Soft · 14px",
+"px": 14,
+"desc": "Friendly, consumer apps."
+},
+{
+"id": "r22",
+"name": "Round · 22px",
+"px": 22,
+"desc": "Playful, Apple-ish cards."
+},
+{
+"id": "rpill",
+"name": "Pill buttons · 20px cards",
+"px": 20,
+"pill": true,
+"desc": "Capsule buttons and chips."
+},
+{
+"id": "r2",
+"name": "Hairline · 2px",
+"px": 2,
+"desc": "Barely softened."
+},
+{
+"id": "r12",
+"name": "Rounded · 12px",
+"px": 12,
+"desc": "Modern consumer default."
+},
+{
+"id": "r28",
+"name": "Super round · 28px",
+"px": 28,
+"desc": "Bubbly, very soft."
+},
+{
+"id": "rpill2",
+"name": "Pill everything · 999px",
+"px": 24,
+"desc": "Capsules for buttons, inputs and chips.",
+"pill": true
+}
+];
+var DENS = [
+{
+"id": "compact",
+"name": "Compact",
+"d": 0.7,
+"gap": 5,
+"desc": "More on screen. Dashboards, tables, pro tools."
+},
+{
+"id": "comfy",
+"name": "Comfortable",
+"d": 1,
+"gap": 9,
+"desc": "Balanced default for most apps."
+},
+{
+"id": "airy",
+"name": "Airy",
+"d": 1.4,
+"gap": 14,
+"desc": "Lots of whitespace. Landing pages, portfolios."
+},
+{
+"id": "dense",
+"name": "Ultra compact",
+"d": 0.55,
+"gap": 3,
+"desc": "Trading terminals, spreadsheets."
+}
+];
+var BACKGROUNDS = [
+{
+"id": "plain",
+"name": "Plain colour",
+"desc": "Just the background token.",
+"fit": [],
+"bg": "var(--bg)",
+"prompt": "Page background is the plain background token. No pattern.",
+"demo": "bg-demo"
+},
+{
+"id": "surface-alt",
+"name": "Alternating bands",
+"desc": "Sections alternate bg and surface.",
+"fit": [
+"landing",
+"saas"
+],
+"bg": "linear-gradient(var(--bg) 0 50%,var(--surf) 50%)",
+"prompt": "Sections alternate between the background and surface tokens to separate them.",
+"demo": "bg-demo"
+},
+{
+"id": "soft-gradient",
+"name": "Soft vertical gradient",
+"desc": "Accent fades into the background.",
+"fit": [
+"landing",
+"ai",
+"waitlist"
+],
+"bg": "linear-gradient(180deg,color-mix(in srgb,var(--acc) 18%,var(--bg)),var(--bg) 70%)",
+"prompt": "Hero background: a soft vertical gradient from 18% accent into the background token.",
+"demo": "bg-demo"
+},
+{
+"id": "radial-glow",
+"name": "Radial glow",
+"desc": "A glow behind the hero.",
+"fit": [
+"landing",
+"ai",
+"devtool"
+],
+"bg": "radial-gradient(60% 60% at 50% 0%,color-mix(in srgb,var(--acc) 30%,transparent),transparent 70%),var(--bg)",
+"prompt": "Hero background: one soft radial accent glow at the top centre.",
+"demo": "bg-demo"
+},
+{
+"id": "mesh",
+"name": "Mesh gradient",
+"desc": "Several soft colour blobs.",
+"fit": [
+"ai",
+"landing",
+"music"
+],
+"bg": "radial-gradient(at 20% 20%,color-mix(in srgb,var(--acc) 45%,transparent) 0,transparent 50%),radial-gradient(at 80% 30%,color-mix(in srgb,var(--acc) 25%,#7FD1FF) 0,transparent 50%),radial-gradient(at 50% 90%,color-mix(in srgb,var(--acc) 20%,#FFB8D9) 0,transparent 50%),var(--bg)",
+"prompt": "Hero background: a soft mesh of 3 blurred colour blobs built from the accent. No purple-to-blue.",
+"demo": "bg-demo",
+"heavy": true
+},
+{
+"id": "conic",
+"name": "Conic sweep",
+"desc": "A colour wheel sweep.",
+"fit": [
+"music",
+"playful",
+"agency"
+],
+"bg": "conic-gradient(from 200deg at 70% 30%,var(--acc),color-mix(in srgb,var(--acc) 30%,var(--bg)),var(--bg),var(--acc))",
+"prompt": "Background: a slow conic gradient sweep from the accent.",
+"demo": "bg-demo",
+"heavy": true
+},
+{
+"id": "dots",
+"name": "Dot grid",
+"desc": "Faint dot pattern.",
+"fit": [
+"saas",
+"devtool",
+"docs",
+"notes"
+],
+"bg": "radial-gradient(var(--line) 1.2px,transparent 1.4px) 0 0/16px 16px,var(--bg)",
+"prompt": "Background: faint dot grid (16px) that fades toward the edges.",
+"demo": "bg-demo"
+},
+{
+"id": "grid",
+"name": "Line grid",
+"desc": "Graph-paper lines.",
+"fit": [
+"devtool",
+"saas",
+"ai"
+],
+"bg": "linear-gradient(var(--line) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/24px 24px,var(--bg)",
+"prompt": "Background: thin graph-paper grid (24px), masked to fade at the edges.",
+"demo": "bg-demo"
+},
+{
+"id": "grid-fade",
+"name": "Fading grid",
+"desc": "Grid that dissolves downward.",
+"fit": [
+"landing",
+"devtool"
+],
+"bg": "linear-gradient(180deg,transparent,var(--bg) 85%),linear-gradient(var(--line) 1px,transparent 1px) 0 0/28px 28px,linear-gradient(90deg,var(--line) 1px,transparent 1px) 0 0/28px 28px,var(--bg)",
+"prompt": "Hero background: line grid that fades out toward the bottom.",
+"demo": "bg-demo"
+},
+{
+"id": "diag",
+"name": "Diagonal stripes",
+"desc": "Thin diagonal lines.",
+"fit": [
+"playful",
+"event",
+"agency"
+],
+"bg": "repeating-linear-gradient(135deg,var(--line) 0 1px,transparent 1px 10px),var(--bg)",
+"prompt": "Background: thin diagonal stripes at 10px pitch, very low contrast.",
+"demo": "bg-demo"
+},
+{
+"id": "checker",
+"name": "Checkerboard",
+"desc": "Soft checker pattern.",
+"fit": [
+"playful",
+"portfolio"
+],
+"bg": "conic-gradient(var(--surf) 25%,var(--bg) 0 50%,var(--surf) 0 75%,var(--bg) 0) 0 0/24px 24px",
+"prompt": "Background: soft two-tone checkerboard from surface and background.",
+"demo": "bg-demo"
+},
+{
+"id": "waves",
+"name": "Waves",
+"desc": "Layered wave bands.",
+"fit": [
+"travel",
+"health",
+"nonprofit"
+],
+"bg": "radial-gradient(120% 60% at 50% 110%,color-mix(in srgb,var(--acc) 25%,var(--bg)) 40%,transparent 41%),radial-gradient(120% 60% at 30% 125%,color-mix(in srgb,var(--acc) 40%,var(--bg)) 40%,transparent 41%),var(--bg)",
+"prompt": "Footer or hero background: two soft wave bands in accent tints along the bottom.",
+"demo": "bg-demo"
+},
+{
+"id": "noise",
+"name": "Grain / noise",
+"desc": "Subtle film grain.",
+"fit": [
+"editorial",
+"portfolio",
+"shop"
+],
+"bg": "repeating-radial-gradient(circle at 17% 32%,color-mix(in srgb,var(--ink) 12%,transparent) 0 .6px,transparent .8px 2px),var(--bg)",
+"prompt": "Background: subtle grain/noise overlay at ~6% opacity for warmth.",
+"demo": "bg-demo"
+},
+{
+"id": "paper",
+"name": "Paper texture",
+"desc": "Warm paper fibres.",
+"fit": [
+"editorial",
+"newsletter",
+"blog"
+],
+"bg": "repeating-linear-gradient(0deg,color-mix(in srgb,var(--ink) 4%,transparent) 0 1px,transparent 1px 3px),var(--bg)",
+"prompt": "Background: faint paper texture; never reduce text contrast.",
+"demo": "bg-demo"
+},
+{
+"id": "aurora",
+"name": "Aurora",
+"desc": "Slow drifting light.",
+"fit": [
+"ai",
+"landing",
+"waitlist"
+],
+"bg": "radial-gradient(40% 50% at 25% 30%,color-mix(in srgb,var(--acc) 45%,transparent),transparent),radial-gradient(40% 50% at 75% 60%,color-mix(in srgb,var(--acc) 30%,#7FD1FF),transparent),var(--bg)",
+"prompt": "Hero background: aurora of 2–3 blurred accent lights drifting slowly (paused for reduced motion).",
+"demo": "bg-demo",
+"heavy": true
+},
+{
+"id": "beams",
+"name": "Light beams",
+"desc": "Diagonal light shafts.",
+"fit": [
+"ai",
+"devtool",
+"landing"
+],
+"bg": "repeating-linear-gradient(115deg,transparent 0 40px,color-mix(in srgb,var(--acc) 14%,transparent) 40px 46px),var(--bg)",
+"prompt": "Hero background: faint diagonal light beams that slowly travel.",
+"demo": "bg-demo",
+"heavy": true
+},
+{
+"id": "spotlight",
+"name": "Spotlight cone",
+"desc": "A cone of light from above.",
+"fit": [
+"landing",
+"event",
+"ai"
+],
+"bg": "conic-gradient(from 160deg at 50% -10%,transparent 0deg,color-mix(in srgb,var(--acc) 35%,transparent) 20deg,transparent 40deg),var(--bg)",
+"prompt": "Hero background: a soft cone of light from the top, like a stage spotlight.",
+"demo": "bg-demo",
+"heavy": true
+},
+{
+"id": "stars",
+"name": "Starfield",
+"desc": "Tiny scattered stars.",
+"fit": [
+"ai",
+"playful",
+"music"
+],
+"bg": "radial-gradient(1px 1px at 20% 30%,var(--ink),transparent),radial-gradient(1px 1px at 70% 60%,var(--ink),transparent),radial-gradient(1.5px 1.5px at 40% 80%,var(--ink),transparent),radial-gradient(1px 1px at 85% 20%,var(--ink),transparent),var(--bg)",
+"prompt": "Background: sparse twinkling starfield on dark moods only.",
+"demo": "bg-demo"
+},
+{
+"id": "meteors",
+"name": "Meteors",
+"desc": "Streaks fall across the sky.",
+"fit": [
+"ai",
+"landing"
+],
+"bg": "linear-gradient(215deg,transparent 45%,color-mix(in srgb,var(--acc) 60%,transparent) 50%,transparent 52%) 0 0/120px 120px,var(--bg)",
+"prompt": "Hero background: occasional meteor streaks falling diagonally (Magic UI Meteors).",
+"demo": "bg-demo",
+"heavy": true
+},
+{
+"id": "ripple",
+"name": "Ripple rings",
+"desc": "Concentric rings pulse.",
+"fit": [
+"ai",
+"saas",
+"iot"
+],
+"bg": "repeating-radial-gradient(circle at 50% 50%,transparent 0 22px,var(--line) 22px 23px),var(--bg)",
+"prompt": "Hero background: concentric rings that pulse outward from the centre (Magic UI Ripple).",
+"demo": "bg-demo",
+"heavy": true
+},
+{
+"id": "topo",
+"name": "Topographic lines",
+"desc": "Contour map lines.",
+"fit": [
+"travel",
+"nonprofit",
+"iot"
+],
+"bg": "repeating-radial-gradient(ellipse at 30% 40%,transparent 0 14px,var(--line) 14px 15px),var(--bg)",
+"prompt": "Background: faint topographic contour lines.",
+"demo": "bg-demo"
+},
+{
+"id": "blueprint",
+"name": "Blueprint",
+"desc": "Blue grid with white lines.",
+"fit": [
+"devtool",
+"agency"
+],
+"bg": "linear-gradient(color-mix(in srgb,#fff 18%,transparent) 1px,transparent 1px) 0 0/20px 20px,linear-gradient(90deg,color-mix(in srgb,#fff 18%,transparent) 1px,transparent 1px) 0 0/20px 20px,color-mix(in srgb,var(--acc) 70%,#0A1A3A)",
+"prompt": "Section background: blueprint grid in the accent with white lines.",
+"demo": "bg-demo"
+},
+{
+"id": "halftone",
+"name": "Halftone dots",
+"desc": "Comic-style dot fade.",
+"fit": [
+"playful",
+"event",
+"music"
+],
+"bg": "radial-gradient(circle,color-mix(in srgb,var(--acc) 55%,transparent) 2px,transparent 2.5px) 0 0/10px 10px,var(--bg)",
+"prompt": "Background: halftone dot pattern in the accent, fading across the section.",
+"demo": "bg-demo"
+},
+{
+"id": "squiggle",
+"name": "Memphis squiggles",
+"desc": "Playful scattered shapes.",
+"fit": [
+"playful",
+"event",
+"gaming"
+],
+"bg": "radial-gradient(circle at 15% 25%,var(--acc) 0 6px,transparent 7px),radial-gradient(circle at 80% 70%,color-mix(in srgb,var(--acc) 50%,#FFC53D) 0 8px,transparent 9px),repeating-linear-gradient(45deg,transparent 0 12px,var(--line) 12px 14px),var(--bg)",
+"prompt": "Background: scattered Memphis-style shapes and squiggles, low density.",
+"demo": "bg-demo"
+},
+{
+"id": "split-diag",
+"name": "Diagonal split",
+"desc": "Two colours cut on an angle.",
+"fit": [
+"landing",
+"agency",
+"event"
+],
+"bg": "linear-gradient(160deg,var(--surf) 0 55%,color-mix(in srgb,var(--acc) 20%,var(--bg)) 55%)",
+"prompt": "Hero background: two tones split on a diagonal.",
+"demo": "bg-demo"
+},
+{
+"id": "photo",
+"name": "Full-bleed photo",
+"desc": "A real photograph behind content.",
+"fit": [
+"restaurant",
+"travel",
+"nonprofit",
+"realestate"
+],
+"bg": "linear-gradient(180deg,rgba(0,0,0,.15),rgba(0,0,0,.55)),repeating-linear-gradient(135deg,color-mix(in srgb,var(--acc) 30%,var(--surf)) 0 8px,var(--surf) 8px 16px)",
+"prompt": "Hero background: a real full-bleed photograph with a dark gradient overlay for text contrast.",
+"demo": "bg-demo"
+},
+{
+"id": "video",
+"name": "Background video",
+"desc": "Muted looping video.",
+"fit": [
+"agency",
+"event",
+"music"
+],
+"bg": "linear-gradient(180deg,rgba(0,0,0,.2),rgba(0,0,0,.6)),repeating-linear-gradient(90deg,color-mix(in srgb,var(--acc) 25%,var(--surf)) 0 20px,var(--surf) 20px 40px)",
+"prompt": "Hero background: muted autoplay looping video with overlay and a poster image.",
+"demo": "bg-demo",
+"heavy": true
+},
+{
+"id": "duotone",
+"name": "Duotone image",
+"desc": "Photo tinted in two colours.",
+"fit": [
+"agency",
+"music",
+"event"
+],
+"bg": "linear-gradient(135deg,color-mix(in srgb,var(--acc) 80%,transparent),color-mix(in srgb,var(--ink) 80%,transparent)),repeating-linear-gradient(45deg,#999 0 6px,#ccc 6px 12px)",
+"prompt": "Hero background: photo with a duotone treatment in the accent and ink.",
+"demo": "bg-demo"
+},
+{
+"id": "blur-shapes",
+"name": "Blurred shapes",
+"desc": "Big out-of-focus circles.",
+"fit": [
+"ai",
+"health",
+"landing"
+],
+"bg": "radial-gradient(circle at 20% 70%,color-mix(in srgb,var(--acc) 35%,transparent) 0 18%,transparent 30%),radial-gradient(circle at 80% 25%,color-mix(in srgb,var(--acc) 22%,transparent) 0 14%,transparent 26%),var(--bg)",
+"prompt": "Background: two or three large out-of-focus circles in accent tints.",
+"demo": "bg-demo"
+},
+{
+"id": "pixels",
+"name": "Pixel grid",
+"desc": "Chunky pixel squares.",
+"fit": [
+"playful",
+"gaming"
+],
+"bg": "conic-gradient(color-mix(in srgb,var(--acc) 25%,var(--bg)) 25%,var(--bg) 0 50%,color-mix(in srgb,var(--acc) 12%,var(--bg)) 0 75%,var(--bg) 0) 0 0/16px 16px",
+"prompt": "Background: chunky pixel squares in accent tints, retro game feel.",
+"demo": "bg-demo"
+},
+{
+"id": "scanlines",
+"name": "CRT scanlines",
+"desc": "Horizontal scanlines.",
+"fit": [
+"gaming",
+"playful",
+"devtool"
+],
+"bg": "repeating-linear-gradient(0deg,color-mix(in srgb,var(--ink) 8%,transparent) 0 1px,transparent 1px 3px),var(--bg)",
+"prompt": "Background: subtle CRT scanlines over dark moods.",
+"demo": "bg-demo"
+},
+{
+"id": "glass-blobs",
+"name": "Glass over blobs",
+"desc": "Frosted layer over colour.",
+"fit": [
+"ai",
+"landing",
+"waitlist"
+],
+"bg": "radial-gradient(circle at 30% 40%,var(--acc) 0 15%,transparent 30%),radial-gradient(circle at 70% 60%,#FF9EC7 0 12%,transparent 28%),var(--bg)",
+"prompt": "Background: colour blobs under a frosted glass layer so panels read as glass.",
+"demo": "bg-demo"
+},
+{
+"id": "border-frame",
+"name": "Inset frame",
+"desc": "Page framed by a border.",
+"fit": [
+"portfolio",
+"editorial",
+"agency"
+],
+"bg": "linear-gradient(var(--bg),var(--bg)) 8px 8px/calc(100% - 16px) calc(100% - 16px) no-repeat,var(--ink)",
+"prompt": "Page is framed by a thin inset border with margin around the content.",
+"demo": "bg-demo"
+},
+{
+"id": "vignette",
+"name": "Vignette",
+"desc": "Darkened edges.",
+"fit": [
+"music",
+"agency",
+"gaming"
+],
+"bg": "radial-gradient(ellipse at center,transparent 50%,color-mix(in srgb,#000 35%,transparent)),var(--bg)",
+"prompt": "Background: soft dark vignette at the edges.",
+"demo": "bg-demo"
+},
+{
+"id": "sunburst",
+"name": "Sunburst rays",
+"desc": "Rays from a corner.",
+"fit": [
+"event",
+"playful",
+"edu"
+],
+"bg": "repeating-conic-gradient(from 0deg at 0% 100%,color-mix(in srgb,var(--acc) 18%,var(--bg)) 0 6deg,var(--bg) 6deg 12deg)",
+"prompt": "Background: retro sunburst rays from a corner.",
+"demo": "bg-demo"
+},
+{
+"id": "gradient-text-bg",
+"name": "Gradient band",
+"desc": "Thin accent band at top.",
+"fit": [
+"saas",
+"docs"
+],
+"bg": "linear-gradient(90deg,var(--acc),color-mix(in srgb,var(--acc) 40%,var(--bg))) 0 0/100% 6px no-repeat,var(--bg)",
+"prompt": "A thin accent gradient band across the very top of the page.",
+"demo": "bg-demo"
+},
+{
+"id": "polka",
+"name": "Polka dots",
+"desc": "Bigger soft dots.",
+"fit": [
+"playful",
+"shop",
+"edu"
+],
+"bg": "radial-gradient(color-mix(in srgb,var(--acc) 22%,transparent) 4px,transparent 4.5px) 0 0/22px 22px,var(--bg)",
+"prompt": "Background: soft polka dots in a light accent tint.",
+"demo": "bg-demo"
+},
+{
+"id": "stripes-h",
+"name": "Horizontal pinstripes",
+"desc": "Fine horizontal lines.",
+"fit": [
+"editorial",
+"fintech"
+],
+"bg": "repeating-linear-gradient(0deg,var(--line) 0 1px,transparent 1px 8px),var(--bg)",
+"prompt": "Background: very fine horizontal pinstripes.",
+"demo": "bg-demo"
+},
+{
+"id": "two-tone",
+"name": "Two-tone split",
+"desc": "Top half accent tint.",
+"fit": [
+"landing",
+"event"
+],
+"bg": "linear-gradient(180deg,color-mix(in srgb,var(--acc) 22%,var(--bg)) 0 45%,var(--bg) 45%)",
+"prompt": "Hero background: top half in an accent tint, content overlapping the seam.",
+"demo": "bg-demo"
+},
+{
+"id": "none-dark-invert",
+"name": "Inverted section",
+"desc": "Dark band in a light page.",
+"fit": [
+"landing",
+"saas"
+],
+"bg": "linear-gradient(var(--ink),var(--ink))",
+"prompt": "One section inverts to the ink colour as background for contrast.",
+"demo": "bg-demo"
+}
+];
+var BUTTONS = [
+{
+"id": "solid",
+"name": "Solid",
+"desc": "Filled with the accent. The default primary.",
+"demo": "b-solid",
+"prompt": "Primary buttons: solid accent fill, accent-foreground text, token radius, slight brighten on hover, scale 0.97 on press.",
+"label": "Get started"
+},
+{
+"id": "tonal",
+"name": "Tonal / soft",
+"desc": "Tinted background, accent text.",
+"demo": "b-tonal",
+"prompt": "Secondary buttons: tonal style (accent at ~15% opacity background, accent text), no border.",
+"label": "Save draft"
+},
+{
+"id": "outline",
+"name": "Outline",
+"desc": "Border only. Good for secondary actions.",
+"demo": "b-outline",
+"prompt": "Secondary buttons: 1.5px accent outline, transparent fill, faint tint on hover.",
+"label": "Learn more"
+},
+{
+"id": "ghost",
+"name": "Ghost / text",
+"desc": "No box until hover. Toolbars, tertiary.",
+"demo": "b-ghost",
+"prompt": "Tertiary buttons: ghost style, accent text, tinted background only on hover.",
+"label": "Cancel"
+},
+{
+"id": "pill",
+"name": "Pill",
+"desc": "Fully rounded capsule.",
+"demo": "b-pill",
+"prompt": "Buttons are pill-shaped (fully rounded), solid accent fill.",
+"label": "Join waitlist",
+"fit": [
+"landing",
+"playful",
+"social"
+]
+},
+{
+"id": "glass",
+"name": "Glass",
+"desc": "Frosted translucent button over colour.",
+"demo": "b-glass",
+"prompt": "Buttons over imagery use a glass style: white at ~28% opacity, 1px white/60% border, backdrop-filter blur(10px), pill shape.",
+"label": "Watch film",
+"fit": [
+"landing",
+"portfolio",
+"ai"
+]
+},
+{
+"id": "brutal",
+"name": "Neo-brutal",
+"desc": "Thick border and a hard offset shadow.",
+"demo": "b-brutal",
+"prompt": "Buttons are neo-brutalist: 2px ink border, 4px 4px 0 ink shadow, no radius; on press translate(3px,3px) and shrink the shadow.",
+"label": "Play now",
+"fit": [
+"playful",
+"landing"
+]
+},
+{
+"id": "lift",
+"name": "Hover lift",
+"desc": "Rises with a coloured shadow on hover.",
+"demo": "b-lift",
+"prompt": "Primary buttons lift on hover: translateY(-2px) and an accent-tinted shadow, 200ms ease-out.",
+"label": "Start free trial"
+},
+{
+"id": "shimmer",
+"name": "Shimmer / shine",
+"desc": "A light sweep runs across it.",
+"demo": "b-shimmer",
+"prompt": "Hero CTA has a shine sweep: a diagonal light gradient animates across it every ~2.5s (respect prefers-reduced-motion).",
+"label": "Claim offer",
+"lib": "Magic UI",
+"fit": [
+"landing",
+"shop"
+]
+},
+{
+"id": "magnetic",
+"name": "Magnetic",
+"desc": "Leans toward the cursor.",
+"demo": "b-magnetic",
+"prompt": "Hero CTA is magnetic: it drifts up to 8px toward the cursor when it is near, springs back on leave (Motion).",
+"label": "Say hello",
+"lib": "Motion",
+"fit": [
+"portfolio",
+"landing"
+]
+},
+{
+"id": "gradient",
+"name": "Gradient fill",
+"desc": "Accent fading to a deeper shade.",
+"demo": "b2-gradient",
+"prompt": "Primary buttons: gradient from the accent to a 20% darker accent, top-left to bottom-right; no purple-to-blue.",
+"label": "Continue"
+},
+{
+"id": "split",
+"name": "Split button",
+"desc": "Main action plus a dropdown.",
+"demo": "b2-split",
+"prompt": "Split button: primary action on the left, a chevron segment on the right that opens more options.",
+"label": "Deploy",
+"label2": "▾"
+},
+{
+"id": "icon",
+"name": "Icon button",
+"desc": "Square, icon only.",
+"demo": "b2-icon",
+"prompt": "Icon-only buttons: 40px square, Lucide icon, tooltip and aria-label required."
+},
+{
+"id": "fab",
+"name": "Floating action button",
+"desc": "Round button floating bottom-right.",
+"demo": "b2-fab",
+"prompt": "One floating action button (56px circle, accent, plus icon) bottom-right on mobile for the main create action."
+},
+{
+"id": "loading",
+"name": "Loading state",
+"desc": "Spinner replaces the label.",
+"demo": "b2-loading",
+"prompt": "Buttons show an inline spinner and keep their width while an action runs; disabled until done.",
+"label": "Saving"
+},
+{
+"id": "arrow",
+"name": "Text link with arrow",
+"desc": "Arrow nudges on hover.",
+"demo": "b2-arrow",
+"prompt": "Tertiary links use text plus an arrow that nudges 3px right on hover.",
+"label": "Learn more →"
+},
+{
+"id": "neon",
+"name": "Neon glow",
+"desc": "Glows like a sign.",
+"demo": "b2-neon",
+"prompt": "Hero CTA has a neon glow: accent border and a soft outer glow that intensifies on hover. Dark moods only.",
+"label": "Enter"
+},
+{
+"id": "pressable",
+"name": "3D pressable",
+"desc": "Thick bottom edge, presses down.",
+"demo": "b2-pressable",
+"prompt": "Buttons have a 4px darker bottom edge and press down 3px on click, like a physical key.",
+"label": "Press me"
+},
+{
+"id": "borderanim",
+"name": "Animated border",
+"desc": "A light runs around the edge.",
+"demo": "b2-borderanim",
+"prompt": "Featured CTA has an animated conic border that rotates slowly around the button."
+},
+{
+"id": "ripple",
+"name": "Ripple",
+"desc": "Material-style ripple on click.",
+"demo": "b2-ripple",
+"prompt": "Buttons show a ripple from the click point (Material style), 400ms.",
+"label": "Tap"
+},
+{
+"id": "social",
+"name": "Social sign-in",
+"desc": "Provider logo and label.",
+"demo": "b2-social",
+"prompt": "Social sign-in buttons: full width, provider mark on the left, \"Continue with …\" label, neutral surface style.",
+"label": "Continue with email"
+},
+{
+"id": "danger",
+"name": "Destructive",
+"desc": "Red, for irreversible actions.",
+"demo": "b2-danger",
+"prompt": "Destructive actions use a red button, a confirm step, and never sit next to the primary action.",
+"label": "Delete project"
+},
+{
+"id": "expand",
+"name": "Expand on hover",
+"desc": "Icon grows into a label.",
+"demo": "b2-expand",
+"prompt": "Compact icon buttons expand to show their label on hover or focus.",
+"label": "+ New"
+},
+{
+"id": "hold",
+"name": "Hold to confirm",
+"desc": "Fills while held down.",
+"demo": "b2-hold",
+"prompt": "Dangerous actions require press-and-hold: a fill sweeps across over 1.2s before it fires.",
+"label": "Hold to delete"
+},
+{
+"id": "pixel",
+"name": "Pixel button",
+"desc": "8-bit stepped corners.",
+"demo": "b2-pixel",
+"prompt": "Buttons have 8-bit stepped corners (box-shadow pixels), pixel font, no radius.",
+"label": "START"
+},
+{
+"id": "clay",
+"name": "Clay / soft 3D",
+"desc": "Pillowy, inner highlight.",
+"demo": "b2-clay",
+"prompt": "Buttons look like soft clay: inner top highlight, soft outer shadow, large radius.",
+"label": "Get going"
+},
+{
+"id": "underline",
+"name": "Sliding underline",
+"desc": "Underline grows on hover.",
+"demo": "b2-underline",
+"prompt": "Text buttons and nav links show an underline that grows from the left on hover.",
+"label": "Read the docs"
+},
+{
+"id": "badge",
+"name": "Button with count",
+"desc": "A badge shows a number.",
+"demo": "b2-badge",
+"prompt": "Buttons can carry a small count badge (unread, cart items) on the top-right corner.",
+"label": "Cart",
+"label2": "3"
+},
+{
+"id": "segmented",
+"name": "Button group",
+"desc": "Joined buttons, one active.",
+"demo": "b2-segmented",
+"prompt": "Related actions sit in a joined button group; the active one is filled.",
+"label": "Day",
+"label2": "Week",
+"label3": "Month"
+},
+{
+"id": "shine-text",
+"name": "Shiny text button",
+"desc": "Label shimmers.",
+"demo": "b2-shine-text",
+"prompt": "The hero CTA label has a slow shimmer passing through the text.",
+"label": "Introducing v2 →"
+}
+];
+var CARDS = [
+{
+"id": "border",
+"name": "Bordered flat",
+"desc": "1px border, no shadow. Calm and dense.",
+"demo": "c-border",
+"prompt": "Cards: surface background, 1px border token, no shadow, token radius.",
+"fit": [
+"saas",
+"dash",
+"docs",
+"directory"
+]
+},
+{
+"id": "shadow",
+"name": "Soft elevated",
+"desc": "Floats on a soft shadow.",
+"demo": "c-shadow",
+"prompt": "Cards: no border, soft elevation shadow (0 8px 24px at ~12%), lift 3px on hover."
+},
+{
+"id": "glass",
+"name": "Glass panel",
+"desc": "Frosted, see-through.",
+"demo": "c-glass",
+"prompt": "Cards are glass panels: surface at ~55% opacity, backdrop-filter blur(12px), 1px white/65% border. Only over a colourful background.",
+"fit": [
+"landing",
+"ai",
+"portfolio"
+]
+},
+{
+"id": "bento",
+"name": "Bento tiles",
+"desc": "Mixed sizes in one grid.",
+"demo": "c-bento",
+"prompt": "Cards are bento tiles: one CSS grid with mixed spans, larger radius than buttons, each tile one idea with a real visual.",
+"fit": [
+"landing",
+"portfolio",
+"dash"
+]
+},
+{
+"id": "spotlight",
+"name": "Spotlight",
+"desc": "A glow follows the cursor.",
+"demo": "c-spotlight",
+"prompt": "Cards have a spotlight hover: a radial accent glow follows the pointer inside the card on dark backgrounds.",
+"lib": "Aceternity",
+"fit": [
+"landing",
+"ai"
+]
+},
+{
+"id": "tilt",
+"name": "3D tilt",
+"desc": "Tilts toward the pointer.",
+"demo": "c-tilt",
+"prompt": "Feature cards tilt in 3D toward the pointer (max 8deg), with a subtle glare.",
+"lib": "Motion",
+"fit": [
+"portfolio",
+"playful",
+"shop"
+]
+},
+{
+"id": "brutal",
+"name": "Brutal block",
+"desc": "Thick border + offset shadow.",
+"demo": "c-brutal",
+"prompt": "Cards: 2px ink border, 5px 5px 0 ink shadow, no radius; hover nudges up-left.",
+"fit": [
+"playful",
+"directory"
+]
+},
+{
+"id": "media",
+"name": "Media card",
+"desc": "Image on top, text below.",
+"demo": "c-media",
+"prompt": "Cards: image on top (16:9, object-cover), title and meta below, whole card is the link.",
+"fit": [
+"shop",
+"editorial",
+"directory",
+"portfolio"
+]
+},
+{
+"id": "beam",
+"name": "Border beam",
+"desc": "A light travels round the edge.",
+"demo": "c-beam",
+"prompt": "The one featured card has an animated border beam: a short accent light that travels around its edge.",
+"lib": "Magic UI",
+"fit": [
+"landing",
+"saas"
+]
+},
+{
+"id": "stat",
+"name": "Stat card",
+"desc": "Number, label, trend.",
+"demo": "c2-stat",
+"prompt": "Stat cards: label, big number, change with arrow and colour + sign, small sparkline.",
+"label": "$24.5k"
+},
+{
+"id": "pricing",
+"name": "Pricing card",
+"desc": "Plan, price, features, CTA.",
+"demo": "c2-pricing",
+"prompt": "Pricing cards: plan name, big price per month, 4–6 feature ticks, full-width CTA; recommended card raised."
+},
+{
+"id": "profile",
+"name": "Profile card",
+"desc": "Avatar, name, action.",
+"demo": "c2-profile",
+"prompt": "Profile cards: avatar, name, role, one primary action (Follow / Message)."
+},
+{
+"id": "testimonial",
+"name": "Testimonial card",
+"desc": "Quote, avatar, name.",
+"demo": "c2-testimonial",
+"prompt": "Testimonial cards: real quote, avatar, name and role; no stars unless real ratings."
+},
+{
+"id": "product",
+"name": "Product card",
+"desc": "Image, name, price, add.",
+"demo": "c2-product",
+"prompt": "Product cards: square image, name, price, quick-add on hover; sale price shows original struck through."
+},
+{
+"id": "glare",
+"name": "Glare card",
+"desc": "Light streak follows tilt.",
+"demo": "c2-glare",
+"prompt": "Featured cards have a glare highlight that moves with the pointer as they tilt.",
+"lib": "Aceternity"
+},
+{
+"id": "flip",
+"name": "Flip card",
+"desc": "Front and back.",
+"demo": "c2-flip",
+"prompt": "Cards flip in 3D on click to reveal details on the back (and are keyboard accessible)."
+},
+{
+"id": "expand",
+"name": "Expandable card",
+"desc": "Grows to show more.",
+"demo": "c2-expand",
+"prompt": "Cards expand in place (shared layout animation) to show details instead of navigating away.",
+"lib": "Motion"
+},
+{
+"id": "stack",
+"name": "Stacked deck",
+"desc": "Cards fanned behind.",
+"demo": "c2-stack",
+"prompt": "Show a stack of cards fanned behind the top one to signal \"more\"."
+},
+{
+"id": "neu",
+"name": "Neumorphic",
+"desc": "Soft extruded surface.",
+"demo": "c2-neu",
+"prompt": "Cards are neumorphic: same colour as the background with a light top-left and dark bottom-right shadow. Keep text contrast high."
+},
+{
+"id": "accentedge",
+"name": "Accent on hover",
+"desc": "Border turns accent on hover.",
+"demo": "c2-accentedge",
+"prompt": "Cards get an accent border and a small lift on hover; nothing else changes."
+},
+{
+"id": "gradborder",
+"name": "Gradient border",
+"desc": "Thin accent gradient edge.",
+"demo": "c2-gradborder",
+"prompt": "The featured card has a 1px gradient border from accent to transparent."
+},
+{
+"id": "notif",
+"name": "Notification card",
+"desc": "Icon, title, time.",
+"demo": "c2-notif",
+"prompt": "Notification cards: icon, short title, one line, relative time, unread dot."
+},
+{
+"id": "horizontal",
+"name": "Horizontal article",
+"desc": "Thumbnail left, text right.",
+"demo": "c2-horizontal",
+"prompt": "List cards: thumbnail on the left, title, excerpt and meta on the right."
+},
+{
+"id": "focus",
+"name": "Focus cards",
+"desc": "Others blur on hover.",
+"demo": "c2-focus",
+"prompt": "In a card row, hovering one blurs and dims the others to focus attention.",
+"lib": "Aceternity"
+},
+{
+"id": "drag",
+"name": "Draggable card",
+"desc": "Lifts while dragged.",
+"demo": "c2-drag",
+"prompt": "Draggable cards lift with a stronger shadow and slight rotation while dragging (dnd-kit).",
+"lib": "dnd-kit"
+},
+{
+"id": "videocard",
+"name": "Video card",
+"desc": "Thumbnail with play.",
+"demo": "c2-videocard",
+"prompt": "Video cards: 16:9 thumbnail, centred play button, duration badge."
+},
+{
+"id": "ticket",
+"name": "Ticket",
+"desc": "Perforated stub.",
+"demo": "c2-ticket",
+"prompt": "Event tickets: card with a perforated divider and stub, QR on the stub."
+},
+{
+"id": "wobble",
+"name": "Wobble card",
+"desc": "Springy reaction on hover.",
+"demo": "c2-wobble",
+"prompt": "Playful cards wobble slightly on hover with a spring.",
+"lib": "Motion"
+}
+];
+var NAVS = [
+{
+"id": "top",
+"name": "Top bar",
+"desc": "Logo left, links, action right. Sticky.",
+"demo": "n-top",
+"prompt": "Navigation: sticky top bar, logo left, 3–5 links centre, primary action right; collapses to a menu button on mobile.",
+"fit": [
+"landing",
+"shop",
+"editorial",
+"portfolio"
+]
+},
+{
+"id": "float",
+"name": "Floating pill nav",
+"desc": "A capsule floating over the page.",
+"demo": "n-float",
+"prompt": "Navigation: a floating pill-shaped bar centred near the top with blur behind it; it shrinks slightly on scroll.",
+"fit": [
+"landing",
+"portfolio",
+"ai"
+]
+},
+{
+"id": "sidebar",
+"name": "Collapsible sidebar",
+"desc": "Full labels that fold to icons.",
+"demo": "n-sidebar",
+"prompt": "Navigation: left sidebar (240px) with grouped links that collapses to a 64px icon rail; state remembered.",
+"fit": [
+"saas",
+"dash",
+"docs"
+]
+},
+{
+"id": "rail",
+"name": "Icon rail",
+"desc": "Narrow strip of icons.",
+"demo": "n-rail",
+"prompt": "Navigation: 56px icon rail with tooltips and an active indicator; Lucide icons.",
+"fit": [
+"saas",
+"ai"
+]
+},
+{
+"id": "tabbar",
+"name": "Bottom tab bar",
+"desc": "Mobile-first, 4–5 tabs.",
+"demo": "n-tabbar",
+"prompt": "Mobile navigation: bottom tab bar with 4–5 Lucide icons and labels, active tab in accent, safe-area padding.",
+"fit": [
+"social",
+"playful",
+"booking"
+]
+},
+{
+"id": "tabs",
+"name": "Sliding tabs",
+"desc": "Underline glides to the active tab.",
+"demo": "n-tabs",
+"prompt": "Section tabs with an underline indicator that slides to the active tab (Motion layoutId).",
+"label": "Overview Activity Settings",
+"fit": [
+"saas",
+"dash"
+]
+},
+{
+"id": "crumb",
+"name": "Breadcrumbs",
+"desc": "Where am I, how do I go up.",
+"demo": "n-crumb",
+"prompt": "Breadcrumbs above the page title for any page deeper than 2 levels.",
+"label": "Home / Projects / Alpha",
+"fit": [
+"docs",
+"saas",
+"shop"
+]
+},
+{
+"id": "mega",
+"name": "Mega menu",
+"desc": "Big dropdown panel of links.",
+"demo": "n-mega",
+"prompt": "Top nav with a mega menu: hovering a section opens a wide panel of grouped links with short descriptions.",
+"fit": [
+"shop",
+"landing"
+]
+},
+{
+"id": "dock",
+"name": "Dock",
+"desc": "macOS-style icons that magnify.",
+"demo": "n-dock",
+"prompt": "A bottom dock of app icons that magnify on hover (Motion springs).",
+"lib": "Magic UI",
+"fit": [
+"portfolio",
+"playful"
+]
+},
+{
+"id": "overlay",
+"name": "Full-screen menu",
+"desc": "Hamburger opens a full overlay.",
+"demo": "n2-overlay",
+"prompt": "Mobile menu: hamburger opens a full-screen overlay with large links, closes on Esc."
+},
+{
+"id": "vtabs",
+"name": "Vertical tabs",
+"desc": "Tabs down the side.",
+"demo": "n2-vtabs",
+"prompt": "Settings-style vertical tabs on the left; the active tab has an accent indicator bar."
+},
+{
+"id": "pilltabs",
+"name": "Pill tabs",
+"desc": "Tabs as rounded chips.",
+"demo": "n2-pilltabs",
+"prompt": "Tabs are pills; the active pill is filled and slides between options.",
+"label": "All  Active  Done"
+},
+{
+"id": "stepnav",
+"name": "Stepper header",
+"desc": "Numbered steps across the top.",
+"demo": "n2-stepnav",
+"prompt": "Multi-step flows show a stepper: numbered circles joined by a line, done steps ticked."
+},
+{
+"id": "pagination",
+"name": "Pagination",
+"desc": "Numbered pages.",
+"demo": "n2-pagination",
+"prompt": "Long lists use numbered pagination with Previous/Next; current page filled.",
+"label": "‹ 1 2 3 … 9 ›"
+},
+{
+"id": "loadmore",
+"name": "Load more",
+"desc": "Button at the end of a list.",
+"demo": "n2-loadmore",
+"prompt": "Long feeds end with a \"Load more\" button (not infinite scroll) so the footer stays reachable.",
+"label": "Load more"
+},
+{
+"id": "shrink",
+"name": "Shrinking sticky header",
+"desc": "Gets smaller on scroll.",
+"demo": "n2-shrink",
+"prompt": "Header is sticky and shrinks from 72px to 56px on scroll, gaining a blur and border."
+},
+{
+"id": "transparent",
+"name": "Transparent over hero",
+"desc": "Clear nav on top of the hero image.",
+"demo": "n2-transparent",
+"prompt": "Navigation is transparent over the hero image, becoming solid after scrolling past it."
+},
+{
+"id": "island",
+"name": "Floating command bar",
+"desc": "Bottom pill with actions.",
+"demo": "n2-island",
+"prompt": "A floating pill bar at the bottom centre holds the main actions (dynamic-island style)."
+},
+{
+"id": "context",
+"name": "Context menu",
+"desc": "Right-click menu.",
+"demo": "n2-context",
+"prompt": "Right-click (and long-press) opens a context menu with common actions and shortcuts."
+},
+{
+"id": "drawermenu",
+"name": "Side drawer menu",
+"desc": "Slides in from the left.",
+"demo": "n2-drawermenu",
+"prompt": "Mobile navigation slides in from the left as a drawer with a dimmed backdrop."
+},
+{
+"id": "accordionnav",
+"name": "Accordion nav",
+"desc": "Groups expand.",
+"demo": "n2-accordionnav",
+"prompt": "Sidebar groups expand and collapse like an accordion; current group open."
+},
+{
+"id": "scrollspy",
+"name": "Scrollspy TOC",
+"desc": "Highlights the current section.",
+"demo": "n2-scrollspy",
+"prompt": "An on-this-page table of contents highlights the section in view as you scroll."
+},
+{
+"id": "topswitch",
+"name": "Top segmented switch",
+"desc": "Switch views at the top.",
+"demo": "n2-topswitch",
+"prompt": "A segmented control at the top switches between views (List / Board / Calendar).",
+"label": "List Board Cal"
+},
+{
+"id": "tabfab",
+"name": "Tab bar with centre action",
+"desc": "Raised middle button.",
+"demo": "n2-tabfab",
+"prompt": "Mobile tab bar with a raised centre button for the main create action."
+},
+{
+"id": "mobileheader",
+"name": "Mobile header",
+"desc": "Back, title, action.",
+"demo": "n2-mobileheader",
+"prompt": "Mobile screens use a header with back arrow, centred title and one action.",
+"label": "‹    Settings    ⋯"
+},
+{
+"id": "footernav",
+"name": "Footer navigation",
+"desc": "Links grouped at the bottom.",
+"demo": "n2-footernav",
+"prompt": "Secondary navigation lives in the footer in grouped columns."
+}
+];
+var INPUTS = [
+{
+"id": "outline",
+"name": "Outlined field",
+"desc": "Bordered box, accent ring on focus.",
+"demo": "i-outline",
+"prompt": "Text inputs: outlined, 1.5px border, accent focus ring (3px at 20%), label above.",
+"label": "you@email.com"
+},
+{
+"id": "filled",
+"name": "Filled field",
+"desc": "Tinted fill, underline accent.",
+"demo": "i-filled",
+"prompt": "Text inputs: filled style, tinted background, 2px bottom border that turns accent on focus.",
+"label": "Full name"
+},
+{
+"id": "underline",
+"name": "Underline only",
+"desc": "Minimal, editorial.",
+"demo": "i-underline",
+"prompt": "Text inputs: underline only; the accent line grows from left on focus.",
+"label": "Your answer",
+"fit": [
+"editorial",
+"portfolio"
+]
+},
+{
+"id": "float",
+"name": "Floating label",
+"desc": "Label shrinks into the border.",
+"demo": "i-float",
+"prompt": "Text inputs use floating labels that move into the border on focus or when filled.",
+"label": "Card number",
+"label2": "Email",
+"fit": [
+"booking",
+"shop"
+]
+},
+{
+"id": "search",
+"name": "Search with ⌘K hint",
+"desc": "Search field showing the shortcut.",
+"demo": "i-search",
+"prompt": "Search input with a magnifier icon and a ⌘K hint badge; ⌘K focuses it from anywhere.",
+"label": "Search…",
+"label2": "⌘K",
+"fit": [
+"docs",
+"saas",
+"directory"
+]
+},
+{
+"id": "seg",
+"name": "Segmented control",
+"desc": "Pick one of 2–4 options.",
+"demo": "i-seg",
+"prompt": "Use a segmented control (sliding thumb) for 2–4 mutually exclusive options instead of a dropdown.",
+"label": "Day Week Month",
+"fit": [
+"dash",
+"booking"
+]
+},
+{
+"id": "toggle",
+"name": "Switch",
+"desc": "On/off with a sliding knob.",
+"demo": "i-toggle",
+"prompt": "Boolean settings use switches with a spring knob, never checkboxes for instant settings."
+},
+{
+"id": "otp",
+"name": "OTP code input",
+"desc": "Separate boxes for a code.",
+"demo": "i-otp",
+"prompt": "One-time codes use a segmented OTP input (input-otp) with auto-advance and paste support.",
+"label": "4",
+"label2": "2",
+"label3": "",
+"lib": "input-otp",
+"fit": [
+"booking",
+"saas"
+]
+},
+{
+"id": "textarea",
+"name": "Auto-growing textarea",
+"desc": "Grows with the text.",
+"demo": "i2-textarea",
+"prompt": "Text areas grow with their content up to a max height, then scroll.",
+"label": "Write a note…"
+},
+{
+"id": "select",
+"name": "Select dropdown",
+"desc": "Pick one from a list.",
+"demo": "i2-select",
+"prompt": "Selects use a custom styled trigger with a chevron and a keyboard-navigable list (Radix Select).",
+"label": "Choose…",
+"lib": "Radix"
+},
+{
+"id": "combobox",
+"name": "Combobox",
+"desc": "Type to filter options.",
+"demo": "i2-combobox",
+"prompt": "Comboboxes filter options as you type and show matches below (cmdk / Radix).",
+"label": "Toro"
+},
+{
+"id": "chips",
+"name": "Multi-select chips",
+"desc": "Selected values as chips.",
+"demo": "i2-chips",
+"prompt": "Multi-selects show chosen values as removable chips inside the field.",
+"label": "Design ×",
+"label2": "React ×"
+},
+{
+"id": "date",
+"name": "Date picker",
+"desc": "Calendar popover.",
+"demo": "i2-date",
+"prompt": "Dates open a calendar popover; typing a date also works."
+},
+{
+"id": "daterange",
+"name": "Date range",
+"desc": "Start and end with a band.",
+"demo": "i2-daterange",
+"prompt": "Date ranges highlight the band between start and end in an accent tint."
+},
+{
+"id": "time",
+"name": "Time picker",
+"desc": "Hours and minutes.",
+"demo": "i2-time",
+"prompt": "Time inputs use a simple hh:mm field with a dropdown of common slots.",
+"label": "09:30"
+},
+{
+"id": "slider",
+"name": "Slider",
+"desc": "Drag a single value.",
+"demo": "i2-slider",
+"prompt": "Single values use a slider with the value shown above the thumb."
+},
+{
+"id": "range",
+"name": "Range slider",
+"desc": "Two thumbs, a min and max.",
+"demo": "i2-range",
+"prompt": "Ranges (price, dates) use a two-thumb slider with values shown."
+},
+{
+"id": "number",
+"name": "Number stepper",
+"desc": "Minus, value, plus.",
+"demo": "i2-number",
+"prompt": "Quantities use a stepper: minus, value, plus, with keyboard arrows.",
+"label": "−",
+"label2": "2",
+"label3": "+"
+},
+{
+"id": "radiocards",
+"name": "Radio cards",
+"desc": "Pick one rich option.",
+"demo": "i2-radiocards",
+"prompt": "Important choices (plans, shipping) use radio cards with title, line and price."
+},
+{
+"id": "checkbox",
+"name": "Checkboxes",
+"desc": "Tick boxes with labels.",
+"demo": "i2-checkbox",
+"prompt": "Checkboxes have a 44px tap target, an animated tick and clickable labels."
+},
+{
+"id": "rating",
+"name": "Star rating",
+"desc": "Pick 1–5 stars.",
+"demo": "i2-rating",
+"prompt": "Ratings use 5 stars with hover preview and a text label for screen readers.",
+"label": "★★★★☆"
+},
+{
+"id": "color",
+"name": "Colour picker",
+"desc": "Swatches and a hex field.",
+"demo": "i2-color",
+"prompt": "Colour choice shows preset swatches plus a hex input."
+},
+{
+"id": "dropzone",
+"name": "File drop zone",
+"desc": "Drag files in.",
+"demo": "i2-dropzone",
+"prompt": "Uploads use a dashed drop zone that highlights on drag-over, plus a Browse button.",
+"label": "Drop files here"
+},
+{
+"id": "tags",
+"name": "Tag input",
+"desc": "Type and press Enter.",
+"demo": "i2-tags",
+"prompt": "Tags are typed and confirmed with Enter or comma; backspace removes the last one.",
+"label": "#ui",
+"label2": "#ai"
+},
+{
+"id": "password",
+"name": "Password with strength",
+"desc": "Meter under the field.",
+"demo": "i2-password",
+"prompt": "Password fields have show/hide and a strength meter with a plain-language hint.",
+"label": "••••••••"
+},
+{
+"id": "phone",
+"name": "Phone with country",
+"desc": "Flag and dial code.",
+"demo": "i2-phone",
+"prompt": "Phone inputs include a country selector with dial code and format as you type.",
+"label": "+1  (555) 010-2030"
+},
+{
+"id": "suggest",
+"name": "Search with suggestions",
+"desc": "Results appear as you type.",
+"demo": "i2-suggest",
+"prompt": "Search shows suggestions grouped by type as you type, with keyboard selection.",
+"label": "des"
+},
+{
+"id": "inlineedit",
+"name": "Inline edit",
+"desc": "Click text to edit it.",
+"demo": "i2-inlineedit",
+"prompt": "Titles are edited inline: click to turn into a field, Enter to save, Esc to cancel.",
+"label": "Project Alpha"
+},
+{
+"id": "richtext",
+"name": "Rich text toolbar",
+"desc": "Bold, italic, lists.",
+"demo": "i2-richtext",
+"prompt": "Long text uses a rich text editor with a small floating toolbar on selection (Tiptap).",
+"lib": "Tiptap",
+"label": "B  I  U  •  ⛓"
+},
+{
+"id": "composer",
+"name": "Chat composer",
+"desc": "Grows, with attach and send.",
+"demo": "i2-composer",
+"prompt": "The message composer grows with text, has attach and voice buttons, and sends on Enter.",
+"label": "Message…"
+}
+];
+var DATA = [
+{
+"id": "table",
+"name": "Data table",
+"desc": "Sticky header, zebra rows, sort.",
+"demo": "dd-table",
+"prompt": "Data tables: sticky header, sortable columns, zebra rows, row hover, right-aligned numbers with tabular figures (TanStack Table).",
+"lib": "TanStack Table",
+"fit": [
+"dash",
+"saas",
+"directory"
+]
+},
+{
+"id": "stat",
+"name": "Stat tile + sparkline",
+"desc": "A big number with its trend.",
+"demo": "dd-stat",
+"prompt": "Key metrics: one large number, change % in accent, and a sparkline. Do not repeat the same stat elsewhere.",
+"label": "12,480",
+"fit": [
+"dash",
+"saas"
+]
+},
+{
+"id": "line",
+"name": "Area chart",
+"desc": "Trend over time.",
+"demo": "dd-line",
+"prompt": "Trends: area chart with a soft accent fill, one series highlighted, tooltips on hover (Recharts).",
+"lib": "Recharts",
+"fit": [
+"dash"
+]
+},
+{
+"id": "bar",
+"name": "Bar chart",
+"desc": "Compare a few categories.",
+"demo": "dd-bar",
+"prompt": "Comparisons: bar chart, bars in accent, others muted, values labelled at the bar ends.",
+"lib": "Recharts",
+"fit": [
+"dash"
+]
+},
+{
+"id": "time",
+"name": "Timeline / activity",
+"desc": "What happened, in order.",
+"demo": "dd-time",
+"prompt": "Activity: vertical timeline with dot markers, newest first, relative times (\"2h ago\").",
+"fit": [
+"saas",
+"social",
+"dash"
+]
+},
+{
+"id": "avatars",
+"name": "Avatar stack",
+"desc": "Who is here or involved.",
+"demo": "dd-avatars",
+"prompt": "People: overlapping avatar stack with a +N count; hover shows names.",
+"fit": [
+"saas",
+"social"
+]
+},
+{
+"id": "badges",
+"name": "Status pills",
+"desc": "Live, draft, error at a glance.",
+"demo": "dd-badges",
+"prompt": "Statuses use small pill badges with distinct lightness, not colour alone (Live / Draft / Error).",
+"label": "Live",
+"label2": "Draft",
+"label3": "Error"
+},
+{
+"id": "ring",
+"name": "Progress ring",
+"desc": "Percent complete in a circle.",
+"demo": "dd-ring",
+"prompt": "Completion: progress ring with the percentage in the centre.",
+"fit": [
+"playful",
+"booking",
+"dash"
+]
+},
+{
+"id": "heat",
+"name": "Heatmap / calendar",
+"desc": "Activity across days.",
+"demo": "dd-heat",
+"prompt": "Activity over time: GitHub-style calendar heatmap with an accent ramp.",
+"fit": [
+"dash",
+"social",
+"playful"
+]
+},
+{
+"id": "kv",
+"name": "Description list",
+"desc": "Label and value pairs.",
+"demo": "dd2-kv",
+"prompt": "Record details use a two-column description list: muted label, value, aligned."
+},
+{
+"id": "accordion",
+"name": "Accordion",
+"desc": "Sections expand one at a time.",
+"demo": "dd2-accordion",
+"prompt": "Long content groups into an accordion; one open at a time, chevron rotates."
+},
+{
+"id": "tree",
+"name": "Tree view",
+"desc": "Nested items you can expand.",
+"demo": "dd2-tree",
+"prompt": "Hierarchies (files, categories) use a tree with indent guides and expand arrows."
+},
+{
+"id": "carousel",
+"name": "Carousel",
+"desc": "Swipe through items.",
+"demo": "dd2-carousel",
+"prompt": "Carousels show part of the next item, swipe on touch, and have arrows and dots (Embla).",
+"lib": "Embla"
+},
+{
+"id": "tabspanel",
+"name": "Tabbed content",
+"desc": "Tabs switch the panel.",
+"demo": "dd2-tabspanel",
+"prompt": "Related content groups into tabs; the panel cross-fades on switch."
+},
+{
+"id": "avatarstatus",
+"name": "Avatar with status",
+"desc": "Online dot on the avatar.",
+"demo": "dd2-avatarstatus",
+"prompt": "Avatars show presence with a small dot (online, away, offline) plus a text label on hover."
+},
+{
+"id": "code",
+"name": "Code block",
+"desc": "Highlighted, copyable.",
+"demo": "dd2-code",
+"prompt": "Code blocks: syntax highlighting (Shiki), line numbers optional, a Copy button and language label.",
+"lib": "Shiki"
+},
+{
+"id": "diff",
+"name": "Diff view",
+"desc": "Added and removed lines.",
+"demo": "dd2-diff",
+"prompt": "Changes show as a diff: green added and red removed lines with + and − markers."
+},
+{
+"id": "kbd",
+"name": "Keyboard shortcuts",
+"desc": "Key caps beside actions.",
+"demo": "dd2-kbd",
+"prompt": "Shortcuts are shown as small key caps (⌘ K) beside menu items and tooltips.",
+"label": "⌘",
+"label2": "K"
+},
+{
+"id": "progresssteps",
+"name": "Progress steps",
+"desc": "Done, current, upcoming.",
+"demo": "dd2-progresssteps",
+"prompt": "Multi-stage processes show steps with done ticks, current highlight and upcoming muted."
+},
+{
+"id": "actionlist",
+"name": "List with actions",
+"desc": "Rows with hover actions.",
+"demo": "dd2-actionlist",
+"prompt": "List rows reveal actions (edit, ⋯) on hover and always on mobile."
+}
+];
+var CHARTS = [
+{
+"id": "sparkline",
+"name": "Sparkline",
+"desc": "A tiny trend line.",
+"demo": "ch-sparkline",
+"prompt": "Inline sparklines next to numbers show the trend without axes.",
+"fit": [
+"dash",
+"fintech",
+"crypto",
+"crm"
+]
+},
+{
+"id": "multiline",
+"name": "Multi-line chart",
+"desc": "Compare several series.",
+"demo": "ch-multiline",
+"prompt": "Line charts compare up to 4 series; one highlighted in the accent, the rest muted, with a legend.",
+"lib": "Recharts",
+"fit": [
+"dash",
+"iot",
+"admin"
+]
+},
+{
+"id": "stackedarea",
+"name": "Stacked area",
+"desc": "Parts of a total over time.",
+"demo": "ch-stackedarea",
+"prompt": "Stacked area charts show how parts add to a total over time; max 4 layers.",
+"lib": "Recharts",
+"fit": [
+"dash",
+"fintech"
+]
+},
+{
+"id": "hbar",
+"name": "Horizontal bars",
+"desc": "Ranked categories.",
+"demo": "ch-hbar",
+"prompt": "Ranked comparisons use horizontal bars sorted largest first, with values at the ends.",
+"fit": [
+"dash",
+"admin",
+"crm"
+]
+},
+{
+"id": "grouped",
+"name": "Grouped bars",
+"desc": "Side-by-side series.",
+"demo": "ch-grouped",
+"prompt": "Grouped bars compare 2–3 series per category side by side.",
+"fit": [
+"dash",
+"admin"
+]
+},
+{
+"id": "stackedbar",
+"name": "Stacked bars",
+"desc": "Totals split into parts.",
+"demo": "ch-stackedbar",
+"prompt": "Stacked bars split each total into parts; label the total on top.",
+"fit": [
+"dash",
+"fintech"
+]
+},
+{
+"id": "donut",
+"name": "Donut chart",
+"desc": "Share of a whole.",
+"demo": "ch-donut",
+"prompt": "Donut charts show share of a whole (max 5 slices) with the total in the centre.",
+"fit": [
+"dash",
+"fintech",
+"health"
+]
+},
+{
+"id": "pie",
+"name": "Pie chart",
+"desc": "Simple proportions.",
+"demo": "ch-pie",
+"prompt": "Pie charts only for 2–3 slices; label slices directly.",
+"fit": [
+"dash",
+"edu"
+]
+},
+{
+"id": "gauge",
+"name": "Gauge",
+"desc": "One value against a range.",
+"demo": "ch-gauge",
+"prompt": "Gauges show one value against a target (half-circle) with the number in the middle.",
+"fit": [
+"iot",
+"health",
+"fintech"
+]
+},
+{
+"id": "radialbars",
+"name": "Radial bars",
+"desc": "Concentric progress rings.",
+"demo": "ch-radialbars",
+"prompt": "Radial bar charts show 2–3 goals as concentric progress rings (activity rings style).",
+"fit": [
+"health",
+"playful"
+]
+},
+{
+"id": "scatter",
+"name": "Scatter plot",
+"desc": "Relationship between two values.",
+"demo": "ch-scatter",
+"prompt": "Scatter plots show the relationship between two measures; highlight outliers.",
+"fit": [
+"dash",
+"admin"
+]
+},
+{
+"id": "bubble",
+"name": "Bubble chart",
+"desc": "Three values at once.",
+"demo": "ch-bubble",
+"prompt": "Bubble charts add size as a third value; keep under 20 bubbles.",
+"fit": [
+"dash"
+]
+},
+{
+"id": "matrix",
+"name": "Heatmap matrix",
+"desc": "Values in a coloured grid.",
+"demo": "ch-matrix",
+"prompt": "Matrix heatmaps colour cells by value with a legend; good for hour-by-day patterns.",
+"fit": [
+"dash",
+"iot"
+]
+},
+{
+"id": "treemap",
+"name": "Treemap",
+"desc": "Nested rectangles by size.",
+"demo": "ch-treemap",
+"prompt": "Treemaps show hierarchy by area; label the biggest blocks only.",
+"fit": [
+"dash",
+"fintech"
+]
+},
+{
+"id": "funnel",
+"name": "Funnel",
+"desc": "Drop-off between steps.",
+"demo": "ch-funnel",
+"prompt": "Funnels show drop-off between steps with the conversion % between each.",
+"fit": [
+"crm",
+"dash",
+"landing"
+]
+},
+{
+"id": "sankey",
+"name": "Sankey / flow",
+"desc": "Where things flow.",
+"demo": "ch-sankey",
+"prompt": "Sankey diagrams show flows between stages; keep to 3 stages.",
+"fit": [
+"dash",
+"fintech"
+]
+},
+{
+"id": "candle",
+"name": "Candlestick",
+"desc": "Open, high, low, close.",
+"demo": "ch-candle",
+"prompt": "Price charts use candlesticks with up/down distinguished by fill as well as colour (lightweight-charts).",
+"lib": "lightweight-charts",
+"fit": [
+"crypto",
+"fintech"
+]
+},
+{
+"id": "histogram",
+"name": "Histogram",
+"desc": "Distribution of values.",
+"demo": "ch-histogram",
+"prompt": "Histograms show a distribution with touching bars and a labelled axis.",
+"fit": [
+"dash",
+"edu"
+]
+},
+{
+"id": "boxplot",
+"name": "Box plot",
+"desc": "Spread and median.",
+"demo": "ch-boxplot",
+"prompt": "Box plots show median, quartiles and outliers for comparing groups.",
+"fit": [
+"dash",
+"edu"
+]
+},
+{
+"id": "radar",
+"name": "Radar chart",
+"desc": "Profile across dimensions.",
+"demo": "ch-radar",
+"prompt": "Radar charts compare a profile across 5–6 dimensions; at most 2 overlaid.",
+"fit": [
+"edu",
+"health",
+"playful"
+]
+},
+{
+"id": "waterfall",
+"name": "Waterfall",
+"desc": "How a total builds up.",
+"demo": "ch-waterfall",
+"prompt": "Waterfall charts show how a start value moves to an end value through gains and losses.",
+"fit": [
+"fintech",
+"dash"
+]
+},
+{
+"id": "choropleth",
+"name": "Map (choropleth)",
+"desc": "Regions shaded by value.",
+"demo": "ch-choropleth",
+"prompt": "Maps shade regions by value with a legend; show the data in a list beside it too.",
+"fit": [
+"dash",
+"nonprofit",
+"travel"
+]
+},
+{
+"id": "barlist",
+"name": "Bar list",
+"desc": "Labels with inline bars.",
+"demo": "ch-barlist",
+"prompt": "Top-N lists show a label and an inline proportional bar with the value (Tremor BarList style).",
+"fit": [
+"dash",
+"admin",
+"crm"
+]
+},
+{
+"id": "bullet",
+"name": "Bullet chart",
+"desc": "Value against a target.",
+"demo": "ch-bullet",
+"prompt": "Bullet charts show a value, a target marker and qualitative ranges in one bar.",
+"fit": [
+"dash",
+"fintech"
+]
+},
+{
+"id": "kpi",
+"name": "KPI with delta",
+"desc": "Big number and change.",
+"demo": "ch-kpi",
+"prompt": "KPIs show the number, the change vs last period (arrow + sign + colour) and the period.",
+"label": "1,284",
+"fit": [
+"dash",
+"saas",
+"crm"
+]
+},
+{
+"id": "streamgraph",
+"name": "Streamgraph",
+"desc": "Flowing layered volume.",
+"demo": "ch-streamgraph",
+"prompt": "Streamgraphs show changing composition over time with flowing layers (visx).",
+"lib": "visx",
+"fit": [
+"dash",
+"music"
+]
+},
+{
+"id": "sunburst",
+"name": "Sunburst",
+"desc": "Hierarchy in rings.",
+"demo": "ch-sunburst",
+"prompt": "Sunburst charts show nested categories as rings; click to zoom into a segment.",
+"fit": [
+"dash"
+]
+},
+{
+"id": "ganttbars",
+"name": "Gantt bars",
+"desc": "Tasks across time.",
+"demo": "ch-ganttbars",
+"prompt": "Schedules show tasks as bars across a time axis with today marked.",
+"fit": [
+"pm",
+"calendar"
+]
+},
+{
+"id": "liveline",
+"name": "Live updating line",
+"desc": "Streams in real time.",
+"demo": "ch-liveline",
+"prompt": "Real-time charts stream new points from the right; pause on hover.",
+"fit": [
+"iot",
+"crypto",
+"dash"
+]
+},
+{
+"id": "band",
+"name": "Area with range band",
+"desc": "Forecast and confidence.",
+"demo": "ch-band",
+"prompt": "Forecasts show a line with a shaded confidence band.",
+"fit": [
+"fintech",
+"dash",
+"iot"
+]
+},
+{
+"id": "slope",
+"name": "Slope chart",
+"desc": "Before vs after per item.",
+"demo": "ch-slope",
+"prompt": "Slope charts compare two points in time per item, rising lines in accent.",
+"fit": [
+"dash",
+"edu"
+]
+},
+{
+"id": "dotplot",
+"name": "Dot plot",
+"desc": "Values as dots on lines.",
+"demo": "ch-dotplot",
+"prompt": "Dot plots show values as dots along labelled rows; cleaner than bars for many items.",
+"fit": [
+"dash",
+"edu",
+"admin"
+]
+}
+];
+var FEED = [
+{
+"id": "toast",
+"name": "Toasts",
+"desc": "Stacking notifications that slide in.",
+"demo": "f-toast",
+"prompt": "Notifications: Sonner toasts, bottom-right, stacked and expandable on hover, auto-dismiss after 4s.",
+"label": "Saved",
+"label2": "Copied",
+"lib": "Sonner"
+},
+{
+"id": "skel",
+"name": "Skeleton loading",
+"desc": "Grey shapes shimmer while loading.",
+"demo": "f-skel",
+"prompt": "Loading states: skeletons shaped like the real content with a shimmer, never a lone spinner."
+},
+{
+"id": "progress",
+"name": "Progress bar",
+"desc": "Shows how far along.",
+"demo": "f-progress",
+"prompt": "Long tasks show a determinate progress bar; uploads show percent."
+},
+{
+"id": "empty",
+"name": "Empty state",
+"desc": "What to do when there is nothing yet.",
+"demo": "f-empty",
+"prompt": "Every list has an empty state: a short line saying what goes here plus one action button.",
+"label": "Nothing here yet"
+},
+{
+"id": "valid",
+"name": "Inline validation",
+"desc": "Errors right under the field.",
+"demo": "f-valid",
+"prompt": "Forms validate inline on blur: red border, short message under the field, gentle shake on submit error.",
+"label2": "Required"
+},
+{
+"id": "modal",
+"name": "Modal dialog",
+"desc": "Focused popup with a dimmed page.",
+"demo": "f-modal",
+"prompt": "Confirmations use a modal dialog (Radix Dialog): dimmed backdrop, scale-in, focus trapped, Esc closes.",
+"lib": "Radix"
+},
+{
+"id": "sheet",
+"name": "Side sheet",
+"desc": "Panel slides in from the right.",
+"demo": "f-sheet",
+"prompt": "Details and edit forms open in a side sheet from the right (shadcn Sheet).",
+"lib": "shadcn",
+"fit": [
+"saas",
+"dash",
+"directory"
+]
+},
+{
+"id": "drawer",
+"name": "Bottom drawer",
+"desc": "Drag up from the bottom on mobile.",
+"demo": "f-drawer",
+"prompt": "On mobile, menus and filters open in a draggable bottom drawer (Vaul) with a handle; flick down to close.",
+"lib": "Vaul",
+"fit": [
+"shop",
+"social",
+"booking",
+"playful"
+]
+},
+{
+"id": "pop",
+"name": "Popover menu",
+"desc": "Small menu next to a button.",
+"demo": "f-pop",
+"prompt": "Row and card actions live in a \"⋯\" popover menu instead of a row of buttons.",
+"label": "Actions"
+},
+{
+"id": "tip",
+"name": "Tooltip",
+"desc": "Short hint on hover.",
+"demo": "f-tip",
+"prompt": "Icon-only buttons get tooltips after a 300ms delay.",
+"label": "Share",
+"label2": "Copy link"
+},
+{
+"id": "cmdk",
+"name": "⌘K command palette",
+"desc": "Search and run any action.",
+"demo": "f-cmdk",
+"prompt": "Add a ⌘K command palette (cmdk): search pages and actions, keyboard navigation, recent items.",
+"lib": "cmdk",
+"fit": [
+"saas",
+"docs",
+"ai",
+"dash"
+]
+},
+{
+"id": "alert",
+"name": "Alert banner",
+"desc": "Full-width message at the top.",
+"demo": "f2-alert",
+"prompt": "System messages appear as a full-width banner at the top with an icon, one line and dismiss.",
+"label": "Scheduled maintenance tonight"
+},
+{
+"id": "inline",
+"name": "Inline alert",
+"desc": "Info box in the content.",
+"demo": "f2-inline",
+"prompt": "Inline alerts (info, success, warning, error) sit in the content with an icon and short text.",
+"label": "Your trial ends in 3 days"
+},
+{
+"id": "undo",
+"name": "Snackbar with undo",
+"desc": "Action confirmed, undo offered.",
+"demo": "f2-undo",
+"prompt": "After destructive actions, show a snackbar with Undo for 6 seconds instead of a confirm dialog.",
+"label": "Deleted · Undo"
+},
+{
+"id": "spinner",
+"name": "Spinner",
+"desc": "Small rotating loader.",
+"demo": "f2-spinner",
+"prompt": "Short waits (<1s) use a small spinner inline; longer waits use skeletons or progress."
+},
+{
+"id": "dots",
+"name": "Dots loader",
+"desc": "Three bouncing dots.",
+"demo": "f2-dots",
+"prompt": "Thinking/typing states use three softly bouncing dots."
+},
+{
+"id": "circprog",
+"name": "Circular progress",
+"desc": "Percent in a ring.",
+"demo": "f2-circprog",
+"prompt": "Determinate tasks show a circular progress ring with the percentage."
+},
+{
+"id": "toploader",
+"name": "Top loading bar",
+"desc": "Thin bar on navigation.",
+"demo": "f2-toploader",
+"prompt": "Page navigation shows a thin accent loading bar across the top (NProgress style)."
+},
+{
+"id": "confirm",
+"name": "Confirm dialog",
+"desc": "Are you sure? with a red button.",
+"demo": "f2-confirm",
+"prompt": "Irreversible actions use a confirm dialog that names the thing and uses a red confirm button."
+},
+{
+"id": "hovercard",
+"name": "Hover card",
+"desc": "Preview on hover.",
+"demo": "f2-hovercard",
+"prompt": "Hovering a user or link shows a preview card after 400ms (Radix HoverCard).",
+"label": "@eagle",
+"lib": "Radix"
+},
+{
+"id": "dropdown",
+"name": "Dropdown menu",
+"desc": "Menu with groups and icons.",
+"demo": "f2-dropdown",
+"prompt": "Menus group items with separators, show icons and shortcuts, and support type-ahead (Radix DropdownMenu).",
+"lib": "Radix"
+},
+{
+"id": "bell",
+"name": "Notification centre",
+"desc": "Bell with an inbox.",
+"demo": "f2-bell",
+"prompt": "A bell icon with an unread count opens a notification inbox grouped by day.",
+"label": "3"
+},
+{
+"id": "badge",
+"name": "Count badge",
+"desc": "Small number on an icon.",
+"demo": "f2-badge",
+"prompt": "Unread or pending counts use a small badge; cap at 99+.",
+"label": "12"
+},
+{
+"id": "tour",
+"name": "Product tour",
+"desc": "Spotlight with a tip.",
+"demo": "f2-tour",
+"prompt": "First-run tours spotlight one element at a time with a short tip and Next; always skippable."
+},
+{
+"id": "success",
+"name": "Success screen",
+"desc": "Big check and next step.",
+"demo": "f2-success",
+"prompt": "Finished flows end on a success screen: animated check, one line, and the obvious next step."
+},
+{
+"id": "notfound",
+"name": "404 page",
+"desc": "Friendly not-found.",
+"demo": "f2-notfound",
+"prompt": "The 404 page explains in one line, offers search and a link home; no dead end.",
+"label": "404"
+},
+{
+"id": "offline",
+"name": "Offline banner",
+"desc": "Shows connection lost.",
+"demo": "f2-offline",
+"prompt": "When offline, a small banner says so and queued actions sync when back online.",
+"label": "You’re offline"
+},
+{
+"id": "cookie",
+"name": "Cookie / consent bar",
+"desc": "Bottom consent prompt.",
+"demo": "f2-cookie",
+"prompt": "Consent appears as a small bottom card with Accept and Settings, never blocking the page.",
+"label": "We use cookies"
+},
+{
+"id": "lightbox",
+"name": "Lightbox",
+"desc": "Image opens full screen.",
+"demo": "f2-lightbox",
+"prompt": "Images open in a lightbox with arrows, swipe, caption, and Esc to close."
+},
+{
+"id": "fullloader",
+"name": "Full-screen loader",
+"desc": "Logo pulse while loading.",
+"demo": "f2-fullloader",
+"prompt": "App start shows a brief full-screen loader with the logo pulsing; never longer than needed."
+},
+{
+"id": "upload",
+"name": "Upload progress",
+"desc": "File list with progress.",
+"demo": "f2-upload",
+"prompt": "Uploads list each file with name, size, a progress bar and cancel."
+},
+{
+"id": "countdown",
+"name": "Countdown",
+"desc": "Time until an event.",
+"demo": "f2-countdown",
+"prompt": "Countdowns show days, hours, minutes in tabular figures; switch to \"Live now\" at zero.",
+"label": "02 : 14 : 37"
+},
+{
+"id": "typing",
+"name": "Typing indicator",
+"desc": "Someone is typing.",
+"demo": "f2-typing",
+"prompt": "Chats show a typing indicator bubble with three dots when the other side is typing."
+},
+{
+"id": "ptr",
+"name": "Pull to refresh",
+"desc": "Drag down to reload.",
+"demo": "f2-ptr",
+"prompt": "On mobile lists, pull down to refresh with a spinner that appears as you drag."
+},
+{
+"id": "streaming",
+"name": "Streaming text",
+"desc": "AI answer types in.",
+"demo": "f2-streaming",
+"prompt": "AI responses stream in token by token with a soft cursor; Stop button while streaming.",
+"label": "The answer appears word by word…"
+}
+];
+var ICONS = [
+{
+"id": "lucide",
+"name": "Lucide icons",
+"desc": "Clean 2px outline, huge set.",
+"demo": "ic-lucide",
+"prompt": "Icons: Lucide only (lucide-react), 2px stroke, 16–20px, currentColor.",
+"lib": "Lucide"
+},
+{
+"id": "phosphor",
+"name": "Phosphor icons",
+"desc": "Six weights from thin to fill.",
+"demo": "ic-phosphor",
+"prompt": "Icons: Phosphor (one weight across the app; regular by default), 20px.",
+"lib": "Phosphor"
+},
+{
+"id": "tabler",
+"name": "Tabler icons",
+"desc": "5,000+ consistent outline icons.",
+"demo": "ic-tabler",
+"prompt": "Icons: Tabler, 1.5px stroke, 20px.",
+"lib": "Tabler"
+},
+{
+"id": "heroicons",
+"name": "Heroicons",
+"desc": "Tailwind’s outline and solid sets.",
+"demo": "ic-heroicons",
+"prompt": "Icons: Heroicons — outline in UI, solid for active states.",
+"lib": "Heroicons"
+},
+{
+"id": "radix",
+"name": "Radix icons",
+"desc": "Crisp 15px icons for dense UI.",
+"demo": "ic-radix",
+"prompt": "Icons: Radix Icons at 15px for dense interfaces.",
+"lib": "Radix"
+},
+{
+"id": "material",
+"name": "Material Symbols",
+"desc": "Variable weight, fill and grade.",
+"demo": "ic-material",
+"prompt": "Icons: Material Symbols Rounded, weight 400, fill 0 (1 for active).",
+"lib": "Material"
+},
+{
+"id": "iconoir",
+"name": "Iconoir",
+"desc": "Elegant thin outline.",
+"demo": "ic-iconoir",
+"prompt": "Icons: Iconoir, 1.5px stroke, for a lighter look.",
+"lib": "Iconoir"
+},
+{
+"id": "remix",
+"name": "Remix Icon",
+"desc": "Line and fill pairs.",
+"demo": "ic-remix",
+"prompt": "Icons: Remix Icon line style, fill variant for selected states.",
+"lib": "Remix"
+},
+{
+"id": "pixelarticons",
+"name": "Pixelarticons",
+"desc": "8-bit pixel icons.",
+"demo": "ic-pixelarticons",
+"prompt": "Icons: Pixelarticons for a retro pixel look, rendered at integer sizes.",
+"lib": "Pixelarticons"
+},
+{
+"id": "st-thin",
+"name": "Style · Thin outline",
+"desc": "1–1.5px strokes, airy.",
+"demo": "ic-st-thin",
+"prompt": "Icon style: thin 1.5px outline icons everywhere."
+},
+{
+"id": "st-bold",
+"name": "Style · Bold outline",
+"desc": "2.5px strokes, chunky.",
+"demo": "ic-st-bold",
+"prompt": "Icon style: bold 2.5px outlines for a sturdy, friendly feel."
+},
+{
+"id": "st-duotone",
+"name": "Style · Duotone",
+"desc": "Two tones, accent fill.",
+"demo": "ic-st-duotone",
+"prompt": "Icon style: duotone, the secondary layer filled with 20% accent."
+},
+{
+"id": "st-filled",
+"name": "Style · Filled",
+"desc": "Solid shapes.",
+"demo": "ic-st-filled",
+"prompt": "Icon style: filled icons; use outline only for inactive states."
+},
+{
+"id": "st-tile",
+"name": "Style · Icon in tile",
+"desc": "Icon on a soft square.",
+"demo": "ic-st-tile",
+"prompt": "Feature icons sit on a soft rounded tile tinted with the accent."
+},
+{
+"id": "st-circle",
+"name": "Style · Icon in circle",
+"desc": "Icon on a soft circle.",
+"demo": "ic-st-circle",
+"prompt": "Feature icons sit inside soft accent-tinted circles."
+},
+{
+"id": "img-screens",
+"name": "Imagery · Product screenshots",
+"desc": "Real UI, cropped and framed.",
+"demo": "ic-img-screens",
+"prompt": "Imagery: real product screenshots, cropped to the relevant part, in a subtle frame with shadow."
+},
+{
+"id": "img-3d",
+"name": "Imagery · 3D renders",
+"desc": "Soft 3D objects.",
+"demo": "ic-img-3d",
+"prompt": "Imagery: soft 3D rendered objects in the accent palette, consistent lighting."
+},
+{
+"id": "img-flat",
+"name": "Imagery · Flat illustration",
+"desc": "Simple shapes, flat colour.",
+"demo": "ic-img-flat",
+"prompt": "Imagery: flat vector illustrations using only the palette colours."
+},
+{
+"id": "img-line",
+"name": "Imagery · Line illustration",
+"desc": "Monoline drawings.",
+"demo": "ic-img-line",
+"prompt": "Imagery: monoline illustrations in the ink colour with one accent highlight."
+},
+{
+"id": "img-doodle",
+"name": "Imagery · Hand-drawn doodles",
+"desc": "Sketchy, human marks.",
+"demo": "ic-img-doodle",
+"prompt": "Imagery: hand-drawn doodles and arrows that feel human; use sparingly."
+},
+{
+"id": "img-photo",
+"name": "Imagery · Natural photography",
+"desc": "Real people and places.",
+"demo": "ic-img-photo",
+"prompt": "Imagery: real photography of people and places, natural light, no stock clichés."
+},
+{
+"id": "img-duotone",
+"name": "Imagery · Duotone photos",
+"desc": "Photos tinted two colours.",
+"demo": "ic-img-duotone",
+"prompt": "Imagery: photos with a duotone treatment in accent and ink."
+},
+{
+"id": "img-bw",
+"name": "Imagery · Black & white photos",
+"desc": "Monochrome photography.",
+"demo": "ic-img-bw",
+"prompt": "Imagery: black-and-white photography, high contrast."
+},
+{
+"id": "img-iso",
+"name": "Imagery · Isometric",
+"desc": "Isometric scenes.",
+"demo": "ic-img-iso",
+"prompt": "Imagery: isometric illustrations showing systems or workflows."
+},
+{
+"id": "img-abstract",
+"name": "Imagery · Abstract shapes",
+"desc": "Geometric compositions.",
+"demo": "ic-img-abstract",
+"prompt": "Imagery: abstract geometric compositions from the palette instead of pictures."
+},
+{
+"id": "img-avatars",
+"name": "Imagery · Illustrated avatars",
+"desc": "Friendly people portraits.",
+"demo": "ic-img-avatars",
+"prompt": "Imagery: illustrated avatars for people, consistent style."
+},
+{
+"id": "img-pixel",
+"name": "Imagery · Pixel art",
+"desc": "Retro sprites.",
+"demo": "ic-img-pixel",
+"prompt": "Imagery: pixel-art sprites and scenes, crisp scaling."
+},
+{
+"id": "img-glass3d",
+"name": "Imagery · Glass 3D icons",
+"desc": "Translucent 3D icons.",
+"demo": "ic-img-glass3d",
+"prompt": "Imagery: translucent glass-like 3D icons for features."
+},
+{
+"id": "img-data",
+"name": "Imagery · Data as imagery",
+"desc": "Charts and diagrams as visuals.",
+"demo": "ic-img-data",
+"prompt": "Imagery: real charts and diagrams from the product as the main visuals."
+},
+{
+"id": "img-none",
+"name": "Imagery · Typography only",
+"desc": "No images; type carries it.",
+"demo": "ic-img-none",
+"prompt": "Imagery: none. Type, colour and layout carry the design.",
+"label": "Aa"
+}
+];
+var FX = [
+{
+"id": "lift",
+"name": "Hover lift",
+"desc": "Cards rise on hover.",
+"demo": "e-lift",
+"prompt": "Interactive cards lift 4–6px with a deeper shadow on hover, 200ms ease-out."
+},
+{
+"id": "spring",
+"name": "Spring press",
+"desc": "Bouncy, physical motion.",
+"demo": "e-spring",
+"prompt": "UI motion uses springs (Motion: stiffness ~400, damping ~30): buttons scale to 0.97 on press and spring back.",
+"lib": "Motion",
+"fit": [
+"playful",
+"social"
+]
+},
+{
+"id": "reveal",
+"name": "Scroll reveal",
+"desc": "Sections fade up as they enter.",
+"demo": "e-reveal",
+"prompt": "Sections fade up 12px as they enter the viewport, once, 500ms, staggered 80ms (Motion whileInView).",
+"lib": "Motion",
+"fit": [
+"landing",
+"portfolio",
+"editorial"
+]
+},
+{
+"id": "stagger",
+"name": "Staggered list",
+"desc": "Items arrive one after another.",
+"demo": "e-stagger",
+"prompt": "Lists animate in with a 40ms stagger on first load only.",
+"lib": "Motion"
+},
+{
+"id": "ticker",
+"name": "Number ticker",
+"desc": "Numbers roll to their value.",
+"demo": "e-ticker",
+"prompt": "Changing numbers animate digit by digit (NumberFlow) with tabular figures.",
+"lib": "NumberFlow",
+"fit": [
+"dash",
+"shop",
+"landing"
+]
+},
+{
+"id": "split",
+"name": "Text reveal",
+"desc": "Headline wipes or splits in.",
+"demo": "e-split",
+"prompt": "The hero headline reveals word by word (GSAP SplitText or Motion), once on load.",
+"label": "Build faster",
+"lib": "GSAP",
+"fit": [
+"landing",
+"portfolio"
+]
+},
+{
+"id": "marquee",
+"name": "Logo marquee",
+"desc": "Endless scrolling strip.",
+"demo": "e-marquee",
+"prompt": "A logo/testimonial marquee scrolls slowly and pauses on hover; masks fade the edges.",
+"label": "NOVA · ORBIT · KITE · LUMEN · ATLAS",
+"lib": "Magic UI",
+"fit": [
+"landing",
+"saas"
+]
+},
+{
+"id": "pblur",
+"name": "Progressive blur",
+"desc": "Content blurs under a header or edge.",
+"demo": "e-pblur",
+"prompt": "Use progressive blur where content scrolls under the sticky header or fades at a list edge (backdrop-filter with a gradient mask).",
+"fit": [
+"ai",
+"landing",
+"portfolio"
+]
+},
+{
+"id": "glass",
+"name": "Glassmorphism",
+"desc": "Frosted panels over colour.",
+"demo": "e-glass",
+"prompt": "Floating panels use glassmorphism: translucent surface, backdrop blur 12–16px, thin light border; keep text contrast 4.5:1.",
+"fit": [
+"landing",
+"ai"
+]
+},
+{
+"id": "spot",
+"name": "Spotlight cursor",
+"desc": "A glow follows the pointer.",
+"demo": "e-spot",
+"prompt": "The hero has a cursor-following spotlight glow on a dark background.",
+"label2": "Spotlight",
+"lib": "Aceternity",
+"heavy": true,
+"fit": [
+"landing",
+"ai"
+]
+},
+{
+"id": "aurora",
+"name": "Aurora background",
+"desc": "Slow blurred colour blobs.",
+"demo": "e-aurora",
+"prompt": "The hero background is a slow aurora: 2–3 blurred accent blobs drifting (CSS only, paused for reduced motion).",
+"lib": "Aceternity",
+"heavy": true,
+"fit": [
+"landing",
+"ai",
+"portfolio"
+]
+},
+{
+"id": "dots",
+"name": "Dot grid background",
+"desc": "Subtle pattern behind content.",
+"demo": "e-dots",
+"prompt": "Section backgrounds use a faint dot grid pattern that fades out toward the edges.",
+"lib": "Magic UI",
+"fit": [
+"saas",
+"landing",
+"docs"
+]
+},
+{
+"id": "grain",
+"name": "Grain texture",
+"desc": "Film grain for warmth.",
+"demo": "e-grain",
+"prompt": "Add a subtle grain/noise overlay (~6% opacity) to large colour areas for a tactile feel.",
+"fit": [
+"editorial",
+"portfolio",
+"shop"
+]
+},
+{
+"id": "para",
+"name": "Parallax layers",
+"desc": "Layers move at different speeds.",
+"demo": "e-para",
+"prompt": "Hero visual uses 3 parallax layers moving at different speeds on scroll (Motion useScroll).",
+"lib": "Motion",
+"heavy": true,
+"fit": [
+"landing",
+"portfolio"
+]
+},
+{
+"id": "sticky",
+"name": "Sticky scroll story",
+"desc": "Visual pins while text scrolls.",
+"demo": "e-sticky",
+"prompt": "Scrollytelling: a visual pins on one side and changes per chapter as text scrolls (GSAP ScrollTrigger).",
+"lib": "GSAP",
+"heavy": true,
+"fit": [
+"landing",
+"editorial"
+]
+},
+{
+"id": "tilted",
+"name": "Tilted 3D screenshot",
+"desc": "Your app shown at an angle.",
+"demo": "e-tilted",
+"prompt": "Show the product as a tilted 3D screenshot (rotateX ~20deg) that straightens as you scroll.",
+"heavy": true,
+"fit": [
+"landing",
+"saas"
+]
+},
+{
+"id": "tilt3d",
+"name": "3D tilt hover",
+"desc": "Cards tilt toward the cursor.",
+"demo": "e-tilt3d",
+"prompt": "Feature cards tilt toward the pointer in 3D (max 8deg) with a glare highlight.",
+"lib": "Motion",
+"fit": [
+"portfolio",
+"playful",
+"shop"
+]
+},
+{
+"id": "layout",
+"name": "Shared layout animation",
+"desc": "Things morph to their new place.",
+"demo": "e-layout",
+"prompt": "When items reorder, expand or change size, animate the layout (Motion layout / layoutId) instead of jumping.",
+"lib": "Motion",
+"fit": [
+"saas",
+"dash"
+]
+},
+{
+"id": "ptrans",
+"name": "Page transitions",
+"desc": "Pages cross-fade and slide.",
+"demo": "e-ptrans",
+"prompt": "Route changes use the View Transitions API: a quick 200ms cross-fade with a slight slide.",
+"fit": [
+"portfolio",
+"shop",
+"editorial"
+]
+},
+{
+"id": "cursor",
+"name": "Custom cursor",
+"desc": "A ring that trails the pointer.",
+"demo": "e-cursor",
+"prompt": "Desktop only: a custom cursor ring that trails the pointer and grows over links.",
+"heavy": true,
+"fit": [
+"portfolio"
+]
+},
+{
+"id": "shine",
+"name": "Shine sweep",
+"desc": "A light passes over a surface.",
+"demo": "e-shine",
+"prompt": "The featured card has a slow diagonal shine sweep every few seconds.",
+"lib": "Magic UI",
+"fit": [
+"shop",
+"landing"
+]
+},
+{
+"id": "confetti",
+"name": "Confetti burst",
+"desc": "Celebrate a win.",
+"demo": "e-confetti",
+"prompt": "On success (goal reached, purchase), fire a short confetti burst (canvas-confetti).",
+"lib": "canvas-confetti",
+"heavy": true,
+"fit": [
+"playful",
+"booking"
+]
+},
+{
+"id": "type",
+"name": "Typewriter text",
+"desc": "Text types itself out.",
+"demo": "e-type",
+"prompt": "The hero subline types itself out once with a blinking caret.",
+"label": "Ask me anything…",
+"fit": [
+"ai",
+"portfolio"
+]
+},
+{
+"id": "scrollbar",
+"name": "Scroll progress bar",
+"desc": "Thin bar shows reading progress.",
+"demo": "e-scrollbar",
+"prompt": "Long articles show a thin accent reading-progress bar at the top.",
+"fit": [
+"editorial",
+"docs"
+]
+},
+{
+"id": "meteors",
+"name": "Meteors",
+"desc": "Streaks fall across the hero.",
+"demo": "e2-meteors",
+"prompt": "Hero has occasional meteor streaks falling diagonally on a dark background (Magic UI Meteors).",
+"lib": "Magic UI",
+"heavy": true,
+"fit": [
+"ai",
+"landing",
+"waitlist"
+]
+},
+{
+"id": "sparkles",
+"name": "Sparkles",
+"desc": "Twinkling particles.",
+"demo": "e2-sparkles",
+"prompt": "A heading or button sparkles with small twinkling particles (Aceternity Sparkles).",
+"lib": "Aceternity",
+"fit": [
+"landing",
+"playful",
+"event"
+]
+},
+{
+"id": "particles",
+"name": "Particles",
+"desc": "Floating dots that react.",
+"demo": "e2-particles",
+"prompt": "Background particles drift slowly and push away from the cursor (Magic UI Particles).",
+"lib": "Magic UI",
+"heavy": true,
+"fit": [
+"ai",
+"devtool",
+"landing"
+]
+},
+{
+"id": "globe",
+"name": "Interactive globe",
+"desc": "A spinning dotted globe.",
+"demo": "e2-globe",
+"prompt": "Hero shows a slowly spinning interactive dotted globe with arcs between locations (Magic UI Globe / cobe).",
+"lib": "cobe",
+"heavy": true,
+"fit": [
+"saas",
+"travel",
+"devtool"
+]
+},
+{
+"id": "orbit",
+"name": "Orbiting circles",
+"desc": "Icons orbit a centre.",
+"demo": "e2-orbit",
+"prompt": "Integrations or features orbit a central logo on concentric paths (Magic UI Orbiting Circles).",
+"lib": "Magic UI",
+"fit": [
+"saas",
+"ai",
+"devtool"
+]
+},
+{
+"id": "beam",
+"name": "Animated beam",
+"desc": "Light travels along a line.",
+"demo": "e2-beam",
+"prompt": "Connect integrations with animated beams: light pulses travel along lines between icons (Magic UI Animated Beam).",
+"lib": "Magic UI",
+"fit": [
+"saas",
+"devtool",
+"ai"
+]
+},
+{
+"id": "bordertrail",
+"name": "Border trail",
+"desc": "A glowing dot circles the edge.",
+"demo": "e2-bordertrail",
+"prompt": "The featured card has a small glowing dot that travels around its border.",
+"lib": "Magic UI",
+"fit": [
+"saas",
+"landing"
+]
+},
+{
+"id": "shinytext",
+"name": "Shimmer text",
+"desc": "Light passes through text.",
+"demo": "e2-shinytext",
+"prompt": "Small labels and badges have a shimmer passing through the text.",
+"lib": "Magic UI",
+"label": "Now with AI",
+"fit": [
+"landing",
+"saas",
+"ai"
+]
+},
+{
+"id": "gradienttext",
+"name": "Animated gradient text",
+"desc": "Colour flows through a word.",
+"demo": "e2-gradienttext",
+"prompt": "One key word in the headline has an animated accent gradient flowing through it.",
+"label": "Faster",
+"fit": [
+"landing",
+"ai"
+]
+},
+{
+"id": "morph",
+"name": "Morphing text",
+"desc": "One word melts into another.",
+"demo": "e2-morph",
+"prompt": "A headline word morphs between 3–4 alternatives with a blur crossfade (Magic UI Morphing Text).",
+"lib": "Magic UI",
+"label": "Build",
+"fit": [
+"landing",
+"agency"
+]
+},
+{
+"id": "wordrotate",
+"name": "Word rotate",
+"desc": "Words slide up in turn.",
+"demo": "e2-wordrotate",
+"prompt": "A word in the headline rotates through options, sliding up (Magic UI Word Rotate / Aceternity Flip Words).",
+"label": "design",
+"fit": [
+"landing",
+"agency",
+"saas"
+]
+},
+{
+"id": "scramble",
+"name": "Text scramble",
+"desc": "Letters decode into place.",
+"demo": "e2-scramble",
+"prompt": "Headings decode from random characters into the real text on first view (Magic UI Hyper Text).",
+"label": "ACCESS GRANTED",
+"fit": [
+"devtool",
+"crypto",
+"ai"
+]
+},
+{
+"id": "blurin",
+"name": "Blur in",
+"desc": "Text sharpens into view.",
+"demo": "e2-blurin",
+"prompt": "Headlines fade in from a blur, word by word, once on load.",
+"label": "Hello world",
+"fit": [
+"landing",
+"portfolio",
+"editorial"
+]
+},
+{
+"id": "pullup",
+"name": "Letter pull-up",
+"desc": "Letters rise into place.",
+"demo": "e2-pullup",
+"prompt": "The hero headline letters pull up from below with a slight stagger.",
+"label": "Launch day",
+"fit": [
+"landing",
+"event"
+]
+},
+{
+"id": "animlist",
+"name": "Animated notification list",
+"desc": "Items pop in and push down.",
+"demo": "e2-animlist",
+"prompt": "A live feed where new items pop in at the top and push others down (Magic UI Animated List).",
+"lib": "Magic UI",
+"fit": [
+"saas",
+"fintech",
+"iot"
+]
+},
+{
+"id": "cardstack",
+"name": "Card stack on scroll",
+"desc": "Cards stack as you scroll.",
+"demo": "e2-cardstack",
+"prompt": "Section cards stick and stack on top of each other as you scroll.",
+"heavy": true,
+"fit": [
+"landing",
+"agency",
+"saas"
+]
+},
+{
+"id": "lens",
+"name": "Lens zoom",
+"desc": "Magnify under the cursor.",
+"demo": "e2-lens",
+"prompt": "Product images magnify under a circular lens that follows the pointer (Magic UI Lens).",
+"lib": "Magic UI",
+"fit": [
+"shop",
+"portfolio"
+]
+},
+{
+"id": "pointer",
+"name": "Custom pointer",
+"desc": "A styled pointer over a card.",
+"demo": "e2-pointer",
+"prompt": "Inside an interactive area the cursor becomes a custom pointer with a label (Magic UI Pointer).",
+"lib": "Magic UI",
+"fit": [
+"portfolio",
+"agency"
+]
+},
+{
+"id": "movingcards",
+"name": "Infinite moving cards",
+"desc": "Testimonials glide past.",
+"demo": "e2-movingcards",
+"prompt": "Testimonial cards glide in an endless row, pausing on hover (Aceternity Infinite Moving Cards).",
+"lib": "Aceternity",
+"fit": [
+"landing",
+"saas"
+]
+},
+{
+"id": "bgbeams",
+"name": "Background beams",
+"desc": "Beams sweep behind the hero.",
+"demo": "e2-bgbeams",
+"prompt": "Faint light beams sweep slowly behind the hero (Aceternity Background Beams).",
+"lib": "Aceternity",
+"heavy": true,
+"fit": [
+"ai",
+"devtool",
+"landing"
+]
+},
+{
+"id": "wavy",
+"name": "Wavy background",
+"desc": "Soft moving waves.",
+"demo": "e2-wavy",
+"prompt": "The hero sits on soft, slowly moving wave shapes in accent tints (Aceternity Wavy Background).",
+"lib": "Aceternity",
+"heavy": true,
+"fit": [
+"music",
+"travel",
+"health"
+]
+},
+{
+"id": "lamp",
+"name": "Lamp effect",
+"desc": "A glowing light above the title.",
+"demo": "e2-lamp",
+"prompt": "A lamp-like glow fans out above the section title on dark backgrounds (Aceternity Lamp).",
+"lib": "Aceternity",
+"heavy": true,
+"fit": [
+"landing",
+"ai"
+]
+},
+{
+"id": "outlinehover",
+"name": "Text hover outline",
+"desc": "Outlined text fills on hover.",
+"demo": "e2-outlinehover",
+"prompt": "A big word renders as an outline and fills with a gradient where the cursor passes (Aceternity Text Hover Effect).",
+"lib": "Aceternity",
+"label": "HOVER",
+"fit": [
+"agency",
+"portfolio"
+]
+},
+{
+"id": "tracing",
+"name": "Tracing beam",
+"desc": "A line follows your reading.",
+"demo": "e2-tracing",
+"prompt": "Long articles have a beam along the left that fills as you scroll (Aceternity Tracing Beam).",
+"lib": "Aceternity",
+"fit": [
+"editorial",
+"docs",
+"portfolio"
+]
+},
+{
+"id": "laptopopen",
+"name": "Laptop opens on scroll",
+"desc": "Screen opens as you scroll.",
+"demo": "e2-laptopopen",
+"prompt": "A laptop opens as you scroll to reveal the product screenshot (Aceternity Macbook Scroll).",
+"lib": "Aceternity",
+"heavy": true,
+"fit": [
+"saas",
+"landing"
+]
+},
+{
+"id": "container3d",
+"name": "3D container scroll",
+"desc": "Card tilts flat as you scroll.",
+"demo": "e2-container3d",
+"prompt": "The product screenshot starts tilted back in 3D and rotates flat as you scroll (Aceternity Container Scroll).",
+"lib": "Aceternity",
+"heavy": true,
+"fit": [
+"saas",
+"landing",
+"devtool"
+]
+},
+{
+"id": "velocity",
+"name": "Scroll velocity text",
+"desc": "Big text slides with scroll speed.",
+"demo": "e2-velocity",
+"prompt": "Giant text rows slide horizontally, faster when you scroll faster (Magic UI Scroll-Based Velocity).",
+"lib": "Magic UI",
+"label": "DESIGN · BUILD · SHIP · ",
+"fit": [
+"agency",
+"event",
+"portfolio"
+]
+},
+{
+"id": "hscroll",
+"name": "Horizontal scroll section",
+"desc": "Vertical scroll moves sideways.",
+"demo": "e2-hscroll",
+"prompt": "One section pins and scrolls horizontally through panels as you scroll down (GSAP).",
+"lib": "GSAP",
+"heavy": true,
+"fit": [
+"agency",
+"portfolio",
+"landing"
+]
+},
+{
+"id": "zoomscroll",
+"name": "Zoom on scroll",
+"desc": "Image scales up as you scroll.",
+"demo": "e2-zoomscroll",
+"prompt": "The hero image scales from 80% to full-bleed as you scroll.",
+"heavy": true,
+"fit": [
+"agency",
+"travel",
+"restaurant"
+]
+},
+{
+"id": "imagereveal",
+"name": "Image reveal on hover",
+"desc": "Link hover shows an image.",
+"demo": "e2-imagereveal",
+"prompt": "Hovering list links shows a floating image that follows the cursor and tilts (Aceternity Hover Image Links).",
+"lib": "Aceternity",
+"fit": [
+"agency",
+"portfolio"
+]
+},
+{
+"id": "reorder",
+"name": "Drag to reorder",
+"desc": "Items swap smoothly.",
+"demo": "e2-reorder",
+"prompt": "Lists can be reordered by dragging; others move aside with a spring (dnd-kit + Motion).",
+"lib": "dnd-kit",
+"fit": [
+"saas",
+"pm",
+"notes"
+]
+},
+{
+"id": "swipe",
+"name": "Swipe cards",
+"desc": "Swipe left or right.",
+"demo": "e2-swipe",
+"prompt": "A deck of cards you swipe left/right to decide (with buttons for accessibility).",
+"lib": "Motion",
+"fit": [
+"social",
+"playful",
+"jobs"
+]
+},
+{
+"id": "curtain",
+"name": "Curtain page transition",
+"desc": "A colour wipe between pages.",
+"demo": "e2-curtain",
+"prompt": "Route changes use a quick accent-colour wipe across the screen (300ms).",
+"heavy": true,
+"fit": [
+"agency",
+"portfolio"
+]
+},
+{
+"id": "glitch",
+"name": "Glitch text",
+"desc": "RGB split jitter.",
+"demo": "e2-glitch",
+"prompt": "A headline glitches with an RGB split for a moment on hover; never on body text.",
+"label": "GLITCH",
+"fit": [
+"music",
+"crypto",
+"playful"
+]
+},
+{
+"id": "neonflicker",
+"name": "Neon flicker",
+"desc": "A sign that flickers on.",
+"demo": "e2-neonflicker",
+"prompt": "A neon-style heading flickers on once when it enters the viewport.",
+"label": "OPEN",
+"fit": [
+"restaurant",
+"music",
+"event"
+]
+},
+{
+"id": "rotatescroll",
+"name": "Rotate on scroll",
+"desc": "A badge spins as you scroll.",
+"demo": "e2-rotatescroll",
+"prompt": "A circular badge with text rotates as you scroll.",
+"fit": [
+"agency",
+"portfolio",
+"event"
+]
+},
+{
+"id": "circlereveal",
+"name": "Circle mask reveal",
+"desc": "Content wipes in through a circle.",
+"demo": "e2-circlereveal",
+"prompt": "Sections reveal through a growing circular mask when they enter the viewport.",
+"heavy": true,
+"fit": [
+"agency",
+"portfolio",
+"landing"
+]
+},
+{
+"id": "splitscroll",
+"name": "Split-screen scroll",
+"desc": "Two columns scroll opposite ways.",
+"demo": "e2-splitscroll",
+"prompt": "Two halves of a section scroll in opposite directions.",
+"heavy": true,
+"fit": [
+"agency",
+"portfolio"
+]
+},
+{
+"id": "bouncein",
+"name": "Bounce in",
+"desc": "Pops in with overshoot.",
+"demo": "e2-bouncein",
+"prompt": "Small elements (badges, toasts) pop in with a spring overshoot.",
+"lib": "Motion",
+"fit": [
+"playful",
+"social",
+"health"
+]
+},
+{
+"id": "elastic",
+"name": "Elastic drag",
+"desc": "Stretches and snaps back.",
+"demo": "e2-elastic",
+"prompt": "Draggable elements stretch slightly and snap back elastically when released.",
+"lib": "Motion",
+"fit": [
+"playful",
+"music"
+]
+},
+{
+"id": "fireworks",
+"name": "Fireworks",
+"desc": "Celebratory bursts.",
+"demo": "e2-fireworks",
+"prompt": "Big moments (launch, goal reached) fire a short fireworks burst once.",
+"lib": "canvas-confetti",
+"heavy": true,
+"fit": [
+"playful",
+"event",
+"health"
+]
+},
+{
+"id": "noisegrad",
+"name": "Animated noise gradient",
+"desc": "A grainy gradient drifts.",
+"demo": "e2-noisegrad",
+"prompt": "Hero has a grainy gradient that drifts slowly for a tactile, analogue feel.",
+"heavy": true,
+"fit": [
+"agency",
+"music",
+"portfolio"
+]
+},
+{
+"id": "pin3d",
+"name": "3D animated pin",
+"desc": "Pin floats over a card.",
+"demo": "e2-pin3d",
+"prompt": "A location or feature card has a 3D pin that rises on hover (Aceternity 3D Pin).",
+"lib": "Aceternity",
+"fit": [
+"travel",
+"realestate",
+"event"
+]
+},
+{
+"id": "timeline",
+"name": "Scroll timeline",
+"desc": "Line draws as you scroll.",
+"demo": "e2-timeline",
+"prompt": "A vertical timeline draws its line and reveals entries as you scroll (Aceternity Timeline).",
+"lib": "Aceternity",
+"fit": [
+"portfolio",
+"nonprofit",
+"saas"
+]
+},
+{
+"id": "cursortrail",
+"name": "Cursor trail",
+"desc": "Dots follow the pointer.",
+"demo": "e2-cursortrail",
+"prompt": "Desktop only: a short trail of dots follows the cursor on the hero.",
+"heavy": true,
+"fit": [
+"playful",
+"portfolio"
+]
+},
+{
+"id": "scrollcircle",
+"name": "Scroll progress ring",
+"desc": "A ring fills as you read.",
+"demo": "e2-scrollcircle",
+"prompt": "A small ring in the corner fills with reading progress and doubles as back-to-top.",
+"fit": [
+"editorial",
+"blog",
+"docs"
+]
+},
+{
+"id": "imagetrail",
+"name": "Image trail",
+"desc": "Images follow the cursor.",
+"demo": "e2-imagetrail",
+"prompt": "Moving the cursor across the hero leaves a short trail of project images.",
+"heavy": true,
+"fit": [
+"agency",
+"portfolio"
+]
+},
+{
+"id": "gridreveal",
+"name": "Staggered grid reveal",
+"desc": "Tiles appear in a wave.",
+"demo": "e2-gridreveal",
+"prompt": "Grid items fade and rise in a diagonal wave on first view.",
+"lib": "Motion",
+"fit": [
+"portfolio",
+"shop",
+"saas"
+]
+},
+{
+"id": "numscramble",
+"name": "Number scramble",
+"desc": "Digits shuffle then settle.",
+"demo": "e2-numscramble",
+"prompt": "Key numbers shuffle through digits before settling on the real value.",
+"fit": [
+"fintech",
+"crypto",
+"dash"
+]
+},
+{
+"id": "blurheader",
+"name": "Blurred sticky header",
+"desc": "Content blurs under the header.",
+"demo": "e2-blurheader",
+"prompt": "The sticky header is translucent with a backdrop blur over scrolling content.",
+"fit": [
+"saas",
+"landing",
+"docs"
+]
+},
+{
+"id": "liquid",
+"name": "Liquid button fill",
+"desc": "Colour fills like liquid.",
+"demo": "e2-liquid",
+"prompt": "On hover, the button fills from the bottom with a wavy liquid edge.",
+"fit": [
+"playful",
+"music",
+"landing"
+]
+},
+{
+"id": "tiltimage",
+"name": "Parallax tilt image",
+"desc": "Image tilts with depth layers.",
+"demo": "e2-tiltimage",
+"prompt": "Hero product image tilts with the pointer, foreground layers moving more than the back.",
+"lib": "Motion",
+"fit": [
+"shop",
+"gaming",
+"landing"
+]
+},
+{
+"id": "countup",
+"name": "Count up on view",
+"desc": "Numbers count when visible.",
+"demo": "e2-countup",
+"prompt": "Stats count up from zero once when they scroll into view.",
+"fit": [
+"landing",
+"nonprofit",
+"saas"
+]
+},
+{
+"id": "hoverunderline",
+"name": "Link underline draw",
+"desc": "Underlines draw on hover.",
+"demo": "e2-hoverunderline",
+"prompt": "All inline links draw their underline from left to right on hover.",
+"label": "Read the story",
+"fit": [
+"editorial",
+"blog",
+"agency"
+]
+},
+{
+"id": "magnetictext",
+"name": "Magnetic headline",
+"desc": "Letters lean to the cursor.",
+"demo": "e2-magnetictext",
+"prompt": "Headline letters lean slightly toward the cursor (desktop only, subtle).",
+"heavy": true,
+"label": "Magnet",
+"fit": [
+"agency",
+"portfolio"
+]
+}
+];
+var STEPS = [
+  Object.assign({"id": "purpose", "name": "Purpose", "layer": "Role", "title": "What is this site for?", "hint": "Pick the job. Every later layer sorts itself around this choice.", "analogy": "Character: main hero, support, or comic relief? The role decides the body type.", "kind": "single", "view": "purpose"},{items:PURPOSES}),
+  Object.assign({"id": "skeleton", "name": "Skeleton", "layer": "Body", "title": "Pick the skeleton (layout)", "hint": "The structure of the main screen. The ones that fit your purpose are shown first.", "analogy": "Character: body type and proportions. Silhouette before details.", "kind": "single", "view": "skel", "fitted": true},{items:SKELS}),
+  Object.assign({"name": "Page sections", "layer": "Body", "title": "Pick the page sections (pick any)", "hint": "The blocks your main page is made of, top to bottom. Fitting ones first.", "analogy": "Character: the build. Torso, arms, legs: the parts that make up the body.", "kind": "multi", "view": "skel", "fitted": true, "id": "sections"},{items:SECTIONS}),
+  Object.assign({"id": "mood", "name": "Mood", "layer": "Look", "title": "Pick the overall mood", "hint": "Sets colours, type and shape in one go. You can override each in the next layers.", "analogy": "Character: art style. Same body, very different feel.", "kind": "single", "view": "mood", "fitted": true},{items:MOODS}),
+  Object.assign({"id": "palette", "name": "Accent colour", "layer": "Look", "title": "Pick one accent colour", "hint": "One strong colour, used for the primary action and key highlights. Skip to keep the mood default.", "analogy": "Character: eye and signature colour.", "kind": "single", "view": "swatch"},{items:PALETTES}),
+  Object.assign({"id": "type", "name": "Typography", "layer": "Look", "title": "Pick a font pairing", "hint": "Heading font + body font. Skip to keep the mood default.", "analogy": "Character: face and hair. Gives the personality.", "kind": "single", "view": "type"},{items:TYPES}),
+  Object.assign({"id": "radius", "name": "Corner radius", "layer": "Look", "title": "How round are the corners?", "hint": "Radius carries a lot of personality. Sharp feels serious; round feels friendly.", "analogy": "Character: sharp or soft features.", "kind": "single", "view": "radius"},{items:RADII}),
+  Object.assign({"id": "density", "name": "Density", "layer": "Look", "title": "How tight is the spacing?", "hint": "Compact fits more on screen; airy feels premium.", "analogy": "Character: stance. Compact and ready, or relaxed.", "kind": "single", "view": "density"},{items:DENS}),
+  Object.assign({"name": "Background", "layer": "Look", "title": "Pick a background", "hint": "What sits behind your content. Skip for the plain background colour.", "analogy": "Character: the backdrop you pose them against.", "kind": "single", "view": "bg", "fitted": true, "id": "background"},{items:BACKGROUNDS}),
+  Object.assign({"id": "buttons", "name": "Buttons", "layer": "Outfit", "title": "Primary button style", "hint": "The most-clicked thing on the site. Hover and press them.", "analogy": "Character: shoes. Small, but everyone notices.", "kind": "single", "view": "demo", "fitted": true},{items:BUTTONS}),
+  Object.assign({"id": "cards", "name": "Cards", "layer": "Outfit", "title": "Card style", "hint": "How grouped content sits on the page.", "analogy": "Character: the main outfit.", "kind": "single", "view": "demo", "fitted": true},{items:CARDS}),
+  Object.assign({"id": "nav", "name": "Navigation", "layer": "Outfit", "title": "Navigation pattern", "hint": "How people move around.", "analogy": "Character: belt and straps. Holds everything together.", "kind": "single", "view": "demo", "fitted": true},{items:NAVS}),
+  Object.assign({"id": "inputs", "name": "Inputs", "layer": "Outfit", "title": "Form controls (pick any)", "hint": "Pick every control your app needs. Multi-select.", "analogy": "Character: gloves. What you touch the world with.", "kind": "multi", "view": "demo", "fitted": true},{items:INPUTS}),
+  Object.assign({"id": "data", "name": "Data display", "layer": "Gear", "title": "How data is shown (pick any)", "hint": "Tables, numbers, charts. Multi-select.", "analogy": "Character: tools and inventory.", "kind": "multi", "view": "demo", "fitted": true},{items:DATA}),
+  Object.assign({"name": "Charts", "layer": "Gear", "title": "Charts and data viz (pick any)", "hint": "How numbers become pictures. Multi-select.", "analogy": "Character: the map and compass.", "kind": "multi", "view": "demo", "fitted": true, "id": "charts"},{items:CHARTS}),
+  Object.assign({"id": "feedback", "name": "Feedback & overlays", "layer": "Gear", "title": "Feedback and overlays (pick any)", "hint": "Toasts, loading, dialogs, drawers. The details that make a product feel finished.", "analogy": "Character: reactions and expressions.", "kind": "multi", "view": "demo", "fitted": true},{items:FEED}),
+  Object.assign({"name": "Icons & imagery", "layer": "Gear", "title": "Icons and imagery (pick any)", "hint": "Pick one icon set, one icon style, and one or two imagery styles.", "analogy": "Character: badges, emblems and the art in their world.", "kind": "multi", "view": "demo", "fitted": false, "id": "icons"},{items:ICONS}),
+  Object.assign({"id": "fx", "name": "Motion & effects", "layer": "Signature", "title": "Signature moves (pick any)", "hint": "Effects marked Signature are showstoppers. Use one per page.", "analogy": "Character: the signature weapon or move. One that people remember.", "kind": "multi", "view": "demo", "fitted": true},{items:FX}),
+  Object.assign({"id": "export", "name": "Export", "layer": "Done", "title": "Export", "hint": "", "analogy": "", "kind": "export", "view": "export"},{items:[]})
+];
+export { PURPOSES, SKELS, SECTIONS, TYPES, MOODS, PALETTES, RADII, DENS, BACKGROUNDS, BUTTONS, CARDS, NAVS, INPUTS, DATA, CHARTS, FEED, ICONS, FX, STEPS };

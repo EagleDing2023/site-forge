@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import { describe, expect, it } from "vitest";
-import { FX, MOODS, PURPOSES, STEPS, type Picks } from "@/data/catalog";
+import * as v1 from "../../site-forge-handoff/data/catalog.js";
+import { FX, MOODS, PURPOSES, type Picks, type Step } from "@/data/catalog";
 import { buildExport, capitalise, type ExportFiles } from "./export";
 import { userTokens } from "./tokens";
 
@@ -32,6 +33,10 @@ function fixPurposeLine(md: string, picks: Picks): string {
   return md.replace(`## 1. Purpose\n${p.name}. ${rest}`, `## 1. Purpose\n${p.name}. ${capitalise(rest)}`);
 }
 
+// The prototype only knows the v1 catalog, so golden pick sets use v1 layers
+// and options only (v2 kept every v1 item unchanged; catalog.test.ts checks).
+const V1_STEPS = v1.STEPS as Step[];
+
 const ours = (picks: Picks) => buildExport(picks, userTokens(picks));
 
 // Small seeded PRNG so failures reproduce.
@@ -46,7 +51,7 @@ function rng(seed: number) {
 
 function randomPicks(r: () => number): Picks {
   const picks: Picks = {};
-  for (const s of STEPS) {
+  for (const s of V1_STEPS) {
     if (s.kind === "single" && r() < 0.75) picks[s.id] = s.items[Math.floor(r() * s.items.length)].id;
     if (s.kind === "multi" && r() < 0.75) {
       // Random subset in random order: pick order changes the output.
@@ -63,7 +68,7 @@ describe("buildExport matches the prototype byte for byte", () => {
   });
 
   it("with each option picked on its own", () => {
-    for (const s of STEPS)
+    for (const s of V1_STEPS)
       for (const it of s.items) {
         const picks: Picks = { [s.id]: s.kind === "multi" ? [it.id] : it.id };
         expect(ours(picks), `${s.id}/${it.id}`).toEqual(reference(picks));
@@ -71,7 +76,7 @@ describe("buildExport matches the prototype byte for byte", () => {
   });
 
   it("with Mono accent on every mood (the dark-mood flip)", () => {
-    for (const m of MOODS) {
+    for (const m of v1.MOODS) {
       const picks: Picks = { mood: m.id, palette: "mono" };
       expect(ours(picks), m.id).toEqual(reference(picks));
     }
@@ -79,7 +84,7 @@ describe("buildExport matches the prototype byte for byte", () => {
 
   it("with every option in every layer picked", () => {
     const picks: Picks = {};
-    for (const s of STEPS) {
+    for (const s of V1_STEPS) {
       if (s.kind === "single") picks[s.id] = s.items[s.items.length - 1].id;
       if (s.kind === "multi") picks[s.id] = s.items.map((i) => i.id);
     }
